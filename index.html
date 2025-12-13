@@ -1,158 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Live Football</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Live Football</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Monetag SDK -->
-  <script src='//libtl.com/sdk.js' data-zone='10317085' data-sdk='show_10317085'></script>
+<!-- Monetag SDK -->
+<script src='//libtl.com/sdk.js' data-zone='10317085' data-sdk='show_10317085'></script>
 
-  <style>
-    :root {
-      --bg: #f4f5f7;
-      --card: #ffffff;
-      --text: #111;
-      --primary: #e10600;
-    }
-    body.dark {
-      --bg: #0f172a;
-      --card: #020617;
-      --text: #ffffff;
-    }
-    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); transition: 0.3s; }
-    header { background: var(--primary); color: #fff; padding: 14px; font-size: 18px; font-weight: bold; text-align: center; position: sticky; top: 0; }
-    .topbar { display: flex; justify-content: space-between; padding: 8px 12px; background: var(--card); font-size: 13px; align-items: center; }
-    .tabs { display: flex; background: var(--card); border-bottom: 1px solid #ddd; }
-    .tab { flex: 1; text-align: center; padding: 10px; cursor: pointer; }
-    .tab.active { border-bottom: 2px solid var(--primary); color: var(--primary); font-weight: bold; }
-    .league-title { background: var(--card); padding: 10px 14px; font-weight: 600; border-bottom: 1px solid #ddd; }
-    .match { background: var(--card); padding: 12px 14px; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; }
-    .live { background: var(--primary); color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 3px; animation: pulse 1.2s infinite; }
-    @keyframes pulse { 0% {opacity:1} 50% {opacity:.4} 100% {opacity:1} }
-    .watch { background: var(--primary); color: #fff; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; }
-    .hidden { display:none; }
-    .reward { background: #22c55e; color: #000; padding: 8px; text-align: center; font-size: 13px; }
-  </style>
+<style>
+:root{
+  --bg:#0b0b0b;
+  --card:#151515;
+  --text:#eaeaea;
+  --muted:#9ca3af;
+  --accent:#22c55e;
+  --red:#e10600;
+}
+body{
+  margin:0;
+  font-family:system-ui;
+  background:var(--bg);
+  color:var(--text);
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px;
+  background:#000;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.tabs{
+  display:flex;
+  gap:8px;
+  padding:10px;
+  overflow-x:auto;
+}
+.tab{
+  padding:6px 14px;
+  border-radius:20px;
+  background:#111;
+  font-size:13px;
+}
+.tab.active{
+  background:#fff;
+  color:#000;
+  font-weight:600;
+}
+.section{
+  margin-top:10px;
+}
+.league{
+  padding:12px;
+  background:var(--card);
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+}
+.match{
+  padding:12px;
+  border-bottom:1px solid #222;
+  cursor:pointer;
+}
+.row{
+  display:flex;
+  justify-content:space-between;
+}
+.teams{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.team{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.team img{
+  width:18px;
+  height:18px;
+}
+.status{
+  font-size:12px;
+  color:var(--muted);
+}
+.live{
+  color:var(--accent);
+  font-weight:bold;
+}
+.details{
+  display:none;
+  margin-top:10px;
+  background:#0f0f0f;
+  padding:10px;
+  border-radius:6px;
+}
+.watch{
+  background:var(--red);
+  color:#fff;
+  border:none;
+  padding:8px 12px;
+  border-radius:4px;
+  margin-top:8px;
+  width:100%;
+}
+
+/* Bottom Nav */
+.nav{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#000;
+  display:flex;
+  justify-content:space-around;
+  padding:8px 0;
+}
+.nav div{
+  font-size:12px;
+  color:var(--muted);
+}
+.nav .active{
+  color:#fff;
+}
+</style>
 </head>
+
 <body>
 
-<header>⚽ Live Football</header>
-
-<div class="topbar">
-  <div id="user">Welcome, Guest</div>
-  <button onclick="toggleDark()">🌙</button>
-</div>
-
-<div id="reward" class="reward hidden">
-  🎉 Daily reward unlocked! Watch matches & earn bonuses.
-</div>
+<header>
+  <span>☰</span>
+  <strong>LiveScore</strong>
+  <span>🔍</span>
+</header>
 
 <div class="tabs">
-  <div class="tab active" onclick="showTab('live')">LIVE</div>
-  <div class="tab" onclick="showTab('upcoming')">UPCOMING</div>
+  <div class="tab active">Football</div>
+  <div class="tab">Basketball</div>
+  <div class="tab">Tennis</div>
 </div>
 
-<div id="live"></div>
-<div id="upcoming" class="hidden"></div>
+<div id="matches"></div>
+
+<!-- Bottom Navigation -->
+<div class="nav">
+  <div class="active">Scores</div>
+  <div>Live</div>
+  <div>Favorites</div>
+  <div>Profile</div>
+</div>
 
 <script>
-/* 1️⃣ Telegram user detection */
+/* Telegram Ready */
 if (window.Telegram && Telegram.WebApp) {
   Telegram.WebApp.ready();
-  const user = Telegram.WebApp.initDataUnsafe.user;
-  if (user) document.getElementById("user").innerText = "Welcome, " + user.first_name;
 }
 
-/* 2️⃣ Daily reward */
-const today = new Date().toDateString();
-if (localStorage.getItem("visit") !== today) {
-  document.getElementById("reward").classList.remove("hidden");
-  localStorage.setItem("visit", today);
-}
+/* =====================
+   1️⃣ REAL API SECTION
+   ===================== */
 
-/* 3️⃣ Tabs */
-function showTab(tab) {
-  document.getElementById("live").classList.add("hidden");
-  document.getElementById("upcoming").classList.add("hidden");
-  document.getElementById(tab).classList.remove("hidden");
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-  event.target.classList.add("active");
-}
-
-/* 4️⃣ Dark mode */
-function toggleDark() { document.body.classList.toggle("dark"); }
-
-/* 5️⃣ Monetag watch-after-ad */
-function watchMatch(url) {
-  show_10317085({
-    type: 'inApp',
-    inAppSettings: {
-      frequency: 1,
-      capping: 0.1,
-      interval: 30,
-      timeout: 2,
-      everyPage: false
+// 🔴 Replace this with REAL API fetch later
+async function fetchMatches(){
+  // Example mocked API response
+  return [
+    {
+      league:"Premier League",
+      home:"Chelsea",
+      away:"Everton",
+      time:"LIVE",
+      live:true
+    },
+    {
+      league:"NPFL",
+      home:"Bendel Insurance",
+      away:"Enugu Rangers",
+      time:"16:00",
+      live:false
     }
-  });
-  setTimeout(() => { window.location.href = url; }, 3000);
+  ];
 }
 
-/* 6️⃣ Load matches dynamically */
-const liveMatches = [
-  {"name":"Chelsea vs Everton","time":"14:05","url":"https://otieu.com/4/7533041","league":"Premier League","live":true},
-  {"name":"West Ham vs Liverpool","time":"14:30","url":"https://otieu.com/4/7533041","league":"Premier League","live":true}
-];
+/* =====================
+   RENDER MATCHES
+   ===================== */
+async function loadMatches(){
+  const data = await fetchMatches();
+  const container = document.getElementById("matches");
+  container.innerHTML="";
 
-const upcomingMatches = [
-  {"name":"Barcelona vs Osasuna","time":"18:30","url":"https://otieu.com/4/7533041","league":"LaLiga"},
-  {"name":"Real Madrid vs Valencia","time":"20:00","url":"https://otieu.com/4/7533041","league":"LaLiga"}
-];
+  let leagues = {};
 
-function renderMatches() {
-  const liveContainer = document.getElementById("live");
-  const upcomingContainer = document.getElementById("upcoming");
-
-  let currentLeague = "";
-  liveMatches.forEach(match => {
-    if (currentLeague !== match.league) {
-      currentLeague = match.league;
-      const title = document.createElement("div");
-      title.className = "league-title";
-      title.innerText = currentLeague;
-      liveContainer.appendChild(title);
-    }
-    const div = document.createElement("div");
-    div.className = "match";
-    div.innerHTML = `
-      <div>${match.name} ${match.live?'<br><span class="live">LIVE</span>':''}</div>
-      <button class="watch" onclick="watchMatch('${match.url}')">${match.live?'Watch':'Standings'}</button>
-    `;
-    liveContainer.appendChild(div);
+  data.forEach(m=>{
+    if(!leagues[m.league]) leagues[m.league]=[];
+    leagues[m.league].push(m);
   });
 
-  currentLeague = "";
-  upcomingMatches.forEach(match => {
-    if (currentLeague !== match.league) {
-      currentLeague = match.league;
-      const title = document.createElement("div");
-      title.className = "league-title";
-      title.innerText = currentLeague;
-      upcomingContainer.appendChild(title);
-    }
-    const div = document.createElement("div");
-    div.className = "match";
-    div.innerHTML = `
-      <div>${match.name} <br> ${match.time}</div>
-      <button class="watch" onclick="watchMatch('${match.url}')">Standings</button>
-    `;
-    upcomingContainer.appendChild(div);
-  });
+  for(const league in leagues){
+    const section=document.createElement("div");
+    section.className="section";
+    section.innerHTML=`<div class="league">${league}<span>›</span></div>`;
+
+    leagues[league].forEach(match=>{
+      const div=document.createElement("div");
+      div.className="match";
+      div.innerHTML=`
+        <div class="row">
+          <div class="teams">
+            <div class="team">${match.home}</div>
+            <div class="team">${match.away}</div>
+            <div class="status ${match.live?'live':''}">
+              ${match.live?'LIVE':match.time}
+            </div>
+          </div>
+          <div>☆</div>
+        </div>
+        <div class="details">
+          <div>Status: ${match.live?'Live Now':'Upcoming'}</div>
+          <button class="watch">Watch Match</button>
+        </div>
+      `;
+
+      div.onclick=()=>{
+        const d=div.querySelector(".details");
+        d.style.display=d.style.display==="block"?"none":"block";
+      };
+
+      div.querySelector(".watch").onclick=(e)=>{
+        e.stopPropagation();
+        show_10317085({type:'inApp'});
+        setTimeout(()=>{
+          window.location.href="https://otieu.com/4/7533041";
+        },2500);
+      };
+
+      section.appendChild(div);
+    });
+
+    container.appendChild(section);
+  }
 }
 
-renderMatches();
-
+/* 5️⃣ AUTO REFRESH EVERY 30s */
+loadMatches();
+setInterval(loadMatches,30000);
 </script>
 
 </body>
-  </html>
+</html>
