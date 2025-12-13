@@ -15,108 +15,24 @@
       --text: #111;
       --primary: #e10600;
     }
-
     body.dark {
       --bg: #0f172a;
       --card: #020617;
       --text: #ffffff;
     }
-
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      transition: 0.3s;
-    }
-
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 14px;
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
-      position: sticky;
-      top: 0;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 12px;
-      background: var(--card);
-      font-size: 13px;
-      align-items: center;
-    }
-
-    .tabs {
-      display: flex;
-      background: var(--card);
-      border-bottom: 1px solid #ddd;
-    }
-
-    .tab {
-      flex: 1;
-      text-align: center;
-      padding: 10px;
-      cursor: pointer;
-    }
-
-    .tab.active {
-      border-bottom: 2px solid var(--primary);
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    .league-title {
-      background: var(--card);
-      padding: 10px 14px;
-      font-weight: 600;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .match {
-      background: var(--card);
-      padding: 12px 14px;
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #eee;
-    }
-
-    .live {
-      background: var(--primary);
-      color: #fff;
-      font-size: 11px;
-      padding: 2px 6px;
-      border-radius: 3px;
-      animation: pulse 1.2s infinite;
-    }
-
-    @keyframes pulse {
-      0% {opacity:1}
-      50% {opacity:.4}
-      100% {opacity:1}
-    }
-
-    .watch {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); transition: 0.3s; }
+    header { background: var(--primary); color: #fff; padding: 14px; font-size: 18px; font-weight: bold; text-align: center; position: sticky; top: 0; }
+    .topbar { display: flex; justify-content: space-between; padding: 8px 12px; background: var(--card); font-size: 13px; align-items: center; }
+    .tabs { display: flex; background: var(--card); border-bottom: 1px solid #ddd; }
+    .tab { flex: 1; text-align: center; padding: 10px; cursor: pointer; }
+    .tab.active { border-bottom: 2px solid var(--primary); color: var(--primary); font-weight: bold; }
+    .league-title { background: var(--card); padding: 10px 14px; font-weight: 600; border-bottom: 1px solid #ddd; }
+    .match { background: var(--card); padding: 12px 14px; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; }
+    .live { background: var(--primary); color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 3px; animation: pulse 1.2s infinite; }
+    @keyframes pulse { 0% {opacity:1} 50% {opacity:.4} 100% {opacity:1} }
+    .watch { background: var(--primary); color: #fff; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; }
     .hidden { display:none; }
-
-    .reward {
-      background: #22c55e;
-      color: #000;
-      padding: 8px;
-      text-align: center;
-      font-size: 13px;
-    }
+    .reward { background: #22c55e; color: #000; padding: 8px; text-align: center; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -137,34 +53,15 @@
   <div class="tab" onclick="showTab('upcoming')">UPCOMING</div>
 </div>
 
-<div id="live">
-  <div class="league-title">Premier League</div>
-
-  <div class="match">
-    <div>
-      Chelsea vs Everton <br>
-      <span class="live">LIVE</span>
-    </div>
-    <button class="watch" onclick="watchMatch()">Watch</button>
-  </div>
-</div>
-
-<div id="upcoming" class="hidden">
-  <div class="league-title">LaLiga</div>
-  <div class="match">
-    <div>Barcelona vs Osasuna <br> 18:30</div>
-    <a class="watch" href="https://otieu.com/4/7533041">Standings</a>
-  </div>
-</div>
+<div id="live"></div>
+<div id="upcoming" class="hidden"></div>
 
 <script>
 /* 1️⃣ Telegram user detection */
 if (window.Telegram && Telegram.WebApp) {
   Telegram.WebApp.ready();
   const user = Telegram.WebApp.initDataUnsafe.user;
-  if (user) {
-    document.getElementById("user").innerText = "Welcome, " + user.first_name;
-  }
+  if (user) document.getElementById("user").innerText = "Welcome, " + user.first_name;
 }
 
 /* 2️⃣ Daily reward */
@@ -174,13 +71,7 @@ if (localStorage.getItem("visit") !== today) {
   localStorage.setItem("visit", today);
 }
 
-/* 3️⃣ API-ready placeholder */
-function loadMatches() {
-  console.log("Ready for real API integration");
-}
-loadMatches();
-
-/* Tabs */
+/* 3️⃣ Tabs */
 function showTab(tab) {
   document.getElementById("live").classList.add("hidden");
   document.getElementById("upcoming").classList.add("hidden");
@@ -190,12 +81,10 @@ function showTab(tab) {
 }
 
 /* 4️⃣ Dark mode */
-function toggleDark() {
-  document.body.classList.toggle("dark");
-}
+function toggleDark() { document.body.classList.toggle("dark"); }
 
-/* Monetag watch-after-ad */
-function watchMatch() {
+/* 5️⃣ Monetag watch-after-ad */
+function watchMatch(url) {
   show_10317085({
     type: 'inApp',
     inAppSettings: {
@@ -206,11 +95,64 @@ function watchMatch() {
       everyPage: false
     }
   });
-  setTimeout(() => {
-    window.location.href = "https://otieu.com/4/7533041";
-  }, 3000);
+  setTimeout(() => { window.location.href = url; }, 3000);
 }
+
+/* 6️⃣ Load matches dynamically */
+const liveMatches = [
+  {"name":"Chelsea vs Everton","time":"14:05","url":"https://otieu.com/4/7533041","league":"Premier League","live":true},
+  {"name":"West Ham vs Liverpool","time":"14:30","url":"https://otieu.com/4/7533041","league":"Premier League","live":true}
+];
+
+const upcomingMatches = [
+  {"name":"Barcelona vs Osasuna","time":"18:30","url":"https://otieu.com/4/7533041","league":"LaLiga"},
+  {"name":"Real Madrid vs Valencia","time":"20:00","url":"https://otieu.com/4/7533041","league":"LaLiga"}
+];
+
+function renderMatches() {
+  const liveContainer = document.getElementById("live");
+  const upcomingContainer = document.getElementById("upcoming");
+
+  let currentLeague = "";
+  liveMatches.forEach(match => {
+    if (currentLeague !== match.league) {
+      currentLeague = match.league;
+      const title = document.createElement("div");
+      title.className = "league-title";
+      title.innerText = currentLeague;
+      liveContainer.appendChild(title);
+    }
+    const div = document.createElement("div");
+    div.className = "match";
+    div.innerHTML = `
+      <div>${match.name} ${match.live?'<br><span class="live">LIVE</span>':''}</div>
+      <button class="watch" onclick="watchMatch('${match.url}')">${match.live?'Watch':'Standings'}</button>
+    `;
+    liveContainer.appendChild(div);
+  });
+
+  currentLeague = "";
+  upcomingMatches.forEach(match => {
+    if (currentLeague !== match.league) {
+      currentLeague = match.league;
+      const title = document.createElement("div");
+      title.className = "league-title";
+      title.innerText = currentLeague;
+      upcomingContainer.appendChild(title);
+    }
+    const div = document.createElement("div");
+    div.className = "match";
+    div.innerHTML = `
+      <div>${match.name} <br> ${match.time}</div>
+      <button class="watch" onclick="watchMatch('${match.url}')">Standings</button>
+    `;
+    upcomingContainer.appendChild(div);
+  });
+}
+
+renderMatches();
+
 </script>
 
 </body>
-</html>
+  </html>
