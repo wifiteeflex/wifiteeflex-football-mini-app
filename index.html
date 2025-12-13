@@ -1,149 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Live Football Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Monetag Ad Tag -->
-  <script src='//libtl.com/sdk.js' data-zone='10317085' data-sdk='show_10317085'></script>
-  
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header>
-    <h1>⚽ Live Football Hub</h1>
-  </header>
-
-  <div class="league-section">
-    <h2>Premier League - Matchday 16</h2>
-    <div class="match">
-      <div class="teams"><img src="chelsea_icon.png" alt="Chelsea"> Chelsea vs <img src="everton_icon.png" alt="Everton"> Everton</div>
-      <div class="time">16:00</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standing</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="liverpool_icon.png" alt="Liverpool"> Liverpool vs <img src="brighton_icon.png" alt="Brighton & Hove Albion"> Brighton & Hove Albion</div>
-      <div class="time">16:00</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standing</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="burnley_icon.png" alt="Burnley"> Burnley vs <img src="fulham_icon.png" alt="Fulham"> Fulham</div>
-      <div class="time">18:30</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standing</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="arsenal_icon.png" alt="Arsenal"> Arsenal vs <img src="wolves_icon.png" alt="Wolverhampton"> Wolverhampton Wanderers</div>
-      <div class="time">21:00</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standing</a>
-    </div>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <!-- Monetag SDK -->  <script src='//libtl.com/sdk.js' data-zone='10317085' data-sdk='show_10317085'></script>  <!-- Telegram WebApp -->  <script src="https://telegram.org/js/telegram-web-app.js"></script>  <style>
+    body { margin:0; font-family:Arial, sans-serif; background:#0e1117; color:#fff; }
+    header { padding:15px; background:#161b22; text-align:center; font-size:20px; font-weight:bold; }
+    .league { margin:15px; background:#161b22; border-radius:10px; overflow:hidden; }
+    .league h2 { margin:0; padding:10px; background:#1f2937; font-size:16px; }
+    .match { display:flex; justify-content:space-between; align-items:center; padding:10px; border-bottom:1px solid #2d333b; }
+    .match:last-child { border-bottom:none; }
+    .teams { font-size:14px; }
+    .live { color:#22c55e; font-weight:bold; margin-left:5px; }
+    .time { font-size:12px; color:#9ca3af; }
+    .btn { background:#22c55e; color:#000; padding:6px 10px; border-radius:6px; font-size:12px; text-decoration:none; }
+    .btn:hover { opacity:0.8; }
+  </style></head>
+<body><header>⚽ Live Football Hub</header><div class="league">
+  <h2>Premier League</h2>
+  <div class="match">
+    <div class="teams">Chelsea vs Everton <span class="live">LIVE</span></div>
+    <div class="time">16:00</div>
+    <a class="btn" href="https://otieu.com/4/7533041" onclick="showAd()">Watch</a>
   </div>
-
-  <div class="league-section">
-    <h2>LaLiga - Matchday 17</h2>
-    <div class="match">
-      <div class="teams"><img src="atletico_icon.png" alt="Atlético"> Atlético de Madrid vs <img src="valencia_icon.png" alt="Valencia"> Valencia</div>
-      <div class="time">14:00</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standing</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="mallorca_icon.png" alt="Mallorca"> Mallorca vs <img src="elche_icon.png" alt="Elche"> Elche</div>
-      <div class="time">16:15</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standing</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="barcelona_icon.png" alt="Barcelona"> Barcelona vs <img src="osasuna_icon.png" alt="Osasuna"> Osasuna</div>
-      <div class="time">18:30</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standing</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="getafe_icon.png" alt="Getafe"> Getafe vs <img src="espanyol_icon.png" alt="Espanyol"> Espanyol</div>
-      <div class="time">21:00</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standing</a>
-    </div>
+  <div class="match">
+    <div class="teams">Liverpool vs Brighton</div>
+    <div class="time">16:00</div>
+    <a class="btn" href="https://otieu.com/4/7533041" onclick="showAd()">Watch</a>
   </div>
-
-  <div class="league-section">
-    <h2>Bundesliga - Matchday 14</h2>
-    <div class="match">
-      <div class="teams"><img src="eintracht_icon.png" alt="Eintracht"> Eintracht Frankfurt vs <img src="augsburg_icon.png" alt="Augsburg"> Augsburg</div>
-      <div class="time">15:30</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Watch</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="gladbach_icon.png" alt="Borussia M’gladbach"> Borussia Mönchengladbach vs <img src="wolfsburg_icon.png" alt="Wolfsburg"> VfL Wolfsburg</div>
-      <div class="time">15:30</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Watch</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="stpauli_icon.png" alt="St. Pauli"> St. Pauli vs <img src="heidenheim_icon.png" alt="Heidenheim"> Heidenheim</div>
-      <div class="time">15:30</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Watch</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="hoffenheim_icon.png" alt="Hoffenheim"> Hoffenheim vs <img src="hamburg_icon.png" alt="Hamburg"> Hamburg</div>
-      <div class="time">15:30</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Watch</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="leverkusen_icon.png" alt="Leverkusen"> Bayer Leverkusen vs <img src="koln_icon.png" alt="Köln"> Köln</div>
-      <div class="time">18:30</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Watch</a>
-    </div>
+</div><div class="league">
+  <h2>LaLiga</h2>
+  <div class="match">
+    <div class="teams">Barcelona vs Osasuna <span class="live">LIVE</span></div>
+    <div class="time">18:30</div>
+    <a class="btn" href="https://otieu.com/4/7533041" onclick="showAd()">Watch</a>
   </div>
-
-  <div class="league-section">
-    <h2>Serie A - Matchday 15</h2>
-    <div class="match">
-      <div class="teams"><img src="torino_icon.png" alt="Torino"> Torino vs <img src="cremonese_icon.png" alt="Cremonese"> Cremonese</div>
-      <div class="time">15:00</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standings</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="parma_icon.png" alt="Parma"> Parma vs <img src="lazio_icon.png" alt="Lazio"> Lazio</div>
-      <div class="time">18:00</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standings</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="atalanta_icon.png" alt="Atalanta"> Atalanta vs <img src="cagliari_icon.png" alt="Cagliari"> Cagliari</div>
-      <div class="time">20:45</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standings</a>
-    </div>
+</div><div class="league">
+  <h2>Bundesliga</h2>
+  <div class="match">
+    <div class="teams">Leverkusen vs Köln</div>
+    <div class="time">18:30</div>
+    <a class="btn" href="https://otieu.com/4/7533041" onclick="showAd()">Watch</a>
   </div>
-
-  <div class="league-section">
-    <h2>Ligue 1 - Matchday 16</h2>
-    <div class="match">
-      <div class="teams"><img src="rennes_icon.png" alt="Rennes"> Rennes vs <img src="brest_icon.png" alt="Brest"> Brest</div>
-      <div class="time">17:00</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standings</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="metz_icon.png" alt="Metz"> Metz vs <img src="psg_icon.png" alt="PSG"> PSG</div>
-      <div class="time">19:00</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standings</a>
-    </div>
-    <div class="match">
-      <div class="teams"><img src="parisfc_icon.png" alt="Paris FC"> Paris FC vs <img src="toulouse_icon.png" alt="Toulouse"> Toulouse</div>
-      <div class="time">21:05</div>
-      <a href="https://otieu.com/4/7533041" class="watch-btn">Go to standings</a>
-    </div>
+</div><div class="league">
+  <h2>Serie A</h2>
+  <div class="match">
+    <div class="teams">Atalanta vs Cagliari</div>
+    <div class="time">20:45</div>
+    <a class="btn" href="https://otieu.com/4/7533041" onclick="showAd()">Watch</a>
   </div>
+</div><div class="league">
+  <h2>Ligue 1</h2>
+  <div class="match">
+    <div class="teams">PSG vs Metz</div>
+    <div class="time">19:00</div>
+    <a class="btn" href="https://otieu.com/4/7533041" onclick="showAd()">Watch</a>
+  </div>
+</div><script>
+  function showAd() {
+    try {
+      show_10317085({
+        type: 'inApp',
+        inAppSettings: {
+          frequency: 2,
+          capping: 0.1,
+          interval: 30,
+          timeout: 5,
+          everyPage: false
+        }
+      });
+    } catch (e) {}
+  }
 
-  <!-- Monetag In-App Ads Function -->
-  <script>
-    show_10317085({
-      type: 'inApp',
-      inAppSettings: {
-        frequency: 2,
-        capping: 0.1,
-        interval: 30,
-        timeout: 5,
-        everyPage: false
-      }
-    });
-  </script>
-
-</body>
-        </html>
+  if (window.Telegram && Telegram.WebApp) {
+    Telegram.WebApp.ready();
+    Telegram.WebApp.expand();
+  }
+</script></body>
+    </html>
