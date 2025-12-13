@@ -91,7 +91,7 @@
     <div class="prediction">OVER 2.5 GOALS</div>
     <div class="buttons">
       <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="https://otieu.com/4/7533041">WATCH LIVE</a>
+      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
     </div>
   </div>
 
@@ -101,7 +101,7 @@
     <div class="prediction">HOME WIN</div>
     <div class="buttons">
       <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="https://otieu.com/4/7533041">WATCH LIVE</a>
+      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
     </div>
   </div>
 
@@ -111,7 +111,7 @@
     <div class="prediction">BTTS (YES)</div>
     <div class="buttons">
       <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="https://otieu.com/4/7533041">WATCH LIVE</a>
+      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
     </div>
   </div>
 
@@ -121,7 +121,7 @@
     <div class="prediction">OVER 1.5 GOALS</div>
     <div class="buttons">
       <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="https://otieu.com/4/7533041">WATCH LIVE</a>
+      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
     </div>
   </div>
 
@@ -131,11 +131,32 @@
     <div class="prediction">DOUBLE CHANCE (PSG / DRAW)</div>
     <div class="buttons">
       <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="https://otieu.com/4/7533041">WATCH LIVE</a>
+      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
     </div>
   </div>
 
 </div>
 
+<script>
+  function showAd(url) {
+    // Monetag In-App Interstitial
+    show_10317085({
+      type: 'inApp',
+      inAppSettings: {
+        frequency: 2,
+        capping: 0.1,
+        interval: 30,
+        timeout: 5,
+        everyPage: false
+      }
+    });
+
+    // Redirect after ad delay (3 seconds)
+    setTimeout(() => {
+      window.location.href = url;
+    }, 3000);
+  }
+</script>
+
 </body>
-  </html>
+        </html>
