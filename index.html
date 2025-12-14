@@ -5,18 +5,17 @@
   <title>AI 🤖 Prediction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Monetag SDK (MUST be in HEAD) -->
+  <!-- Monetag SDK (REQUIRED) -->
   <script src="//libtl.com/sdk.js"
           data-zone="10317085"
-          data-sdk="show_10317085"
-          async></script>
+          data-sdk="show_10317085"></script>
 
   <style>
     body {
       margin: 0;
       background: #0b1220;
       font-family: system-ui, -apple-system, BlinkMacSystemFont;
-      color: #fff;
+      color: #ffffff;
     }
 
     header {
@@ -78,6 +77,7 @@
       font-weight: bold;
       text-decoration: none;
       flex: 1;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -88,48 +88,101 @@
 
 <div class="container">
 
-  <!-- MATCH CARD TEMPLATE -->
+  <!-- MATCH 1 -->
   <div class="card">
     <div class="match">Chelsea vs Everton</div>
     <div class="prediction">OVER 2.5 GOALS</div>
     <div class="buttons">
-      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599" target="_blank">
-        BET NOW
+      <a class="bet"
+         href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">
+         BET NOW
       </a>
-      <a class="watch" href="#" onclick="playWithAd('https://otieu.com/4/7533041')">
-        WATCH LIVE
+      <a class="watch"
+         onclick="showRewardedAd('https://otieu.com/4/7533041')">
+         WATCH LIVE
+      </a>
+    </div>
+  </div>
+
+  <!-- MATCH 2 -->
+  <div class="card">
+    <div class="match">Arsenal vs Wolves</div>
+    <div class="prediction">HOME WIN</div>
+    <div class="buttons">
+      <a class="bet"
+         href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">
+         BET NOW
+      </a>
+      <a class="watch"
+         onclick="showRewardedAd('https://otieu.com/4/7533041')">
+         WATCH LIVE
+      </a>
+    </div>
+  </div>
+
+  <!-- MATCH 3 -->
+  <div class="card">
+    <div class="match">Barcelona vs Osasuna</div>
+    <div class="prediction">BTTS (YES)</div>
+    <div class="buttons">
+      <a class="bet"
+         href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">
+         BET NOW
+      </a>
+      <a class="watch"
+         onclick="showRewardedAd('https://otieu.com/4/7533041')">
+         WATCH LIVE
+      </a>
+    </div>
+  </div>
+
+  <!-- MATCH 4 -->
+  <div class="card">
+    <div class="match">Bayern Munich vs Köln</div>
+    <div class="prediction">OVER 1.5 GOALS</div>
+    <div class="buttons">
+      <a class="bet"
+         href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">
+         BET NOW
+      </a>
+      <a class="watch"
+         onclick="showRewardedAd('https://otieu.com/4/7533041')">
+         WATCH LIVE
+      </a>
+    </div>
+  </div>
+
+  <!-- MATCH 5 -->
+  <div class="card">
+    <div class="match">PSG vs Metz</div>
+    <div class="prediction">DOUBLE CHANCE (PSG / DRAW)</div>
+    <div class="buttons">
+      <a class="bet"
+         href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">
+         BET NOW
+      </a>
+      <a class="watch"
+         onclick="showRewardedAd('https://otieu.com/4/7533041')">
+         WATCH LIVE
       </a>
     </div>
   </div>
 
 </div>
 
+<!-- Rewarded Interstitial Logic -->
 <script>
-  function playWithAd(url) {
-    // Safety check
-    if (typeof show_10317085 !== 'function') {
-      window.location.href = url;
-      return;
-    }
-
-    // Show Monetag In-App Interstitial
-    show_10317085({
-      type: 'inApp',
-      inAppSettings: {
-        frequency: 2,
-        capping: 0.1,
-        interval: 30,
-        timeout: 5,
-        everyPage: false
-      }
-    });
-
-    // Redirect after ad attempt
-    setTimeout(() => {
-      window.location.href = url;
-    }, 3000);
+  function showRewardedAd(url) {
+    show_10317085()
+      .then(() => {
+        // User watched ad successfully
+        window.location.href = url;
+      })
+      .catch(() => {
+        alert("Ad not available right now. Please try again later.");
+      });
   }
 </script>
 
 </body>
-</html>
+      </html>
