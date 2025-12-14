@@ -5,8 +5,11 @@
   <title>AI 🤖 Prediction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Monetag SDK -->
-  <script src='//libtl.com/sdk.js' data-zone='10317085' data-sdk='show_10317085'></script>
+  <!-- Monetag SDK (MUST be in HEAD) -->
+  <script src="//libtl.com/sdk.js"
+          data-zone="10317085"
+          data-sdk="show_10317085"
+          async></script>
 
   <style>
     body {
@@ -85,61 +88,31 @@
 
 <div class="container">
 
-  <!-- MATCH 1 -->
+  <!-- MATCH CARD TEMPLATE -->
   <div class="card">
     <div class="match">Chelsea vs Everton</div>
     <div class="prediction">OVER 2.5 GOALS</div>
     <div class="buttons">
-      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
-    </div>
-  </div>
-
-  <!-- MATCH 2 -->
-  <div class="card">
-    <div class="match">Arsenal vs Wolves</div>
-    <div class="prediction">HOME WIN</div>
-    <div class="buttons">
-      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
-    </div>
-  </div>
-
-  <!-- MATCH 3 -->
-  <div class="card">
-    <div class="match">Barcelona vs Osasuna</div>
-    <div class="prediction">BTTS (YES)</div>
-    <div class="buttons">
-      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
-    </div>
-  </div>
-
-  <!-- MATCH 4 -->
-  <div class="card">
-    <div class="match">Bayern Munich vs Köln</div>
-    <div class="prediction">OVER 1.5 GOALS</div>
-    <div class="buttons">
-      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
-    </div>
-  </div>
-
-  <!-- MATCH 5 -->
-  <div class="card">
-    <div class="match">PSG vs Metz</div>
-    <div class="prediction">DOUBLE CHANCE (PSG / DRAW)</div>
-    <div class="buttons">
-      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <a class="watch" href="#" onclick="showAd('https://otieu.com/4/7533041')">WATCH LIVE</a>
+      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599" target="_blank">
+        BET NOW
+      </a>
+      <a class="watch" href="#" onclick="playWithAd('https://otieu.com/4/7533041')">
+        WATCH LIVE
+      </a>
     </div>
   </div>
 
 </div>
 
 <script>
-  function showAd(url) {
-    // Monetag In-App Interstitial
+  function playWithAd(url) {
+    // Safety check
+    if (typeof show_10317085 !== 'function') {
+      window.location.href = url;
+      return;
+    }
+
+    // Show Monetag In-App Interstitial
     show_10317085({
       type: 'inApp',
       inAppSettings: {
@@ -151,7 +124,7 @@
       }
     });
 
-    // Redirect after ad delay (3 seconds)
+    // Redirect after ad attempt
     setTimeout(() => {
       window.location.href = url;
     }, 3000);
@@ -159,4 +132,4 @@
 </script>
 
 </body>
-        </html>
+</html>
