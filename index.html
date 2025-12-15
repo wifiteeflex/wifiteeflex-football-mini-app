@@ -6,17 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
 
   <!-- Monetag Rewarded SDK -->
-  <script src="//libtl.com/sdk.js"
-          data-zone="10317085"
-          data-sdk="show_10317085"></script>  
+  <script src="//libtl.com/sdk.js" data-zone="10317085" data-sdk="show_10317085"></script>
 
-  <!-- Monetag Native Banner JS (FIRST ZONE) -->
-  <script>
-    (function(s){
-      s.dataset.zone='10330677',
-      s.src='https://nap5k.com/tag.min.js'
-    })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
-  </script>
+  <!-- NEW Native Banner JS -->
+  <script src="https://3nbf4.com/act/files/tag.min.js?z=10330986" data-cfasync="false" async></script>
 
   <style>
     body {
@@ -86,67 +79,55 @@
       flex: 1;
       cursor: pointer;
     }
-
-    /* Native banner container */
-    .native-banner {
-      margin: 12px 0;
-      text-align: center;
-    }
   </style>
 </head>
-
 <body>
-<header>🤖 AI Football Predictions</header>
+  <header>🤖 AI Football Predictions</header>
 
-<!-- TOP BANNER -->
-<div class="native-banner" id="top-banner"></div>
+  <div class="container">  
+    <!-- MATCH TEMPLATE -->  
+    <div class="card">
+      <div class="match">AC MILAN VS SASSUOLO</div>
+      <div class="prediction">OVER 2.5 GOALS</div>
+      <div class="buttons">
+        <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
+        <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+      </div>
+    </div>  
 
-<div class="container">
-  <!-- MATCH 1 -->
-  <div class="card">
-    <div class="match">AC MILAN VS SASSUOLO</div>
-    <div class="prediction">OVER 2.5 GOALS</div>
-    <div class="buttons">
-      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+    <div class="card">
+      <div class="match">SEVILLA VS REAL OVIEDO</div>
+      <div class="prediction">HOME WIN</div>
+      <div class="buttons">
+        <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
+        <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+      </div>
+    </div>  
+
+    <div class="card">
+      <div class="match">NOTTINGHAM VS TOTTENHAM</div>
+      <div class="prediction">BTTS (YES)</div>
+      <div class="buttons">
+        <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
+        <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+      </div>
     </div>
   </div>
 
-  <!-- MATCH 2 -->
-  <div class="card">
-    <div class="match">SEVILLA VS REAL OVIEDO</div>
-    <div class="prediction">HOME WIN</div>
-    <div class="buttons">
-      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-    </div>
-  </div>
+  <script>
+    function unlockPrediction(button) {
+      const card = button.closest('.card');
+      const prediction = card.querySelector('.prediction');
 
-  <!-- MATCH 3 -->
-  <div class="card">
-    <div class="match">NOTTINGHAM VS TOTTENHAM</div>
-    <div class="prediction">BTTS (YES)</div>
-    <div class="buttons">
-      <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-      <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  function unlockPrediction(button) {
-    const card = button.closest('.card');
-    const prediction = card.querySelector('.prediction');
-
-    show_10317085()
-      .then(() => {
-        prediction.style.display = 'block';
-        button.style.display = 'none';
-      })
-      .catch(() => {
-        alert('Ad not available right now. Please try again.');
-      });
-  }
-</script>
+      show_10317085()
+        .then(() => {
+          prediction.style.display = 'block';
+          button.style.display = 'none';
+        })
+        .catch(() => {
+          alert('Ad not available right now. Please try again.');
+        });
+    }
+  </script>
 </body>
-      </html>
+        </html>
