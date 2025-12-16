@@ -1,4 +1,32 @@
-<!DOCTYPE html>
+</div>
+
+<script>
+function unlockPrediction(btn){
+  const card = btn.closest('.card');
+  const pred = card.querySelector('.prediction');
+
+  show_10317085().then(()=>{
+    pred.style.display='block';
+    btn.style.display='none';
+  });
+}
+
+// Countdown logic
+document.querySelectorAll('.countdown').forEach(el=>{
+  let t = parseInt(el.dataset.time);
+  setInterval(()=>{
+    if(t<=0) return;
+    t--;
+    let h=Math.floor(t/3600);
+    let m=Math.floor((t%3600)/60);
+    let s=t%60;
+    el.textContent=`Match starts in ${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+  },1000);
+});
+</script>
+
+</body>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
