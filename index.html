@@ -281,5 +281,203 @@
         });
     }
   </script>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Football Predictions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Monetag Rewarded SDK -->
+<script src="//libtl.com/sdk.js"
+  data-zone="10317085"
+  data-sdk="show_10317085"></script>
+
+<!-- Vignette Banner -->
+<script>
+(function(s){
+  s.dataset.zone='10331171';
+  s.src='https://gizokraijaw.net/vignette.min.js';
+})([document.documentElement, document.body]
+  .filter(Boolean)
+  .pop()
+  .appendChild(document.createElement('script')));
+</script>
+
+<style>
+body{
+  margin:0;
+  background:#0b3d2e;
+  font-family:system-ui;
+  color:#fff;
+}
+
+header{
+  background:#014421;
+  padding:14px;
+  text-align:center;
+  font-weight:bold;
+  font-size:20px;
+  border-bottom:2px solid #facc15;
+}
+
+.container{padding:12px;}
+
+.card{
+  background:#022c22;
+  border-radius:12px;
+  padding:14px;
+  margin-bottom:14px;
+  border:1px solid #14532d;
+}
+
+.match{
+  font-weight:600;
+  font-size:15px;
+}
+
+.vs{
+  color:#dc2626;
+  font-weight:bold;
+}
+
+.tag{
+  display:inline-block;
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:6px;
+  margin-top:6px;
+}
+
+.live{background:#dc2626;}
+.soon{background:#facc15;color:#000;}
+.vip{background:#7c3aed;}
+
+.countdown{
+  font-size:12px;
+  margin-top:6px;
+  color:#facc15;
+}
+
+.prediction{
+  display:none;
+  margin:10px 0;
+  font-weight:bold;
+  color:#facc15;
+}
+
+.odds{
+  font-size:12px;
+  margin-top:6px;
+}
+
+.buttons{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.bet{
+  flex:1;
+  background:#16a34a;
+  color:#fff;
+  padding:10px;
+  border-radius:6px;
+  text-align:center;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.watch{
+  flex:1;
+  background:#facc15;
+  color:#000;
+  padding:10px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.section{
+  background:#014421;
+  padding:10px;
+  border-radius:10px;
+  margin:18px 0 10px;
+  font-weight:bold;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>🤖 AI Football Predictions</header>
+
+<div class="container">
+
+<div class="section">🔥 TODAY’S ACCUMULATOR</div>
+<div class="card">
+  Man City – Home Win<br>
+  Chelsea – Over 1.5<br>
+  Madrid – Home Win<br>
+  <b>Total Odds: 6.45</b><br><br>
+  <a class="bet" href="#">BET ACCUMULATOR</a>
+</div>
+
+<div class="section">🔒 VIP PREDICTIONS</div>
+
+<div class="card">
+  <div class="match">
+    MAN CITY <span class="vs">VS</span> WEST HAM
+  </div>
+  <div class="tag vip">VIP</div>
+  <div class="countdown" data-time="5400"></div>
+  <div class="prediction">HOME WIN</div>
+  <div class="odds">
+    Bet9ja: 2.05 | 1xBet: 2.12
+  </div>
+  <div class="buttons">
+    <a class="bet" href="#">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">UNLOCK</button>
+  </div>
+</div>
+
+<div class="section">📊 PREDICTION HISTORY</div>
+
+<div class="card">
+  Yesterday:
+  <br>Man City – ✅ WON
+  <br>Chelsea – ✅ WON
+  <br>Madrid – ❌ LOST
+</div>
+
+</div>
+
+<script>
+function unlockPrediction(btn){
+  const card = btn.closest('.card');
+  const pred = card.querySelector('.prediction');
+
+  show_10317085().then(()=>{
+    pred.style.display='block';
+    btn.style.display='none';
+  });
+}
+
+// Countdown logic
+document.querySelectorAll('.countdown').forEach(el=>{
+  let t = parseInt(el.dataset.time);
+  setInterval(()=>{
+    if(t<=0) return;
+    t--;
+    let h=Math.floor(t/3600);
+    let m=Math.floor((t%3600)/60);
+    let s=t%60;
+    el.textContent=`Match starts in ${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+  },1000);
+});
+</script>
+
 </body>
   </html>
