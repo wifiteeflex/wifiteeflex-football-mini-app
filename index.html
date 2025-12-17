@@ -41,7 +41,7 @@ header{
   border-bottom:2px solid #facc15;
 }
 
-.container{padding:12px;}
+.container{padding:12px; text-align:center;}
 
 .card{
   background:#022c22;
@@ -49,12 +49,16 @@ header{
   padding:16px;
   margin-bottom:14px;
   border:1px solid #14532d;
+  display:inline-block;
+  width:100%;
+  max-width:400px;
   text-align:center;
 }
 
 .match{
   font-size:16px;
   font-weight:600;
+  text-align:center;
 }
 
 .vs{
@@ -86,27 +90,47 @@ header{
 .buttons{
   display:flex;
   gap:10px;
+  justify-content:center;
   margin-top:10px;
 }
 
 .bet{
   flex:1;
+  max-width:140px;
   background:#16a34a;
   color:#fff;
   padding:10px;
   border-radius:6px;
   font-weight:bold;
   text-decoration:none;
+  text-align:center;
 }
 
 .watch{
   flex:1;
+  max-width:140px;
   background:#facc15;
   color:#000;
   padding:10px;
   border-radius:6px;
   font-weight:bold;
   cursor:pointer;
+}
+
+.tag.vip{
+  display:inline-block;
+  font-weight:bold;
+  padding:5px 10px;
+  border-radius:6px;
+  background:#7c3aed;
+  margin:10px auto;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink{
+  0%{opacity:1;}
+  50%{opacity:0.3;}
+  100%{opacity:1;}
 }
 </style>
 </head>
@@ -117,6 +141,7 @@ header{
 
 <div class="container">
 
+<!-- MATCHES START -->
 <div class="card">
   <div class="match">NEW CASTLE <span class="vs">VS</span> CHELSEA</div>
   <div class="countdown" data-time="2025-12-20T12:30:00"></div>
@@ -176,6 +201,23 @@ header{
     <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
   </div>
 </div>
+<!-- MATCHES END -->
+
+<!-- CORRECT SCORE SECTION START -->
+<div class="card">
+  <div class="match">
+    MAN CITY <span class="vs">VS</span> WEST HAM
+  </div>
+  <div class="tag vip">CORRECT SCORES</div>
+  <div class="countdown" data-time="5400"></div>
+  <div class="prediction" style="font-size:20px;">3-1</div>
+  <div class="odds">Spotybet: 9.50 | 1xBet: 10.12</div>
+  <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/8676459" target="_blank">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">UNLOCK</button>
+  </div>
+</div>
+<!-- CORRECT SCORE SECTION END -->
 
 </div>
 
@@ -217,37 +259,5 @@ document.querySelectorAll('.countdown').forEach(el=>{
 });
 </script>
 
-<!-- NEW AI PREDICTION SECTION START -->
-
-<div class="card">
-  <div class="match" style="text-align:center;">
-    MAN CITY <span class="vs">VS</span> WEST HAM
-  </div>
-
-  <div class="tag vip" style="margin:auto; display:block; width:max-content;">
-    CORRECT SCORES
-  </div>
-
-  <div class="countdown" data-time="5400" style="text-align:center;"></div>
-
-  <div class="prediction" style="text-align:center; font-size:20px;">
-    3-1
-  </div>
-
-  <div class="odds" style="text-align:center;">
-    Spotybet: 9.50 | 1xBet: 10.12
-  </div>
-
-  <div class="buttons">
-    <a class="bet" href="https://otieu.com/4/8676459" target="_blank">
-      BET NOW
-    </a>
-    <button class="watch" onclick="unlockPrediction(this)">
-      UNLOCK
-    </button>
-  </div>
-</div>
-
-<!-- NEW AI PREDICTION SECTION END -->
 </body>
-    </html>
+                                                           </html>
