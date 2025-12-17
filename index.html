@@ -1,3 +1,5 @@
+Am using this 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,9 +43,7 @@ header{
   border-bottom:2px solid #facc15;
 }
 
-.container{
-  padding:12px;
-}
+.container{padding:12px;}
 
 .card{
   background:#022c22;
@@ -51,8 +51,8 @@ header{
   padding:16px;
   margin-bottom:14px;
   border:1px solid #14532d;
-  width:100%;
-  text-align:center;
+  width:100%;          /* Full width */
+  text-align:center;   /* Center content */
   box-sizing:border-box;
 }
 
@@ -78,7 +78,7 @@ header{
   margin:10px 0;
   font-weight:bold;
   color:#facc15;
-  font-size:22px;
+  font-size:20px;
   animation: blink 1s step-start 0s infinite;
 }
 
@@ -89,7 +89,7 @@ header{
 .buttons{
   display:flex;
   gap:10px;
-  justify-content:center;
+  justify-content:center; /* Center buttons */
   margin-top:10px;
 }
 
@@ -124,6 +124,7 @@ header{
 }
 
 .vip{background:#7c3aed; color:#fff;}
+
 </style>
 </head>
 
@@ -140,7 +141,7 @@ header{
   <div class="countdown" data-time="2025-12-20T12:30:00"></div>
   <div class="prediction">(1ST HALF DRAW OR AWAY)</div>
   <div class="buttons">
-    <a class="bet" href="#">BET NOW</a>
+    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
     <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
   </div>
 </div>
@@ -150,7 +151,47 @@ header{
   <div class="countdown" data-time="2025-12-20T13:10:00"></div>
   <div class="prediction">(HOME OR AWAY)</div>
   <div class="buttons">
-    <a class="bet" href="#">BET NOW</a>
+    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="match">AUGSBURG <span class="vs">VS</span> WERDER BREMEN</div>
+  <div class="countdown" data-time="2025-12-20T14:00:00"></div>
+  <div class="prediction">(OVER 1.5 GOALS)</div>
+  <div class="buttons">
+    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="match">MAN CITY <span class="vs">VS</span> WEST HAM</div>
+  <div class="countdown" data-time="2025-12-20T15:00:00"></div>
+  <div class="prediction">(HOME WIN)</div>
+  <div class="buttons">
+    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="match">JUVENTUS <span class="vs">VS</span> ROMA</div>
+  <div class="countdown" data-time="2025-12-20T16:20:00"></div>
+  <div class="prediction">(HOME WIN)</div>
+  <div class="buttons">
+    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="match">REAL MADRID <span class="vs">VS</span> SEVILLA</div>
+  <div class="countdown" data-time="2025-12-20T17:45:00"></div>
+  <div class="prediction">(HOME WIN)</div>
+  <div class="buttons">
+    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
     <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
   </div>
 </div>
@@ -168,7 +209,7 @@ header{
 
   <div class="countdown" data-time="5400"></div>
 
-  <div class="prediction" id="correct-score">
+  <div class="prediction">
     3-1
   </div>
 
@@ -177,6 +218,9 @@ header{
   </div>
 
   <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/8676459" target="_blank">
+      BET NOW
+    </a>
     <button class="watch" onclick="unlockPrediction(this)">
       UNLOCK
     </button>
@@ -193,39 +237,35 @@ function unlockPrediction(btn){
   btn.disabled = true;
   btn.textContent = "LOADING AI...";
 
-  if(typeof show_10317085 === "function"){
-    show_10317085().then(()=>{
-      btn.textContent = "🤖 AI is analyzing match...";
-      setTimeout(()=>{
-        pred.style.display = "block";
-        btn.style.display = "none";
-      }, 5000);
-    }).catch(()=>{
-      alert("Ad not available, try again.");
-      btn.disabled = false;
-      btn.textContent = "UNLOCK";
-    });
-  } else {
+  show_10317085().then(()=>{
+    btn.textContent = "🤖 AI is analyzing match...";
     setTimeout(()=>{
       pred.style.display = "block";
       btn.style.display = "none";
     }, 5000);
-  }
+  }).catch(()=>{
+    alert("Ad not available, try again.");
+    btn.disabled = false;
+    btn.textContent = "SEE PREDICTION";
+  });
 }
 
 document.querySelectorAll('.countdown').forEach(el=>{
-  const targetTime = el.dataset.time;
-  let t = isNaN(targetTime) ? (new Date(targetTime).getTime() - new Date().getTime())/1000 : parseInt(targetTime);
+  const target = new Date(el.dataset.time).getTime();
   setInterval(()=>{
-    if(t<=0){ el.textContent="MATCH STARTED"; return; }
-    t--;
-    const h=Math.floor(t/3600);
-    const m=Math.floor((t%3600)/60);
-    const s=Math.floor(t%60);
-    el.textContent=`Match starts in ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    const now = new Date().getTime();
+    const diff = target - now;
+    if(diff <= 0){
+      el.textContent = "MATCH STARTED";
+      return;
+    }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    el.textContent = `Match starts in ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
   },1000);
 });
 </script>
 
 </body>
-      </html>
+                                                     </html>
