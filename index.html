@@ -21,6 +21,9 @@
   .appendChild(document.createElement('script')));
 </script>
 
+<!-- Monetag Push Notifications -->
+<script src="https://push-sdk.com/f/sdk.js?z=10331171" async></script>
+
 <style>
 body{
   margin:0;
@@ -73,6 +76,13 @@ header{
   color:#facc15;
 }
 
+.ai-loading{
+  margin:10px 0;
+  font-size:14px;
+  color:#22c55e;
+  font-weight:bold;
+}
+
 .buttons{
   display:flex;
   gap:10px;
@@ -106,8 +116,6 @@ header{
 <header>AI Football 🤖 Predictions</header>
 
 <div class="container">
-
-<!-- MATCHES START -->
 
 <div class="card">
   <div class="match">NEW CASTLE <span class="vs">VS</span> CHELSEA</div>
@@ -169,21 +177,26 @@ header{
   </div>
 </div>
 
-<!-- MATCHES END -->
-
 </div>
 
-<!-- SCRIPTS -->
 <script>
 function unlockPrediction(btn){
   const card = btn.closest('.card');
   const pred = card.querySelector('.prediction');
 
+  btn.disabled = true;
+  btn.textContent = "LOADING AI...";
+
   show_10317085().then(()=>{
-    pred.style.display='block';
-    btn.style.display='none';
+    btn.textContent = "🤖 AI is analyzing match...";
+    setTimeout(()=>{
+      pred.style.display = "block";
+      btn.style.display = "none";
+    }, 5000);
   }).catch(()=>{
     alert("Ad not available, try again.");
+    btn.disabled = false;
+    btn.textContent = "SEE PREDICTION";
   });
 }
 
@@ -205,4 +218,4 @@ document.querySelectorAll('.countdown').forEach(el=>{
 </script>
 
 </body>
-                                   </html>
+    </html>
