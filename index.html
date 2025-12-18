@@ -451,19 +451,27 @@ function unlockPrediction(btn){
   });
 }
 
+<script>
 document.querySelectorAll('.countdown').forEach(el=>{
-  let t = parseInt(el.dataset.time);
-  
+  const target = new Date(el.dataset.time).getTime();
+
   setInterval(()=>{
-    if(t <= 0){
-      el.textContent = "MATCH STARTED";
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    if(diff <= 0){
+      el.innerHTML = "MATCH STARTED";
       return;
     }
-    t--;
-    let h = Math.floor(t/3600);
-    let m = Math.floor((t%3600)/60);
-    let s = t%60;
-    el.textContent = `Match starts in ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+
+    el.innerHTML = "Match starts in " +
+      String(h).padStart(2, '0') + ":" +
+      String(m).padStart(2, '0') + ":" +
+      String(s).padStart(2, '0');
   },1000);
 });
 </script>
