@@ -157,3 +157,9 @@ h2 {
 .premium {
   border: 1px solid gold;
   }
+
+/* FORCE MATCH CARD TO STRETCH FULL WIDTH */
+.match {
+  width: 100%;
+  box-sizing: border-box;
+}
