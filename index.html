@@ -1,426 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>AI Football ðŸ¤– Predictions</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Monetag Rewarded SDK -->
-<script src="//libtl.com/sdk.js"
-  data-zone="10317085"
-  data-sdk="show_10317085"></script>
-
-<!-- Monetag Vignette -->
-<script>
-(function(s){
-  s.dataset.zone='10331171';
-  s.src='https://gizokraijaw.net/vignette.min.js';
-})([document.documentElement, document.body]
-  .filter(Boolean)
-  .pop()
-  .appendChild(document.createElement('script')));
-</script>
-
-<!-- Monetag Push Notifications -->
-<script src="https://push-sdk.com/f/sdk.js?z=10331171" async></script>
+<title>Earn Quiz 💰</title>
 
 <style>
-body{
+body {
   margin:0;
-  background:#0b3d2e;
-  font-family:system-ui, Arial;
-  color:#fff;
-}
-
-header{
-  background:#014421;
-  padding:14px;
+  font-family: Arial;
+  background: radial-gradient(circle,#0a0a23,#000);
+  color:white;
   text-align:center;
-  font-size:20px;
-  font-weight:bold;
-  border-bottom:2px solid #facc15;
 }
 
-.container{padding:12px;}
+.container {padding:20px;max-width:500px;margin:auto;}
 
-.card{
-  background:#022c22;
-  border-radius:12px;
-  padding:16px;
-  margin-bottom:14px;
-  border:1px solid #14532d;
-  width:100%;          /* Full width */
-  text-align:center;   /* Center content */
-  box-sizing:border-box;
-}
-
-.match{
-  font-size:16px;
-  font-weight:600;
-}
-
-.vs{
-  color:#dc2626;
-  font-weight:bold;
-}
-
-.countdown{
-  margin:8px 0;
-  font-size:13px;
-  color:#facc15;
-  font-weight:bold;
-}
-
-.prediction{
-  display:none;
-  margin:10px 0;
-  font-weight:bold;
-  color:#facc15;
-  font-size:20px;
-  animation: blink 5s ease-in-out infinite; /* slower blinking */
-}
-
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-
-.buttons{
+.top-bar {
   display:flex;
-  gap:10px;
-  justify-content:center; /* Center buttons */
-  margin-top:10px;
+  justify-content:space-between;
+  margin-bottom:15px;
 }
 
-.bet{
-  flex:1;
-  max-width:150px;
-  background:#16a34a;
-  color:#fff;
-  padding:10px;
-  border-radius:6px;
+.button {
+  padding:10px 15px;
+  margin:5px;
+  border:none;
+  border-radius:10px;
+  background:#00c853;
+  color:black;
   font-weight:bold;
-  text-decoration:none;
 }
 
-.watch{
-  flex:1;
-  max-width:150px;
-  background:#facc15;
-  color:#000;
-  padding:10px;
-  border-radius:6px;
-  font-weight:bold;
-  cursor:pointer;
+/* SPIN WHEEL */
+.wheel-container {
+  position:relative;
+  width:250px;
+  height:250px;
+  margin:20px auto;
 }
 
-.tag{
-  display:inline-block;
-  font-size:12px;
-  padding:4px 8px;
-  border-radius:6px;
-  margin:6px auto 0;
+#wheel {
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  border:5px solid gold;
+  transition: transform 4s ease-out;
 }
 
-.vip{background:#7c3aed; color:#fff;}
+.pointer {
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:20px solid red;
+}
 
+/* SECTIONS */
+.section {display:none;}
+.active {display:block;}
+
+.card {
+  background:#1c1c1c;
+  padding:15px;
+  border-radius:15px;
+  margin-top:20px;
+}
 </style>
 </head>
 
 <body>
 
-<header>AI Football ðŸ¤– Predictions</header>
+<div class="container">
 
-<!-- Blinking Powered By -->
-<div class="powered-by">
-  Powered by Grok Imagination
-</div>
-
-<style>
-header {
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  margin-top: 14px;
-  color: #fff;
-}
-
-/* Blinking effect */
-.powered-by {
-  text-align: center;
-  font-size: 14px;
-  color: #ffd166;
-  margin-top: 6px;
-  animation: blink 2.5s step-start infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-</style>
-  
-  <div class="container"
-
-<!-- MATCHES START HERE -->
-<div class="match">
-  
-  <!-- MATCHES START -->
-
-<div class="card" style="width:100%; box-sizing:border-box;">
-  <div class="match">BARCELONA <span class="vs">VS</span> NEWCASTLE </div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(HOME WIN & OVER4.5)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
-</div>
-
-<div class="card">
-  <div class="match">BAYERN MUNISH <span class="vs">VS</span> ATALANTA </div>
-  <div class="status ended">ENDED</div>
-  <div class="prediction">(1ST HALF HOME WIN)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
-</div>
-
-<div class="card">
-  <div class="match">EVERTON u21 <span class="vs">VS</span> BORUSSIA DORTMUND</div>
-  <div class="status live">LIVE</div>
-  <div class="prediction">(OVER 1.5 GOALS)</div>
-  <div class="buttons">
-    <a class="bet" href="https://otieu.com/4/7533041">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
-</div>
-
-<div class="card">
-  <div class="match">CRYSTAL PALACE u21<span class="vs">VS</span> REAL SOCIEDIAD</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(OVER 2.5)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
-</div>
-
-<div class="card">
-  <div class="match">AZ ALKMAAR<span class="vs">VS</span> PSV Eindhoven</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(HOME WIN)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
-</div>
-
-<div class="card">
-  <div class="match">STUTTGART <span class="vs">VS</span> HOFFENHEIM</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(HOME WIN 2UP)</div>
-  <div class="buttons">
-    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
-</div>
-
-<div class="card">
-  <div class="match">WOLFSBURG <span class="vs">VS</span> FREIBURB</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(HOME OR AWAY)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
-</div>
-  
-<div class="card">
-  <div class="match">BOURNEMOUTH <span class="vs">VS</span> BURNLEY</div>
-  <div class="status live">LIVE</div>
-  <div class="prediction">(HOME WIN)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
-<div class="card">
-  <div class="match">BRIGHTON <span class="vs">VS</span> SUNDERLAND</div>
-  <div class="status live">LIVE</div>
-  <div class="prediction">(OVER1.5 GOALS)</div>
-  <div class="buttons">
-    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">MAN CITY <span class="vs">VS</span> WEST HAM</div>
-  <div class="status live">LIVE</div>
-  <div class="prediction">(HOME WIN)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">WOLVES <span class="vs">VS</span> BRENTFORD</div>
-  <div class="status live">LIVE</div>
-  <div class="prediction">(1ST HALF UNDER 2.5 GOALS)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">LEVENTE <span class="vs">VS</span> REAL SOCIEDAD</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(BTTS YES)</div>
-  <div class="buttons">
-    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">LAZIO <span class="vs">VS</span> CREMONESE</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(HANDICAP 0-2)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">TOTTENHAM <span class="vs">VS</span> LIVERPOOL</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(OVER 1.5 GOALS)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">OSASUNA <span class="vs">VS</span> ALAVES</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(HOME OR AWAY)</div>
-  <div class="buttons">
-    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">RB LEIPZIG <span class="vs">VS</span> BAYER LEVERKUSEN</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(1ST HALF OVER 0.5 GOALS)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">JUVENTUS <span class="vs">VS</span> ROMA</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(HOME WIN)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">EVERTON <span class="vs">VS</span> ARSENAL</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(OVER 2.5 GOALS)</div>
-  <div class="buttons">
-    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
- <div class="card">
-  <div class="match">LEEDS UNITED <span class="vs">VS</span> CRYSTAL PALACE</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(HOME WIN OR DRAW)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-
- <div class="card">
-  <div class="match">REAL MADRID <span class="vs">VS</span> SEVILLA</div>
-  <div class="status upcoming">UPCOMING</div>
-  <div class="prediction">(HOME WIN)</div>
-  <div class="buttons">
-    <a class="bet" href="https://refpa58144.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
- </div>
-  
-  <!-- CORRECT SCORES SECTION -->
-  
-<div class="card">
-  <div class="match">
-    BARCELONA <span class="vs">VS</span> NEW CASTLE
+  <!-- TOP -->
+  <div class="top-bar">
+    <div>💰 Coins: <span id="coins">0</span></div>
+    <div>🔥 Level: <span id="level">1</span></div>
   </div>
 
-  <div class="tag vip">
-    CORRECT SCORES
+  <!-- MENU -->
+  <div>
+    <button class="button" onclick="showSection('quiz')">🎮 Quiz</button>
+    <button class="button" onclick="showSection('spin')">🎰 Spin</button>
+    <button class="button" onclick="showSection('daily')">🎁 Daily</button>
   </div>
 
-  <div class="status upcoming">UPCOMING</div>  <!-- updated countdown -->
-
-  <div class="prediction">
-    7-2
+  <!-- QUIZ -->
+  <div id="quiz" class="section active">
+    <div class="card">
+      <h3 id="question">Loading...</h3>
+      <div id="answers"></div>
+      <p id="message"></p>
+    </div>
   </div>
 
-  <div class="odds">
-    Bet on 1xBet: 8odds
+  <!-- SPIN -->
+  <div id="spin" class="section">
+    <div class="card">
+      <h3>🎰 Spin & Win</h3>
+
+      <div class="wheel-container">
+        <div class="pointer"></div>
+        <canvas id="wheel" width="250" height="250"></canvas>
+      </div>
+
+      <button class="button" onclick="spin()">SPIN</button>
+      <p id="spinResult"></p>
+    </div>
   </div>
 
-  <div class="buttons">
-    <a class="bet" href="https://otieu.com/4/7461922" target="_blank">
-      BET NOW
-    </a>
-    <button class="watch" onclick="unlockPrediction(this)">
-      UNLOCK
-    </button>
+  <!-- DAILY -->
+  <div id="daily" class="section">
+    <div class="card">
+      <h3>🎁 Daily Reward</h3>
+      <p id="dailyText">Claim reward</p>
+      <button class="button" onclick="claimDaily()">CLAIM</button>
+    </div>
   </div>
-</div>
 
 </div>
 
 <script>
-function unlockPrediction(btn){
-  const card = btn.closest('.card');
-  const pred = card.querySelector('.prediction');
+// ---------------- BASIC ----------------
+let coins = 0;
+let level = 1;
 
-  btn.disabled = true;
-  btn.textContent = "LOADING AI...";
-
-  show_10317085().then(()=>{
-    btn.textContent = "AI is analyzing match...";
-    setTimeout(()=>{
-      pred.style.display = "block";
-      btn.style.display = "none";
-    }, 5000);
-  }).catch(()=>{
-    alert("Ad not available, try again.");
-    btn.disabled = false;
-    btn.textContent = "SEE PREDICTION";
-  });
+// ---------------- SWITCH ----------------
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 
+// ---------------- QUIZ ----------------
+const questions = [
+  {q:"2+2=?", a:["3","4","5","6"], c:1},
+  {q:"Capital of France?", a:["Berlin","Paris","Rome","Madrid"], c:1}
+];
+
+let current = 0;
+
+function loadQ(){
+  let q = questions[current];
+  document.getElementById("question").innerText = q.q;
+
+  let html="";
+  q.a.forEach((opt,i)=>{
+    html += `<button class="button" onclick="check(${i})">${opt}</button>`;
+  });
+  document.getElementById("answers").innerHTML = html;
+}
+
+function check(i){
+  let q = questions[current];
+
+  if(i===q.c){
+    coins += 10;
+    level++;
+    document.getElementById("coins").innerText = coins;
+    document.getElementById("level").innerText = level;
+    document.getElementById("message").innerText="🔥 Correct!";
+    current = (current+1)%questions.length;
+    setTimeout(loadQ,1000);
+  } else {
+    document.getElementById("message").innerHTML=
+    `❌ Wrong! <br>
+    <button class="button" onclick="watchAd()">Watch Ad</button>
+    <button class="button" onclick="reset()">Restart</button>`;
+  }
+}
+
+// ---------------- SPIN WHEEL ----------------
+const wheel = document.getElementById("wheel");
+const ctx = wheel.getContext("2d");
+
+const rewards = [10,20,50,100,0,200];
+const colors = ["#f44336","#ff9800","#ffc107","#4caf50","#2196f3","#9c27b0"];
+
+function drawWheel(){
+  let angle = 2*Math.PI / rewards.length;
+
+  rewards.forEach((r,i)=>{
+    ctx.beginPath();
+    ctx.fillStyle = colors[i];
+    ctx.moveTo(125,125);
+    ctx.arc(125,125,125,i*angle,(i+1)*angle);
+    ctx.fill();
+
+    ctx.fillStyle="#fff";
+    ctx.fillText(r,110,30 + i*30);
+  });
+}
+drawWheel();
+
+let spinning = false;
+
+function spin(){
+  if(spinning) return;
+  spinning = true;
+
+  let spinDeg = Math.floor(3000 + Math.random()*2000);
+  wheel.style.transform = `rotate(${spinDeg}deg)`;
+
+  setTimeout(()=>{
+    spinning = false;
+    let reward = rewards[Math.floor(Math.random()*rewards.length)];
+
+    if(reward===0){
+      document.getElementById("spinResult").innerText="😢 Try again!";
+    } else {
+      coins += reward;
+      document.getElementById("coins").innerText=coins;
+      document.getElementById("spinResult").innerText="🎉 Won "+reward+" coins!";
+    }
+
+    showAd();
+  },4000);
+}
+
+// ---------------- DAILY ----------------
+function claimDaily(){
+  let last = localStorage.getItem("daily");
+  let now = Date.now();
+
+  if(last && now - last < 86400000){
+    document.getElementById("dailyText").innerText="⏳ Come tomorrow";
+    return;
+  }
+
+  coins += 100;
+  document.getElementById("coins").innerText=coins;
+  document.getElementById("dailyText").innerText="🎉 +100 coins!";
+  localStorage.setItem("daily",now);
+
+  showAd();
+}
+
+// ---------------- ADS ----------------
+function showAd(){
+  (function(s){
+    s.dataset.zone='10331171';
+    s.src='https://gizokraijaw.net/vignette.min.js';
+  })(document.body.appendChild(document.createElement('script')));
+}
+
+function watchAd(){
+  showAd();
+  setTimeout(loadQ,3000);
+}
+
+// ---------------- RESET ----------------
+function reset(){
+  coins = 0;
+  level = 1;
+  document.getElementById("coins").innerText=coins;
+  document.getElementById("level").innerText=level;
+  loadQ();
+}
+
+// ---------------- START ----------------
+loadQ();
 </script>
 
 </body>
-  </html>
+      </html>
