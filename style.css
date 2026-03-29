@@ -1,181 +1,123 @@
-body {
-  font-family: Arial;
-  background: #0b132b;
-  color: white;
-  padding: 14px;
+body{
+  margin:0;
+  background:#061f18;
+  font-family:system-ui, Arial;
+  color:#fff;
 }
 
-.match {
-  background: #1c2541;
-  padding: 12px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+header{
+  background:linear-gradient(90deg,#014421,#065f46);
+  padding:16px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+  border-bottom:2px solid #facc15;
 }
 
-.league {
-  font-size: 12px;
-  color: #5bc0be;
+.container{padding:12px;}
+
+.card{
+  background:#022c22;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:16px;
+  border:1px solid #14532d;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.4);
+  position:relative;
 }
 
-.teams {
-  font-size: 16px;
-  margin: 6px 0;
+.match{
+  font-size:17px;
+  font-weight:600;
 }
 
-.buttons a {
-  display: inline-block;
-  margin-right: 8px;
-  margin-top: 6px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+.vs{
+  color:#ef4444;
+  font-weight:bold;
 }
 
-.watch {
-  background: #3a86ff;
-  color: white;
+/* 🔥 HOT BADGE */
+.hot{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ef4444;
+  padding:4px 8px;
+  font-size:11px;
+  border-radius:6px;
+  font-weight:bold;
 }
 
-.bet {
-  background: #ffd166;
-  color: black;
+/* LIVE ANIMATION */
+.live-dot{
+  width:8px;
+  height:8px;
+  background:red;
+  border-radius:50%;
+  display:inline-block;
+  animation:blinkLive 1s infinite;
 }
 
-/* ---- NEW STYLES TO ADD ---- */
-
-.separator {
-  background: #111827;
-  padding: 8px 12px;
-  margin: 18px 0 10px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 1px;
-  color: #38bdf8;
+@keyframes blinkLive{
+  0%{opacity:1}
+  50%{opacity:0}
+  100%{opacity:1}
 }
 
-.league {
-  font-size: 12px;
-  color: #94a3b8;
-  margin-bottom: 8px;
-  font-weight: bold;
+/* ODDS */
+.odds{
+  margin-top:6px;
+  font-size:13px;
+  color:#22c55e;
 }
 
-.vip {
-  background: #7c3aed;
-  color: #fff;
-  font-size: 12px;
-  padding: 6px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  font-weight: bold;
+/* PROGRESS BAR */
+.progress{
+  margin-top:10px;
+  background:#111;
+  border-radius:10px;
+  overflow:hidden;
+  height:8px;
 }
 
-.locked {
-  opacity: 0.5;
+.progress-bar{
+  height:100%;
+  background:#22c55e;
+  width:70%;
 }
 
-.locked .watch {
-  background: #6b7280;
+/* BUTTONS */
+.buttons{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top:12px;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 6px;
+.bet{
+  flex:1;
+  background:#16a34a;
+  padding:10px;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-/* AI WINS TODAY SECTION */
-.ai-wins {
-  text-align: center;
-  margin: 16px 0;
+.watch{
+  flex:1;
+  background:#facc15;
+  color:#000;
+  padding:10px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.ai-wins .title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #38bdf8;
-}
-
-.ai-wins .score {
-  font-size: 16px;
-  margin: 6px 0;
-  font-weight: bold;
-  color: #facc15;
-}
-
-.ai-wins .see-winnings {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 8px;
-  background: #facc15;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.ai-wins .see-winnings:hover {
-  background: #ffd700;
-}
-
-/* PROGRESS BAR AND TASKS (existing) */
-.progress {
-  background: #1c2541;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 12px;
-  margin-bottom: 6px;
-}
-
-.bar {
-  height: 100%;
-  width: 0%;
-  background: #5bc0be;
-}
-
-.task {
-  background: #1c2541;
-  padding: 12px;
-  border-radius: 10px;
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.task button {
-  background: #3a86ff;
-  color: white;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-.premium {
-  border: 1px solid gold;
-  }
-
-/* FORCE MATCH CARD TO STRETCH FULL WIDTH */
-.match {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* AD SPACER BLOCK */
-.ad-spacer {
-  width: 100%;
-  min-height: 90px;           /* standard banner height */
-  background: #111827;        /* dark placeholder */
-  border: 2px dashed #facc15; /* visual guide (optional) */
-  border-radius: 10px;
-  margin: 12px 0 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: #facc15;
-  text-align: center;
+.prediction{
+  display:none;
+  margin-top:10px;
+  color:#facc15;
+  font-size:18px;
+  font-weight:bold;
   }
