@@ -5,25 +5,27 @@
 <title>AI Football 🤖 Predictions</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Monetag -->
+<!-- Monetag Rewarded SDK -->
 <script src="//libtl.com/sdk.js"
   data-zone="10317085"
   data-sdk="show_10317085"></script>
 
-<style>
+<!-- Monetag Vignette -->
+<script>(function(s){s.dataset.zone='10802441',s.src='https://izcle.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 
+<style>
 body{
   margin:0;
-  background:#061f18;
-  font-family:system-ui;
+  background:#0b3d2e;
+  font-family:system-ui, Arial;
   color:#fff;
 }
 
 header{
-  background:linear-gradient(90deg,#014421,#065f46);
-  padding:16px;
+  background:#014421;
+  padding:14px;
   text-align:center;
-  font-size:22px;
+  font-size:20px;
   font-weight:bold;
   border-bottom:2px solid #facc15;
 }
@@ -32,227 +34,468 @@ header{
 
 .card{
   background:#022c22;
-  border-radius:16px;
+  border-radius:12px;
   padding:16px;
-  margin-bottom:16px;
+  margin-bottom:14px;
   border:1px solid #14532d;
-  box-shadow:0 4px 10px rgba(0,0,0,0.4);
-  position:relative;
+  width:100%;          /* Full width */
+  text-align:center;   /* Center content */
+  box-sizing:border-box;
 }
 
-.hot{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:#ef4444;
-  padding:4px 8px;
-  font-size:11px;
-  border-radius:6px;
+.match{
+  font-size:16px;
+  font-weight:600;
 }
 
-.match{text-align:center;font-weight:bold;}
-.vs{color:#ef4444;}
-
-.status{text-align:center;margin-top:5px;}
-.live{color:#ef4444;}
-.upcoming{color:#facc15;}
-
-.live-dot{
-  width:8px;height:8px;background:red;border-radius:50%;
-  display:inline-block;animation:blink 1s infinite;
+.vs{
+  color:#dc2626;
+  font-weight:bold;
 }
 
-@keyframes blink{50%{opacity:0}}
-
-.odds{text-align:center;margin-top:6px;color:#22c55e;}
-
-.progress{
-  margin-top:10px;
-  background:#111;
-  border-radius:10px;
-  height:8px;
-  overflow:hidden;
-}
-
-.progress-bar{
-  height:100%;
-  background:#22c55e;
-  width:0%;
-  transition:1s;
+.countdown{
+  margin:8px 0;
+  font-size:13px;
+  color:#facc15;
+  font-weight:bold;
 }
 
 .prediction{
   display:none;
-  text-align:center;
-  margin-top:10px;
-  color:#facc15;
+  margin:10px 0;
   font-weight:bold;
+  color:#facc15;
+  font-size:20px;
+  animation: blink 5s ease-in-out infinite; /* slower blinking */
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
 }
 
 .buttons{
   display:flex;
   gap:10px;
-  margin-top:12px;
+  justify-content:center; /* Center buttons */
+  margin-top:10px;
 }
 
 .bet{
   flex:1;
+  max-width:150px;
   background:#16a34a;
-  padding:10px;
-  text-align:center;
-  border-radius:8px;
-  text-decoration:none;
   color:#fff;
+  padding:10px;
+  border-radius:6px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 .watch{
   flex:1;
+  max-width:150px;
   background:#facc15;
-  border:none;
-  border-radius:8px;
+  color:#000;
+  padding:10px;
+  border-radius:6px;
   font-weight:bold;
+  cursor:pointer;
 }
 
-/* POPUP WINNER */
-.popup{
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:#022c22;
-  padding:10px 14px;
-  border-radius:10px;
-  font-size:13px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.5);
-  animation:fadeInOut 6s infinite;
-}
-
-@keyframes fadeInOut{
-  0%{opacity:0;transform:translateY(20px)}
-  20%{opacity:1}
-  80%{opacity:1}
-  100%{opacity:0;transform:translateY(20px)}
-}
-
-/* ACTIVITY BAR */
-.activity{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#16a34a;
-  text-align:center;
+.tag{
+  display:inline-block;
   font-size:12px;
-  padding:4px;
+  padding:4px 8px;
+  border-radius:6px;
+  margin:6px auto 0;
 }
+
+.vip{background:#7c3aed; color:#fff;}
 
 </style>
 </head>
 
 <body>
 
-<div class="activity" id="activityBar">
-🔥 Someone just placed a bet...
-</div>
-
 <header>AI Football 🤖 Predictions</header>
 
-<div class="container">
+<!-- Blinking Powered By -->
+<div class="powered-by">
+  Powered by Grok Imagination
+</div>
+
+<style>
+header {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 14px;
+  color: #fff;
+}
+
+/* Blinking effect */
+.powered-by {
+  text-align: center;
+  font-size: 14px;
+  color: #ffd166;
+  margin-top: 6px;
+  animation: blink 2.5s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+</style>
+  
+  <div class="container"
+
+<!-- MATCHES START HERE -->
+<div class="match">
+  
+  <!-- MATCHES START -->
+
+<div class="card" style="width:100%; box-sizing:border-box;">
+  <div class="match">NEW CASTLE <span class="vs">VS</span> CHELSEA</div>
+  <div class="status ended">ENDED</div>
+  <div class="prediction">(FULL TIME DRAW)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/7533041">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+</div>
 
 <div class="card">
-<div class="hot">🔥 HOT</div>
-
-<div class="match">
-MAN CITY <span class="vs">VS</span> WEST HAM
+  <div class="match">REAL OVIEDO <span class="vs">VS</span> CELTA</div>
+  <div class="status ended">ENDED</div>
+  <div class="prediction">(1ST HALF DRAW)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/7461956">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
 </div>
 
-<div class="status live">
-<span class="live-dot"></span> LIVE
+<div class="card">
+  <div class="match">AUGSBURG <span class="vs">VS</span> WERDER BREMEN</div>
+  <div class="status live">LIVE</div>
+  <div class="prediction">(OVER 1.5 GOALS)</div>
+  <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/7533041">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
 </div>
 
-<div class="odds">💰 Odds: 2.45</div>
-
-<div class="progress">
-<div class="progress-bar" data-width="78%"></div>
+<div class="card">
+  <div class="match">COLOGNE <span class="vs">VS</span> UNION BERLIN</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(1ST HALF UNDER 2.5)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/8859017">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
 </div>
 
-<div class="prediction">HOME WIN (98%)</div>
-
-<div class="buttons">
-<a class="bet" href="https://omg10.com/4/8729428">BET NOW</a>
-<button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+<div class="card">
+  <div class="match">HAMBURGER <span class="vs">VS</span> EINTRACHT</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(DRAW OR AWAY)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/7461922">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
 </div>
+
+<div class="card">
+  <div class="match">STUTTGART <span class="vs">VS</span> HOFFENHEIM</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(HOME WIN 2UP)</div>
+  <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
 </div>
 
+<div class="card">
+  <div class="match">WOLFSBURG <span class="vs">VS</span> FREIBURB</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(HOME OR AWAY)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/8676459">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+</div>
+  
+<div class="card">
+  <div class="match">BOURNEMOUTH <span class="vs">VS</span> BURNLEY</div>
+  <div class="status live">LIVE</div>
+  <div class="prediction">(HOME WIN)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/9295877">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+<div class="card">
+  <div class="match">BRIGHTON <span class="vs">VS</span> SUNDERLAND</div>
+  <div class="status live">LIVE</div>
+  <div class="prediction">(OVER1.5 GOALS)</div>
+  <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+ <div class="card">
+
+  <div class="hot">🔥 HOT</div>
+
+  <div class="match">
+    MAN CITY <span class="vs">VS</span> WEST HAM
+  </div>
+
+  <div>
+    <span class="live-dot"></span> LIVE 65'
+  </div>
+
+  <div class="odds">
+    💰 Odds: 2.45
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar" style="width:78%"></div>
+  </div>
+
+  <div class="prediction">
+    HOME WIN (78%)
+  </div>
+
+  <div class="buttons">
+    <a class="bet" href="#">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">
+      SEE PREDICTION
+    </button>
+  </div>
+
+</div>
+  
+ <div class="card">
+  <div class="match">WOLVES <span class="vs">VS</span> BRENTFORD</div>
+  <div class="status live">LIVE</div>
+  <div class="prediction">(1ST HALF UNDER 2.5 GOALS)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/8642746">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+ <div class="card">
+  <div class="match">LEVENTE <span class="vs">VS</span> REAL SOCIEDAD</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(BTTS YES)</div>
+  <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+ <div class="card">
+  <div class="match">LAZIO <span class="vs">VS</span> CREMONESE</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(HANDICAP 0-2)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+ <div class="card">
+  <div class="match">TOTTENHAM <span class="vs">VS</span> LIVERPOOL</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(OVER 1.5 GOALS)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/8770744">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+ <div class="card">
+  <div class="match">OSASUNA <span class="vs">VS</span> ALAVES</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(HOME OR AWAY)</div>
+  <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+ <div class="card">
+  <div class="match">RB LEIPZIG <span class="vs">VS</span> BAYER LEVERKUSEN</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(1ST HALF OVER 0.5 GOALS)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/7461956">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+ <div class="card">
+  <div class="match">JUVENTUS <span class="vs">VS</span> ROMA</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(HOME WIN)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/8676459">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+ <div class="card">
+  <div class="match">EVERTON <span class="vs">VS</span> ARSENAL</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(OVER 2.5 GOALS)</div>
+  <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/7461956">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+ <div class="card">
+  <div class="match">LEEDS UNITED <span class="vs">VS</span> CRYSTAL PALACE</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(HOME WIN OR DRAW)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/8642746">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+
+ <div class="card">
+  <div class="match">REAL MADRID <span class="vs">VS</span> SEVILLA</div>
+  <div class="status upcoming">UPCOMING</div>
+  <div class="prediction">(HOME WIN)</div>
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/7533041">BET NOW</a>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
+  </div>
+ </div>
+  
+  <!-- CORRECT SCORES SECTION -->
+  
+<div class="card">
+  <div class="match">
+    TOTTENHAM <span class="vs">VS</span> LIVERPOOL
+  </div>
+
+  <div class="tag vip">
+    CORRECT SCORES
+  </div>
+
+  <div class="status upcoming">UPCOMING</div>  <!-- updated countdown -->
+
+  <div class="prediction">
+    1-1
+  </div>
+
+  <div class="odds">
+    Bet on 1xBet: 8odds
+  </div>
+
+  <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/7461922" target="_blank">
+      BET NOW
+    </a>
+    <button class="watch" onclick="unlockPrediction(this)">
+      UNLOCK
+    </button>
+  </div>
+</div>
+  
+  <!-- CORRECT SCORES SECTION -->
+  
+<div class="card">
+  <div class="match">
+    LAZIO <span class="vs">VS</span> CREMONESE
+  </div>
+
+  <div class="tag vip">
+    CORRECT SCORES
+  </div>
+
+  <div class="status upcoming">UPCOMING</div> <!-- updated countdown -->
+
+  <div class="prediction">
+    2-0
+  </div>
+
+  <div class="odds">
+    Bet on 1xBet: 8odds
+  </div>
+
+  <div class="buttons">
+    <a class="bet" href="https://otieu.com/4/7461922" target="_blank">
+      BET NOW
+    </a>
+    <button class="watch" onclick="unlockPrediction(this)">
+      UNLOCK
+    </button>
+  </div>
+</div>
+  
+  <!-- CORRECT SCORES SECTION -->
+
+<div class="card">
+  <div class="match">
+    MAN CITY <span class="vs">VS</span> WEST HAM
+  </div>
+
+  <div class="tag vip">
+    CORRECT SCORES
+  </div>
+
+  <div class="status upcoming">UPCOMING</div> <!-- updated countdown -->
+
+  <div class="prediction">
+    3-1
+  </div>
+
+  <div class="odds">
+    Bet on 1xBet: 10.61odds
+  </div>
+
+  <div class="buttons">
+    <a class="bet" href="https://omg10.com/4/9295877" target="_blank">
+      BET NOW
+    </a>
+    <button class="watch" disabled style="background:#6b7280;cursor:not-allowed;">
+MATCH ENDED
+    </button>
+    </button>
+  </div>
 </div>
 
-<!-- POPUP -->
-<div class="popup" id="popup">
-💰 John from Lagos just won ₦70,000
 </div>
 
 <script>
-
-/* FIXED UNLOCK (NO MORE ERROR) */
 function unlockPrediction(btn){
   const card = btn.closest('.card');
   const pred = card.querySelector('.prediction');
-  const bar = card.querySelector('.progress-bar');
 
-  btn.textContent = "Loading...";
+  btn.disabled = true;
+  btn.textContent = "LOADING AI...";
 
-  // Try ad but don't depend on it
-  try{
-    show_10317085().catch(()=>{});
-  }catch(e){}
-
-  setTimeout(()=>{
-    pred.style.display="block";
-    bar.style.width=bar.dataset.width;
-    btn.style.display="none";
-  },3000);
-}
-
-/* AUTO PROGRESS */
-window.onload = ()=>{
-  document.querySelectorAll('.progress-bar').forEach(bar=>{
+  show_10317085().then(()=>{
+    btn.textContent = "AI is analyzing match...";
     setTimeout(()=>{
-      bar.style.width = bar.dataset.width;
-    },1000);
+      pred.style.display = "block";
+      btn.style.display = "none";
+    }, 5000);
+  }).catch(()=>{
+    alert("Ad not available, try again.");
+    btn.disabled = false;
+    btn.textContent = "SEE PREDICTION";
   });
 }
-
-/* FAKE WINNER POPUP */
-const names = ["John","David","Michael","Samuel","Chris"];
-const cities = ["Lagos","Abuja","Port Harcourt","Ibadan"];
-const amounts = ["₦20,000","₦50,000","₦100,000"];
-
-setInterval(()=>{
-  const popup = document.getElementById("popup");
-  const name = names[Math.floor(Math.random()*names.length)];
-  const city = cities[Math.floor(Math.random()*cities.length)];
-  const amount = amounts[Math.floor(Math.random()*amounts.length)];
-
-  popup.textContent = `💰 ${name} from ${city} just won ${amount}`;
-},6000);
-
-/* ACTIVITY BAR */
-const activityText = [
-"🔥 2498 users viewing now",
-"⚡ 270 bets placed in last minute",
-"💰 High winning chance today",
-"📈 Odds increasing fast"
-];
-
-setInterval(()=>{
-  document.getElementById("activityBar").textContent =
-  activityText[Math.floor(Math.random()*activityText.length)];
-},4000);
-
-/* AUTO REFRESH */
-setTimeout(()=>{
-  location.reload();
-},1800000); // 30 mins
 
 </script>
 
 </body>
-</html>
+  </html>
