@@ -90,31 +90,29 @@ header{
 /* BUTTONS */
 .buttons{
   display:flex;
-  gap:8px;
+  gap:10px;
+  justify-content:center;
   margin-top:12px;
 }
 
-.bet, .live-btn{
+.bet{
   flex:1;
   background:#16a34a;
   padding:10px;
   border-radius:8px;
-  text-align:center;
   font-weight:bold;
   text-decoration:none;
-  color:#fff;
-  font-size:13px;
 }
 
 .watch{
   flex:1;
   background:#facc15;
   color:#000;
-  border:none;
+  padding:10px;
   border-radius:8px;
   font-weight:bold;
-  font-size:13px;
-  }
+  cursor:pointer;
+}
 
 .prediction{
   display:none;
@@ -122,4 +120,4 @@ header{
   color:#facc15;
   font-size:18px;
   font-weight:bold;
-  }
+}
