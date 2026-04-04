@@ -282,11 +282,12 @@ header{
 
 <script>
   let matchKey = "match_start_time_2"; // unique for this match
-  let startMinute = 0; // match just started
+  let startMinute = 12; // match is currently at 12'
 
   let startTime = localStorage.getItem(matchKey);
 
   if (!startTime) {
+    // Calculate the start timestamp so timer matches 12'
     startTime = Date.now() - (startMinute * 60 * 1000);
     localStorage.setItem(matchKey, startTime);
   }
@@ -318,7 +319,7 @@ header{
   }
 
   setInterval(updateMatchTime2, 1000);
-</script>
+      </script>
 
   <div class="odds">💰 Estimated Odds: 1.60</div>
 
