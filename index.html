@@ -1,22 +1,224 @@
-<div class="countdown-box">
-  ⚽ Weekend Matches Countdown  
-  <div id="countdown-timer">Loading...</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Football 🤖 Predictions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Monetag SDK -->
+<script src="//libtl.com/sdk.js"
+  data-zone="10317085"
+  data-sdk="show_10317085"></script>
+
+<script>(function(s){s.dataset.zone='10802441',s.src='https://izcle.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+<style>
+
+/* GENERAL */
+body{
+  margin:0;
+  background:#061f18;
+  font-family:system-ui;
+  color:#fff;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(90deg,#014421,#065f46);
+  padding:16px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+  border-bottom:2px solid #facc15;
+}
+
+.powered{
+  text-align:center;
+  font-size:13px;
+  color:#ffd166;
+  animation:blink 2s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0}
+}
+
+/* CONTAINER */
+.container{
+  padding:12px;
+}
+
+/* CARD */
+.card{
+  background:#022c22;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:16px;
+  border:1px solid #14532d;
+  box-shadow:0 4px 10px rgba(0,0,0,0.4);
+  position:relative;
+}
+
+/* HOT BADGE */
+.hot{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ef4444;
+  padding:4px 8px;
+  font-size:11px;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+/* MATCH */
+.match{
+  font-size:17px;
+  font-weight:600;
+  text-align:center;
+}
+
+.vs{
+  color:#ef4444;
+}
+
+/* STATUS */
+.status{
+  text-align:center;
+  margin-top:6px;
+  font-size:13px;
+}
+
+.live{
+  color:#ef4444;
+}
+
+.upcoming{
+  color:#facc15;
+}
+
+.ended{
+  color:#9ca3af;
+}
+
+/* LIVE DOT */
+.live-dot{
+  width:8px;
+  height:8px;
+  background:red;
+  border-radius:50%;
+  display:inline-block;
+  animation:liveBlink 1s infinite;
+}
+
+@keyframes liveBlink{
+  50%{opacity:0}
+}
+
+/* ODDS */
+.odds{
+  text-align:center;
+  margin-top:6px;
+  font-size:13px;
+  color:#22c55e;
+}
+
+/* PROGRESS BAR */
+.progress{
+  margin-top:10px;
+  background:#111;
+  border-radius:10px;
+  overflow:hidden;
+  height:8px;
+}
+
+.progress-bar{
+  height:100%;
+  background:#22c55e;
+  width:0%;
+  transition:1s;
+}
+
+/* PREDICTION */
+.prediction{
+  display:none;
+  margin-top:10px;
+  text-align:center;
+  color:#facc15;
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* BUTTONS */
+.buttons{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
+
+.bet{
+  flex:1;
+  background:#16a34a;
+  padding:10px;
+  border-radius:8px;
+  text-align:center;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.watch{
+  flex:1;
+  background:#facc15;
+  color:#000;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* VIP */
+.tag{
+  display:inline-block;
+  background:#7c3aed;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:6px;
+  margin-top:6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="countdown-wrapper">
+  <div class="countdown-box">
+    ⚽ Weekend Matches Countdown  
+    <div id="countdown-timer">Loading...</div>
+  </div>
 </div>
 
 <style>
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;   /* horizontal center */
+  align-items: center;       /* vertical center */
+  height: 60vh;              /* push to middle of screen */
+}
+
 .countdown-box {
   background: #111;
   color: #fff;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 15px 20px;
+  border-radius: 12px;
   text-align: center;
   font-weight: 500;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 
 #countdown-timer {
-  margin-top: 8px;
-  font-size: 18px;
+  margin-top: 10px;
+  font-size: 20px;
   font-weight: bold;
   color: #28a745;
 }
@@ -27,13 +229,12 @@ function getNextWeekend() {
   let now = new Date();
   let day = now.getDay();
 
-  // Days until Friday (5)
   let diff = 5 - day;
   if (diff < 0) diff += 7;
 
   let friday = new Date();
   friday.setDate(now.getDate() + diff);
-  friday.setHours(18, 0, 0, 0); // ⏰ Friday 6PM
+  friday.setHours(18, 0, 0, 0);
 
   return friday;
 }
