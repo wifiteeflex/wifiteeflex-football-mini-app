@@ -262,9 +262,19 @@ header{
   <div class="prediction">2-0 FULL TIME</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8859017">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH STARTED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -277,51 +287,42 @@ header{
 
   <div class="status live">
   <span class="live-dot"></span> 
-  <span id="match-status">LIVE</span>
+  <span class="live-text">LIVE</span> 
+  <span class="score">(0-0)</span>
 </div>
 
-<script>
-  let matchKey = "match_start_time";
+<style>
+.status.live {
+  color: red;
+  font-weight: bold;
+}
 
-  // If you want to start from 25 minutes (real match time)
-  let startMinute = 25;
+.live-dot {
+  height: 8px;
+  width: 8px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  animation: blink 1s infinite;
+}
 
-  let startTime = localStorage.getItem(matchKey);
+.live-text {
+  animation: blink 1s infinite;
+}
 
-  if (!startTime) {
-    // Calculate the start timestamp so that it matches 55'
-    startTime = Date.now() - (startMinute * 60 * 1000);
-    localStorage.setItem(matchKey, startTime);
-  }
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
-  function updateMatchTime() {
-    let now = Date.now();
-    let elapsedSeconds = Math.floor((now - startTime) / 1000);
-    let minute = Math.floor(elapsedSeconds / 60);
-
-    let statusText = "";
-
-    if (minute < 45) {
-      statusText = "LIVE " + minute + "'";
-    } 
-    else if (minute === 45) {
-      statusText = "HT";
-    } 
-    else if (minute > 45 && minute < 90) {
-      statusText = "LIVE " + minute + "'";
-    } 
-    else if (minute === 90) {
-      statusText = "FT";
-    } 
-    else {
-      statusText = "ENDED";
-    }
-
-    document.getElementById("match-status").innerText = statusText;
-  }
-
-  setInterval(updateMatchTime, 1000);
-</script>
+.score {
+  color: #fff;
+  margin-left: 5px;
+}
+</style>
+  
   <div class="odds">💰 Estimated Odds: 1.60</div>
 
   <div class="progress">
@@ -331,9 +332,19 @@ header{
   <div class="prediction">AWAY OVER 1.5 (100%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8859017">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH STARTED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
