@@ -263,7 +263,7 @@ header{
 
   <div class="buttons">
     <a class="bet" href="https://omg10.com/4/8859017">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">MATCH RESULTS</button>
+    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
   </div>
 
 </div>
@@ -299,7 +299,50 @@ header{
     Betis <span class="vs">VS</span> Espanyol
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status live">
+  <span class="live-dot"></span> 
+  <span id="match-status-2">LIVE</span>
+</div>
+
+<script>
+  let matchKey = "match_start_time_2"; // unique for this match
+  let startMinute = 0; // match just started
+
+  let startTime = localStorage.getItem(matchKey);
+
+  if (!startTime) {
+    startTime = Date.now() - (startMinute * 60 * 1000);
+    localStorage.setItem(matchKey, startTime);
+  }
+
+  function updateMatchTime2() {
+    let now = Date.now();
+    let elapsedSeconds = Math.floor((now - startTime) / 1000);
+    let minute = Math.floor(elapsedSeconds / 60);
+
+    let statusText = "";
+
+    if (minute < 45) {
+      statusText = "LIVE " + minute + "'";
+    } 
+    else if (minute === 45) {
+      statusText = "HT";
+    } 
+    else if (minute > 45 && minute < 90) {
+      statusText = "LIVE " + minute + "'";
+    } 
+    else if (minute === 90) {
+      statusText = "FT";
+    } 
+    else {
+      statusText = "ENDED";
+    }
+
+    document.getElementById("match-status-2").innerText = statusText;
+  }
+
+  setInterval(updateMatchTime2, 1000);
+</script>
 
   <div class="odds">💰 Estimated Odds: 1.83</div>
 
