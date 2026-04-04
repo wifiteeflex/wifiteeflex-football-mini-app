@@ -277,23 +277,24 @@ header{
 
   <div class="status live">
   <span class="live-dot"></span> 
-  <span id="match-status-2">LIVE</span>
+  <span id="match-status">LIVE</span>
 </div>
 
 <script>
-  let matchKey = "match_start_time_2";
-  let startMinute = 15;
+  let matchKey = "match_start_time";
+
+  // If you want to start from 25 minutes (real match time)
+  let startMinute = 25;
 
   let startTime = localStorage.getItem(matchKey);
 
   if (!startTime) {
+    // Calculate the start timestamp so that it matches 55'
     startTime = Date.now() - (startMinute * 60 * 1000);
     localStorage.setItem(matchKey, startTime);
-  } else {
-    startTime = parseInt(startTime); // ✅ FIX: convert to number
   }
 
-  function updateMatchTime2() {
+  function updateMatchTime() {
     let now = Date.now();
     let elapsedSeconds = Math.floor((now - startTime) / 1000);
     let minute = Math.floor(elapsedSeconds / 60);
@@ -316,13 +317,11 @@ header{
       statusText = "ENDED";
     }
 
-    document.getElementById("match-status-2").innerText = statusText;
+    document.getElementById("match-status").innerText = statusText;
   }
 
-  updateMatchTime2(); // ✅ run immediately
-  setInterval(updateMatchTime2, 1000);
+  setInterval(updateMatchTime, 1000);
 </script>
-
   <div class="odds">💰 Estimated Odds: 1.60</div>
 
   <div class="progress">
