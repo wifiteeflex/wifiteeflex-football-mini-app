@@ -213,11 +213,14 @@ header{
 <script>
   let matchKey = "match_start_time";
 
+  // If you want to start from 55 minutes (real match time)
+  let startMinute = 60;
+
   let startTime = localStorage.getItem(matchKey);
 
   if (!startTime) {
-    // Start from 44 minutes
-    startTime = Date.now() - (43 * 60 * 1000);
+    // Calculate the start timestamp so that it matches 55'
+    startTime = Date.now() - (startMinute * 60 * 1000);
     localStorage.setItem(matchKey, startTime);
   }
 
