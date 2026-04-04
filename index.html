@@ -257,13 +257,25 @@ header{
   </div>
 
   <div class="prediction">HOME WIN (85%)</div>
+<script>
+  let matchStarted = true; // change to false if match not started
 
-  <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8859017">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  const btn = document.getElementById("action-btn");
 
-</div>
+  if (matchStarted) {
+    // Show LIVE score instead
+    btn.innerText = "⚽ LIVE 1 - 0";
+    btn.disabled = true;
+    btn.style.background = "#28a745"; // green
+    btn.style.color = "#fff";
+  } else {
+    // Keep prediction unlock
+    btn.innerText = "🔒 SEE PREDICTION";
+    btn.onclick = function () {
+      window.open("https://your-monetag-link.com", "_blank");
+    };
+  }
+</script>
 
 <!-- SECOND CARD -->
 <div class="card">
