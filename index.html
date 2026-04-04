@@ -206,44 +206,48 @@ header{
   </div>
 
    <div class="status live">
-  <span class="live-dot"></span> <span id="match-status">LIVE 16'</span>
+  <span class="live-dot"></span> 
+  <span id="match-status">LIVE</span>
 </div>
 
 <script>
-  let minute = 16;
-  let seconds = 0;
+  let matchKey = "match_start_time";
 
-  function updateMatchTime() {
-    seconds++;
+  let startTime = localStorage.getItem(matchKey);
 
-    if (seconds === 60) {
-      seconds = 0;
-      minute++;
-
-      let statusText = "";
-
-      if (minute < 45) {
-        statusText = "LIVE " + minute + "'";
-      } 
-      else if (minute === 45) {
-        statusText = "HT";
-      } 
-      else if (minute > 45 && minute < 90) {
-        statusText = "LIVE " + minute + "'";
-      } 
-      else if (minute === 90) {
-        statusText = "FT";
-      } 
-      else {
-        statusText = "ENDED";
-        clearInterval(timer); // stop timer
-      }
-
-      document.getElementById("match-status").innerText = statusText;
-    }
+  if (!startTime) {
+    // Start from 44 minutes
+    startTime = Date.now() - (44 * 60 * 1000);
+    localStorage.setItem(matchKey, startTime);
   }
 
-  let timer = setInterval(updateMatchTime, 1000);
+  function updateMatchTime() {
+    let now = Date.now();
+    let elapsedSeconds = Math.floor((now - startTime) / 1000);
+    let minute = Math.floor(elapsedSeconds / 60);
+
+    let statusText = "";
+
+    if (minute < 45) {
+      statusText = "LIVE " + minute + "'";
+    } 
+    else if (minute === 45) {
+      statusText = "HT";
+    } 
+    else if (minute > 45 && minute < 90) {
+      statusText = "LIVE " + minute + "'";
+    } 
+    else if (minute === 90) {
+      statusText = "FT";
+    } 
+    else {
+      statusText = "ENDED";
+    }
+
+    document.getElementById("match-status").innerText = statusText;
+  }
+
+  setInterval(updateMatchTime, 1000);
 </script>
 
   <div class="odds">💰 Estimated Odds: 1.62</div>
