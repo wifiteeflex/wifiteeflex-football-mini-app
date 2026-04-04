@@ -252,10 +252,58 @@ header{
   </div>
 
   <div class="status live">
+  <div class="status ended">
+  🏁 ENDED <span class="score">(2-1)</span> ❌ LOSE
+</div>
+
+<style>
+.status.ended {
+  color: #28a745; /* green = success */
+  font-weight: bold;
+}
+
+.score {
+  color: #fff;
+  margin: 0 5px;
+}
+</style>
+  
+  <div class="odds">💰 Estimated Odds: 1.60</div>
+
+  <div class="progress">
+    <div class="progress-bar" data-width="65%"></div>
+  </div>
+
+  <div class="prediction">AWAY OVER 1.5 (100%)</div>
+
+  <div class="buttons">
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH ENDED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
+
+</div>
+
+<!-- NEXT CARD -->
+<div class="card">
+
+  <div class="match">
+    Betis <span class="vs">VS</span> Espanyol
+  </div>
+
+  <div class="status live">
   <span class="live-dot"></span> 
   <span class="live-text">LIVE</span> 
-  <span class="score">(1-0)</span>
-  <span class="time">2nd half</span>
+  <span class="score">(0-0)</span>
 </div>
 
 <style>
@@ -289,14 +337,14 @@ header{
   margin-left: 5px;
 }
 </style>
-  
-  <div class="odds">💰 Estimated Odds: 1.60</div>
+
+  <div class="odds">💰 Estimated Odds: 1.83</div>
 
   <div class="progress">
     <div class="progress-bar" data-width="65%"></div>
   </div>
 
-  <div class="prediction">AWAY OVER 1.5 (100%)</div>
+  <div class="prediction">BTTS (YES)  (86%)</div>
 
   <div class="buttons">
   <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
@@ -312,30 +360,6 @@ header{
   cursor: not-allowed;
 }
 </style>
-
-</div>
-
-<!-- NEXT CARD -->
-<div class="card">
-
-  <div class="match">
-    Betis <span class="vs">VS</span> Espanyol
-  </div>
-
-  <div class="status upcoming">UPCOMING</div>
-
-  <div class="odds">💰 Estimated Odds: 1.83</div>
-
-  <div class="progress">
-    <div class="progress-bar" data-width="65%"></div>
-  </div>
-
-  <div class="prediction">BTTS (YES)  (86%)</div>
-
-  <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8676459">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
 
 </div>
 
@@ -372,7 +396,21 @@ header{
     Sassuolo <span class="vs">VS</span> Cagliari
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status ended">
+   ENDED <span class="score">(2-1)</span> 🏆 WON
+</div>
+
+<style>
+.status.ended {
+  color: #28a745; /* green = success */
+  font-weight: bold;
+}
+
+.score {
+  color: #fff;
+  margin: 0 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.36</div>
 
@@ -383,9 +421,19 @@ header{
   <div class="prediction">HOME OR AWAY (12)  (79%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH ENDED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -396,7 +444,43 @@ header{
     Verona <span class="vs">VS</span> Fiorentina
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status live">
+  <span class="live-dot"></span> 
+  <span class="live-text">LIVE</span> 
+  <span class="score">(0-0)</span>
+</div>
+
+<style>
+.status.live {
+  color: red;
+  font-weight: bold;
+}
+
+.live-dot {
+  height: 8px;
+  width: 8px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  animation: blink 1s infinite;
+}
+
+.live-text {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.score {
+  color: #fff;
+  margin-left: 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.26</div>
 
@@ -407,9 +491,19 @@ header{
   <div class="prediction">HANDICAP 0-1  (99%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH STARTED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -431,9 +525,19 @@ header{
   <div class="prediction">HOME WIN or OVER 2.5  (100%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH STARTING
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -444,7 +548,21 @@ header{
     Bayer Leverkusen <span class="vs">VS</span> Wolfsburg
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status ended">
+   ENDED <span class="score">(6-3)</span> 🏆 WON
+</div>
+
+<style>
+.status.ended {
+  color: #28a745; /* green = success */
+  font-weight: bold;
+}
+
+.score {
+  color: #fff;
+  margin: 0 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.43</div>
 
@@ -455,9 +573,19 @@ header{
   <div class="prediction">HOME WINS or GG  (79%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH ENDED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -468,7 +596,21 @@ header{
     Borussia M'gladbach <span class="vs">VS</span> Heidenheim
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status ended">
+   ENDED <span class="score">(2-2)</span> 🏆 WON
+</div>
+
+<style>
+.status.ended {
+  color: #28a745; /* green = success */
+  font-weight: bold;
+}
+
+.score {
+  color: #fff;
+  margin: 0 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.71</div>
 
@@ -479,9 +621,19 @@ header{
   <div class="prediction">BTTS (Yes)  (100%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH ENDED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -494,7 +646,21 @@ header{
     Freiburg <span class="vs">VS</span> Bayern Munich
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status ended">
+   ENDED <span class="score">(2-3)</span> 🏆 WON
+</div>
+
+<style>
+.status.ended {
+  color: #28a745; /* green = success */
+  font-weight: bold;
+}
+
+.score {
+  color: #fff;
+  margin: 0 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.26</div>
 
@@ -505,9 +671,19 @@ header{
   <div class="prediction">AWAY WINS or OVER 2.5  (83%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH ENDED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -544,7 +720,21 @@ header{
     Hoffenheim <span class="vs">VS</span> Mainz
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status ended">
+   ENDED <span class="score">(2-0)</span> 🏆 WON
+</div>
+
+<style>
+.status.ended {
+  color: #28a745; /* green = success */
+  font-weight: bold;
+}
+
+.score {
+  color: #fff;
+  margin: 0 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.76</div>
 
@@ -555,9 +745,19 @@ header{
   <div class="prediction">HOME WIN  (100%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH ENDED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+  </style>
 
 </div>
 
@@ -568,7 +768,21 @@ header{
     Werder Bremen <span class="vs">VS</span> RB Leipzig
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status ended">
+   ENDED <span class="score">(1-2)</span> 🏆 WON
+</div>
+
+<style>
+.status.ended {
+  color: #28a745; /* green = success */
+  font-weight: bold;
+}
+
+.score {
+  color: #fff;
+  margin: 0 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.69</div>
 
@@ -579,9 +793,19 @@ header{
   <div class="prediction">AWAY OVER 1.5  (90%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH ENDED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -603,9 +827,19 @@ header{
   <div class="prediction">GG or OVER 2.5  (79%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH STARTED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -616,7 +850,43 @@ header{
     Strasbourg <span class="vs">VS</span> Nice
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status live">
+  <span class="live-dot"></span> 
+  <span class="live-text">LIVE</span> 
+  <span class="score">(3-0)</span>
+</div>
+
+<style>
+.status.live {
+  color: red;
+  font-weight: bold;
+}
+
+.live-dot {
+  height: 8px;
+  width: 8px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  animation: blink 1s infinite;
+}
+
+.live-text {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.score {
+  color: #fff;
+  margin-left: 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.85</div>
 
@@ -627,9 +897,19 @@ header{
   <div class="prediction">HOME WIN (100%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH STARTED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -684,13 +964,25 @@ header{
 <!-- NEXT CARD -->
 <div class="card">
 
-  <div class="hot">🔥 HOT</div>
-
   <div class="match">
     Man City <span class="vs">VS</span> Liverpool
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status ended">
+   ENDED <span class="score">(3-0)</span> 🏆 WON
+</div>
+
+<style>
+.status.ended {
+  color: #28a745; /* green = success */
+  font-weight: bold;
+}
+
+.score {
+  color: #fff;
+  margin: 0 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.79</div>
 
@@ -701,9 +993,19 @@ header{
   <div class="prediction">HOME or OVER 2.5  (100%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH ENDED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
@@ -716,7 +1018,43 @@ header{
     Chelsea <span class="vs">VS</span> Port Vale
   </div>
 
-  <div class="status upcoming">UPCOMING</div>
+  <div class="status live">
+  <span class="live-dot"></span> 
+  <span class="live-text">LIVE</span> 
+  <span class="score">(1-0)</span>
+</div>
+
+<style>
+.status.live {
+  color: red;
+  font-weight: bold;
+}
+
+.live-dot {
+  height: 8px;
+  width: 8px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  animation: blink 1s infinite;
+}
+
+.live-text {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.score {
+  color: #fff;
+  margin-left: 5px;
+}
+</style>
 
   <div class="odds">💰 Estimated Odds: 1.29</div>
 
@@ -727,9 +1065,19 @@ header{
   <div class="prediction">1st HALF HOME WIN  (100%)</div>
 
   <div class="buttons">
-    <a class="bet" href="https://omg10.com/4/8659455">BET NOW</a>
-    <button class="watch" onclick="unlockPrediction(this)">SEE PREDICTION</button>
-  </div>
+  <a class="bet disabled" href="javascript:void(0)">BET NOW</a>
+  <button class="watch disabled" disabled>
+    🔒 MATCH STARTED
+  </button>
+</div>
+
+<style>
+.disabled {
+  pointer-events: none; /* ❌ no clicks */
+  opacity: 0.5;         /* faded look */
+  cursor: not-allowed;
+}
+</style>
 
 </div>
 
