@@ -1,94 +1,55 @@
 <div class="match-card">
 
-  <div class="top-row">
-
-    <div class="top-left">
-      <div class="status upcoming">
-        🕒 UPCOMING
-      </div>
-
-      <div class="league">
-        🇪🇸 La Liga
-      </div>
+  <!-- Header -->
+  <div class="card-header">
+    <div class="upcoming">
+      <span>🕒 UPCOMING</span>
+      <span class="league">🇪🇸 La Liga</span>
     </div>
-
-    <div class="menu">
-      ⋮
-    </div>
-
   </div>
 
-  <!-- MATCH AREA -->
-
-  <div class="teams-wrapper">
-
-    <!-- TEAM 1 -->
-    <div class="team-box">
-
-      <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Real_Sociedad_logo.svg"
-      class="team-logo">
-
-      <div class="team-name">
-        Mallorca
-      </div>
-
+  <!-- Teams -->
+  <div class="match-row">
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/8/8b/RCD_Mallorca_logo.svg" 
+           class="team-logo" alt="Mallorca">
+      <div class="team-name">Mallorca</div>
     </div>
 
-    <!-- CENTER -->
-    <div class="center-box">
-
-      <div class="vs">
-        VS
-      </div>
-
+    <div class="center">
+      <div class="vs">VS</div>
       <div class="odds-box">
         <span>Odds</span>
         <strong>1.60</strong>
       </div>
-
     </div>
 
-    <!-- TEAM 2 -->
-    <div class="team-box">
-
-      <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg"
-      class="team-logo">
-
-      <div class="team-name">
-        Real Madrid
-      </div>
-
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Real_Madrid_CF.svg" 
+           class="team-logo" alt="Real Madrid">
+      <div class="team-name">Real Madrid</div>
     </div>
-
   </div>
 
-  <!-- CONFIDENCE -->
-
-  <div class="confidence-wrapper">
-
-    <div class="confidence-top">
+  <!-- AI Confidence -->
+  <div class="confidence">
+    <div class="confidence-bar-container">
       <span>AI Confidence</span>
-      <span class="percent">62%</span>
+      <div class="confidence-bar">
+        <div class="confidence-fill" style="width: 62%;"></div>
+      </div>
+      <span class="confidence-percent">62%</span>
     </div>
-
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
-    </div>
-
   </div>
 
-  <!-- BUTTONS -->
-
+  <!-- Buttons -->
   <div class="buttons">
-
-    <a href="https://omg10.com/4/8859017" class="bet-btn">
-      ↗ BET NOW
+    <a class="bet-btn" href="https://omg10.com/4/8859017">
+      ↑ BET NOW
     </a>
-
-    <button class="predict-btn">
+    <button class="predict-btn" onclick="unlockPrediction(this)">
       🔒 SEE PREDICTION
     </button>
-
   </div>
 
-</div>
+        </div>
