@@ -2,304 +2,261 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AI Football 🤖 Predictions</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="//libtl.com/sdk.js" data-zone="10317085" data-sdk="show_10317085"></script>
-<script>(function(s){s.dataset.zone='10802441',s.src='https://izcle.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<title>AI Football Predictions</title>
 
 <style>
-  :root {
-    --bg: #0a1f1a;
-  }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    background: var(--bg);
-    font-family: system-ui, -apple-system, sans-serif;
-    color: #fff;
-    padding-bottom: 20px;
-  }
-
-  header {
-    padding: 12px 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #0a1f1a;
-    border-bottom: 1px solid #14532d;
-  }
-
-  .tabs {
-    display: flex;
-    background: #112c26;
-    margin: 10px 12px;
-    border-radius: 9999px;
-    padding: 4px;
-    overflow-x: auto;
-  }
-
-  .tab {
-    padding: 10px 16px;
-    border-radius: 9999px;
-    font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .tab.active {
-    background: #14532d;
-    color: white;
-  }
-
-  .container { padding: 0 12px; }
-
-  .card {
-    background: #112c26;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 16px;
-    position: relative;
-    border: 1px solid #1f3a32;
-  }
-
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-
-  .league {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-  }
-
-  .status {
-    font-size: 13px;
-    font-weight: bold;
-    padding: 4px 10px;
-    border-radius: 6px;
-  }
-
-  .live { background: #ef4444; }
-  .upcoming { background: #eab308; color: black; }
-
-  .hot {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: #ef4444;
-    color: white;
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 4px;
-  }
-
-  .vip {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #7c3aed;
-    color: white;
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 6px;
-  }
-
-  .match-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 12px 0;
-  }
-
-  .team {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 33%;
-  }
-
-  .team-logo {
-    width: 68px;
-    height: 68px;
-    object-fit: contain;
-  }
-
-  .team-name {
-    font-size: 14px;
-    margin-top: 8px;
-    text-align: center;
-    line-height: 1.2;
-  }
-
-  .center {
-    text-align: center;
-    position: relative;
-    width: 34%;
-  }
-
-  .vs {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ef4444;
-  }
-
-  .odds {
-    background: #1f3a32;
-    padding: 4px 12px;
-    border-radius: 8px;
-    font-size: 13px;
-    margin: 6px auto;
-    display: inline-block;
-  }
-
-  .confidence {
-    margin-top: 12px;
-  }
-
-  .confidence-bar-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .confidence-bar {
-    flex: 1;
-    height: 8px;
-    background: #1f3a32;
-    border-radius: 9999px;
-    overflow: hidden;
-  }
-
-  .confidence-fill {
-    height: 100%;
-    background: #22c55e;
-    width: 0%;
-    transition: width 1.5s ease;
-  }
-
-  .confidence-percent {
-    font-size: 15px;
-    font-weight: 600;
-    min-width: 42px;
-  }
-
-  .ai-prediction {
-    background: #1a2f28;
-    border-radius: 10px;
-    padding: 10px 12px;
-    margin: 12px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 15px;
-  }
-
-  .buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 12px;
-  }
-
-  .bet-btn {
-    flex: 1;
-    background: #16a34a;
-    color: white;
-    padding: 14px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .predict-btn {
-    flex: 1;
-    background: #facc15;
-    color: black;
-    padding: 14px;
-    border-radius: 10px;
-    border: none;
-    font-weight: 700;
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <span>☰</span>
-  <strong>AI Football 🤖 Predictions</strong>
-  <span>🔔</span>
-</header>
-
-<div style="text-align:center; background:#112c26; color:#22c55e; padding:8px 0; font-size:13.5px;">
-  ● Powered by AI Engine
-</div>
-
-<div class="tabs">
-  <div class="tab active">⚽ All Matches</div>
-  <div class="tab">🔴 Live</div>
-  <div class="tab">⏰ Upcoming</div>
-  <div class="tab">👑 VIP Picks</div>
-</div>
-
-<div class="container">
-
-  <!-- LIVE -->
-  <div class="card">
-    <div class="hot">🔥 HOT</div>
-    <div class="card-header">
-      <div class="league">🇪🇸 La Liga</div>
-      <div class="status live">LIVE 15'</div>
-    </div>
-
-    <div class="match-row">
-      <div class="team">
-        <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Real_Sociedad_logo.svg" class="team-logo">
-        <div class="team-name">Real Sociedad</div>
-      </div>
-      <div class="center">
-        <div class="odds">Odds <strong>1.62</strong></div>
-        <div class="vs">VS</div>
-      </div>
-      <div class="team">
-        <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Levante_UD_logo.svg" class="team-logo">
-        <div class="team-name">Levante</div>
-      </div>
-    </div>
-
-    <div class="confidence">
-      <div class="confidence-bar-container">
-        <span>AI Confidence</span>
-        <div class="confidence-bar"><div class="confidence-fill" data-width="65%"></div></div>
-        <span class="confidence-percent">65%</span>
-      </div>
-    </div>
-
-    <div class="buttons">
-      <a class="bet-btn" href="https://omg10.com/4/8859017">↑ BET NOW</a>
-      <button class="predict-btn" onclick="unlockPrediction(this)">🔒 SEE PREDICTION</button>
-    </div>
-  </div>
-
-  <!-- Add other cards similarly. Tell me if you want me to expand all of them. -->
-
-</div>
-
-<script>
-function unlockPrediction(btn) {
-  alert("Prediction unlocked (Demo)");
-  // Add your ad logic here
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-window.onload = () => {
-  document.querySelectorAll('.confidence-fill').forEach(bar => {
-    bar.style.width = bar.dataset.width;
-  });
-};
-</script>
-</body>
-  </html>
+body{
+background:#001d16;
+color:#fff;
+}
+
+/* HEADER */
+
+.topbar{
+background:linear-gradient(180deg,#015c31,#012e1f);
+padding:20px 15px 15px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.title{
+font-size:28px;
+font-weight:800;
+line-height:1.2;
+}
+
+.powered{
+margin-top:8px;
+font-size:14px;
+color:#d1fae5;
+}
+
+.powered span{
+color:#00ff66;
+}
+
+/* TABS */
+
+.tabs{
+display:flex;
+justify-content:space-around;
+align-items:center;
+padding:14px 8px;
+background:#01271d;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.tab{
+color:#cbd5e1;
+font-size:15px;
+font-weight:600;
+}
+
+.active-tab{
+color:#00ff66;
+border-bottom:3px solid #00ff66;
+padding-bottom:10px;
+}
+
+/* CONTAINER */
+
+.container{
+padding:12px;
+}
+
+/* CARD */
+
+.card{
+background:linear-gradient(180deg,#021f18,#01150f);
+border-radius:24px;
+padding:15px;
+margin-bottom:18px;
+border:1px solid rgba(0,255,100,.12);
+box-shadow:0 0 20px rgba(0,255,120,.06);
+}
+
+/* CARD TOP */
+
+.card-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+}
+
+.left-info{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.live{
+background:#dc2626;
+padding:6px 10px;
+border-radius:10px;
+font-size:13px;
+font-weight:700;
+}
+
+.upcoming{
+color:#facc15;
+font-weight:700;
+font-size:15px;
+}
+
+.league{
+color:#d1d5db;
+font-size:14px;
+}
+
+.hot{
+background:#ea580c;
+padding:6px 10px;
+border-radius:10px;
+font-size:13px;
+font-weight:700;
+}
+
+/* TEAMS */
+
+.match-area{
+display:flex;
+justify-content:space-between;
+align-items:center;
+text-align:center;
+margin-top:10px;
+}
+
+.team{
+width:35%;
+}
+
+.team img{
+width:85px;
+height:85px;
+object-fit:contain;
+}
+
+.team-name{
+margin-top:8px;
+font-size:16px;
+font-weight:700;
+}
+
+/* CENTER */
+
+.center{
+width:30%;
+}
+
+.minute{
+color:#00ff66;
+font-size:24px;
+font-weight:800;
+}
+
+.vs{
+font-size:40px;
+font-weight:900;
+margin:5px 0;
+}
+
+.odds-box{
+background:#06281d;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+padding:10px;
+width:90px;
+margin:auto;
+}
+
+.odds-box span{
+display:block;
+font-size:14px;
+color:#d1d5db;
+}
+
+.odds-box strong{
+font-size:18px;
+color:#00ff66;
+}
+
+/* CONFIDENCE */
+
+.confidence{
+margin-top:18px;
+}
+
+.conf-top{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+font-size:15px;
+}
+
+.progress{
+height:10px;
+background:#0f172a;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+background:linear-gradient(90deg,#00ff66,#22c55e);
+border-radius:20px;
+}
+
+/* BUTTONS */
+
+.buttons{
+display:flex;
+gap:12px;
+margin-top:18px;
+}
+
+.bet-btn{
+flex:1;
+background:linear-gradient(90deg,#0d7a38,#16a34a);
+padding:15px;
+border-radius:14px;
+text-align:center;
+font-size:16px;
+font-weight:800;
+text-decoration:none;
+color:#fff;
+}
+
+.predict-btn{
+flex:1;
+background:#facc15;
+border:none;
+border-radius:14px;
+font-size:16px;
+font-weight:800;
+}
+
+/* VIP */
+
+.vip-card{
+border:1px solid #9333ea;
+box-shadow:0 0 25px rgba(147,51,234,.25);
+}
+
+.vip-tag{
+background:#9333ea;
+padding:6px 12px;
+border-radius:10
