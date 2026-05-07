@@ -1,259 +1,146 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
 body{
-  background:#02150f;
+  margin:0;
+  background:#001f17;
   font-family:Arial,sans-serif;
-  color:#fff;
-  padding-bottom:40px;
-}
-
-header{
-  padding:20px 16px 10px;
-  text-align:center;
-  background:linear-gradient(to bottom,#03251b,#02150f);
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-
-header h1{
-  font-size:24px;
-  font-weight:800;
-}
-
-.powered{
-  color:#c4ffcb;
-  font-size:14px;
-  margin-top:6px;
-}
-
-.powered::before{
-  content:'●';
-  color:#00ff4c;
-  margin-right:6px;
-  animation:blink 1s infinite;
-}
-
-@keyframes blink{
-  50%{opacity:0.3}
-}
-
-.tabs{
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  background:#041d16;
-  margin:12px;
-  border-radius:18px;
-  padding:14px 8px;
-  border:1px solid #0d4737;
-}
-
-.tab{
-  color:#d1d5db;
-  font-size:15px;
-  font-weight:700;
-}
-
-.tab.active{
-  color:#00ff66;
-  border-bottom:3px solid #00ff66;
-  padding-bottom:8px;
-}
-
-.container{
-  padding:12px;
+  color:white;
 }
 
 .card{
-  background:linear-gradient(180deg,#031f18,#02110d);
+  background:#022c22;
   border-radius:24px;
   padding:18px;
-  margin-bottom:22px;
-  border:1px solid #0d4737;
-  box-shadow:0 0 20px rgba(0,255,100,0.08);
+  margin:18px;
+  border:1px solid rgba(0,255,120,.15);
+  box-shadow:0 0 20px rgba(0,255,100,.08);
 }
 
-.top-row{
+.card-top{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:16px;
-}
-
-.live-badge,
-.upcoming-badge,
-.vip-badge{
-  padding:7px 12px;
-  border-radius:10px;
-  font-size:13px;
-  font-weight:800;
+  margin-bottom:15px;
 }
 
 .live-badge{
   background:#c1121f;
-}
-
-.upcoming-badge{
-  background:#2a2a2a;
-  color:#ffd000;
-}
-
-.vip-badge{
-  background:#7c3aed;
+  padding:7px 14px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
 }
 
 .hot-badge{
   background:#ff7b00;
-  color:#fff;
-  padding:6px 12px;
+  padding:7px 14px;
   border-radius:10px;
   font-size:13px;
-  font-weight:800;
+  font-weight:bold;
 }
 
 .teams{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:10px;
   text-align:center;
-  margin-top:10px;
 }
 
 .team{
-  width:40%;
+  width:35%;
 }
 
 .team img{
-  width:74px;
-  height:74px;
+  width:90px;
+  height:90px;
   object-fit:contain;
 }
 
-.team-name{
-  margin-top:8px;
-  font-size:17px;
-  font-weight:800;
+.team h3{
+  font-size:21px;
+  margin-top:10px;
 }
 
-.center-box{
-  width:20%;
+.center-info{
+  width:30%;
   text-align:center;
 }
 
+.minute{
+  color:#00ff66;
+  font-size:28px;
+  font-weight:bold;
+}
+
 .vs{
-  font-size:26px;
-  font-weight:900;
+  font-size:42px;
+  font-weight:bold;
   margin:8px 0;
 }
 
-.match-time{
-  color:#00ff5e;
-  font-size:22px;
-  font-weight:800;
-}
-
 .odds-box{
-  border:2px solid #163f31;
-  border-radius:14px;
-  padding:10px 0;
-  margin-top:10px;
-  background:#061d15;
+  background:#06281d;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;
+  padding:10px;
 }
 
-.odds-title{
-  color:#ffd000;
+.odds-box span{
+  display:block;
+  color:#aaa;
   font-size:14px;
 }
 
-.odds-value{
+.odds-box strong{
   color:#00ff66;
-  font-size:20px;
-  font-weight:900;
+  font-size:28px;
 }
 
-.progress-wrap{
-  margin-top:18px;
-}
-
-.progress-text{
+.confidence-row{
   display:flex;
   justify-content:space-between;
-  margin-bottom:8px;
-  color:#d1d5db;
-  font-size:14px;
+  margin-top:20px;
+  font-size:16px;
 }
 
 .progress{
-  width:100%;
   height:12px;
-  background:#0f1f1a;
+  background:#111;
   border-radius:20px;
   overflow:hidden;
+  margin-top:10px;
 }
 
 .progress-bar{
+  width:65%;
   height:100%;
-  background:linear-gradient(90deg,#00ff66,#16a34a);
+  background:linear-gradient(90deg,#00ff66,#32ff7e);
   border-radius:20px;
-}
-
-.prediction-box{
-  margin-top:18px;
-  background:#06271d;
-  border:1px solid #0d4737;
-  border-radius:16px;
-  padding:14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.prediction-left{
-  color:#00ff66;
-  font-weight:800;
-}
-
-.prediction-main{
-  color:#ffd000;
-  font-size:18px;
-  font-weight:900;
-}
-
-.prediction-percent{
-  color:#00ff66;
-  font-size:18px;
-  font-weight:900;
 }
 
 .buttons{
   display:flex;
-  gap:14px;
-  margin-top:18px;
+  gap:15px;
+  margin-top:20px;
 }
 
-.bet,
-.watch{
+.bet-btn{
   flex:1;
-  text-align:center;
-  padding:16px;
-  border-radius:14px;
+  background:linear-gradient(90deg,#0f9b3d,#1ed760);
+  color:white;
   text-decoration:none;
-  font-size:18px;
-  font-weight:900;
+  padding:18px;
+  border-radius:16px;
+  font-size:22px;
+  font-weight:bold;
+  text-align:center;
 }
 
-.bet{
-  background:linear-gradient(90deg,#0f7d36,#19c15a);
-  color:#fff;
-}
-
-.watch{
-  background:#ffd21f;
-  color:#000;
+.predict-btn{
+  flex:1;
+  background:#ffd60a;
   border:none;
-  }
+  border-radius:16px;
+  font-size:22px;
+  font-weight:bold;
+  padding:18px;
+}
