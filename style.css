@@ -1,209 +1,263 @@
-/* ===== MOBILE FIXED MATCH CARD ===== */
+Style
 
-body{
+
+
+*{
   margin:0;
   padding:0;
-  background:#021812;
+  box-sizing:border-box;
+}
+
+body{
+  background:#02150f;
   font-family:Arial,sans-serif;
   color:#fff;
+  padding-bottom:40px;
 }
 
-/* CARD */
+header{
+  padding:20px 16px 10px;
+  text-align:center;
+  background:linear-gradient(to bottom,#03251b,#02150f);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+header h1{
+  font-size:24px;
+  font-weight:800;
+}
+
+.powered{
+  color:#c4ffcb;
+  font-size:14px;
+  margin-top:6px;
+}
+
+.powered::before{
+  content:'●';
+  color:#00ff4c;
+  margin-right:6px;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0.3}
+}
+
+.tabs{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  background:#041d16;
+  margin:12px;
+  border-radius:18px;
+  padding:14px 8px;
+  border:1px solid #0d4737;
+}
+
+.tab{
+  color:#d1d5db;
+  font-size:15px;
+  font-weight:700;
+}
+
+.tab.active{
+  color:#00ff66;
+  border-bottom:3px solid #00ff66;
+  padding-bottom:8px;
+}
+
+.container{
+  padding:12px;
+}
+
 .card{
-  position:relative;
-  background:linear-gradient(180deg,#041f1a,#02110d);
-  border:1px solid rgba(0,255,120,.12);
+  background:linear-gradient(180deg,#031f18,#02110d);
   border-radius:24px;
   padding:18px;
-  margin:14px;
-  overflow:hidden;
-  box-shadow:0 0 18px rgba(0,255,120,.08);
+  margin-bottom:22px;
+  border:1px solid #0d4737;
+  box-shadow:0 0 20px rgba(0,255,100,0.08);
 }
 
-/* TOP */
-.card-header{
+.top-row{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:18px;
+  margin-bottom:16px;
 }
 
-.left-info{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:14px;
-  color:#d4d4d4;
+.live-badge,
+.upcoming-badge,
+.vip-badge{
+  padding:7px 12px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:800;
 }
 
-.status{
-  color:#ffcc00;
-  font-weight:700;
-  font-size:14px;
+.live-badge{
+  background:#c1121f;
 }
 
-.hot{
-  background:#ff6b00;
+.upcoming-badge{
+  background:#2a2a2a;
+  color:#ffd000;
+}
+
+.vip-badge{
+  background:#7c3aed;
+}
+
+.hot-badge{
+  background:#ff7b00;
   color:#fff;
-  font-size:12px;
-  font-weight:700;
-  padding:7px 14px;
-  border-radius:12px;
+  padding:6px 12px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:800;
 }
 
-/* MATCH ROW */
-.match-row{
+.teams{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:10px;
-}
-
-/* TEAM */
-.team{
-  width:35%;
+  align-items:center;
   text-align:center;
+  margin-top:10px;
 }
 
-.team-logo{
-  width:78px;
-  height:78px;
+.team{
+  width:40%;
+}
+
+.team img{
+  width:74px;
+  height:74px;
   object-fit:contain;
-  display:block;
-  margin:auto;
 }
 
 .team-name{
-  margin-top:10px;
-  font-size:19px;
-  font-weight:700;
-  line-height:1.2;
+  margin-top:8px;
+  font-size:17px;
+  font-weight:800;
 }
 
-/* CENTER */
-.center{
-  width:30%;
+.center-box{
+  width:20%;
   text-align:center;
 }
 
 .vs{
-  font-size:40px;
+  font-size:26px;
   font-weight:900;
-  margin-bottom:10px;
+  margin:8px 0;
+}
+
+.match-time{
+  color:#00ff5e;
+  font-size:22px;
+  font-weight:800;
 }
 
 .odds-box{
-  background:#081f18;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:16px;
-  padding:10px;
+  border:2px solid #163f31;
+  border-radius:14px;
+  padding:10px 0;
+  margin-top:10px;
+  background:#061d15;
 }
 
 .odds-title{
-  color:#cfcfcf;
+  color:#ffd000;
   font-size:14px;
 }
 
 .odds-value{
-  color:#1fff75;
-  font-size:34px;
-  font-weight:800;
-  margin-top:4px;
+  color:#00ff66;
+  font-size:20px;
+  font-weight:900;
 }
 
-/* CONFIDENCE */
-.confidence-wrapper{
-  margin-top:20px;
+.progress-wrap{
+  margin-top:18px;
 }
 
-.confidence-top{
+.progress-text{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-  font-size:15px;
-}
-
-.percent{
-  color:#24ff75;
-  font-weight:700;
+  margin-bottom:8px;
+  color:#d1d5db;
+  font-size:14px;
 }
 
 .progress{
   width:100%;
-  height:14px;
-  background:#07100d;
+  height:12px;
+  background:#0f1f1a;
   border-radius:20px;
   overflow:hidden;
 }
 
 .progress-bar{
-  width:65%;
   height:100%;
+  background:linear-gradient(90deg,#00ff66,#16a34a);
   border-radius:20px;
-  background:linear-gradient(90deg,#00ff66,#1aff7a);
 }
 
-/* BUTTONS */
+.prediction-box{
+  margin-top:18px;
+  background:#06271d;
+  border:1px solid #0d4737;
+  border-radius:16px;
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.prediction-left{
+  color:#00ff66;
+  font-weight:800;
+}
+
+.prediction-main{
+  color:#ffd000;
+  font-size:18px;
+  font-weight:900;
+}
+
+.prediction-percent{
+  color:#00ff66;
+  font-size:18px;
+  font-weight:900;
+}
+
 .buttons{
   display:flex;
   gap:14px;
-  margin-top:20px;
+  margin-top:18px;
 }
 
-.bet-btn{
+.bet,
+.watch{
   flex:1;
-  background:linear-gradient(90deg,#0b8f38,#20d45f);
-  color:#fff;
-  text-decoration:none;
   text-align:center;
-  padding:18px 10px;
-  border-radius:16px;
-  font-size:22px;
-  font-weight:800;
+  padding:16px;
+  border-radius:14px;
+  text-decoration:none;
+  font-size:18px;
+  font-weight:900;
 }
 
-.predict-btn{
-  flex:1;
+.bet{
+  background:linear-gradient(90deg,#0f7d36,#19c15a);
+  color:#fff;
+}
+
+.watch{
   background:#ffd21f;
-  border:none;
-  border-radius:16px;
-  font-size:22px;
-  font-weight:800;
   color:#000;
-  padding:18px 10px;
-}
-
-/* MOBILE FIX */
-@media(max-width:480px){
-
-  .card{
-    padding:16px;
-    margin:10px;
-    border-radius:22px;
-  }
-
-  .team-logo{
-    width:70px;
-    height:70px;
-  }
-
-  .team-name{
-    font-size:16px;
-  }
-
-  .vs{
-    font-size:34px;
-  }
-
-  .odds-value{
-    font-size:28px;
-  }
-
-  .bet-btn,
-  .predict-btn{
-    font-size:18px;
-    padding:16px 8px;
-  }
-
+  border:none;
   }
