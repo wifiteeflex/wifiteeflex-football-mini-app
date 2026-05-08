@@ -18,11 +18,8 @@
         margin: 0 auto;
     }
 
-    header, .powered, .tabs {
-        background: #0f1a22;
-    }
-
     header {
+        background: #0f1a22;
         padding: 12px 16px;
         display: flex;
         align-items: center;
@@ -33,29 +30,43 @@
     .header-title {
         font-size: 21px;
         font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .tabs {
         display: flex;
+        background: #0f1a22;
         border-bottom: 1px solid #1f2a38;
+        overflow-x: auto;
     }
 
     .tab {
         padding: 14px 18px;
         color: #94a3b8;
         font-weight: 600;
+        white-space: nowrap;
     }
 
-    .tab.active { color: white; border-bottom: 3px solid #00ff85; }
+    .tab.active {
+        color: white;
+        border-bottom: 3px solid #00ff85;
+    }
 
     .powered {
-        padding: 9px;
+        background: #0f1a22;
+        padding: 8px;
         text-align: center;
         color: #00ff85;
         font-size: 14.5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
     }
 
-    /* MATCH CARD - EXACT STYLE */
+    /* CARD */
     .card {
         background: #11191f;
         margin: 12px;
@@ -65,109 +76,137 @@
     }
 
     .card-header {
-        padding: 12px 16px;
-        background: #1a2530;
         display: flex;
         align-items: center;
-        gap: 10px;
+        padding: 10px 16px;
+        background: #1a2530;
         font-size: 14px;
         font-weight: 600;
     }
 
+    .live-badge {
+        background: #ef4444;
+        color: white;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .hot-badge {
+        background: #f97316;
+        color: white;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-left: auto;
+    }
+
+    .vip-badge {
+        background: linear-gradient(90deg, #7c3aed, #a855f7);
+        color: white;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
     .match-body {
-        padding: 24px 20px 20px;
+        padding: 20px 16px 16px;
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        position: relative;
     }
 
     .team {
         text-align: center;
-        flex: 1;
+        width: 110px;
     }
 
     .team-logo {
-        width: 68px;
-        height: 68px;
+        width: 62px;
+        height: 62px;
         border-radius: 50%;
-        margin: 0 auto 10px;
+        margin: 0 auto 8px;
         background: #1f2a38;
-        border: 3px solid #334155;
+        border: 2px solid #334155;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 34px;
+        font-size: 32px;
+    }
+
+    .vs-container {
+        position: absolute;
+        left: 50%;
+        top: 45px;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 10;
     }
 
     .vs {
-        font-size: 26px;
-        font-weight: 800;
+        font-size: 18px;
+        font-weight: bold;
         color: #64748b;
-        position: absolute;
-        left: 50%;
-        top: 48px;
-        transform: translateX(-50%);
         background: #11191f;
-        padding: 0 16px;
+        padding: 4px 14px;
+        border-radius: 8px;
     }
 
     .odds {
-        position: absolute;
-        left: 50%;
-        top: 105px;
-        transform: translateX(-50%);
         background: #1f2a38;
-        color: #22c55e;
-        padding: 6px 18px;
-        border-radius: 10px;
-        font-size: 15px;
-        font-weight: 700;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        margin-top: 6px;
     }
 
     .confidence {
-        padding: 0 20px 18px;
+        padding: 0 16px 16px;
     }
 
     .confidence-label {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 8px;
-        font-size: 14px;
+        font-size: 13.5px;
+        margin-bottom: 6px;
     }
 
-    .progress-bg {
-        height: 8px;
+    .progress-bar-bg {
+        height: 7px;
         background: #1f2a38;
         border-radius: 999px;
         overflow: hidden;
     }
 
-    .progress {
+    .progress-bar {
         height: 100%;
         background: linear-gradient(90deg, #00ff85, #22c55e);
-        width: 62%;
+        border-radius: 999px;
     }
 
     .buttons {
         display: flex;
-        gap: 12px;
-        padding: 0 16px 18px;
+        gap: 10px;
+        padding: 0 16px 16px;
     }
 
     .btn {
         flex: 1;
-        padding: 15px 20px;
+        padding: 15px;
         border-radius: 12px;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 15.5px;
         text-align: center;
         cursor: pointer;
     }
 
     .btn-bet {
-        background: #22c55e;
+        background: #00ff85;
         color: #000;
     }
 
@@ -175,60 +214,120 @@
         background: #eab308;
         color: #000;
     }
+
+    .prediction-box {
+        background: #052e16;
+        padding: 14px 16px;
+        color: #00ff85;
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #1f2a38;
+    }
 </style>
 </head>
 
 <body>
 
 <header>
-    <div>☰</div>
+    <i class="fas fa-bars" style="font-size:24px"></i>
     <div class="header-title">AI Football 🤖 Predictions</div>
-    <div>🛎️</div>
+    <i class="fas fa-bell" style="font-size:24px"></i>
 </header>
 
-<div class="powered">● Powered by AI Engine</div>
-
-<div class="tabs">
-    <div class="tab active">All Matches</div>
-    <div class="tab">Live</div>
-    <div class="tab">Upcoming</div>
-    <div class="tab">VIP Picks</div>
+<div class="powered">
+    <span style="color:#00ff85">●</span> Powered by AI Engine
 </div>
 
-<!-- EXACT MATCH CARD LIKE YOUR IMAGE -->
+<div class="tabs">
+
+  <a class="tab active" href="https://omg10.com/4/8659455">
+    All Matches
+  </a>
+
+  <a class="tab" href="https://omg10.com/4/8859017">
+    Live
+  </a>
+
+  <a class="tab" href="https://omg10.com/4/8729428">
+    Upcoming
+  </a>
+
+  <a class="tab" href="https://omg10.com/4/8642746">
+    VIP Picks
+  </a>
+
+  <a class="tab" href="https://omg10.com/4/7533041">
+    Ended
+  </a>
+
+  <a class="tab" href="https://omg10.com/4/7461956">
+    Exclusive odds
+  </a>
+
+  <a class="tab" href="https://omg10.com/4/7461922">
+    Vote now
+  </a>
+
+  <a class="tab" href="https://omg10.com/4/8676459">
+    Comment
+  </a>
+
+  <a class="tab" href="https://omg10.com/4/9295877">
+    Next prediction
+  </a>
+
+</div>
+
+<!-- Example Card 1 - LIVE -->
 <div class="card">
     <div class="card-header">
-        <span>⏰ UPCOMING</span>
-        <span>🇪🇸 La Liga</span>
+        <span class="live-badge">LIVE</span>
+        <span style="margin-left:10px">🇪🇸 La Liga</span>
+        <span class="hot-badge">HOT</span>
     </div>
 
     <div class="match-body">
-        <!-- Left Team -->
-        <div class="team">
-            <div class="team-logo">🏴</div>
-            <div>Mallorca</div>
-        </div>
 
-        <!-- VS & Odds -->
-        <div>
+    <div class="team">
+
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/en/f/f1/Real_Sociedad_logo.svg"
+          alt="Real Sociedad Logo"
+          style="
+            width:80px;
+            height:80px;
+            object-fit:contain;
+            display:block;
+            margin:auto;
+          "
+        >
+
+        <div>Real Sociedad</div>
+
+    </div>
+
+</div>
+        
+        <div class="vs-container">
             <div class="vs">VS</div>
-            <div class="odds">Odds <strong>1.60</strong></div>
+            <div class="odds">Odds <strong>1.62</strong></div>
         </div>
 
-        <!-- Right Team -->
         <div class="team">
-            <div class="team-logo">👑</div>
-            <div>Real Madrid</div>
+            <div class="team-logo">🛡️</div>
+            <div>Levante</div>
         </div>
     </div>
 
     <div class="confidence">
         <div class="confidence-label">
             <span>AI Confidence</span>
-            <span><strong>62%</strong></span>
+            <span><strong>65%</strong></span>
         </div>
-        <div class="progress-bg">
-            <div class="progress"></div>
+        <div class="progress-bar-bg">
+            <div class="progress-bar" style="width:65%"></div>
         </div>
     </div>
 
@@ -238,13 +337,23 @@
     </div>
 </div>
 
+<!-- You can duplicate the card above and modify for other matches -->
+
 <script>
 function unlockPrediction(btn) {
-    btn.textContent = "⏳ ANALYZING...";
+    const card = btn.closest('.card');
+    btn.textContent = "ANALYZING...";
+    
     show_10317085().then(() => {
         setTimeout(() => {
-            alert("Prediction Unlocked! (Demo)");
-            btn.style.display = "none";
+            const predHTML = `
+                <div class="prediction-box">
+                    <span>🤖 AI PREDICTION</span>
+                    <span>HOME WIN <strong>85%</strong></span>
+                </div>
+            `;
+            card.insertAdjacentHTML('beforeend', predHTML);
+            btn.style.display = 'none';
         }, 2200);
     });
 }
