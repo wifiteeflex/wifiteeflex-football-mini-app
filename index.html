@@ -18,8 +18,11 @@
         margin: 0 auto;
     }
 
-    header {
+    header, .powered, .tabs {
         background: #0f1a22;
+    }
+
+    header {
         padding: 12px 16px;
         display: flex;
         align-items: center;
@@ -30,43 +33,29 @@
     .header-title {
         font-size: 21px;
         font-weight: 800;
-        display: flex;
-        align-items: center;
-        gap: 8px;
     }
 
     .tabs {
         display: flex;
-        background: #0f1a22;
         border-bottom: 1px solid #1f2a38;
-        overflow-x: auto;
     }
 
     .tab {
         padding: 14px 18px;
         color: #94a3b8;
         font-weight: 600;
-        white-space: nowrap;
     }
 
-    .tab.active {
-        color: white;
-        border-bottom: 3px solid #00ff85;
-    }
+    .tab.active { color: white; border-bottom: 3px solid #00ff85; }
 
     .powered {
-        background: #0f1a22;
-        padding: 8px;
+        padding: 9px;
         text-align: center;
         color: #00ff85;
         font-size: 14.5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
     }
 
-    /* CARD */
+    /* MATCH CARD - EXACT STYLE */
     .card {
         background: #11191f;
         margin: 12px;
@@ -76,137 +65,109 @@
     }
 
     .card-header {
+        padding: 12px 16px;
+        background: #1a2530;
         display: flex;
         align-items: center;
-        padding: 10px 16px;
-        background: #1a2530;
+        gap: 10px;
         font-size: 14px;
         font-weight: 600;
     }
 
-    .live-badge {
-        background: #ef4444;
-        color: white;
-        padding: 3px 10px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .hot-badge {
-        background: #f97316;
-        color: white;
-        padding: 3px 10px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-left: auto;
-    }
-
-    .vip-badge {
-        background: linear-gradient(90deg, #7c3aed, #a855f7);
-        color: white;
-        padding: 3px 10px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
     .match-body {
-        padding: 20px 16px 16px;
-        position: relative;
+        padding: 24px 20px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        position: relative;
     }
 
     .team {
         text-align: center;
-        width: 110px;
+        flex: 1;
     }
 
     .team-logo {
-        width: 62px;
-        height: 62px;
+        width: 68px;
+        height: 68px;
         border-radius: 50%;
-        margin: 0 auto 8px;
+        margin: 0 auto 10px;
         background: #1f2a38;
-        border: 2px solid #334155;
+        border: 3px solid #334155;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 32px;
-    }
-
-    .vs-container {
-        position: absolute;
-        left: 50%;
-        top: 45px;
-        transform: translateX(-50%);
-        text-align: center;
-        z-index: 10;
+        font-size: 34px;
     }
 
     .vs {
-        font-size: 18px;
-        font-weight: bold;
+        font-size: 26px;
+        font-weight: 800;
         color: #64748b;
+        position: absolute;
+        left: 50%;
+        top: 48px;
+        transform: translateX(-50%);
         background: #11191f;
-        padding: 4px 14px;
-        border-radius: 8px;
+        padding: 0 16px;
     }
 
     .odds {
+        position: absolute;
+        left: 50%;
+        top: 105px;
+        transform: translateX(-50%);
         background: #1f2a38;
-        color: white;
-        padding: 4px 12px;
-        border-radius: 8px;
-        font-size: 14px;
-        margin-top: 6px;
+        color: #22c55e;
+        padding: 6px 18px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
     .confidence {
-        padding: 0 16px 16px;
+        padding: 0 20px 18px;
     }
 
     .confidence-label {
         display: flex;
         justify-content: space-between;
-        font-size: 13.5px;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
+        font-size: 14px;
     }
 
-    .progress-bar-bg {
-        height: 7px;
+    .progress-bg {
+        height: 8px;
         background: #1f2a38;
         border-radius: 999px;
         overflow: hidden;
     }
 
-    .progress-bar {
+    .progress {
         height: 100%;
         background: linear-gradient(90deg, #00ff85, #22c55e);
-        border-radius: 999px;
+        width: 62%;
     }
 
     .buttons {
         display: flex;
-        gap: 10px;
-        padding: 0 16px 16px;
+        gap: 12px;
+        padding: 0 16px 18px;
     }
 
     .btn {
         flex: 1;
-        padding: 15px;
+        padding: 15px 20px;
         border-radius: 12px;
         font-weight: 700;
-        font-size: 15.5px;
+        font-size: 16px;
         text-align: center;
         cursor: pointer;
     }
 
     .btn-bet {
-        background: #00ff85;
+        background: #22c55e;
         color: #000;
     }
 
@@ -214,31 +175,18 @@
         background: #eab308;
         color: #000;
     }
-
-    .prediction-box {
-        background: #052e16;
-        padding: 14px 16px;
-        color: #00ff85;
-        font-weight: 700;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #1f2a38;
-    }
 </style>
 </head>
 
 <body>
 
 <header>
-    <i class="fas fa-bars" style="font-size:24px"></i>
+    <div>☰</div>
     <div class="header-title">AI Football 🤖 Predictions</div>
-    <i class="fas fa-bell" style="font-size:24px"></i>
+    <div>🛎️</div>
 </header>
 
-<div class="powered">
-    <span style="color:#00ff85">●</span> Powered by AI Engine
-</div>
+<div class="powered">● Powered by AI Engine</div>
 
 <div class="tabs">
     <div class="tab active">All Matches</div>
@@ -247,38 +195,40 @@
     <div class="tab">VIP Picks</div>
 </div>
 
-<!-- Example Card 1 - LIVE -->
+<!-- EXACT MATCH CARD LIKE YOUR IMAGE -->
 <div class="card">
     <div class="card-header">
-        <span class="live-badge">LIVE</span>
-        <span style="margin-left:10px">🇪🇸 La Liga</span>
-        <span class="hot-badge">HOT</span>
+        <span>⏰ UPCOMING</span>
+        <span>🇪🇸 La Liga</span>
     </div>
 
     <div class="match-body">
+        <!-- Left Team -->
         <div class="team">
             <div class="team-logo">🏴</div>
-            <div>Real Sociedad</div>
-        </div>
-        
-        <div class="vs-container">
-            <div class="vs">VS</div>
-            <div class="odds">Odds <strong>1.62</strong></div>
+            <div>Mallorca</div>
         </div>
 
+        <!-- VS & Odds -->
+        <div>
+            <div class="vs">VS</div>
+            <div class="odds">Odds <strong>1.60</strong></div>
+        </div>
+
+        <!-- Right Team -->
         <div class="team">
-            <div class="team-logo">🛡️</div>
-            <div>Levante</div>
+            <div class="team-logo">👑</div>
+            <div>Real Madrid</div>
         </div>
     </div>
 
     <div class="confidence">
         <div class="confidence-label">
             <span>AI Confidence</span>
-            <span><strong>65%</strong></span>
+            <span><strong>62%</strong></span>
         </div>
-        <div class="progress-bar-bg">
-            <div class="progress-bar" style="width:65%"></div>
+        <div class="progress-bg">
+            <div class="progress"></div>
         </div>
     </div>
 
@@ -288,27 +238,17 @@
     </div>
 </div>
 
-<!-- You can duplicate the card above and modify for other matches -->
-
 <script>
 function unlockPrediction(btn) {
-    const card = btn.closest('.card');
-    btn.textContent = "ANALYZING...";
-    
+    btn.textContent = "⏳ ANALYZING...";
     show_10317085().then(() => {
         setTimeout(() => {
-            const predHTML = `
-                <div class="prediction-box">
-                    <span>🤖 AI PREDICTION</span>
-                    <span>HOME WIN <strong>85%</strong></span>
-                </div>
-            `;
-            card.insertAdjacentHTML('beforeend', predHTML);
-            btn.style.display = 'none';
+            alert("Prediction Unlocked! (Demo)");
+            btn.style.display = "none";
         }, 2200);
     });
 }
 </script>
 
 </body>
-                                        </html>
+   </html>
