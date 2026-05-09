@@ -27,6 +27,7 @@ s.src='https://izcle.com/vignette.min.js'
 margin:0;
 padding:0;
 box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
 }
 
 body{
@@ -39,27 +40,26 @@ padding-bottom:100px;
 /* HEADER */
 
 header{
-background:linear-gradient(180deg,#0a2d3c,#071c29);
-padding:18px 15px 12px;
+background:linear-gradient(180deg,#072435,#04131d);
+padding:15px 14px 10px;
 text-align:center;
 position:sticky;
 top:0;
 z-index:999;
-border-bottom:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo-title{
-font-size:30px;
+font-size:20px;
 font-weight:900;
-letter-spacing:.5px;
+letter-spacing:.3px;
 }
 
 .powered{
-margin-top:6px;
-font-size:14px;
-color:#39ff88;
-font-weight:600;
+margin-top:4px;
+font-size:12px;
+color:#33ff88;
+font-weight:700;
 }
 
 /* TABS */
@@ -68,7 +68,7 @@ font-weight:600;
 display:flex;
 overflow-x:auto;
 gap:10px;
-padding:14px;
+padding:12px;
 background:#071c29;
 border-bottom:1px solid rgba(255,255,255,.05);
 }
@@ -79,80 +79,80 @@ display:none;
 
 .tab{
 min-width:max-content;
-padding:12px 18px;
-border-radius:14px;
+padding:10px 15px;
+border-radius:12px;
 background:#102735;
-font-size:14px;
+font-size:13px;
 font-weight:700;
 color:#fff;
-border:1px solid rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.04);
 cursor:pointer;
 transition:.3s;
 }
 
 .tab.active{
-background:#0fd46c;
+background:#12d76f;
 color:#000;
 }
 
 /* CONTAINER */
 
 .container{
-padding:14px;
+padding:10px;
 }
 
 /* CARD */
 
 .card{
-background:linear-gradient(180deg,#071b29,#04131d);
-border-radius:26px;
-margin-bottom:20px;
+background:linear-gradient(180deg,#071824,#031018);
+border-radius:18px;
+margin-bottom:14px;
 overflow:hidden;
-border:1px solid rgba(0,255,120,.1);
+border:1px solid rgba(0,255,120,.08);
 box-shadow:
-0 0 18px rgba(0,255,100,.05),
-0 8px 30px rgba(0,0,0,.35);
+0 0 10px rgba(0,255,100,.03),
+0 4px 18px rgba(0,0,0,.35);
 }
 
-/* CARD TOP */
+/* TOP */
 
 .card-top{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:16px 18px;
+padding:12px 14px;
 }
 
 .left-info{
 display:flex;
 align-items:center;
-gap:10px;
-font-size:15px;
+gap:8px;
+font-size:13px;
 font-weight:700;
 }
 
 .live-badge{
 background:#ff3b3b;
-padding:7px 14px;
-border-radius:12px;
-font-size:13px;
+padding:6px 12px;
+border-radius:10px;
+font-size:11px;
 font-weight:900;
 }
 
 .upcoming-badge{
 background:#ffcc00;
 color:#000;
-padding:7px 14px;
-border-radius:12px;
-font-size:13px;
+padding:6px 12px;
+border-radius:10px;
+font-size:11px;
 font-weight:900;
 }
 
 .hot{
 background:#ff7b00;
-padding:7px 15px;
-border-radius:12px;
-font-size:13px;
+padding:6px 12px;
+border-radius:10px;
+font-size:11px;
 font-weight:900;
 }
 
@@ -162,93 +162,94 @@ font-weight:900;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:12px 18px 28px;
-position:relative;
+padding:6px 14px 16px;
 }
 
 .team{
-width:36%;
+width:34%;
 text-align:center;
 }
 
 .team-logo{
-width:90px;
-height:90px;
+width:64px;
+height:64px;
 border-radius:50%;
-background:#162636;
+background:#122636;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:48px;
-margin:0 auto 12px;
-border:2px solid rgba(255,255,255,.06);
+font-size:30px;
+margin:0 auto 8px;
+border:2px solid rgba(255,255,255,.05);
 }
 
 .team-name{
-font-size:22px;
+font-size:15px;
 font-weight:800;
 line-height:1.2;
 }
 
 .center{
-width:28%;
+width:30%;
 text-align:center;
 }
 
 .minute{
-font-size:24px;
-color:#00ff84;
+font-size:16px;
+color:#19ff82;
 font-weight:900;
-margin-bottom:8px;
+margin-bottom:4px;
 }
 
 .vs{
-font-size:55px;
+font-size:34px;
 font-weight:900;
-margin-bottom:12px;
+margin-bottom:6px;
 }
 
 .odds-box{
-background:#132232;
-border-radius:18px;
-padding:12px;
-border:1px solid rgba(255,255,255,.06);
+background:#0f2230;
+border-radius:14px;
+padding:8px;
+border:1px solid rgba(255,255,255,.05);
+width:90px;
+margin:auto;
 }
 
 .odds-box span{
 display:block;
-font-size:14px;
+font-size:11px;
 color:#aaa;
-margin-bottom:5px;
+margin-bottom:2px;
 }
 
 .odds-box strong{
-font-size:32px;
+font-size:24px;
 color:#19ff82;
 }
 
 /* CONFIDENCE */
 
 .confidence-wrap{
-padding:0 18px 18px;
+padding:0 14px 14px;
 }
 
 .confidence-head{
 display:flex;
 justify-content:space-between;
-font-size:16px;
+font-size:13px;
 font-weight:700;
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
 .percent{
-color:#24ff8d;
+color:#1dff89;
 }
 
 .progress{
 width:100%;
-height:15px;
-background:#162636;
+height:10px;
+background:#10212e;
 border-radius:20px;
 overflow:hidden;
 }
@@ -265,13 +266,13 @@ transition:1.5s;
 
 .prediction{
 display:none;
-margin:18px;
-background:#0c2f22;
-border:1px solid rgba(0,255,120,.15);
-border-radius:16px;
-padding:16px;
+margin:0 14px 14px;
+background:#0b2e21;
+border:1px solid rgba(0,255,120,.12);
+border-radius:14px;
+padding:14px;
 text-align:center;
-font-size:22px;
+font-size:18px;
 font-weight:900;
 color:#ffd54a;
 }
@@ -280,80 +281,71 @@ color:#ffd54a;
 
 .buttons{
 display:flex;
-gap:14px;
-padding:0 18px 20px;
+gap:10px;
+padding:0 14px 16px;
 }
 
 .bet{
 flex:1;
-height:62px;
-border-radius:18px;
-background:linear-gradient(90deg,#0f9b3d,#1ed760);
+height:50px;
+border-radius:14px;
+background:linear-gradient(90deg,#0e8f39,#1ed760);
 display:flex;
 align-items:center;
 justify-content:center;
 text-decoration:none;
-font-size:22px;
+font-size:17px;
 font-weight:900;
 color:#fff;
-box-shadow:0 5px 15px rgba(0,255,100,.18);
 }
 
 .watch{
 flex:1;
-height:62px;
+height:50px;
 border:none;
-border-radius:18px;
+border-radius:14px;
 background:#ffcf0a;
-font-size:21px;
+font-size:16px;
 font-weight:900;
 color:#000;
 cursor:pointer;
 }
 
-/* VIP */
-
-.vip{
-position:absolute;
-top:15px;
-right:15px;
-background:#8b5cf6;
-padding:7px 14px;
-border-radius:12px;
-font-size:13px;
-font-weight:900;
-}
-
 /* MOBILE */
 
-@media(max-width:600px){
+@media(max-width:480px){
 
 .logo-title{
-font-size:24px;
+font-size:18px;
 }
 
 .team-logo{
-width:72px;
-height:72px;
-font-size:38px;
+width:58px;
+height:58px;
+font-size:26px;
 }
 
 .team-name{
-font-size:17px;
+font-size:14px;
 }
 
 .vs{
-font-size:42px;
+font-size:30px;
+}
+
+.odds-box{
+width:82px;
+padding:7px;
 }
 
 .odds-box strong{
-font-size:25px;
+font-size:20px;
 }
 
 .bet,
 .watch{
-font-size:18px;
-height:56px;
+height:46px;
+font-size:15px;
 }
 
 }
@@ -564,7 +556,7 @@ document.querySelectorAll('.progress-bar').forEach(bar=>{
 
 setTimeout(()=>{
 bar.style.width = bar.dataset.width;
-},600);
+},500);
 
 });
 
