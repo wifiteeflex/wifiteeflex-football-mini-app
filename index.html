@@ -270,43 +270,238 @@
 </div>
 
 <!-- CARD 1 - LIVE -->
+<style>
+
+body{
+    margin:0;
+    padding:12px;
+    background:#03151f;
+    font-family:Arial,sans-serif;
+    color:#fff;
+}
+
+/* CARD */
+.card{
+    width:100%;
+    background:linear-gradient(180deg,#071b29,#03141f);
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid rgba(0,255,120,.12);
+    box-shadow:0 0 18px rgba(0,255,120,.08);
+}
+
+/* HEADER */
+.card-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 18px;
+}
+
+.league{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:17px;
+    font-weight:700;
+}
+
+.live-badge{
+    background:#ff3b3b;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:800;
+}
+
+.hot{
+    background:#ff7b00;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:800;
+}
+
+/* MATCH */
+.match-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 20px 30px;
+    position:relative;
+    background:#02111c;
+}
+
+.team{
+    width:36%;
+    text-align:center;
+    font-size:18px;
+    font-weight:700;
+}
+
+.team-logo{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#1c2d42;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+    margin:0 auto 12px;
+    border:3px solid rgba(255,255,255,.08);
+}
+
+.vs{
+    font-size:58px;
+    font-weight:900;
+    color:#fff;
+    margin-bottom:35px;
+}
+
+/* ODDS BOX */
+.odds-box{
+    position:absolute;
+    left:50%;
+    top:58%;
+    transform:translate(-50%,-50%);
+    background:#162433;
+    padding:16px 24px;
+    border-radius:18px;
+    text-align:center;
+    min-width:120px;
+    box-shadow:0 4px 15px rgba(0,0,0,.4);
+}
+
+.odds-box{
+    font-size:19px;
+}
+
+.odds-box strong{
+    color:#fff;
+    font-size:25px;
+}
+
+/* CONFIDENCE */
+.confidence{
+    background:#162433;
+    padding:18px;
+    font-size:18px;
+}
+
+.confidence-bar{
+    width:100%;
+    height:16px;
+    background:#1d2a38;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:14px;
+}
+
+.confidence-fill{
+    height:100%;
+    background:linear-gradient(90deg,#00ff73,#1aff95);
+    border-radius:20px;
+}
+
+/* BUTTONS */
+.buttons{
+    display:flex;
+    gap:16px;
+    padding:20px;
+    background:#02111c;
+}
+
+.btn{
+    flex:1;
+    height:74px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:900;
+    text-align:center;
+    white-space:nowrap;
+}
+
+/* BET BUTTON */
+.btn-bet{
+    background:linear-gradient(90deg,#118d36,#18d457);
+    color:#fff;
+}
+
+/* PREDICTION BUTTON */
+.btn-prediction{
+    background:#f7c600;
+    color:#000;
+}
+
+</style>
+
 <div class="card">
+
     <div class="card-header">
+
         <div class="league">
             <span class="live-badge">LIVE</span>
             <span>🇪🇸 La Liga</span>
         </div>
-        <div style="margin-left:auto;" class="hot">🔥 HOT</div>
+
+        <div class="hot">🔥 HOT</div>
+
     </div>
 
-    <div class="match-content" style="position:relative;">
+    <div class="match-content">
+
         <div class="team">
             <div class="team-logo">🏴</div>
             <div>Real Sociedad</div>
         </div>
+
         <div class="vs">VS</div>
+
         <div class="team">
             <div class="team-logo">🛡️</div>
             <div>Levante</div>
         </div>
+
         <div class="odds-box">
             Odds <strong>1.62</strong><br>
-            <span style="font-size:13px;">15'</span>
+            <span style="font-size:15px;">15'</span>
         </div>
+
     </div>
 
     <div class="confidence">
-        AI Confidence 
-        <div class="confidence-bar"><div class="confidence-fill" style="width:65%"></div></div>
-        <div style="text-align:right; font-size:13px; margin-top:4px;">65%</div>
+
+        AI Confidence
+
+        <div class="confidence-bar">
+            <div class="confidence-fill" style="width:65%"></div>
+        </div>
+
+        <div style="text-align:right; font-size:18px; margin-top:10px;">
+            65%
+        </div>
+
     </div>
 
     <div class="buttons">
-        <div class="btn btn-bet">↗ BET NOW</div>
-        <div class="btn btn-prediction" onclick="unlockPrediction(this)">🔒 SEE PREDICTION</div>
-    </div>
-</div>
 
+        <div class="btn btn-bet">
+            ↗ BET NOW
+        </div>
+
+        <div class="btn btn-prediction" onclick="unlockPrediction(this)">
+            🔒 SEE PREDICTION
+        </div>
+
+    </div>
+
+</div>
 <!-- CARD 2 - UPCOMING -->
 <div class="card">
     <div class="card-header">
