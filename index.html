@@ -2,24 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AI Football 🤖 Predictions</title>
+<title>AI Football 🤖 Swipe Predictions</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Monetag SDK -->
 <script src="//libtl.com/sdk.js"
 data-zone="10317085"
 data-sdk="show_10317085"></script>
-
-<script>
-(function(s){
-s.dataset.zone='10802441',
-s.src='https://izcle.com/vignette.min.js'
-})
-([document.documentElement, document.body]
-.filter(Boolean)
-.pop()
-.appendChild(document.createElement('script')))
-</script>
 
 <style>
 
@@ -31,330 +19,206 @@ box-sizing:border-box;
 }
 
 body{
-background:#03151f;
-font-family:Arial,sans-serif;
+background:#020f17;
+font-family:Arial;
 color:#fff;
-padding-bottom:100px;
+overflow:hidden;
 }
 
-/* HEADER */
-
+/* ===== STICKY HEADER ===== */
 header{
-background:linear-gradient(180deg,#072435,#04131d);
-padding:15px 14px 10px;
-text-align:center;
-position:sticky;
+position:fixed;
 top:0;
-z-index:999;
-border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-.logo-title{
-font-size:20px;
-font-weight:900;
-letter-spacing:.3px;
-}
-
-.powered{
-margin-top:4px;
-font-size:12px;
-color:#33ff88;
-font-weight:700;
-}
-
-/* TABS */
-
-.tabs{
+left:0;
+right:0;
+height:70px;
+background:linear-gradient(180deg,#061c28,#031018);
 display:flex;
-overflow-x:auto;
-gap:10px;
-padding:12px;
-background:#071c29;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999;
 border-bottom:1px solid rgba(255,255,255,.05);
 }
 
-.tabs::-webkit-scrollbar{
-display:none;
+header h1{
+font-size:18px;
+font-weight:900;
 }
 
-.tab{
-min-width:max-content;
-padding:10px 15px;
-border-radius:12px;
-background:#102735;
-font-size:13px;
+header small{
+color:#2cff88;
 font-weight:700;
-color:#fff;
-border:1px solid rgba(255,255,255,.04);
-cursor:pointer;
+margin-top:2px;
 }
 
-.tab.active{
-background:#12d76f;
-color:#000;
+/* ===== SWIPE CONTAINER ===== */
+.feed{
+position:absolute;
+top:70px;
+bottom:0;
+left:0;
+right:0;
+overflow-y:scroll;
+scroll-snap-type:y mandatory;
 }
 
-/* CONTAINER */
-
-.container{
-padding:10px;
-}
-
-/* CARD */
-
+/* ===== CARD (FULL SCREEN LIKE TIKTOK) ===== */
 .card{
-background:linear-gradient(180deg,#071824,#031018);
-border-radius:18px;
-margin-bottom:14px;
-overflow:hidden;
-border:1px solid rgba(0,255,120,.08);
-box-shadow:0 4px 18px rgba(0,0,0,.35);
+height:calc(100vh - 70px);
+scroll-snap-align:start;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+padding:20px 15px;
+background:linear-gradient(180deg,#061826,#020c12);
+border-bottom:1px solid rgba(255,255,255,.03);
 }
 
-/* TOP */
-
-.card-top{
+/* ===== TOP INFO ===== */
+.top{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:12px 14px;
 }
 
-.left-info{
-display:flex;
-align-items:center;
-gap:8px;
-font-size:13px;
-font-weight:700;
-}
-
-.live-badge{
-background:#ff3b3b;
+.badge{
 padding:6px 12px;
 border-radius:10px;
 font-size:11px;
 font-weight:900;
 }
 
-.upcoming-badge{
-background:#ffcc00;
-color:#000;
-padding:6px 12px;
-border-radius:10px;
-font-size:11px;
-font-weight:900;
-}
+.live{background:#ff3b3b;}
+.upcoming{background:#ffcc00;color:#000;}
+.hot{background:#ff7b00;}
 
-.hot{
-background:#ff7b00;
-padding:6px 12px;
-border-radius:10px;
-font-size:11px;
-font-weight:900;
-}
-
-/* MATCH AREA */
-
-.match-area{
+/* ===== TEAMS ===== */
+.match{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:6px 14px 16px;
+margin-top:20px;
 }
 
-/* TEAM */
 .team{
-width:34%;
 text-align:center;
+width:35%;
 }
 
-/* ✅ FIXED LOGO AREA */
-.team-logo{
-width:58px;
-height:58px;
+.logo{
+width:75px;
+height:75px;
 border-radius:50%;
-background:#122636;
+background:#0f2230;
 display:flex;
 align-items:center;
 justify-content:center;
-margin:0 auto 8px;
 overflow:hidden;
-border:2px solid rgba(255,255,255,.05);
+margin:auto;
+border:2px solid rgba(255,255,255,.06);
 }
 
-/* ✅ IMAGE INSIDE LOGO */
-.team-logo img{
+.logo img{
 width:80%;
 height:80%;
 object-fit:contain;
 }
 
 .team-name{
+margin-top:10px;
 font-size:14px;
 font-weight:800;
-line-height:1.2;
 }
 
-/* CENTER */
+/* VS CENTER */
 .center{
-width:30%;
 text-align:center;
-}
-
-.minute{
-font-size:16px;
-color:#19ff82;
-font-weight:900;
-margin-bottom:4px;
+width:30%;
 }
 
 .vs{
-font-size:30px;
+font-size:38px;
 font-weight:900;
-margin-bottom:6px;
+margin:10px 0;
 }
 
-.odds-box{
+.odds{
 background:#0f2230;
+padding:10px;
 border-radius:14px;
-padding:8px;
-border:1px solid rgba(255,255,255,.05);
-width:82px;
-margin:auto;
+font-size:12px;
 }
 
-.odds-box span{
+.odds strong{
 display:block;
-font-size:11px;
-color:#aaa;
+font-size:22px;
+color:#1cff84;
 }
 
-.odds-box strong{
-font-size:20px;
-color:#19ff82;
+/* ===== CONFIDENCE ===== */
+.confidence{
+margin-top:20px;
 }
 
-/* CONFIDENCE */
-
-.confidence-wrap{
-padding:0 14px 14px;
-}
-
-.confidence-head{
-display:flex;
-justify-content:space-between;
-font-size:13px;
-font-weight:700;
-margin-bottom:8px;
-}
-
-.percent{
-color:#1dff89;
-}
-
-.progress{
-width:100%;
+.bar{
 height:10px;
 background:#10212e;
 border-radius:20px;
 overflow:hidden;
+margin-top:6px;
 }
 
-.progress-bar{
+.fill{
 height:100%;
 width:0%;
 background:linear-gradient(90deg,#00ff73,#1aff95);
-border-radius:20px;
-transition:1.5s;
+transition:1s;
 }
 
-/* PREDICTION */
-
-.prediction{
-display:none;
-margin:0 14px 14px;
-background:#0b2e21;
-border-radius:14px;
-padding:14px;
-text-align:center;
-font-size:18px;
-font-weight:900;
-color:#ffd54a;
+.percent{
+text-align:right;
+font-size:12px;
+color:#1cff84;
+margin-top:5px;
 }
 
-/* BUTTONS */
-
+/* ===== BUTTONS ===== */
 .buttons{
 display:flex;
 gap:10px;
-padding:0 14px 16px;
+margin-top:20px;
 }
 
 .bet{
 flex:1;
-height:46px;
+height:50px;
 border-radius:14px;
 background:linear-gradient(90deg,#0e8f39,#1ed760);
 display:flex;
 align-items:center;
 justify-content:center;
-text-decoration:none;
-font-size:15px;
 font-weight:900;
+text-decoration:none;
 color:#fff;
 }
 
 .watch{
 flex:1;
-height:46px;
-border:none;
+height:50px;
 border-radius:14px;
 background:#ffcf0a;
-font-size:15px;
+border:none;
 font-weight:900;
-color:#000;
-cursor:pointer;
 }
 
-</style>
-
-/* MOBILE */
-
-@media(max-width:480px){
-
-.logo-title{
-font-size:18px;
-}
-
-.team-logo{
-width:58px;
-height:58px;
-font-size:26px;
-}
-
-.team-name{
-font-size:14px;
-}
-
-.vs{
-font-size:30px;
-}
-
-.odds-box{
-width:82px;
-padding:7px;
-}
-
-.odds-box strong{
-font-size:20px;
-}
-
-.bet,
-.watch{
-height:46px;
-font-size:15px;
-}
-
+.pred{
+display:none;
+margin-top:15px;
+text-align:center;
+font-weight:900;
+color:#ffd54a;
+font-size:16px;
 }
 
 </style>
@@ -363,66 +227,36 @@ font-size:15px;
 <body>
 
 <header>
-<div class="logo-title">
-AI Football 🤖 Predictions
-</div>
-
-<div class="powered">
-🟢 Powered by AI Engine
-</div>
+<h1>AI Football Predictions</h1>
+<small>Swipe for next match ↑↓</small>
 </header>
 
-<div class="tabs">
-<div class="tab active">⚽ All Matches</div>
-<div class="tab">🔴 Live</div>
-<div class="tab">⏰ Upcoming</div>
-<div class="tab">👑 VIP Picks</div>
-<div class="tab">🔥 Hot Games</div>
-<div class="tab">💬 Comments</div>
-<div class="tab">📊 Odds</div>
-</div>
+<div class="feed">
 
-<div class="container">
-
-<!-- CARD -->
-
+<!-- CARD 1 -->
 <div class="card">
 
-<div class="card-top">
-
-<div class="left-info">
-<div class="live-badge">LIVE</div>
-<div>🇪🇸 La Liga</div>
+<div class="top">
+<div class="badge live">LIVE 15'</div>
+<div class="badge hot">🔥 HOT</div>
 </div>
 
-<div class="hot">🔥 HOT</div>
-
-</div>
-
-<div class="match-area">
+<div class="match">
 
 <div class="team">
-<div class="team-logo">
+<div class="logo">
 <img src="https://upload.wikimedia.org/wikipedia/en/8/81/Real_Sociedad_logo.svg">
 </div>
 <div class="team-name">Real Sociedad</div>
 </div>
 
 <div class="center">
-
-<div class="minute">15'</div>
-
 <div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.62</strong>
-</div>
-
+<div class="odds">Odds <strong>1.62</strong></div>
 </div>
 
 <div class="team">
-<div class="team-logo">
+<div class="logo">
 <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Levante_UD_logo.svg">
 </div>
 <div class="team-name">Levante</div>
@@ -430,70 +264,44 @@ AI Football 🤖 Predictions
 
 </div>
 
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>AI Confidence</span>
-<span class="percent">65%</span>
+<div class="confidence">
+<div>AI Confidence</div>
+<div class="bar"><div class="fill" data-width="65%"></div></div>
+<div class="percent">65%</div>
 </div>
 
-<div class="progress">
-<div class="progress-bar" data-width="65%"></div>
-</div>
-
-</div>
-
-<div class="prediction">
-🏆 HOME WIN (85%)
-</div>
+<div class="pred">🏆 HOME WIN (85%)</div>
 
 <div class="buttons">
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ BET NOW
-</a>
-
-<button class="watch" onclick="unlockPrediction(this)">
-🔒 SEE PREDICTION
-</button>
+<a class="bet" href="https://omg10.com/4/8859017">BET NOW</a>
+<button class="watch" onclick="unlock(this)">SEE</button>
 </div>
 
 </div>
 
-<!-- SECOND CARD -->
-
+<!-- CARD 2 -->
 <div class="card">
 
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-<div>🇪🇸 La Liga</div>
+<div class="top">
+<div class="badge upcoming">UPCOMING</div>
 </div>
 
-</div>
-
-<div class="match-area">
+<div class="match">
 
 <div class="team">
-<div class="team-logo">
+<div class="logo">
 <img src="https://upload.wikimedia.org/wikipedia/en/7/70/RCD_Mallorca_logo.svg">
 </div>
 <div class="team-name">Mallorca</div>
 </div>
 
 <div class="center">
-
 <div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.60</strong>
-</div>
-
+<div class="odds">Odds <strong>1.60</strong></div>
 </div>
 
 <div class="team">
-<div class="team-logo">
+<div class="logo">
 <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg">
 </div>
 <div class="team-name">Real Madrid</div>
@@ -501,31 +309,17 @@ AI Football 🤖 Predictions
 
 </div>
 
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>AI Confidence</span>
-<span class="percent">62%</span>
+<div class="confidence">
+<div>AI Confidence</div>
+<div class="bar"><div class="fill" data-width="62%"></div></div>
+<div class="percent">62%</div>
 </div>
 
-<div class="progress">
-<div class="progress-bar" data-width="62%"></div>
-</div>
-
-</div>
-
-<div class="prediction">
-⚽ AWAY OVER 1.5 (100%)
-</div>
+<div class="pred">⚽ OVER 1.5 (100%)</div>
 
 <div class="buttons">
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ BET NOW
-</a>
-
-<button class="watch" onclick="unlockPrediction(this)">
-🔒 SEE PREDICTION
-</button>
+<a class="bet" href="https://omg10.com/4/8859017">BET NOW</a>
+<button class="watch" onclick="unlock(this)">SEE</button>
 </div>
 
 </div>
@@ -534,47 +328,30 @@ AI Football 🤖 Predictions
 
 <script>
 
-function unlockPrediction(btn){
+function unlock(btn){
 
 const card = btn.closest('.card');
-const pred = card.querySelector('.prediction');
+const pred = card.querySelector('.pred');
 
-btn.disabled = true;
-btn.innerHTML = "⏳ LOADING AI...";
+btn.innerHTML="Loading...";
 
 show_10317085().then(()=>{
 
-btn.innerHTML = "🤖 ANALYZING...";
-
 setTimeout(()=>{
-
-pred.style.display = "block";
-
-btn.style.display = "none";
-
-},3000);
-
-}).catch(()=>{
-
-alert("Ad failed. Try again.");
-
-btn.disabled = false;
-btn.innerHTML = "🔒 SEE PREDICTION";
+pred.style.display="block";
+btn.style.display="none";
+},2000);
 
 });
 
 }
 
-window.onload = ()=>{
-
-document.querySelectorAll('.progress-bar').forEach(bar=>{
-
+window.onload=()=>{
+document.querySelectorAll('.fill').forEach(bar=>{
 setTimeout(()=>{
-bar.style.width = bar.dataset.width;
-},500);
-
+bar.style.width=bar.dataset.width;
+},600);
 });
-
 }
 
 </script>
