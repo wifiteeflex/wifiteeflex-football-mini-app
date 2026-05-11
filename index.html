@@ -37,6 +37,43 @@ color:#fff;
 padding-bottom:80px;
 }
 
+/* MATCH MENU */
+
+.match-tabs{
+display:flex;
+overflow-x:auto;
+gap:8px;
+padding:10px 14px;
+margin-top:8px;
+}
+
+.match-tabs::-webkit-scrollbar{
+display:none;
+}
+
+.match-tab{
+min-width:max-content;
+padding:8px 12px;
+border-radius:10px;
+background:#0d1f2c;
+border:1px solid rgba(255,255,255,.05);
+font-size:10px;
+font-weight:600;
+color:#d9d9d9;
+text-decoration:none;
+white-space:nowrap;
+transition:.3s;
+}
+
+.match-tab.active{
+background:#16d96f;
+color:#000;
+}
+
+.match-tab:hover{
+background:#133042;
+}
+
 /* HEADER */
 
 header{
@@ -493,6 +530,38 @@ Levante
 <div class="prediction">
 🏆 HOME WIN (85%)
 </div>
+
+<!-- MATCH MENU START -->
+<div class="match-tabs">
+
+<a href="https://omg10.com/4/7461956" class="match-tab active">
+⚽ Overview
+</a>
+
+<a href="https://omg10.com/4/7461956" class="match-tab">
+🔴 Live
+</a>
+
+<a href="https://omg10.com/4/7461956" class="match-tab">
+📋 Lineups
+</a>
+
+<a href="https://omg10.com/4/7461956" class="match-tab">
+📊 Stats
+</a>
+
+<a href="https://omg10.com/4/7461956" class="match-tab">
+🎫 Ticket
+</a>
+
+<a href="https://omg10.com/4/7461956" class="match-tab">
+🏆 Table
+</a>
+
+</div>
+<!-- MATCH MENU END -->
+
+<div class="buttons">
 
 <div class="buttons">
 
