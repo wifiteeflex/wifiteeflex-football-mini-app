@@ -64,14 +64,16 @@ color:#2fff8f;
 font-weight:500;
 }
 
-/* TABS */
-
 .tabs{
 display:flex;
 overflow-x:auto;
-gap:18px;
-padding:10px 12px;
-background:#061923;
+gap:8px;
+padding:10px 10px 12px;
+background:#07131d;
+border-bottom:1px solid rgba(255,255,255,.05);
+position:sticky;
+top:60px;
+z-index:998;
 }
 
 .tabs::-webkit-scrollbar{
@@ -79,27 +81,27 @@ display:none;
 }
 
 .tab{
-position:relative;
-font-size:12px;
-font-weight:500;
+min-width:max-content;
+padding:8px 14px;
+border-radius:12px;
+background:#0c1f2d;
+font-size:11px;
+font-weight:600;
+color:#d9d9d9;
+text-decoration:none;
+border:1px solid rgba(255,255,255,.05);
+transition:.3s;
 white-space:nowrap;
-color:#d4d4d4;
-padding-bottom:8px;
+}
+
+.tab:hover{
+background:#123246;
 }
 
 .tab.active{
-color:#25ff88;
-}
-
-.tab.active::after{
-content:'';
-position:absolute;
-left:0;
-bottom:0;
-width:100%;
-height:2px;
-border-radius:20px;
-background:#1fff80;
+background:#14d76e;
+color:#000;
+font-weight:700;
 }
 
 /* CONTAINER */
@@ -384,10 +386,35 @@ AI Football 🤖 Predictions
 </div>
 
 <div class="tabs">
-<div class="tab active">⚽ All Matches</div>
-<div class="tab">🔴 Live</div>
-<div class="tab">⏰ Upcoming</div>
-<div class="tab">👑 VIP Picks</div>
+
+<a class="tab active" href="https://omg10.com/4/7461956">
+⚽ All Matches
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🔴 Premier League
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+⏰ Serie A
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+👑 LaLiga
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇵🇹 Liga Portugal
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🏆 Championship
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+⚡ Super Liga
+</a>
+
 </div>
 
 </header>
@@ -414,7 +441,7 @@ AI Football 🤖 Predictions
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Real_Sociedad_logo.svg/120px-Real_Sociedad_logo.svg.png">
+<img src="https://upload.wikimedia.org/wikipedia/sco/f/f1/Real_Sociedad_logo.svg">
 </div>
 
 <div class="team-name">
@@ -439,7 +466,7 @@ Real Sociedad
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/Levante_UD_logo.svg/120px-Levante_UD_logo.svg.png">
+<img src="https://upload.wikimedia.org/wikipedia/en/7/7b/Levante_Uni%C3%B3n_Deportiva%2C_S.A.D._logo.svg">
 </div>
 
 <div class="team-name">
