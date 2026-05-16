@@ -365,34 +365,6 @@ font-size:13px;
 }
 
 }
-
-/* ENDED MATCH */
-
-.ended{
-background:#14532d;
-color:#4ade80;
-padding:6px 12px;
-border-radius:10px;
-font-size:11px;
-font-weight:700;
-}
-
-.ended-result{
-width:100%;
-background:#2a2a2a;
-color:#d1d5db;
-border:none;
-border-radius:14px;
-padding:16px;
-font-size:15px;
-font-weight:700;
-cursor:not-allowed;
-opacity:.95;
-}
-
-.ended-card{
-opacity:.96;
-}
         
 </style>
 </head>
@@ -451,24 +423,21 @@ AI Football 🤖 Predictions
 
 <!-- CARD 1 -->
 
-<!-- ENDED MATCH CARD -->
-<div class="card ended-card">
+<div class="card">
 
-<div class="top-row">
+<div class="card-top">
 
-<div class="league">
-🏆 Premier League
+<div class="left-info">
+<div class="upcoming-badge">ENDED</div>
+<div>🏆 FA Cup</div>
 </div>
 
-<div class="minute ended">
-MATCH ENDED
-</div>
+<div class="hot">🔥 HOT</div>
 
 </div>
 
-<div class="teams">
+<div class="match-area">
 
-<!-- HOME -->
 <div class="team">
 
 <div class="team-logo">
@@ -481,28 +450,19 @@ Chelsea
 
 </div>
 
-<!-- CENTER -->
-<div class="center-info">
+<div class="center">
 
-<div class="match-time">
-Sunday • 12:30 PM
-</div>
+<div class="minute">Sat • 3:00 PM</div>
 
-<div class="vs">
-VS
-</div>
+<div class="vs">VS</div>
 
 <div class="odds-box">
-
 <span>Odds</span>
-
-<h3>1.62</h3>
-
+<strong>1.76</strong>
 </div>
 
 </div>
 
-<!-- AWAY -->
 <div class="team">
 
 <div class="team-logo">
@@ -517,11 +477,32 @@ Man city
 
 </div>
 
-<!-- RESULT -->
+<div class="confidence-wrap">
+
+<div class="confidence-head">
+<span>AI Confidence</span>
+<span class="percent">100%</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" data-width="100%"></div>
+</div>
+
+</div>
+
+<div class="prediction">
+⚽ BTTS (NO)
+</div>
+
 <div class="buttons">
 
-<button class="watch ended-result" disabled>
-🏁 RESULT 0 - 1
+<a class="bet" href="https://omg10.com/4/8859017">
+↗ BET NOW
+</a>
+
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+⛔ MATCH ENDED
 </button>
 
 </div>
