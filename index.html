@@ -393,23 +393,44 @@ letter-spacing:.5px;
 }
         
 .footer-menu{
+.footer-menu{
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-margin-bottom:18px;
+flex-direction:column;
+gap:12px;
+align-items:center;
+margin-top:20px;
 }
 
+/* ROW STYLE */
+.menu-row{
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+/* BUTTON STYLE */
 .footer-menu a{
-text-decoration:none;
 background:#0d2230;
-padding:9px 14px;
+padding:10px 14px;
 border-radius:12px;
 font-size:11px;
 font-weight:600;
 color:#d7d7d7;
+text-decoration:none;
 border:1px solid rgba(255,255,255,.05);
+min-width:120px;
+text-align:center;
 }
+
+/* CENTER BUTTON */
+.menu-center a{
+display:block;
+width:220px;
+background:#16d96f;
+color:#000;
+font-weight:700;
+        }
 
 .footer-menu a:hover{
 background:#143244;
@@ -2454,34 +2475,23 @@ Powered by Grok Imagination
 <!-- FOOTER MENU -->
 <div class="footer-menu">
 
-<!-- FIRST LINE -->
+<!-- ROW 1 -->
+<div class="menu-row">
+<a href="https://www.flashscore.com/" target="_blank">📊 Live Scores</a>
+<a href="https://www.sofascore.com/" target="_blank">🔥 Match Stats</a>
+<a href="https://www.goal.com/" target="_blank">📰 Football News</a>
+</div>
 
-<a href="https://www.flashscore.com/"
-target="_blank">
-📊 Live Scores
-</a>
+<!-- ROW 2 -->
+<div class="menu-row">
+<a href="https://www.fotmob.com/" target="_blank">🏆 League Table</a>
+<a href="#" target="_blank">🎟 Booking Code</a>
+</div>
 
-<a href="https://www.sofascore.com/"
-target="_blank">
-🔥 Match Stats
-</a>
-
-<!-- SECOND LINE -->
-
-<a href="https://www.goal.com/"
-target="_blank">
-📰 Football News
-</a>
-
-<a href="https://www.fotmob.com/"
-target="_blank">
-🏆 League Table
-</a>
-
-<a href="#"
-target="_blank">
-🎟 Booking Code
-</a>
+<!-- ROW 3 (CENTER BUTTON) -->
+<div class="menu-center">
+<a href="#" onclick="openEarn()">💲 Earn With Us</a>
+</div>
 
 </div>
 
