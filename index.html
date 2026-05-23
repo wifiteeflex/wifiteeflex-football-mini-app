@@ -535,33 +535,6 @@ cursor:pointer;
 </head>
 
 <body>
-
-<!-- 🔒 AD GATE LOCK SCREEN -->
-<div id="adGate" class="ad-gate">
-
-<div class="gate-box">
-
-<h2>🔒 Unlock Predictions</h2>
-
-<p>Watch 5 ads to continue</p>
-
-<div class="progress">
-<div id="adBar"></div>
-</div>
-
-<p id="adText">0 / 5 completed</p>
-
-<button onclick="startAd()">
-▶ Watch Ad
-</button>
-
-<button id="continueBtn" onclick="completeAd()" style="display:none;">
-✅ I Watched Ad
-</button>
-
-</div>
-
-</div>
         
 <header>
 
@@ -2562,77 +2535,4 @@ onclick="window.open('https://whatsapp.com/channel/0029VaDxgLr7j6g8pUgzw91x','_b
 <!-- 🔥 FOOTER END -->
 
 </body>
-
-<script>
-
-let ads = localStorage.getItem("ads") || 0;
-ads = parseInt(ads);
-
-let lastTime = localStorage.getItem("unlockTime");
-
-function initGate(){
-
-// 24H RESET
-if(lastTime){
-let now = new Date().getTime();
-if(now - lastTime > 86400000){
-localStorage.removeItem("ads");
-ads = 0;
-}
-}
-
-// if already unlocked
-if(ads >= 5){
-document.getElementById("adGate").style.display = "none";
-}
-
-updateUI();
-}
-
-function startAd(){
-
-// OPEN MONETAG ONCLICK AD
-openMonetag();
-
-// show continue button after 3-5 sec
-setTimeout(()=>{
-document.getElementById("continueBtn").style.display = "block";
-}, 4000);
-
-}
-
-function completeAd(){
-
-ads++;
-
-localStorage.setItem("ads", ads);
-
-document.getElementById("continueBtn").style.display = "none";
-
-updateUI();
-
-if(ads >= 5){
-
-localStorage.setItem("unlockTime", new Date().getTime());
-
-document.getElementById("adGate").style.display = "none";
-
-alert("🎉 Predictions Unlocked!");
-}
-
-}
-
-function updateUI(){
-
-let percent = (ads/5)*100;
-
-document.getElementById("adBar").style.width = percent + "%";
-document.getElementById("adText").innerText = ads + " / 5 completed";
-}
-
-// run on load
-initGate();
-
-</script>
-
-</html>
+    </html>
