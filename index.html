@@ -369,7 +369,7 @@ font-size:13px;
 /* FOOTER */
 
 .site-footer{
-margin-top:5px;
+margin-top:3px;
 padding:25px 15px 35px;
 background:#07131d;
 border-top:1px solid rgba(255,255,255,.06);
@@ -463,6 +463,43 @@ margin-bottom:10px;
 .copyright{
 font-size:10px;
 color:#4b5563;
+}
+
+.earn-box{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.earn-content{
+background:#0d2230;
+padding:20px;
+border-radius:15px;
+text-align:center;
+width:85%;
+max-width:320px;
+}
+
+.progress{
+width:100%;
+height:10px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+margin:10px 0;
+}
+
+#progressBar{
+height:100%;
+width:0%;
+background:#16d96f;
+transition:.3s;
 }
 
 </style>
@@ -2379,7 +2416,7 @@ bar.style.width = bar.dataset.width;
 
 <!-- FOOTER LOGO -->
 <div class="footer-logo">
-⚽ AI Football Predictions
+WWW.AI Football Predictions.COM
 <br>
 <span class="grok-text">
 Powered by Grok Imagination
@@ -2387,6 +2424,8 @@ Powered by Grok Imagination
 
 <!-- FOOTER MENU -->
 <div class="footer-menu">
+
+<!-- FIRST LINE -->
 
 <a href="https://www.flashscore.com/"
 target="_blank">
@@ -2398,6 +2437,8 @@ target="_blank">
 🔥 Match Stats
 </a>
 
+<!-- SECOND LINE -->
+
 <a href="https://www.goal.com/"
 target="_blank">
 📰 Football News
@@ -2406,6 +2447,15 @@ target="_blank">
 <a href="https://www.fotmob.com/"
 target="_blank">
 🏆 League Table
+</a>
+
+<a href="#"
+target="_blank">
+🎟 Booking Code
+</a>
+
+<a href="#" onclick="openEarn()">
+💲 Earn With Us
 </a>
 
 </div>
@@ -2446,8 +2496,6 @@ onclick="window.open('https://whatsapp.com/channel/0029VaDxgLr7j6g8pUgzw91x','_b
 
 </div>
 
-</div>
-
 <!-- DISCLAIMER -->
 <div class="footer-note">
 18+ Gamble Responsibly • Predictions are AI generated.
@@ -2462,4 +2510,60 @@ onclick="window.open('https://whatsapp.com/channel/0029VaDxgLr7j6g8pUgzw91x','_b
 <!-- 🔥 FOOTER END -->
 
 </body>
-        </html>
+ 
+<div id="earnBox" class="earn-box">
+
+<div class="earn-content">
+
+<h3>💲 Earn With Us</h3>
+
+<p>Share to friends and unlock rewards</p>
+
+<div class="progress">
+<div id="progressBar"></div>
+</div>
+
+<p id="progressText">0 / 20 shares</p>
+
+<button onclick="shareNow()">📤 Share Now</button>
+
+</div>
+
+</div>
+
+<script>
+
+let shares = 0;
+
+function openEarn(){
+document.getElementById("earnBox").style.display = "flex";
+}
+
+function shareNow(){
+
+const url = "https://t.me/Aipredictio";
+
+navigator.share({
+title: "AI Football Predictions",
+text: "Join and win daily predictions!",
+url: url
+}).then(()=>{
+
+shares++;
+
+let percent = (shares/20)*100;
+
+document.getElementById("progressBar").style.width = percent + "%";
+document.getElementById("progressText").innerText = shares + " / 20 shares";
+
+if(shares >= 20){
+alert("🎉 Reward unlocked! Contact admin for bonus access.");
+}
+
+});
+
+}
+
+</script>
+
+</html>
