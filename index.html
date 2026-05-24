@@ -726,7 +726,7 @@ Barcelona
 
 <div class="center">
 
-<div class="minute">Sunday • 12:30 PM</div>
+<div class="minute">Sat • 3:00 PM</div>
 
 <div class="vs">VS</div>
 
@@ -2566,23 +2566,18 @@ const COUNTDOWN_HOURS = 24;
 // 🔥 GET NEXT SUNDAY 3PM
 // ====================================
 
-function getNextSunday3PM(){
+function getSunday3PM(){
 
 let now = new Date();
 
-let next = new Date(now);
+let sunday = new Date(now);
 
-let daysUntilSunday = (7 - now.getDay()) % 7;
+// current week Sunday
+sunday.setDate(now.getDate() - now.getDay());
 
-if(daysUntilSunday === 0 && now.getHours() >= 15){
-daysUntilSunday = 7;
-}
+sunday.setHours(15,0,0,0);
 
-next.setDate(now.getDate() + daysUntilSunday);
-
-next.setHours(15,0,0,0);
-
-return next.getTime();
+return sunday.getTime();
 
 }
 
@@ -2626,7 +2621,7 @@ function updateSystem(){
 
 let now = Date.now();
 
-let nextSunday = getNextSunday3PM();
+let nextSunday = getSunday3PM();
 
 let eventActive = localStorage.getItem("eventActive");
 
