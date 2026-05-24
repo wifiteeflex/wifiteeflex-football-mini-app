@@ -2547,15 +2547,33 @@ onclick="window.open('https://omg10.com/4/9295877','_blank')">
 
 <script>
 
-let matchDate = new Date("2026-01-31T23:59:59").getTime();
+// ⏳ GET NEXT SATURDAY AUTOMATICALLY
+function getNextSaturday() {
+let today = new Date();
+let day = today.getDay(); // 0 Sunday - 6 Saturday
+
+let diff = 6 - day;
+if (diff <= 0) diff = diff + 7;
+
+let nextSaturday = new Date();
+nextSaturday.setDate(today.getDate() + diff);
+nextSaturday.setHours(23, 59, 59, 0);
+
+return nextSaturday.getTime();
+}
+
+let matchDate = getNextSaturday();
 
 function updateCountdown(){
 
 let now = new Date().getTime();
 let distance = matchDate - now;
 
-if(distance < 0){
-document.getElementById("timerBig").innerHTML = "🔥 MATCH DAY IS LIVE";
+let timer = document.getElementById("timerBig");
+
+// ⛔ NEVER show LIVE unless actually reached
+if(distance <= 0){
+timer.innerHTML = "🔥 MATCH DAY IS LIVE";
 return;
 }
 
@@ -2564,30 +2582,16 @@ let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-document.getElementById("timerBig").innerHTML =
+timer.innerHTML =
 days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 
-}
-
-// SHOW OVERLAY ALWAYS (FIXED)
-function checkMatches(){
-
-document.getElementById("countdownOverlay").style.display = "flex";
-
-}
-
-// TELEGRAM BUTTON
-function notifyTelegram(){
-window.open("https://t.me/Aipredictio", "_blank");
 }
 
 // RUN TIMER
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-window.onload = checkMatches;
-
-</script>
+        </script>
 
 </body>
     </html>
