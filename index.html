@@ -2562,7 +2562,7 @@ nextSaturday.setHours(23, 59, 59, 0);
 return nextSaturday.getTime();  
 }  
   
-let matchDate = Date.now() + (24 * 60 * 60 * 1000);  
+let matchDate = getNextSaturday();  
   
 function updateCountdown(){  
   
