@@ -472,34 +472,48 @@ opacity: 0.4;
 pointer-events: none;
 }
 
-/* FULL SCREEN OVERLAY */
+/* FULL SCREEN OVERLAY (DARK BUT CLEAN) */
 .countdown-overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,.88);
 display:none;
 align-items:center;
 justify-content:center;
 z-index:99999;
+background:rgba(0,0,0,.75);
+backdrop-filter: blur(6px);
 }
 
-/* CENTER BOX */
+/* CENTER BOX (TRANSPARENT STYLE) */
 .countdown-center{
 text-align:center;
 color:#fff;
-background:#0d2230;
-padding:25px;
+padding:20px;
 border-radius:15px;
 width:85%;
 max-width:340px;
+background:transparent;
 }
 
-/* BIG TIMER */
+/* TITLE */
+.countdown-center h2{
+font-size:18px;
+margin-bottom:8px;
+color:#fff;
+}
+
+/* TEXT */
+.countdown-center p{
+font-size:12px;
+opacity:.8;
+}
+
+/* TIMER */
 #timerBig{
-font-size:26px;
+font-size:24px;
 font-weight:800;
 color:#16d96f;
 margin:15px 0;
@@ -507,9 +521,10 @@ margin:15px 0;
 
 /* BUTTON */
 .countdown-center button{
-background:#16d96f;
-border:none;
-padding:12px;
+background:transparent;
+border:1px solid #16d96f;
+color:#16d96f;
+padding:10px;
 width:100%;
 border-radius:10px;
 font-weight:700;
@@ -521,19 +536,19 @@ cursor:pointer;
 
 <body>
         
-<!-- 🔒 FULL SCREEN COUNTDOWN OVERLAY -->
+<!-- 🔒 COUNTDOWN OVERLAY -->
 <div id="countdownOverlay" class="countdown-overlay">
 
 <div class="countdown-center">
 
-<h2>🧠 AI ANALYZING MATCHES</h2>
+<h2>🧠 AI Analyzing Matches</h2>
 
-<p>Next weekend fixtures loading...</p>
+<p>Next weekend predictions loading...</p>
 
-<div id="timerBig">00d 00h 00m 00s</div>
+<div id="timerBig">Loading...</div>
 
 <button onclick="notifyTelegram()">
-🔔 Notify Me on Telegram
+Check back later
 </button>
 
 </div>
@@ -2532,7 +2547,6 @@ onclick="window.open('https://omg10.com/4/9295877','_blank')">
 
 <script>
 
-// 🎯 SET NEXT MATCH WEEKEND DATE
 let matchDate = new Date("2026-01-31T23:59:59").getTime();
 
 function updateCountdown(){
@@ -2541,7 +2555,7 @@ let now = new Date().getTime();
 let distance = matchDate - now;
 
 if(distance < 0){
-document.getElementById("timerBig").innerHTML = "🔥 MATCH DAY IS LIVE!";
+document.getElementById("timerBig").innerHTML = "🔥 MATCH DAY IS LIVE";
 return;
 }
 
@@ -2555,34 +2569,22 @@ days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 
 }
 
-// SHOW OVERLAY + BLUR MATCHES
+// SHOW OVERLAY ALWAYS (FIXED)
 function checkMatches(){
-
-let matches = document.querySelectorAll(".match-card").length;
-
-if(matches === 0 || true){  // FORCE COUNTDOWN MODE
 
 document.getElementById("countdownOverlay").style.display = "flex";
 
-// blur all matches
-document.querySelectorAll(".match-card").forEach(m=>{
-m.classList.add("blur-matches");
-});
-
 }
 
-}
-
+// TELEGRAM BUTTON
 function notifyTelegram(){
 window.open("https://t.me/Aipredictio", "_blank");
-alert("🔔 You will be notified on Telegram!");
 }
 
 // RUN TIMER
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// INIT
 window.onload = checkMatches;
 
 </script>
