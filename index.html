@@ -2547,58 +2547,59 @@ onclick="window.open('https://omg10.com/4/9295877','_blank')">
 
 <script>
 
-// 🎯 SET NEXT MATCH WEEKEND DATE
-let matchDate = new Date(2026, 0, 31, 23, 59, 59).getTime();
+// ⏳ TARGET DATE
+const targetDate = new Date(2026, 0, 31, 23, 59, 59).getTime();
 
-function updateCountdown(){
+// ⏳ UPDATE TIMER
+function updateCountdown() {
 
-let now = new Date().getTime();
-let distance = matchDate - now;
+const now = Date.now();
 
-if(distance < 0){
-document.getElementById("timerBig").innerHTML = "WEEKEND PREDICTION LOADINGDAY";
+const distance = targetDate - now;
+
+// TIMER ELEMENT
+const timer = document.getElementById("timerBig");
+
+// SAFETY CHECK
+if (!timer) return;
+
+// IF DATE PASSED
+if (distance <= 0) {
+
+timer.innerHTML = "00d 00h 00m 00s";
+
 return;
-}
-
-let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-document.getElementById("timerBig").innerHTML =
-days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 
 }
 
-// SHOW OVERLAY + BLUR MATCHES
-function checkMatches(){
+// CALCULATIONS
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-let matches = document.querySelectorAll(".match-card").length;
+const hours = Math.floor(
+(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
 
-if(matches === 0 || true){  // FORCE COUNTDOWN MODE
+const minutes = Math.floor(
+(distance % (1000 * 60 * 60)) / (1000 * 60)
+);
 
-document.getElementById("countdownOverlay").style.display = "flex";
+const seconds = Math.floor(
+(distance % (1000 * 60)) / 1000
+);
 
-// blur all matches
-document.querySelectorAll(".match-card").forEach(m=>{
-m.classList.add("blur-matches");
-});
+// SHOW TIMER
+timer.innerHTML =
+days + "d " +
+hours + "h " +
+minutes + "m " +
+seconds + "s";
 
 }
 
-}
-
-function notifyTelegram(){
-window.open("https://t.me/Aipredictio", "_blank");
-alert("🔔 You will be notified on Telegram!");
-}
-
-// RUN TIMER
-setInterval(updateCountdown, 1000);
+// START
 updateCountdown();
 
-// INIT
-window.onload = checkMatches;
+setInterval(updateCountdown, 1000);
 
 </script>
         
