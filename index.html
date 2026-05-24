@@ -556,15 +556,6 @@ cursor:pointer;
 
 </div>
 
-<!-- 🔥 MATCH CARDS (EXAMPLE) -->
-<div class="card">
-Match 1 prediction
-</div>
-
-<div class="card">
-Match 2 prediction
-</div>
-
 </body>
 
 <header>
@@ -2476,7 +2467,7 @@ bar.style.width = bar.dataset.width;
 
 <!-- FOOTER LOGO -->
 <div class="footer-logo">
-www.AifootballpredictionS.com
+www.Aifootballpredictions.com
 <br>
 <span class="grok-text">
 Powered by Grok Imagination
@@ -2557,86 +2548,101 @@ onclick="window.open('https://omg10.com/4/9295877','_blank')">
 </div>
 <!-- 🔥 FOOTER END -->
 
-<script>
-
-function updateSystem(){
-
-const overlay = document.getElementById("countdownOverlay");
-const timer = document.getElementById("timerBig");
-
-if(!overlay || !timer) return;
-
-// 🔥 GET LAST SUNDAY 3PM
-let nowDate = new Date();
-
-let day = nowDate.getDay();
-
-let sunday = new Date();
-
-sunday.setDate(nowDate.getDate() - day);
-sunday.setHours(15,0,0,0);
-
-let start = sunday.getTime();
-
-let now = Date.now();
-
-let distance = (start + 24*60*60*1000) - now;
-
-// ===============================
-// 🟢 NORMAL MODE
-// ===============================
-if(now < start){
-
-overlay.style.display = "none";
-
-document.querySelectorAll(".card").forEach(card=>{
-card.classList.remove("blur-matches");
-});
-
-return;
-}
-
-// ===============================
-// 🔴 ACTIVE MODE
-// ===============================
-overlay.style.display = "flex";
-
-document.querySelectorAll(".card").forEach(card=>{
-card.classList.add("blur-matches");
-});
-
-// ===============================
-// ⏳ END EVENT
-// ===============================
-if(distance <= 0){
-
-overlay.style.display = "none";
-
-document.querySelectorAll(".card").forEach(card=>{
-card.classList.remove("blur-matches");
-});
-
-return;
-}
-
-// ===============================
-// ⏳ TIMER
-// ===============================
-let hours = Math.floor(distance / (1000 * 60 * 60));
-let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-timer.innerHTML =
-hours + "h " + minutes + "m " + seconds + "s";
-
-}
-
-// 🔥 IMPORTANT: run AFTER page loads
-window.onload = function(){
-updateSystem();
-setInterval(updateSystem, 1000);
-};
-
+<script>  
+  
+const overlay = document.getElementById("countdownOverlay");  
+  
+// 🔥 GET LAST SUNDAY 3PM OR NEXT ONE  
+function getLastSunday3PM(){  
+  
+let now = new Date();  
+  
+let day = now.getDay(); // 0 = Sunday  
+  
+// find last Sunday 3PM  
+let sunday = new Date();  
+  
+sunday.setDate(now.getDate() - day);  
+sunday.setHours(15,0,0,0);  
+  
+return sunday.getTime();  
+}  
+  
+// ⏳ START TIME (SAVED ONCE)  
+if(!localStorage.getItem("eventStart")){  
+  
+localStorage.setItem("eventStart", getLastSunday3PM());  
+  
+}  
+  
+// 🔥 MAIN LOGIC  
+function updateSystem(){  
+  
+let now = Date.now();  
+  
+let start = parseInt(localStorage.getItem("eventStart"));  
+  
+let distance = (start + 24*60*60*1000) - now;  
+  
+// ===============================  
+// 🟢 NORMAL MODE (BEFORE SUNDAY 3PM)  
+// ===============================  
+if(now < start){  
+  
+overlay.style.display = "none";  
+  
+document.querySelectorAll(".card").forEach(card=>{  
+card.classList.remove("blur-matches");  
+});  
+  
+return;  
+}  
+  
+// ===============================  
+// 🔴 EVENT MODE (SUNDAY 3PM → 24H)  
+// ===============================  
+overlay.style.display = "flex";  
+  
+document.querySelectorAll(".card").forEach(card=>{  
+card.classList.add("blur-matches");  
+});  
+  
+// ⏳ COUNTDOWN INSIDE OVERLAY  
+const timer = document.getElementById("timerBig");  
+  
+if(distance <= 0){  
+  
+// 🔥 END EVENT  
+overlay.style.display = "none";  
+  
+document.querySelectorAll(".card").forEach(card=>{  
+card.classList.remove("blur-matches");  
+});  
+  
+// RESET FOR NEXT WEEK  
+let nextSunday = new Date();  
+nextSunday.setDate(nextSunday.getDate() + (7 - nextSunday.getDay()));  
+nextSunday.setHours(15,0,0,0);  
+  
+localStorage.setItem("eventStart", nextSunday.getTime());  
+  
+return;  
+}  
+  
+// ⏳ FORMAT TIMER  
+let hours = Math.floor(distance / (1000 * 60 * 60));  
+let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));  
+let seconds = Math.floor((distance % (1000 * 60)) / 1000);  
+  
+timer.innerHTML =  
+hours + "h " + minutes + "m " + seconds + "s";  
+  
+}  
+  
+// RUN EVERY SECOND  
+setInterval(updateSystem, 1000);  
+updateSystem();  
+  
 </script>
         
 </body>
