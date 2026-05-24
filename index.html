@@ -465,22 +465,21 @@ font-size:10px;
 color:#4b5563;
 }
 
-/* BLUR MATCH CARDS */
+/* BLUR BACKGROUND MATCH CARDS */
 .blur-matches{
 filter: blur(6px);
-opacity: 0.35;
+opacity: 0.4;
 pointer-events: none;
-transition: 0.3s ease;
 }
 
-/* FULL SCREEN OVERLAY */
+/* FULL SCREEN OVERLAY (DARK BUT CLEAN) */
 .countdown-overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-display:none; /* IMPORTANT: JS controls it */
+display:flex;
 align-items:center;
 justify-content:center;
 z-index:99999;
@@ -488,7 +487,7 @@ background:rgba(0,0,0,.75);
 backdrop-filter: blur(6px);
 }
 
-/* CENTER BOX */
+/* CENTER BOX (TRANSPARENT STYLE) */
 .countdown-center{
 text-align:center;
 color:#fff;
@@ -496,25 +495,25 @@ padding:20px;
 border-radius:15px;
 width:85%;
 max-width:340px;
-background:rgba(20,20,20,0.4);
-border:1px solid rgba(255,255,255,0.1);
+background:transparent;
 }
 
 /* TITLE */
 .countdown-center h2{
 font-size:18px;
 margin-bottom:8px;
+color:#fff;
 }
 
 /* TEXT */
 .countdown-center p{
 font-size:12px;
-opacity:.7;
+opacity:.8;
 }
 
 /* TIMER */
 #timerBig{
-font-size:26px;
+font-size:24px;
 font-weight:800;
 color:#16d96f;
 margin:15px 0;
@@ -522,9 +521,9 @@ margin:15px 0;
 
 /* BUTTON */
 .countdown-center button{
-background:#16d96f;
-border:none;
-color:#000;
+background:transparent;
+border:1px solid #16d96f;
+color:#16d96f;
 padding:10px;
 width:100%;
 border-radius:10px;
@@ -540,22 +539,22 @@ cursor:pointer;
 <!-- 🔒 COUNTDOWN OVERLAY -->
 <div id="countdownOverlay" class="countdown-overlay">
 
-  <div class="countdown-center">
+<div class="countdown-center">
 
-    <h2>Accurate AI Match Prediction</h2>
+<h2>Accurate AI Match prediction</h2>
 
-    <p>Analyzing weekend matches...</p>
+<p>Analyzing weekend Matches</p>
 
-    <div id="timerBig">Loading...</div>
+<div id="timerBig">Loading...</div>
 
-    <button onclick="notifyTelegram()">
-      Check back later
-    </button>
-
-  </div>
+<button onclick="notifyTelegram()">
+Check back later
+</button>
 
 </div>
 
+</div>
+        
 </body>
 
 <header>
@@ -2548,101 +2547,15 @@ onclick="window.open('https://omg10.com/4/9295877','_blank')">
 </div>
 <!-- 🔥 FOOTER END -->
 
-<script>  
-  
-const overlay = document.getElementById("countdownOverlay");  
-  
-// 🔥 GET LAST SUNDAY 3PM OR NEXT ONE  
-function getLastSunday3PM(){  
-  
-let now = new Date();  
-  
-let day = now.getDay(); // 0 = Sunday  
-  
-// find last Sunday 3PM  
-let sunday = new Date();  
-  
-sunday.setDate(now.getDate() - day);  
-sunday.setHours(15,0,0,0);  
-  
-return sunday.getTime();  
-}  
-  
-// ⏳ START TIME (SAVED ONCE)  
-if(!localStorage.getItem("eventStart")){  
-  
-localStorage.setItem("eventStart", getLastSunday3PM());  
-  
-}  
-  
-// 🔥 MAIN LOGIC  
-function updateSystem(){  
-  
-let now = Date.now();  
-  
-let start = parseInt(localStorage.getItem("eventStart"));  
-  
-let distance = (start + 24*60*60*1000) - now;  
-  
-// ===============================  
-// 🟢 NORMAL MODE (BEFORE SUNDAY 3PM)  
-// ===============================  
-if(now < start){  
-  
-overlay.style.display = "none";  
-  
-document.querySelectorAll(".card").forEach(card=>{  
-card.classList.remove("blur-matches");  
-});  
-  
-return;  
-}  
-  
-// ===============================  
-// 🔴 EVENT MODE (SUNDAY 3PM → 24H)  
-// ===============================  
-overlay.style.display = "flex";  
-  
-document.querySelectorAll(".card").forEach(card=>{  
-card.classList.add("blur-matches");  
-});  
-  
-// ⏳ COUNTDOWN INSIDE OVERLAY  
-const timer = document.getElementById("timerBig");  
-  
-if(distance <= 0){  
-  
-// 🔥 END EVENT  
-overlay.style.display = "none";  
-  
-document.querySelectorAll(".card").forEach(card=>{  
-card.classList.remove("blur-matches");  
-});  
-  
-// RESET FOR NEXT WEEK  
-let nextSunday = new Date();  
-nextSunday.setDate(nextSunday.getDate() + (7 - nextSunday.getDay()));  
-nextSunday.setHours(15,0,0,0);  
-  
-localStorage.setItem("eventStart", nextSunday.getTime());  
-  
-return;  
-}  
-  
-// ⏳ FORMAT TIMER  
-let hours = Math.floor(distance / (1000 * 60 * 60));  
-let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));  
-let seconds = Math.floor((distance % (1000 * 60)) / 1000);  
-  
-timer.innerHTML =  
-hours + "h " + minutes + "m " + seconds + "s";  
-  
-}  
-  
-// RUN EVERY SECOND  
-setInterval(updateSystem, 1000);  
-updateSystem();  
-  
+<script>
+console.log("SCRIPT IS RUNNING");
+
+window.onload = function(){
+console.log("PAGE LOADED");
+
+let test = document.getElementById("timerBig");
+console.log("TIMER ELEMENT:", test);
+}
 </script>
         
 </body>
