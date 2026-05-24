@@ -2549,95 +2549,166 @@ onclick="window.open('https://omg10.com/4/9295877','_blank')">
 
 <script>
 
-// 🔥 GET LAST SUNDAY 3PM
-function getSunday3PM(){
+function notifyTelegram(){
+window.open("https://t.me/Aipredictio","_blank");
+}
+
+// ====================================
+// 🔥 SETTINGS
+// ====================================
+
+const OVERLAY = document.getElementById("countdownOverlay");
+const TIMER = document.getElementById("timerBig");
+
+const COUNTDOWN_HOURS = 24;
+
+// ====================================
+// 🔥 GET NEXT SUNDAY 3PM
+// ====================================
+
+function getNextSunday3PM(){
 
 let now = new Date();
 
-let day = now.getDay(); // 0 = Sunday
+let next = new Date(now);
 
-let sunday = new Date();
+let daysUntilSunday = (7 - now.getDay()) % 7;
 
-sunday.setDate(now.getDate() - day);
-sunday.setHours(15,0,0,0);
-
-return sunday.getTime();
+if(daysUntilSunday === 0 && now.getHours() >= 15){
+daysUntilSunday = 7;
 }
 
-// 💾 STORE EVENT START
-if(!localStorage.getItem("eventStart")){
-localStorage.setItem("eventStart", getSunday3PM());
+next.setDate(now.getDate() + daysUntilSunday);
+
+next.setHours(15,0,0,0);
+
+return next.getTime();
+
 }
+
+// ====================================
+// 🔥 START EVENT
+// ====================================
+
+function startCountdown(){
+
+let endTime = Date.now() + (COUNTDOWN_HOURS * 60 * 60 * 1000);
+
+localStorage.setItem("countdownEnd", endTime);
+
+localStorage.setItem("eventActive", "true");
+
+}
+
+// ====================================
+// 🔥 STOP EVENT
+// ====================================
+
+function stopCountdown(){
+
+localStorage.removeItem("countdownEnd");
+
+localStorage.setItem("eventActive", "false");
+
+OVERLAY.style.display = "none";
+
+document.querySelectorAll(".card").forEach(card=>{
+card.classList.remove("blur-matches");
+});
+
+}
+
+// ====================================
+// 🔥 MAIN LOOP
+// ====================================
 
 function updateSystem(){
 
 let now = Date.now();
 
-let start = parseInt(localStorage.getItem("eventStart"));
+let nextSunday = getNextSunday3PM();
 
-let overlay = document.getElementById("countdownOverlay");
+let eventActive = localStorage.getItem("eventActive");
 
-let timer = document.getElementById("timerBig");
+let countdownEnd = parseInt(localStorage.getItem("countdownEnd"));
 
-// ===============================
-// 🟢 NORMAL MODE (MOST OF WEEK)
-// ===============================
-if(now < start){
+// ====================================
+// 🟢 START EVENT ON SUNDAY 3PM
+// ====================================
 
-overlay.style.display = "none";
+if(now >= nextSunday && eventActive !== "true"){
 
-document.querySelectorAll(".card").forEach(card=>{
-card.classList.remove("blur-matches");
-});
+startCountdown();
 
-return;
+countdownEnd = parseInt(localStorage.getItem("countdownEnd"));
+
 }
 
-// ===============================
-// 🔴 24-HOUR ACTIVE MODE
-// ===============================
-overlay.style.display = "flex";
+// ====================================
+// 🔴 EVENT ACTIVE
+// ====================================
+
+if(eventActive === "true"){
+
+OVERLAY.style.display = "flex";
 
 document.querySelectorAll(".card").forEach(card=>{
 card.classList.add("blur-matches");
 });
 
-let distance = (start + 24*60*60*1000) - now;
+let distance = countdownEnd - now;
 
-// ===============================
-// 🔓 AFTER 24 HOURS → UNLOCK
-// ===============================
+// ====================================
+// ⛔ END EVENT
+// ====================================
+
 if(distance <= 0){
 
-overlay.style.display = "none";
+stopCountdown();
+
+return;
+
+}
+
+// ====================================
+// ⏳ TIMER
+// ====================================
+
+let hours = Math.floor(distance / (1000 * 60 * 60));
+
+let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+TIMER.innerHTML =
+hours + "h " +
+minutes + "m " +
+seconds + "s";
+
+}
+
+// ====================================
+// 🟢 NORMAL MODE
+// ====================================
+
+else{
+
+OVERLAY.style.display = "none";
 
 document.querySelectorAll(".card").forEach(card=>{
 card.classList.remove("blur-matches");
 });
 
-// 🔁 RESET FOR NEXT WEEK
-let nextSunday = new Date();
-
-nextSunday.setDate(nextSunday.getDate() + (7 - nextSunday.getDay()));
-nextSunday.setHours(15,0,0,0);
-
-localStorage.setItem("eventStart", nextSunday.getTime());
-
-return;
 }
-
-// ⏳ COUNTDOWN DISPLAY
-let hours = Math.floor(distance / (1000 * 60 * 60));
-let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-timer.innerHTML =
-hours + "h " + minutes + "m " + seconds + "s";
 
 }
 
-// RUN LOOP
-setInterval(updateSystem, 1000);
+// ====================================
+// 🚀 RUN SYSTEM
+// ====================================
+
+setInterval(updateSystem,1000);
+
 updateSystem();
 
 </script>
