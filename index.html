@@ -465,21 +465,22 @@ font-size:10px;
 color:#4b5563;
 }
 
-/* BLUR BACKGROUND MATCH CARDS */
+/* BLUR MATCH CARDS */
 .blur-matches{
 filter: blur(6px);
-opacity: 0.4;
+opacity: 0.35;
 pointer-events: none;
+transition: 0.3s ease;
 }
 
-/* FULL SCREEN OVERLAY (DARK BUT CLEAN) */
+/* FULL SCREEN OVERLAY */
 .countdown-overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-display:flex;
+display:none; /* IMPORTANT: JS controls it */
 align-items:center;
 justify-content:center;
 z-index:99999;
@@ -487,7 +488,7 @@ background:rgba(0,0,0,.75);
 backdrop-filter: blur(6px);
 }
 
-/* CENTER BOX (TRANSPARENT STYLE) */
+/* CENTER BOX */
 .countdown-center{
 text-align:center;
 color:#fff;
@@ -495,25 +496,25 @@ padding:20px;
 border-radius:15px;
 width:85%;
 max-width:340px;
-background:transparent;
+background:rgba(20,20,20,0.4);
+border:1px solid rgba(255,255,255,0.1);
 }
 
 /* TITLE */
 .countdown-center h2{
 font-size:18px;
 margin-bottom:8px;
-color:#fff;
 }
 
 /* TEXT */
 .countdown-center p{
 font-size:12px;
-opacity:.8;
+opacity:.7;
 }
 
 /* TIMER */
 #timerBig{
-font-size:24px;
+font-size:26px;
 font-weight:800;
 color:#16d96f;
 margin:15px 0;
@@ -521,9 +522,9 @@ margin:15px 0;
 
 /* BUTTON */
 .countdown-center button{
-background:transparent;
-border:1px solid #16d96f;
-color:#16d96f;
+background:#16d96f;
+border:none;
+color:#000;
 padding:10px;
 width:100%;
 border-radius:10px;
@@ -535,25 +536,36 @@ cursor:pointer;
 </head>
 
 <body>
-        
+
 <!-- 🔒 COUNTDOWN OVERLAY -->
 <div id="countdownOverlay" class="countdown-overlay">
 
-<div class="countdown-center">
+  <div class="countdown-center">
 
-<h2>Accurate AI Match prediction</h2>
+    <h2>Accurate AI Match Prediction</h2>
 
-<p>Analyzing weekend Matches</p>
+    <p>Analyzing weekend matches...</p>
 
-<div id="timerBig">Loading...</div>
+    <div id="timerBig">Loading...</div>
 
-<button onclick="notifyTelegram()">
-Check back later
-</button>
+    <button onclick="notifyTelegram()">
+      Check back later
+    </button>
+
+  </div>
 
 </div>
 
+<!-- 🔥 MATCH CARDS (EXAMPLE) -->
+<div class="card">
+Match 1 prediction
 </div>
+
+<div class="card">
+Match 2 prediction
+</div>
+
+</body>
 
 <header>
 
@@ -2545,52 +2557,86 @@ onclick="window.open('https://omg10.com/4/9295877','_blank')">
 </div>
 <!-- 🔥 FOOTER END -->
 
-<script>  
-  
-// ⏳ GET NEXT SATURDAY AUTOMATICALLY  
-function getNextSaturday() {  
-let today = new Date();  
-let day = today.getDay(); // 0 Sunday - 6 Saturday  
-  
-let diff = 6 - day;  
-if (diff <= 0) diff = diff + 7;  
-  
-let nextSaturday = new Date();  
-nextSaturday.setDate(today.getDate() + diff);  
-nextSaturday.setHours(23, 59, 59, 0);  
-  
-return nextSaturday.getTime();  
-}  
-  
-let matchDate = getNextSaturday();  
-  
-function updateCountdown(){  
-  
-let now = new Date().getTime();  
-let distance = matchDate - now;  
-  
-let timer = document.getElementById("timerBig");  
-  
-// ⛔ NEVER show LIVE unless actually reached  
-if(distance <= 0){  
-timer.innerHTML = "🔥 MATCH DAY IS LIVE";  
-return;  
-}  
-  
-let days = Math.floor(distance / (1000 * 60 * 60 * 24));  
-let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
-let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));  
-let seconds = Math.floor((distance % (1000 * 60)) / 1000);  
-  
-timer.innerHTML =  
-days + "d " + hours + "h " + minutes + "m " + seconds + "s";  
-  
-}  
-  
-// RUN TIMER  
-setInterval(updateCountdown, 1000);  
-updateCountdown();  
-  
+<script>
+
+function updateSystem(){
+
+const overlay = document.getElementById("countdownOverlay");
+const timer = document.getElementById("timerBig");
+
+if(!overlay || !timer) return;
+
+// 🔥 GET LAST SUNDAY 3PM
+let nowDate = new Date();
+
+let day = nowDate.getDay();
+
+let sunday = new Date();
+
+sunday.setDate(nowDate.getDate() - day);
+sunday.setHours(15,0,0,0);
+
+let start = sunday.getTime();
+
+let now = Date.now();
+
+let distance = (start + 24*60*60*1000) - now;
+
+// ===============================
+// 🟢 NORMAL MODE
+// ===============================
+if(now < start){
+
+overlay.style.display = "none";
+
+document.querySelectorAll(".card").forEach(card=>{
+card.classList.remove("blur-matches");
+});
+
+return;
+}
+
+// ===============================
+// 🔴 ACTIVE MODE
+// ===============================
+overlay.style.display = "flex";
+
+document.querySelectorAll(".card").forEach(card=>{
+card.classList.add("blur-matches");
+});
+
+// ===============================
+// ⏳ END EVENT
+// ===============================
+if(distance <= 0){
+
+overlay.style.display = "none";
+
+document.querySelectorAll(".card").forEach(card=>{
+card.classList.remove("blur-matches");
+});
+
+return;
+}
+
+// ===============================
+// ⏳ TIMER
+// ===============================
+let hours = Math.floor(distance / (1000 * 60 * 60));
+let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+timer.innerHTML =
+hours + "h " + minutes + "m " + seconds + "s";
+
+}
+
+// 🔥 IMPORTANT: run AFTER page loads
+window.onload = function(){
+updateSystem();
+setInterval(updateSystem, 1000);
+};
+
 </script>
         
 </body>
