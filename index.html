@@ -2545,101 +2545,52 @@ onclick="window.open('https://omg10.com/4/9295877','_blank')">
 </div>
 <!-- 🔥 FOOTER END -->
 
-<script>
-
-const overlay = document.getElementById("countdownOverlay");
-
-// 🔥 GET LAST SUNDAY 3PM OR NEXT ONE
-function getLastSunday3PM(){
-
-let now = new Date();
-
-let day = now.getDay(); // 0 = Sunday
-
-// find last Sunday 3PM
-let sunday = new Date();
-
-sunday.setDate(now.getDate() - day);
-sunday.setHours(15,0,0,0);
-
-return sunday.getTime();
-}
-
-// ⏳ START TIME (SAVED ONCE)
-if(!localStorage.getItem("eventStart")){
-
-localStorage.setItem("eventStart", getLastSunday3PM());
-
-}
-
-// 🔥 MAIN LOGIC
-function updateSystem(){
-
-let now = Date.now();
-
-let start = parseInt(localStorage.getItem("eventStart"));
-
-let distance = (start + 24*60*60*1000) - now;
-
-// ===============================
-// 🟢 NORMAL MODE (BEFORE SUNDAY 3PM)
-// ===============================
-if(now < start){
-
-overlay.style.display = "none";
-
-document.querySelectorAll(".card").forEach(card=>{
-card.classList.remove("blur-matches");
-});
-
-return;
-}
-
-// ===============================
-// 🔴 EVENT MODE (SUNDAY 3PM → 24H)
-// ===============================
-overlay.style.display = "flex";
-
-document.querySelectorAll(".card").forEach(card=>{
-card.classList.add("blur-matches");
-});
-
-// ⏳ COUNTDOWN INSIDE OVERLAY
-const timer = document.getElementById("timerBig");
-
-if(distance <= 0){
-
-// 🔥 END EVENT
-overlay.style.display = "none";
-
-document.querySelectorAll(".card").forEach(card=>{
-card.classList.remove("blur-matches");
-});
-
-// RESET FOR NEXT WEEK
-let nextSunday = new Date();
-nextSunday.setDate(nextSunday.getDate() + (7 - nextSunday.getDay()));
-nextSunday.setHours(15,0,0,0);
-
-localStorage.setItem("eventStart", nextSunday.getTime());
-
-return;
-}
-
-// ⏳ FORMAT TIMER
-let hours = Math.floor(distance / (1000 * 60 * 60));
-let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-timer.innerHTML =
-hours + "h " + minutes + "m " + seconds + "s";
-
-}
-
-// RUN EVERY SECOND
-setInterval(updateSystem, 1000);
-updateSystem();
-
+<script>  
+  
+// ⏳ GET NEXT SATURDAY AUTOMATICALLY  
+function getNextSaturday() {  
+let today = new Date();  
+let day = today.getDay(); // 0 Sunday - 6 Saturday  
+  
+let diff = 6 - day;  
+if (diff <= 0) diff = diff + 7;  
+  
+let nextSaturday = new Date();  
+nextSaturday.setDate(today.getDate() + diff);  
+nextSaturday.setHours(23, 59, 59, 0);  
+  
+return nextSaturday.getTime();  
+}  
+  
+let matchDate = getNextSaturday();  
+  
+function updateCountdown(){  
+  
+let now = new Date().getTime();  
+let distance = matchDate - now;  
+  
+let timer = document.getElementById("timerBig");  
+  
+// ⛔ NEVER show LIVE unless actually reached  
+if(distance <= 0){  
+timer.innerHTML = "🔥 MATCH DAY IS LIVE";  
+return;  
+}  
+  
+let days = Math.floor(distance / (1000 * 60 * 60 * 24));  
+let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
+let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));  
+let seconds = Math.floor((distance % (1000 * 60)) / 1000);  
+  
+timer.innerHTML =  
+days + "d " + hours + "h " + minutes + "m " + seconds + "s";  
+  
+}  
+  
+// RUN TIMER  
+setInterval(updateCountdown, 1000);  
+updateCountdown();  
+  
 </script>
         
 </body>
