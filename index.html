@@ -473,25 +473,25 @@ gap:10px;
 margin:20px 0;
 }
 
-.worldcup-section::before,
-.worldcup-section::after{
-content:"";
+.line{
 flex:1;
 height:1px;
 background:rgba(255,255,255,.12);
 }
 
-.worldcup-cup{
-font-size:22px;
-color:#ffd700;
+.worldcup-trophy{
+width:28px;
+height:40px;
+object-fit:contain;
+filter:drop-shadow(0 0 6px rgba(255,215,0,.5));
 }
 
 .worldcup-title{
 font-size:16px;
 font-weight:700;
 color:#fff;
-letter-spacing:1px;
 text-transform:uppercase;
+letter-spacing:1px;
 }
 
 </style>
@@ -638,11 +638,18 @@ GG 2+
         
 <div class="worldcup-section">
 
-<div class="worldcup-cup">🏆</div>
+<div class="line"></div>
+
+<img
+class="worldcup-trophy"
+src="https://upload.wikimedia.org/wikipedia/en/d/d3/FIFA_World_Cup_Trophy.png"
+alt="World Cup Trophy">
 
 <div class="worldcup-title">
 2026 WORLD CUP FINAL
 </div>
+
+<div class="line"></div>
 
 </div>
         
