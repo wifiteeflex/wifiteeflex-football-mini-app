@@ -465,18 +465,18 @@ font-size:10px;
 color:#4b5563;
 }
 
-.worldcup-header{
+.wc-title-box{
 display:flex;
 align-items:center;
 justify-content:center;
 gap:12px;
-margin:20px 0;
+margin:25px 0;
 }
 
 .wc-line{
 flex:1;
 height:2px;
-background:linear-gradient(90deg,#16d96f,#ffd700,#16d96f);
+background:#fff;
 opacity:.8;
 }
 
@@ -488,12 +488,39 @@ color:#fff;
 font-size:16px;
 font-weight:800;
 letter-spacing:1px;
+white-space:nowrap;
 }
 
+/* 🏆 TROPHY */
 .wc-trophy{
-width:24px;
-height:32px;
+width:22px;
+height:22px;
 object-fit:contain;
+}
+
+/* ✨ BLINK ANIMATION */
+.blink{
+animation: blinkGlow 1.2s infinite;
+}
+
+@keyframes blinkGlow{
+0%{
+opacity:1;
+transform:scale(1);
+filter:drop-shadow(0 0 5px rgba(255,215,0,.4));
+}
+
+50%{
+opacity:0.3;
+transform:scale(1.1);
+filter:drop-shadow(0 0 15px rgba(255,215,0,1));
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+filter:drop-shadow(0 0 5px rgba(255,215,0,.4));
+}
 }
 
 </style>
@@ -638,19 +665,14 @@ GG 2+
 
 </div>
 
-<div class="worldcup-header">
+<div class="wc-title-box">
 
 <div class="wc-line"></div>
 
 <div class="wc-title">
-
-FINAL WORLD
-
-<img class="wc-trophy"
-src="https://www.citypng.com/photo/20411/fifa-world-cup-trophy-download-png">
-
-CUP DAY
-
+WORLD 
+<img class="wc-trophy blink" src="https://cdn-icons-png.flaticon.com/512/824/824663.png">
+CUP FINAL
 </div>
 
 <div class="wc-line"></div>
