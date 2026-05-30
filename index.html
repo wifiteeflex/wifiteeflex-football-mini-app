@@ -465,33 +465,37 @@ font-size:10px;
 color:#4b5563;
 }
 
-.worldcup-section{
+.worldcup-header{
 display:flex;
 align-items:center;
 justify-content:center;
-gap:10px;
-margin:20px 0;
+gap:12px;
+margin:25px 0;
 }
 
-.line{
+.wc-line{
 flex:1;
-height:1px;
-background:rgba(255,255,255,.12);
+height:2px;
+background:#16d96f;
+opacity:.8;
 }
 
-.worldcup-trophy{
-width:28px;
-height:40px;
-object-fit:contain;
-filter:drop-shadow(0 0 6px rgba(255,215,0,.5));
-}
-
-.worldcup-title{
-font-size:16px;
-font-weight:700;
+.wc-title{
+display:flex;
+align-items:center;
+gap:8px;
 color:#fff;
-text-transform:uppercase;
+font-size:16px;
+font-weight:800;
 letter-spacing:1px;
+white-space:nowrap;
+}
+
+.wc-trophy{
+width:22px;
+height:32px;
+object-fit:contain;
+filter:drop-shadow(0 0 8px rgba(255,215,0,.6));
 }
 
 </style>
@@ -636,20 +640,24 @@ GG 2+
 
 </div>
         
-<div class="worldcup-section">
+<div class="worldcup-header">
 
-<div class="line"></div>
+<div class="wc-line"></div>
+
+<div class="wc-title">
+
+<span>WORLD</span>
 
 <img
-class="worldcup-trophy"
-src="https://upload.wikimedia.org/wikipedia/en/d/d3/FIFA_World_Cup_Trophy.png"
+class="wc-trophy"
+src="https://en.wikipedia.org/wiki/File:2026_FIFA_World_Cup_emblem.svg"
 alt="World Cup Trophy">
 
-<div class="worldcup-title">
-2026 WORLD CUP FINAL
+<span>CUP FINAL</span>
+
 </div>
 
-<div class="line"></div>
+<div class="wc-line"></div>
 
 </div>
         
