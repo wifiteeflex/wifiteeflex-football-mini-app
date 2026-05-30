@@ -481,14 +481,23 @@ opacity:.7;
 }
 
 .wc-title{
-display:flex;
-align-items:center;
-gap:8px;
-color:#fff;
-font-size:16px;
-font-weight:800;
-letter-spacing:1px;
-white-space:nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* 👇 This targets the cup/icon inside */
+.wc-title i,
+.wc-title svg,
+.wc-title img{
+  width: 22px;
+  height: 22px;
+  transform: scale(1.15);
 }
 
 .wc-trophy{
