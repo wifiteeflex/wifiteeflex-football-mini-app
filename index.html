@@ -525,20 +525,30 @@ z-index:999999;
 }
 
 .country-box{
-width:95%;
+width:88%;
+max-width:320px;
+padding:18px;
+margin:auto;
 text-align:center;
+border-radius:18px;
+background:#081f2d;
+border:1px solid rgba(255,255,255,.08);
 }
 
 .country-box h2{
 color:#fff;
-font-size:22px;
-margin-bottom:8px;
+font-size:24px;
+font-weight:800;
+line-height:1.3;
+margin-bottom:12px;
 }
 
 .country-box p{
-color:#aaa;
-font-size:13px;
-margin-bottom:20px;
+color:#b8c2cc;
+font-size:14px;
+line-height:1.6;
+max-width:320px;
+margin:0 auto 20px;
 }
 
 .country-slider{
@@ -554,13 +564,13 @@ display:none;
 }
 
 .country-item{
-min-width:95px;
+min-width:75px;
 cursor:pointer;
 }
 
 .country-item img{
-width:80px;
-height:80px;
+width:60px;
+height:60px;
 border-radius:50%;
 object-fit:cover;
 border:3px solid #16d96f;
@@ -574,9 +584,9 @@ transform:scale(1.08);
 
 .country-item span{
 display:block;
-margin-top:8px;
+margin-top:6px;
 color:#fff;
-font-size:12px;
+font-size:11px;
 font-weight:700;
 }
 
@@ -590,9 +600,11 @@ font-weight:700;
 
 <div class="country-box">
 
-<h2>🌍 Select Your Country</h2>
+<h2>⚽ Welcome to AI Match Predictions</h2>
 
-<p>Swipe and choose your country</p>
+<p>
+Choose your preferred country to unlock personalized football predictions, match insights, and AI-powered analysis.
+</p>
 
 <div class="country-slider">
 
@@ -602,27 +614,27 @@ font-weight:700;
 </div>
 
 <div class="country-item" onclick="selectCountry('Ghana')">
-<img src="YOUR_FLAG_URL">
+<img src="https://en.wikipedia.org/wiki/File:Flag_of_Ghana.svg">
 <span>Ghana</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('Kenya')">
-<img src="YOUR_FLAG_URL">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg">
 <span>Kenya</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('South Africa')">
-<img src="YOUR_FLAG_URL">
+<img src="https://en.wikipedia.org/wiki/File:Flag_of_South_Africa.svg">
 <span>South Africa</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('Germany')">
-<img src="YOUR_FLAG_URL">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg">
 <span>Germany</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('United Kingdom')">
-<img src="YOUR_FLAG_URL">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_the_United_Kingdom.png">
 <span>UK</span>
 </div>
 
