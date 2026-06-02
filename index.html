@@ -510,11 +510,128 @@ object-fit:contain;
 filter:drop-shadow(0 0 8px rgba(255,215,0,.6));
 }
 
+.country-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.88);
+backdrop-filter:blur(8px);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999999;
+}
+
+.country-box{
+width:95%;
+text-align:center;
+}
+
+.country-box h2{
+color:#fff;
+font-size:22px;
+margin-bottom:8px;
+}
+
+.country-box p{
+color:#aaa;
+font-size:13px;
+margin-bottom:20px;
+}
+
+.country-slider{
+display:flex;
+gap:15px;
+overflow-x:auto;
+padding:15px 5px;
+scrollbar-width:none;
+}
+
+.country-slider::-webkit-scrollbar{
+display:none;
+}
+
+.country-item{
+min-width:95px;
+cursor:pointer;
+}
+
+.country-item img{
+width:80px;
+height:80px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #16d96f;
+box-shadow:0 0 15px rgba(22,217,111,.4);
+transition:.3s;
+}
+
+.country-item img:hover{
+transform:scale(1.08);
+}
+
+.country-item span{
+display:block;
+margin-top:8px;
+color:#fff;
+font-size:12px;
+font-weight:700;
+}
+
 </style>
 </head>
         
 </body>
 
+<!-- COUNTRY SELECT -->
+<div id="countryOverlay" class="country-overlay">
+
+<div class="country-box">
+
+<h2>🌍 Select Your Country</h2>
+
+<p>Swipe and choose your country</p>
+
+<div class="country-slider">
+
+<div class="country-item" onclick="selectCountry('Nigeria')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_map_of_Nigeria.svg">
+<span>Nigeria</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('Ghana')">
+<img src="YOUR_FLAG_URL">
+<span>Ghana</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('Kenya')">
+<img src="YOUR_FLAG_URL">
+<span>Kenya</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('South Africa')">
+<img src="YOUR_FLAG_URL">
+<span>South Africa</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('Germany')">
+<img src="YOUR_FLAG_URL">
+<span>Germany</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('United Kingdom')">
+<img src="YOUR_FLAG_URL">
+<span>UK</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+        
 <header>
 
 <div class="header-top">
@@ -2696,5 +2813,39 @@ onclick="window.open('https://whatsapp.com/channel/0029VbD8yDd96H4NaKBLpL2e','_b
 </div>
 <!-- 🔥 FOOTER END -->
         
+<script>
+
+function selectCountry(country){
+
+localStorage.setItem(
+"userCountry",
+country
+);
+
+document.getElementById(
+"countryOverlay"
+).style.display="none";
+
+}
+
+window.onload=function(){
+
+const savedCountry=
+localStorage.getItem(
+"userCountry"
+);
+
+if(savedCountry){
+
+document.getElementById(
+"countryOverlay"
+).style.display="none";
+
+}
+
+}
+
+</script>
+
 </body>
     </html>
