@@ -682,23 +682,12 @@ font-weight:600;
 display:flex;
 justify-content:center;
 align-items:center;
-gap:12px;
+gap:10px;
 
-margin:6px auto 12px;
-padding:10px 14px;
+margin:2px auto 6px; /* 🔥 very close to title */
+transform:translateY(-10px); /* pull upward */
 
-width:fit-content;
-
-background:rgba(0,0,0,.35);
-backdrop-filter:blur(10px);
-
-border:1px solid rgba(22,217,111,.25);
-border-radius:30px;
-
-box-shadow:
-0 0 15px rgba(22,217,111,.12);
-
-transform:translateY(-6px);
+padding:8px 12px; /* smaller height */
 }
 
 .wc-label{
@@ -970,7 +959,7 @@ CUP FINAL
         
 <div class="wc-bar">
 
-<div class="wc-label">⏰ WORLD CUP STARTS IN</div>
+<div class="wc-label">2026 WORLD CUP STARTS IN</div>
 
 <div class="wc-time">
 <span id="days">05</span>d :
