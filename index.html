@@ -506,45 +506,54 @@ color:#4b5563;
 }
 
 .worldcup-header{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-margin:25px 0;
+text-align:center;
+padding:20px 10px;
+margin-bottom:15px;
 }
 
 .wc-line{
-flex:1;
-height:2px;
-background: linear-gradient(90deg,#ff1a1a,#ff6666,#ff1a1a);
-opacity:.7;
+height:1px;
+width:80%;
+margin:10px auto;
+background:linear-gradient(90deg,transparent,#fff,transparent);
+opacity:.3;
 }
 
 .wc-title{
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  white-space: nowrap;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+font-weight:900;
+letter-spacing:2px;
+color:#fff;
+font-size:18px;
+text-transform:uppercase;
 }
 
-/* 👇 This targets the cup/icon inside */
-.wc-title i,
-.wc-title svg,
-.wc-title img{
-  width: 30px;
-  height: 22px;
-  transform: scale(1.15);
+.wc-year{
+color:#16d96f;
+font-size:16px;
+font-weight:800;
+text-shadow:0 0 10px rgba(22,217,111,.4);
+}
+
+.wc-text{
+color:#fff;
+font-size:18px;
 }
 
 .wc-trophy{
-width:32px;
-height:42px;
+width:34px;
+height:34px;
 object-fit:contain;
-filter:drop-shadow(0 0 8px rgba(255,215,0,.6));
+filter:drop-shadow(0 0 10px rgba(255,215,0,.6));
+animation:floatCup 2.5s ease-in-out infinite;
+}
+
+@keyframes floatCup{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-4px);}
 }
 
 .country-overlay{
@@ -751,20 +760,19 @@ AI Football 🤖 Predictions
 
 </header>
 
-<div class="container">
-
 <div class="worldcup-header">
 
 <div class="wc-line"></div>
 
 <div class="wc-title">
 
-26   WORLD
+<span class="wc-year">2026</span>
+
+<span class="wc-text">WORLD CUP FINAL</span>
 
 <img class="wc-trophy"
-src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
-
-CUP FINAL
+src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png"
+alt="World Cup Trophy">
 
 </div>
 
