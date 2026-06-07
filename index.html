@@ -116,29 +116,33 @@ padding:8px;
 /* CARD */
 
 .card{
+position:relative;
 
 background:
 linear-gradient(
-rgba(0,15,30,.75),
-rgba(0,15,30,.88)
+rgba(0,10,20,.55),
+rgba(0,10,20,.75)
 ),
 url("https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1920");
 
 background-size:cover;
 background-position:center;
 
-border:1px solid rgba(22,217,111,.15);
-
+border:1px solid rgba(255,255,255,.08);
 border-radius:20px;
 
-box-shadow:
-0 0 20px rgba(0,0,0,.35);
+box-shadow:0 0 20px rgba(0,0,0,.35);
 
 overflow:hidden;
-
 margin-bottom:12px;
-}
 
+color:#fff;
+}
+        
+.card *{
+text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+        
 .card{
 position:relative;
 }
