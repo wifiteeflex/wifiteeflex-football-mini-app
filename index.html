@@ -678,6 +678,51 @@ font-size:11px;
 font-weight:600;
 }
 
+.wc-countdown{
+display:flex;
+justify-content:center;
+gap:12px;
+margin:12px 0 18px;
+}
+
+.count-item{
+width:65px;
+height:65px;
+
+background:rgba(0,0,0,.35);
+
+backdrop-filter:blur(8px);
+
+border:1px solid rgba(22,217,111,.25);
+
+border-radius:14px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+box-shadow:
+0 0 15px rgba(22,217,111,.15);
+}
+
+.count-item span{
+font-size:24px;
+font-weight:900;
+color:#16d96f;
+
+text-shadow:
+0 0 10px rgba(22,217,111,.4);
+}
+
+.count-item small{
+font-size:10px;
+font-weight:700;
+letter-spacing:1px;
+color:#fff;
+opacity:.8;
+}
+
 </style>
 </head>
         
@@ -912,6 +957,30 @@ CUP FINAL
 </div>
 
 <div class="wc-line"></div>
+
+</div>
+        
+<div class="wc-countdown">
+
+<div class="count-item">
+<span id="days">05</span>
+<small>DAYS</small>
+</div>
+
+<div class="count-item">
+<span id="hours">00</span>
+<small>HRS</small>
+</div>
+
+<div class="count-item">
+<span id="minutes">00</span>
+<small>MIN</small>
+</div>
+
+<div class="count-item">
+<span id="seconds">00</span>
+<small>SEC</small>
+</div>
 
 </div>
         
@@ -2963,6 +3032,46 @@ document.getElementById(
 ).style.display="flex";
 
 }
+
+</script>
+
+<script>
+
+const worldCupDate =
+new Date("June 12, 2026 03:00:00").getTime();
+
+setInterval(()=>{
+
+const now = new Date().getTime();
+
+const distance =
+worldCupDate - now;
+
+const days =
+Math.floor(distance/(1000*60*60*24));
+
+const hours =
+Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes =
+Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds =
+Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML =
+String(days).padStart(2,"0");
+
+document.getElementById("hours").innerHTML =
+String(hours).padStart(2,"0");
+
+document.getElementById("minutes").innerHTML =
+String(minutes).padStart(2,"0");
+
+document.getElementById("seconds").innerHTML =
+String(seconds).padStart(2,"0");
+
+},1000);
 
 </script>
 
