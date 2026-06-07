@@ -116,30 +116,27 @@ padding:8px;
 /* CARD */
 
 .card{
-position:relative;
 
 background:
 linear-gradient(
-rgba(0,0,0,.65),
-rgba(0,10,20,.85)
+rgba(0,15,30,.75),
+rgba(0,15,30,.88)
 ),
-url("https://images.unsplash.com/photo-1508098682722-e99c643e7485?q=80&w=1920");
+url("https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1920");
 
 background-size:cover;
 background-position:center;
-background-repeat:no-repeat;
 
-border:1px solid rgba(255,255,255,.06);
+border:1px solid rgba(22,217,111,.15);
+
 border-radius:20px;
 
 box-shadow:
-inset 0 0 80px rgba(0,0,0,.6),
-0 0 25px rgba(0,0,0,.4);
+0 0 20px rgba(0,0,0,.35);
 
 overflow:hidden;
-margin-bottom:12px;
 
-color:#fff;
+margin-bottom:12px;
 }
 
 .card{
@@ -155,13 +152,18 @@ right:0;
 bottom:0;
 
 background:
-radial-gradient(
-circle at center,
-rgba(255,255,255,.08),
-rgba(0,0,0,.55)
+linear-gradient(
+180deg,
+rgba(0,0,0,.15),
+rgba(0,0,0,.45)
 );
 
 pointer-events:none;
+}
+        
+.card > *{
+position:relative;
+z-index:2;
 }
         
 /* CARD TOP */
@@ -754,6 +756,97 @@ AI Football 🤖 Predictions
 
 </header>
 
+<div class="container">
+
+<!-- CARD 1 -->
+
+<div class="card">
+
+<div class="card-top">
+
+<div class="left-info">
+<div class="upcoming-badge">ENDED</div>
+<div>🏆UEFA Champion</div>
+</div>
+
+<div class="hot">🔥 HOT</div>
+
+</div>
+
+<div class="match-area">
+
+<div class="team">
+
+<div class="team-logo">
+<img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg">
+</div>
+
+<div class="team-name">
+PSG
+</div>
+
+</div>
+
+<div class="center">
+
+<div class="minute">May 30 • 17:00</div>
+
+<div class="vs">VS</div>
+
+<div class="odds-box">
+<span>FT</span>
+<strong>4-3</strong>
+</div>
+
+</div>
+
+<div class="team">
+
+<div class="team-logo">
+<img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg">
+</div>
+
+<div class="team-name">
+Arsenal
+</div>
+
+</div>
+
+</div>
+
+<div class="confidence-wrap">
+
+<div class="confidence-head">
+<span>AI predict</span>
+<span class="percent">BTTS (Yes)</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" data-width="100%"></div>
+</div>
+
+</div>
+
+<div class="prediction">
+WIN 20min
+</div>
+
+<div class="buttons">
+
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+NOT AVAILABLE
+</button>
+
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+ENDED
+</button>
+
+</div>
+
+</div>
+        
 <div class="worldcup-header">
 
 <div class="wc-line"></div>
