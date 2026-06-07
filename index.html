@@ -681,46 +681,40 @@ font-weight:600;
 .wc-countdown{
 display:flex;
 justify-content:center;
-gap:12px;
-margin:12px 0 18px;
+gap:8px;
+
+margin:4px 0 10px;  /* 🔥 move it UP closer */
+transform:translateY(-6px); /* extra pull upward */
 }
 
 .count-item{
-width:65px;
-height:65px;
+width:48px;
+height:48px;
 
 background:rgba(0,0,0,.35);
-
-backdrop-filter:blur(8px);
+backdrop-filter:blur(6px);
 
 border:1px solid rgba(22,217,111,.25);
-
-border-radius:14px;
+border-radius:10px;
 
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 
-box-shadow:
-0 0 15px rgba(22,217,111,.15);
+box-shadow:0 0 10px rgba(22,217,111,.12);
 }
 
 .count-item span{
-font-size:24px;
+font-size:16px;
 font-weight:900;
 color:#16d96f;
-
-text-shadow:
-0 0 10px rgba(22,217,111,.4);
 }
 
 .count-item small{
-font-size:10px;
-font-weight:700;
-letter-spacing:1px;
-color:#fff;
+font-size:8px;
 opacity:.8;
+letter-spacing:.5px;
 }
 
 </style>
