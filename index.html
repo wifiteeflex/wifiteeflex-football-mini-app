@@ -130,12 +130,22 @@ padding:8px;
 /* CARD */
 
 .card{
-background:linear-gradient(180deg,#071923,#031018);
-border-radius:14px;
-margin-bottom:10px;
+background:
+linear-gradient(
+rgba(0,15,30,.85),
+rgba(0,15,30,.92)
+);
+
+backdrop-filter:blur(8px);
+
+border:1px solid rgba(22,217,111,.15);
+
+border-radius:20px;
+
+box-shadow:
+0 0 20px rgba(0,0,0,.35);
+
 overflow:hidden;
-border:1px solid rgba(0,255,120,.06);
-box-shadow:0 3px 12px rgba(0,0,0,.35);
 }
 
 /* CARD TOP */
@@ -601,6 +611,38 @@ font-size:11px;
 font-weight:600;
 }
 
+.hero-stadium{
+height:220px;
+
+background:
+linear-gradient(
+rgba(0,0,0,.45),
+rgba(0,0,0,.75)
+),
+url("https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1920");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+border-bottom:2px solid rgba(22,217,111,.4);
+}
+
+.hero-stadium h1{
+font-size:34px;
+font-weight:900;
+margin:0;
+}
+
+.hero-stadium p{
+font-size:14px;
+color:#16d96f;
+}
+
 </style>
 </head>
         
@@ -684,12 +726,9 @@ Choose your preferred country to unlock personalized match insights, and AI-powe
 
 <div class="header-top">
 
-<div class="logo-title">
-AI Football 🤖 Predictions
-</div>
-
-<div class="powered">
-🟢 Powered by Grok Engine
+<div class="hero-stadium">
+<h1>⚽ AI Football Predictions</h1>
+<p>Powered by AI Analysis</p>
 </div>
 
 </div>
