@@ -89,19 +89,20 @@ position:relative;
 z-index:2;
 }
 
-/* HEADER */
-
 header{
 position:sticky;
 top:0;
 z-index:999;
-background:#051823;
-border-bottom:1px solid rgba(255,255,255,.05);
-}
 
-.header-top{
-padding:14px 12px 8px;
-text-align:center;
+background:rgba(5,24,35,.35);
+
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 4px 20px rgba(0,0,0,.15);
 }
 
 .logo-title{
@@ -171,7 +172,7 @@ linear-gradient(
 rgba(0,15,30,.75),
 rgba(0,15,30,.88)
 ),
-url("https://upload.wikimedia.org/wikipedia/commons/1/1c/Stadion_NK_Osijeka_na_Pampasu.jpg");
+url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Wembley_Stadium.jpg");
 
 background-size:cover;
 background-position:center;
