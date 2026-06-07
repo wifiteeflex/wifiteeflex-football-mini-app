@@ -678,43 +678,57 @@ font-size:11px;
 font-weight:600;
 }
 
-.wc-countdown{
+.wc-bar{
 display:flex;
-justify-content:center;
-gap:8px;
-
-margin:4px 0 10px;  /* 🔥 move it UP closer */
-transform:translateY(-6px); /* extra pull upward */
-}
-
-.count-item{
-width:48px;
-height:48px;
-
-background:rgba(0,0,0,.35);
-backdrop-filter:blur(6px);
-
-border:1px solid rgba(22,217,111,.25);
-border-radius:10px;
-
-display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
+gap:12px;
 
-box-shadow:0 0 10px rgba(22,217,111,.12);
+margin:6px auto 12px;
+padding:10px 14px;
+
+width:fit-content;
+
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(22,217,111,.25);
+border-radius:30px;
+
+box-shadow:
+0 0 15px rgba(22,217,111,.12);
+
+transform:translateY(-6px);
 }
 
-.count-item span{
-font-size:16px;
-font-weight:900;
+.wc-label{
+font-size:10px;
+font-weight:700;
+letter-spacing:1px;
 color:#16d96f;
+white-space:nowrap;
 }
 
-.count-item small{
-font-size:8px;
-opacity:.8;
-letter-spacing:.5px;
+.wc-time{
+font-size:14px;
+font-weight:900;
+color:#fff;
+letter-spacing:1px;
+}
+
+.wc-time span{
+color:#16d96f;
+text-shadow:0 0 10px rgba(22,217,111,.4);
+}
+
+.wc-bar{
+animation:pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseGlow{
+0%{box-shadow:0 0 10px rgba(22,217,111,.10);}
+50%{box-shadow:0 0 18px rgba(22,217,111,.25);}
+100%{box-shadow:0 0 10px rgba(22,217,111,.10);}
 }
 
 </style>
@@ -954,26 +968,15 @@ CUP FINAL
 
 </div>
         
-<div class="wc-countdown">
+<div class="wc-bar">
 
-<div class="count-item">
-<span id="days">05</span>
-<small>DAYS</small>
-</div>
+<div class="wc-label">⏰ WORLD CUP STARTS IN</div>
 
-<div class="count-item">
-<span id="hours">00</span>
-<small>HRS</small>
-</div>
-
-<div class="count-item">
-<span id="minutes">00</span>
-<small>MIN</small>
-</div>
-
-<div class="count-item">
-<span id="seconds">00</span>
-<small>SEC</small>
+<div class="wc-time">
+<span id="days">05</span>d :
+<span id="hours">00</span>h :
+<span id="minutes">00</span>m :
+<span id="seconds">00</span>s
 </div>
 
 </div>
