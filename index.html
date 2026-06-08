@@ -95,8 +95,21 @@ header{
 position:sticky;
 top:0;
 z-index:999;
-background:#051823;
-border-bottom:1px solid rgba(255,255,255,.05);
+
+background:
+linear-gradient(
+rgba(0,0,0,.45),
+rgba(0,0,0,.65)
+),
+url("https://upload.wikipedia.org/wiki/File:Leverkusen_BayArena_4.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(6px);
 }
 
 .header-top{
