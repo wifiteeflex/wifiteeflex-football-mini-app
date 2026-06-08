@@ -125,8 +125,37 @@ font-weight:600;
 .powered{
 margin-top:3px;
 font-size:10px;
+font-weight:600;
 color:#2fff8f;
-font-weight:500;
+
+text-shadow:
+0 0 5px rgba(47,255,143,.6),
+0 0 10px rgba(47,255,143,.4);
+
+animation:poweredGlow 1.8s infinite ease-in-out;
+}
+
+@keyframes poweredGlow{
+
+0%{
+opacity:.6;
+text-shadow:
+0 0 5px rgba(47,255,143,.4);
+}
+
+50%{
+opacity:1;
+text-shadow:
+0 0 8px rgba(47,255,143,.8),
+0 0 16px rgba(47,255,143,.6);
+}
+
+100%{
+opacity:.6;
+text-shadow:
+0 0 5px rgba(47,255,143,.4);
+}
+
 }
 
 .tabs{
@@ -832,7 +861,7 @@ AI Football 🤖 Predictions
 </div>
 
 <div class="powered">
-🟢 Powered by Grok Engine
+Powered by Grok Engine
 </div>
 
 </div>
@@ -840,11 +869,7 @@ AI Football 🤖 Predictions
 <div class="tabs">
 
 <a class="tab" href="https://omg10.com/4/7461956">
-⚽ All Matches
-</a>
-
-<a class="tab" href="https://omg10.com/4/7461956">
-🔴 Premier League
+🏆 World cup final
 </a>
 
 <a class="tab" href="https://omg10.com/4/7461956">
@@ -865,6 +890,10 @@ AI Football 🤖 Predictions
 
 <a class="tab" href="https://omg10.com/4/7461956">
 ⚡ Super Liga
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🔴 Premier League
 </a>
 
 </div>
