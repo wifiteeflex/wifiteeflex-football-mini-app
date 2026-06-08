@@ -629,7 +629,7 @@ box-shadow:none;
 color:#fff;
 font-size:24px;
 font-weight:800;
-margin-bottom:10px;
+margin-bottom:4px;
 text-shadow:0 0 15px rgba(0,0,0,.5);
 }
 
@@ -684,7 +684,7 @@ justify-content:center;
 align-items:center;
 gap:12px;
 
-margin:6px auto 12px;
+margin:2px auto 6px;
 padding:10px 14px;
 
 width:fit-content;
@@ -698,7 +698,7 @@ border-radius:30px;
 box-shadow:
 0 0 15px rgba(22,217,111,.12);
 
-transform:translateY(-6px);
+transform:translateY(-14px);
 }
 
 .wc-label{
@@ -973,7 +973,7 @@ CUP FINAL
 <div class="wc-label">WORLD CUP STARTS IN</div>
 
 <div class="wc-time">
-<span id="days">03</span>d :
+<span id="days">05</span>d :
 <span id="hours">00</span>h :
 <span id="minutes">00</span>m :
 <span id="seconds">00</span>s
@@ -3034,7 +3034,7 @@ document.getElementById(
 
 <script>
 
-const worldCupDate = 1781521200000; // fixed timestamp
+const worldCupDate = new Date("2026-06-12T03:00:00Z").getTime();
 
 function updateCountdown(){
 
