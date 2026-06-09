@@ -98,8 +98,8 @@ z-index:999;
 
 background:
 linear-gradient(
-rgba(0,0,0,.30),
-rgba(0,0,0,.45)
+rgba(0,0,0,.25),
+rgba(0,0,0,.40)
 ),
 url("https://upload.wikimedia.org/wikipedia/commons/4/42/Cristiano_Ronaldo_versus_Messi.png");
 
@@ -126,7 +126,24 @@ font-weight:600;
 margin-top:3px;
 font-size:10px;
 color:#2fff8f;
-font-weight:500;
+font-weight:600;
+
+animation:glowblink 2s infinite;
+}
+
+@keyframes glowblink{
+0%{
+opacity:1;
+text-shadow:0 0 6px rgba(47,255,143,.6);
+}
+50%{
+opacity:0.6;
+text-shadow:0 0 2px rgba(47,255,143,.2);
+}
+100%{
+opacity:1;
+text-shadow:0 0 6px rgba(47,255,143,.6);
+}
 }
 
 .tabs{
@@ -150,7 +167,7 @@ min-width:max-content;
 padding:8px 14px;
 border-radius:12px;
 
-background:rgba(0,0,0,.18); /* 👈 THIS is the text background */
+background:rgba(0,0,0,.15); /* 👈 THIS is the text background */
 
 font-size:11px;
 font-weight:600;
@@ -894,11 +911,11 @@ Choose your preferred country to unlock personalized match insights, and AI-powe
 <div class="header-top">
 
 <div class="logo-title">
-AI FOOTBALL ⚽ PREDICTIONS
+AI football 🤖 predictions
 </div>
 
 <div class="powered">
-POWERED By GROK ENGINE
+Powered By Grok Engine
 </div>
 
 </div>
