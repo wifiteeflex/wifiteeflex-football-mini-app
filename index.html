@@ -128,7 +128,7 @@ font-size:10px;
 color:#2fff8f;
 font-weight:600;
 
-animation:glowblink 2s infinite;
+animation:glowblink 3s infinite;
 }
 
 @keyframes glowblink{
@@ -414,16 +414,41 @@ transition:1.5s;
 .prediction{
 display:none;
 margin:0 10px 10px;
+
 background:#0d2f22;
-border:1px solid rgba(0,255,120,.08);
+border:1px solid rgba(0,255,120,.15);
 border-radius:10px;
+
 padding:10px;
 text-align:center;
+
 font-size:13px;
 font-weight:600;
 color:#ffd54a;
+
+animation:predGlow 1.8s infinite;
 }
 
+@keyframes predGlow{
+0%{
+opacity:1;
+box-shadow:0 0 5px rgba(0,255,120,.15);
+transform:scale(1);
+}
+
+50%{
+opacity:.75;
+box-shadow:0 0 15px rgba(0,255,120,.35);
+transform:scale(1.01);
+}
+
+100%{
+opacity:1;
+box-shadow:0 0 5px rgba(0,255,120,.15);
+transform:scale(1);
+}
+}
+        
 /* BUTTONS */
 
 .buttons{
