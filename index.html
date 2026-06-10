@@ -26,6 +26,13 @@ s.src='https://izcle.com/vignette.min.js'
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+        
 body{
 margin:0;
 font-family:Arial,sans-serif;
@@ -87,8 +94,7 @@ text-align:center;
 }
 
 .logo-title{
-font-size:17px;
-font-weight:600;
+font-size:18px;
 }
 
 .powered{
@@ -169,6 +175,7 @@ padding:8px;
 /* CARD */
 
 .card{
+position:relative;
 
 background:
 linear-gradient(
@@ -181,14 +188,10 @@ background-size:cover;
 background-position:center;
 
 border:1px solid rgba(22,217,111,.15);
-
 border-radius:20px;
-
-box-shadow:
-0 0 20px rgba(0,0,0,.35);
+box-shadow:0 0 20px rgba(0,0,0,.35);
 
 overflow:hidden;
-
 margin-bottom:12px;
 }
 
