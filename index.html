@@ -827,6 +827,28 @@ drop-shadow(0 0 6px rgba(255,255,255,.15));
 margin-bottom:-8px;
 }
 
+.card{
+contain:content;
+transform:translateZ(0);
+}
+
+body{
+-webkit-overflow-scrolling:touch;
+}
+
+#loadMore{
+background:#16d96f;
+color:#000;
+border:none;
+padding:12px 20px;
+border-radius:12px;
+font-size:13px;
+font-weight:700;
+cursor:pointer;
+
+box-shadow:0 0 10px rgba(22,217,111,.25);
+}
+
 </style>
 </head>
         
@@ -846,7 +868,7 @@ Choose your preferred country to unlock personalized match insights, and AI-powe
 <div class="country-slider">
 
 <div class="country-item" onclick="selectCountry('Ghana')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_map_of_Nigeria.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_map_of_Nigeria.svg">
 <span>Nigeria</span>
 </div>
 
@@ -856,47 +878,47 @@ Choose your preferred country to unlock personalized match insights, and AI-powe
 </div>
 
 <div class="country-item" onclick="selectCountry('Germany')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg">
 <span>Germany</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('South Africa')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Flag_map_of_South_Africa.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/0/04/Flag_map_of_South_Africa.svg">
 <span>South Africa</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('Kenya')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg">
 <span>Kenya</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('Ghana')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_map_of_Ghana.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_map_of_Ghana.svg">
 <span>Ghana</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('United Kingdom')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Flag_of_Afghanistan_%282013%E2%80%932021%29.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Flag_of_Afghanistan_%282013%E2%80%932021%29.svg">
 <span>Afghanistan</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('United Kingdom')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_%C3%85land.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_%C3%85land.svg">
 <span>Åland Islands</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('United Kingdom')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_Map_of_Algeria.png">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_Map_of_Algeria.png">
 <span>Algeria</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('United Kingdom')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Anguilla.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Anguilla.svg">
 <span>Anguilla</span>
 </div>
 
 <div class="country-item" onclick="selectCountry('United Kingdom')">
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_Map_Of_Antarctica.png">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_Map_Of_Antarctica.png">
 <span>Antarctica</span>
 </div>
 
@@ -962,7 +984,7 @@ POWERED BY GROK ENGINE
         
 <!-- CARD 1 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1057,7 +1079,7 @@ ENDED
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -1083,7 +1105,7 @@ CUP FINAL
         
 <!-- CARD 2 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1100,7 +1122,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Emblem_of_the_Government_of_the_Republic_of_Korea.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Emblem_of_the_Government_of_the_Republic_of_Korea.svg">
 </div>
 
 <div class="team-name">
@@ -1125,7 +1147,7 @@ South Korea
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Emblem_of_the_Government_of_the_Czech_Republic.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Emblem_of_the_Government_of_the_Czech_Republic.svg">
 </div>
 
 <div class="team-name">
@@ -1175,7 +1197,7 @@ OVER 2.5 Goals
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -1188,7 +1210,7 @@ CUP FINAL
 
 <!-- CARD 3 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1205,7 +1227,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Canada-Soccer-Logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/8/81/Canada-Soccer-Logo.svg">
 </div>
 
 <div class="team-name">
@@ -1230,7 +1252,7 @@ Canada
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/ro/8/8d/Logo_of_the_Football_Association_of_Bosnia_and_Herzegovina.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/ro/8/8d/Logo_of_the_Football_Association_of_Bosnia_and_Herzegovina.svg">
 </div>
 
 <div class="team-name">
@@ -1280,7 +1302,7 @@ Bosnia & Herzegovina
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -1293,7 +1315,7 @@ CUP FINAL
         
 <!-- CARD 4 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1308,7 +1330,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/United_States_Soccer_Federation_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/1/1e/United_States_Soccer_Federation_logo.svg">
 </div>
 
 <div class="team-name">
@@ -1333,7 +1355,7 @@ USA
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Paraguay_football_association.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Paraguay_football_association.svg">
 </div>
 
 <div class="team-name">
@@ -1383,7 +1405,7 @@ Paraguay
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -1396,7 +1418,7 @@ CUP FINAL
 
 <!-- CARD 5 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1413,7 +1435,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/3/3f/Mexico_national_football_team_crest.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/3/3f/Mexico_national_football_team_crest.svg">
 </div>
 
 <div class="team-name">
@@ -1438,7 +1460,7 @@ Mexico
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/e/e7/South_Africa_national_soccer_team_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/e/e7/South_Africa_national_soccer_team_logo.svg">
 </div>
 
 <div class="team-name">
@@ -1488,7 +1510,7 @@ BTTS (YES)
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -1501,7 +1523,7 @@ CUP FINAL
 
 <!-- CARD 6 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1516,7 +1538,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/1/13/Qatar_SC_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/1/13/Qatar_SC_logo.svg">
 </div>
 
 <div class="team-name">
@@ -1541,7 +1563,7 @@ Qatar
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Switzerland_20-26.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Switzerland_20-26.svg">
 </div>
 
 <div class="team-name">
@@ -1591,7 +1613,7 @@ OVER 2.5 GOALS
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -1604,7 +1626,7 @@ CUP FINAL
 
 <!-- CARD 7 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1621,7 +1643,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Brazilian_Football_Confederation_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Brazilian_Football_Confederation_logo.svg">
 </div>
 
 <div class="team-name">
@@ -1646,7 +1668,7 @@ Brazil
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Coat_of_arms_of_Morocco.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Coat_of_arms_of_Morocco.svg">
 </div>
 
 <div class="team-name">
@@ -1696,7 +1718,7 @@ BTTS & OVER 2.5
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -1709,7 +1731,7 @@ CUP FINAL
 
 <!-- CARD 8 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1724,7 +1746,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/de/d/dc/Fed_haiti.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/de/d/dc/Fed_haiti.svg">
 </div>
 
 <div class="team-name">
@@ -1749,7 +1771,7 @@ Haiti
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/sco/8/8f/Scotland_national_football_team_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/8/8f/Scotland_national_football_team_logo.svg">
 </div>
 
 <div class="team-name">
@@ -1799,7 +1821,7 @@ Away 1up WIN
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -1812,7 +1834,7 @@ CUP FINAL
 
 <!-- CARD 9 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1829,7 +1851,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Australia_national_football_team_badge.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Australia_national_football_team_badge.svg">
 </div>
 
 <div class="team-name">
@@ -1854,7 +1876,7 @@ Australia
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/7/70/Turkish_Football_Federation_crest.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/7/70/Turkish_Football_Federation_crest.svg">
 </div>
 
 <div class="team-name">
@@ -1917,7 +1939,7 @@ CUP FINAL
 
 <!-- CARD 10 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -1932,7 +1954,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/e/e3/DFBEagle.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/e/e3/DFBEagle.svg">
 </div>
 
 <div class="team-name">
@@ -1957,7 +1979,7 @@ Germany
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/de/c/c2/Cura%C3%A7ao_Federation.png">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/de/c/c2/Cura%C3%A7ao_Federation.png">
 </div>
 
 <div class="team-name">
@@ -2007,7 +2029,7 @@ HOME WIN & over 2.5 GOALS
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2020,7 +2042,7 @@ CUP FINAL
 
 <!-- CARD 11 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2037,7 +2059,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/7/78/Netherlands_national_football_team_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/7/78/Netherlands_national_football_team_logo.svg">
 </div>
 
 <div class="team-name">
@@ -2062,7 +2084,7 @@ Netherlands
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/8/84/Japan_national_football_team_crest.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/8/84/Japan_national_football_team_crest.svg">
 </div>
 
 <div class="team-name">
@@ -2112,7 +2134,7 @@ OVER 2.5 GOALS
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2125,7 +2147,7 @@ CUP FINAL
 
 <!-- CARD 12 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2140,7 +2162,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Coat_of_arms_of_Ivory_Coast_%282%29.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Coat_of_arms_of_Ivory_Coast_%282%29.svg">
 </div>
 
 <div class="team-name">
@@ -2165,7 +2187,7 @@ Ivory Coast
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Logo_de_la_Federaci%C3%B3n_Ecuatoriana_de_F%C3%BAtbol_%282%29.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Logo_de_la_Federaci%C3%B3n_Ecuatoriana_de_F%C3%BAtbol_%282%29.svg">
 </div>
 
 <div class="team-name">
@@ -2215,7 +2237,7 @@ HF Home or Away
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2228,7 +2250,7 @@ CUP FINAL
 
 <!-- CARD 13 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2245,7 +2267,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/sco/3/3f/Sweden_national_football_team_badge.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/3/3f/Sweden_national_football_team_badge.svg">
 </div>
 
 <div class="team-name">
@@ -2270,7 +2292,7 @@ Sweden
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg">
 </div>
 
 <div class="team-name">
@@ -2320,7 +2342,7 @@ Home win
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2333,7 +2355,7 @@ CUP FINAL
 
 <!-- CARD 15 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2348,7 +2370,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/3/39/Spain_national_football_team_crest.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/3/39/Spain_national_football_team_crest.svg">
 </div>
 
 <div class="team-name">
@@ -2373,7 +2395,7 @@ Spain
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/c/ce/Cape_Verdean_Football_Federation_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/c/ce/Cape_Verdean_Football_Federation_logo.svg">
 </div>
 
 <div class="team-name">
@@ -2423,7 +2445,7 @@ Cape Verde
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2436,7 +2458,7 @@ CUP FINAL
 
 <!-- CARD 16 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2451,7 +2473,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Royal_Belgian_FA_logo_2019.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/f/f9/Royal_Belgian_FA_logo_2019.svg">
 </div>
 
 <div class="team-name">
@@ -2476,7 +2498,7 @@ Belgium
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/f/f8/Egyptian_Football_Association_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/f/f8/Egyptian_Football_Association_logo.svg">
 </div>
 
 <div class="team-name">
@@ -2526,7 +2548,7 @@ Over 2.5 goals
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2539,7 +2561,7 @@ CUP FINAL
 
 <!-- CARD 17 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2556,7 +2578,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/e/ee/Saudi_Arabia_national_football_team_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/e/ee/Saudi_Arabia_national_football_team_logo.svg">
 </div>
 
 <div class="team-name">
@@ -2581,7 +2603,7 @@ Saudi Arabia
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/4/43/Uruguay_national_football_team_seal.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/4/43/Uruguay_national_football_team_seal.svg">
 </div>
 
 <div class="team-name">
@@ -2631,7 +2653,7 @@ BTTS (YES)
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2644,7 +2666,7 @@ CUP FINAL
 
 <!-- CARD 18 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2659,7 +2681,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/d/d6/Football_Federation_Islamic_Republic_of_Iran_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/d/d6/Football_Federation_Islamic_Republic_of_Iran_logo.svg">
 </div>
 
 <div class="team-name">
@@ -2684,7 +2706,7 @@ IR Iran
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Auckland_FC_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Auckland_FC_logo.svg">
 </div>
 
 <div class="team-name">
@@ -2734,7 +2756,7 @@ HOME WIN
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2747,7 +2769,7 @@ CUP FINAL
 
 <!-- CARD 19 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2764,7 +2786,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/1/12/France_national_football_team_seal.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/1/12/France_national_football_team_seal.svg">
 </div>
 
 <div class="team-name">
@@ -2789,7 +2811,7 @@ France
 <div class="team">
 
 <div class="team-logo">
-<img src="https://assets.football-logos.cc/logos/senegal/1500x1500/senegal-national-team.87192f29.png">
+<img loading="lazy" src="https://assets.football-logos.cc/logos/senegal/1500x1500/senegal-national-team.87192f29.png">
 </div>
 
 <div class="team-name">
@@ -2839,7 +2861,7 @@ HOME WIN
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2852,7 +2874,7 @@ CUP FINAL
 
 <!-- CARD 20 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2867,7 +2889,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Iraq_National_Team_Badge_2021_v1.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Iraq_National_Team_Badge_2021_v1.svg">
 </div>
 
 <div class="team-name">
@@ -2892,7 +2914,7 @@ Iraq
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/0/00/Norwegian_Football_Federation_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/0/00/Norwegian_Football_Federation_logo.svg">
 </div>
 
 <div class="team-name">
@@ -2942,7 +2964,7 @@ Away Win or over 2.5
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -2955,7 +2977,7 @@ CUP FINAL
 
 <!-- CARD 21 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -2970,7 +2992,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/c/c1/Argentina_national_football_team_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/c/c1/Argentina_national_football_team_logo.svg">
 </div>
 
 <div class="team-name">
@@ -2995,7 +3017,7 @@ Argentina
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Logo_of_Algeria_national_football_team_%28SVG_version%29.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Logo_of_Algeria_national_football_team_%28SVG_version%29.svg">
 </div>
 
 <div class="team-name">
@@ -3045,7 +3067,7 @@ BTTS (YES)
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -3058,7 +3080,7 @@ CUP FINAL
 
 <!-- CARD 22 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -3075,7 +3097,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/FK_Austria_Wien_logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/FK_Austria_Wien_logo.svg">
 </div>
 
 <div class="team-name">
@@ -3100,7 +3122,7 @@ Austria
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Jordan_national_football_team_logo_2024.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/5/54/Jordan_national_football_team_logo_2024.svg">
 </div>
 
 <div class="team-name">
@@ -3150,7 +3172,7 @@ OVER 2.5 GOALS
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -3163,7 +3185,7 @@ CUP FINAL
 
 <!-- CARD 23 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -3180,7 +3202,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/5/58/Lusitano_G.C._logo.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/5/58/Lusitano_G.C._logo.svg">
 </div>
 
 <div class="team-name">
@@ -3205,7 +3227,7 @@ Portugal
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Dr-congo-logo.png">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Dr-congo-logo.png">
 </div>
 
 <div class="team-name">
@@ -3255,7 +3277,7 @@ HOME WIN (first half)
 
 26   WORLD
 
-<img class="wc-trophy"
+<img loading="lazy" class="wc-trophy"
 src="https://upload.wikimedia.org/wikipedia/commons/1/13/World-g89b177785_1280.png">
 
 CUP FINAL
@@ -3268,7 +3290,7 @@ CUP FINAL
         
 <!-- CARD 24 -->
 
-<div class="card">
+<div class="card match-card">
 
 <div class="card-top">
 
@@ -3284,7 +3306,7 @@ CUP FINAL
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/en/8/8b/England_national_football_team_crest.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/8/8b/England_national_football_team_crest.svg">
 </div>
 
 <div class="team-name">
@@ -3309,7 +3331,7 @@ England
 <div class="team">
 
 <div class="team-logo">
-<img src="https://upload.wikimedia.org/wikipedia/sco/3/39/Croatia_national_football_team_crest.svg">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/3/39/Croatia_national_football_team_crest.svg">
 </div>
 
 <div class="team-name">
@@ -3349,6 +3371,12 @@ HOME WIN
 
 </div>
 
+</div>
+        
+<div style="text-align:center;margin:15px 0;">
+<button id="loadMore">
+📋 Show More Matches
+</button>
 </div>
         
 <script>
@@ -3450,7 +3478,7 @@ src="https://refbanners.com/I?tag=d_4362235m_37443c_&site=4362235&ad=37443">
 <div class="icon"
 onclick="window.open('https://facebook.com/YOUR_PAGE_LINK','_blank')">
 
-<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+<img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
 
 </div>
 
@@ -3458,7 +3486,7 @@ onclick="window.open('https://facebook.com/YOUR_PAGE_LINK','_blank')">
 <div class="icon"
 onclick="window.open('https://www.tiktok.com/@afrotrendz1?_r=1&_t=ZS-96yCoHfWv96','_blank')">
 
-<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+<img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
 
 </div>
 
@@ -3466,7 +3494,7 @@ onclick="window.open('https://www.tiktok.com/@afrotrendz1?_r=1&_t=ZS-96yCoHfWv96
 <div class="icon"
 onclick="window.open('https://whatsapp.com/channel/0029VbD8yDd96H4NaKBLpL2e','_blank')">
 
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+<img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 
 </div>
 
@@ -3488,7 +3516,7 @@ onclick="window.open('https://whatsapp.com/channel/0029VbD8yDd96H4NaKBLpL2e','_b
 
 <div class="partner-logos">
 
-<img
+<img loading="lazy"
 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Fc-25-logo-white.png"
 alt="EA Sports">
 
@@ -3558,6 +3586,41 @@ String(seconds).padStart(2,"0");
 
 updateCountdown();
 setInterval(updateCountdown,1000);
+
+</script>
+
+<script>
+
+const cards =
+document.querySelectorAll('.match-card');
+
+let visible = 10;
+
+cards.forEach((card,index)=>{
+if(index >= visible){
+card.style.display='none';
+}
+});
+
+document.getElementById('loadMore')
+.addEventListener('click',()=>{
+
+for(
+let i=visible;
+i<visible+8 && i<cards.length;
+i++
+){
+cards[i].style.display='block';
+}
+
+visible += 8;
+
+if(visible >= cards.length){
+document.getElementById('loadMore')
+style.display='none';
+}
+
+});
 
 </script>
 
