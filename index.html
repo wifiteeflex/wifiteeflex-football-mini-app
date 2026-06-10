@@ -812,19 +812,6 @@ body{
 -webkit-overflow-scrolling:touch;
 }
 
-#loadMore{
-background:#16d96f;
-color:#000;
-border:none;
-padding:12px 20px;
-border-radius:12px;
-font-size:13px;
-font-weight:700;
-cursor:pointer;
-
-box-shadow:0 0 10px rgba(22,217,111,.25);
-}
-
 </style>
 </head>
         
@@ -3349,12 +3336,6 @@ HOME WIN
 
 </div>
         
-<div style="text-align:center;margin:15px 0;">
-<button id="loadMore">
-📋 Show More Matches
-</button>
-</div>
-        
 <script>
 
 function unlockPrediction(btn){
@@ -3562,41 +3543,6 @@ String(seconds).padStart(2,"0");
 
 updateCountdown();
 setInterval(updateCountdown,1000);
-
-</script>
-
-<script>
-
-const cards =
-document.querySelectorAll('.match-card');
-
-let visible = 10;
-
-cards.forEach((card,index)=>{
-if(index >= visible){
-card.style.display='none';
-}
-});
-
-document.getElementById('loadMore')
-.addEventListener('click',()=>{
-
-for(
-let i=visible;
-i<visible+8 && i<cards.length;
-i++
-){
-cards[i].style.display='block';
-}
-
-visible += 8;
-
-if(visible >= cards.length){
-document.getElementById('loadMore')
-style.display='none';
-}
-
-});
 
 </script>
 
