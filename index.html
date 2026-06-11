@@ -811,6 +811,55 @@ drop-shadow(0 0 6px rgba(255,255,255,.15));
 margin-bottom:-8px;
 }
 
+.match-tabs{
+display:flex;
+justify-content:space-around;
+align-items:center;
+
+margin:15px 0;
+padding:10px 0;
+
+background:transparent;
+
+border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.match-tabs a{
+text-decoration:none;
+color:#d9d9d9;
+
+font-size:15px;
+font-weight:500;
+
+padding:8px 0;
+
+position:relative;
+
+transition:.3s;
+}
+
+.match-tabs a:hover{
+color:#fff;
+}
+
+.match-tabs a.active{
+color:#22aaff;
+font-weight:700;
+}
+
+.match-tabs a.active::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-11px;
+
+width:100%;
+height:3px;
+
+background:#22aaff;
+border-radius:10px;
+}
+
 </style>
 </head>
         
@@ -1009,6 +1058,20 @@ Nigeria
 
 <div class="progress">
 <div class="progress-bar" data-width="100%"></div>
+</div>
+
+<div class="match-tabs">
+
+<a href="YOUR_MONETAG_LINK">Overview</a>
+
+<a href="YOUR_MONETAG_LINK">Chat</a>
+
+<a href="YOUR_MONETAG_LINK">Odds</a>
+
+<a href="YOUR_MONETAG_LINK">Lineups</a>
+
+<a href="YOUR_MONETAG_LINK" class="active">H2H</a>
+
 </div>
 
 </div>
