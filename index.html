@@ -1456,7 +1456,7 @@ Paraguay
 
 <div class="buttons">
 
-<a class="bet" href="https://omg10.com/4/8859017">
+<a class="bet" onclick="preMonetag()">
 ↗ WATCH LIVE
 </a>
 
@@ -3917,6 +3917,30 @@ String(seconds).padStart(2,"0");
 
 updateCountdown();
 setInterval(updateCountdown,1000);
+
+</script>
+
+<script>
+
+function preMonetag(){
+
+// 1. Open Monetag first (pre-roll ad)
+window.open(
+"https://omg10.com/4/8859017",
+"_blank"
+);
+
+// 2. Delay then open live stream
+setTimeout(function(){
+
+window.open(
+"https://sporty.com/football/fifa-world-cup/match/canada-vs-bosnia-herzegovina/sr:match:66456916",
+"_blank"
+);
+
+}, 3000); // 3 seconds delay
+
+}
 
 </script>
 
