@@ -860,6 +860,58 @@ background:#22aaff;
 border-radius:10px;
 }
 
+#livePanel{
+
+position:fixed;
+top:-100%;
+left:0;
+
+width:100%;
+height:100%;
+
+background:#000;
+
+z-index:99999;
+
+transition:.4s ease;
+
+}
+
+#livePanel.active{
+top:0;
+}
+
+#livePanel iframe{
+
+width:100%;
+height:100%;
+
+border:none;
+
+}
+
+.live-header{
+position:absolute;
+top:10px;
+left:10px;
+z-index:100000;
+}
+
+.live-header button{
+
+background:rgba(0,0,0,.6);
+color:#fff;
+
+border:none;
+
+padding:8px 12px;
+
+border-radius:8px;
+
+font-size:12px;
+
+}
+
 </style>
 </head>
         
@@ -1456,7 +1508,7 @@ Paraguay
 
 <div class="buttons">
 
-<a class="bet" onclick="preMonetag()">
+<a class="bet" onclick="openLivePanel()">
 ↗ WATCH LIVE
 </a>
 
@@ -3922,27 +3974,29 @@ setInterval(updateCountdown,1000);
 
 <script>
 
-function preMonetag(){
+function openLivePanel(){
+document.getElementById("livePanel")
+.classList.add("active");
+}
 
-// 1. Open Monetag first (pre-roll ad)
-window.open(
-"https://omg10.com/4/8859017",
-"_blank"
-);
-
-// 2. Delay then open live stream
-setTimeout(function(){
-
-window.open(
-"https://sporty.com/football/fifa-world-cup/match/canada-vs-bosnia-herzegovina/sr:match:66456916",
-"_blank"
-);
-
-}, 3000); // 3 seconds delay
-
+function closeLive(){
+document.getElementById("livePanel")
+.classList.remove("active");
 }
 
 </script>
+
+<div id="livePanel">
+
+<div class="live-header">
+<button onclick="closeLive()">✖ Close</button>
+</div>
+
+<iframe 
+src="https://https://sporty.com/football/fifa-world-cup/match/canada-vs-bosnia-herzegovina/sr:match:66456916">
+</iframe>
+
+</div>
 
 </body>
     </html>
