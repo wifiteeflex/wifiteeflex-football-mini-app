@@ -877,41 +877,6 @@ transition:.4s ease;
 
 }
 
-#livePanel.active{
-top:0;
-}
-
-#livePanel iframe{
-
-width:100%;
-height:100%;
-
-border:none;
-
-}
-
-.live-header{
-position:absolute;
-top:10px;
-left:10px;
-z-index:100000;
-}
-
-.live-header button{
-
-background:rgba(0,0,0,.6);
-color:#fff;
-
-border:none;
-
-padding:8px 12px;
-
-border-radius:8px;
-
-font-size:12px;
-
-}
-
 </style>
 </head>
         
@@ -1215,7 +1180,7 @@ Mexico
 <div class="vs">VS</div>
 
 <div class="odds-box">
-<span>Ft</span>
+<span>FT</span>
 <strong>2-0</strong>
 </div>
 
@@ -1308,7 +1273,7 @@ CUP FINAL
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">Live</div>
+<div class="upcoming-badge">ENDED</div>
 </div>
 
 <div class="hot">🔥 HOT</div>
@@ -1331,13 +1296,13 @@ Canada
 
 <div class="center">
 
-<div class="minute">Live</div>
+<div class="minute">ENDED</div>
 
 <div class="vs">VS</div>
 
 <div class="odds-box">
-<span>LIVE</span>
-<strong>0-1</strong>
+<span>FT</span>
+<strong>1-1</strong>
 </div>
 
 </div>
@@ -1450,7 +1415,7 @@ USA
 
 <div class="center">
 
-<div class="minute">june 13 • 02:00</div>
+<div class="minute">Today • 02:00</div>
 
 <div class="vs">VS</div>
 
@@ -1508,12 +1473,12 @@ Paraguay
 
 <div class="buttons">
 
-<a class="bet" onclick="openLivePanel()">
+<a class="bet" href="https://reffpa.com/L?tag=d_4362235m_1599c_&site=4362235&ad=1599">
 ↗ WATCH LIVE
-</a>
 
-<button class="watch" onclick="unlockPrediction(this)">
-🔒 SEE PREDICTION
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+SUSPENDED
 </button>
 
 </div>
@@ -3971,32 +3936,6 @@ updateCountdown();
 setInterval(updateCountdown,1000);
 
 </script>
-
-<script>
-
-function openLivePanel(){
-document.getElementById("livePanel")
-.classList.add("active");
-}
-
-function closeLive(){
-document.getElementById("livePanel")
-.classList.remove("active");
-}
-
-</script>
-
-<div id="livePanel">
-
-<div class="live-header">
-<button onclick="closeLive()">✖ Close</button>
-</div>
-
-<iframe 
-src="https://https://sporty.com/football/fifa-world-cup/match/canada-vs-bosnia-herzegovina/sr:match:66456916">
-</iframe>
-
-</div>
 
 </body>
     </html>
