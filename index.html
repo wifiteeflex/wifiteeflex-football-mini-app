@@ -3878,17 +3878,16 @@ Official Lead Partner
 
 function saveCountry(country){
 
+alert("Clicked " + country);
+
 localStorage.setItem(
 "userCountry",
 country
 );
 
-document.getElementById(
-"countryOverlay"
-).style.display="none";
+document.getElementById("countryOverlay").style.display="none";
 
 }
-
 
 window.onload=function(){
 
