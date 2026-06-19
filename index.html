@@ -3876,6 +3876,46 @@ Official Lead Partner
 
 <script>
 
+function saveCountry(country){
+
+localStorage.setItem(
+"userCountry",
+country
+);
+
+document.getElementById(
+"countryOverlay"
+).style.display="none";
+
+}
+
+
+window.onload=function(){
+
+const savedCountry =
+localStorage.getItem("userCountry");
+
+
+if(savedCountry){
+
+document.getElementById(
+"countryOverlay"
+).style.display="none";
+
+}else{
+
+document.getElementById(
+"countryOverlay"
+).style.display="flex";
+
+}
+
+};
+
+</script>
+        
+<script>
+
 const worldCupDate = new Date("2026-06-12T03:00:00Z").getTime();
 
 function updateCountdown(){
