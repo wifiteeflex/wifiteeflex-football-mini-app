@@ -3873,34 +3873,6 @@ Official Lead Partner
 </div>
         
 <!-- 🔥 FOOTER END -->
-        
-<script>
-function saveCountry(){
-
-const country =
-document.getElementById("countrySelect").value;
-
-if(!country){
-alert("Please select a country");
-return;
-}
-
-localStorage.setItem("userCountry",country);
-
-document.getElementById("countryOverlay").style.display="none";
-}
-
-window.onload=function(){
-
-const savedCountry =
-localStorage.getItem("userCountry");
-
-if(savedCountry){
-document.getElementById("countryOverlay").style.display="none";
-}
-
-};
-</script>
 
 <script>
 
