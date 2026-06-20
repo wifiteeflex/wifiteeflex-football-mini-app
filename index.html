@@ -3876,35 +3876,41 @@ Official Lead Partner
 
 <script>
 
+document.addEventListener("DOMContentLoaded", function(){
+
+const savedCountry = localStorage.getItem("userCountry");
+
+const overlay = document.getElementById("countryOverlay");
+
+
+if(savedCountry){
+
+overlay.style.display = "none";
+
+}else{
+
+overlay.style.display = "flex";
+
+}
+
+});
+
+
 function selectCountry(country){
+
 
 localStorage.setItem(
 "userCountry",
 country
 );
 
-document.getElementById(
-"countryOverlay"
-).style.display="none";
-
-}
-
-
-window.onload=function(){
-
-const savedCountry =
-localStorage.getItem("userCountry");
-
-
-if(savedCountry){
 
 document.getElementById(
 "countryOverlay"
 ).style.display="none";
 
-}
 
-};
+}
 
 </script>
         
