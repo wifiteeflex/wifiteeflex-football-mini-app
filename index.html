@@ -3876,18 +3876,19 @@ Official Lead Partner
 
 <script>
 
-function saveCountry(country){
-
-alert("Clicked " + country);
+function selectCountry(country){
 
 localStorage.setItem(
 "userCountry",
 country
 );
 
-document.getElementById("countryOverlay").style.display="none";
+document.getElementById(
+"countryOverlay"
+).style.display="none";
 
 }
+
 
 window.onload=function(){
 
@@ -3900,12 +3901,6 @@ if(savedCountry){
 document.getElementById(
 "countryOverlay"
 ).style.display="none";
-
-}else{
-
-document.getElementById(
-"countryOverlay"
-).style.display="flex";
 
 }
 
