@@ -877,10 +877,125 @@ transition:.4s ease;
 
 }
 
+.promo-overlay{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.85);
+
+z-index:999999;
+
+align-items:center;
+justify-content:center;
+
+}
+
+
+.promo-banner{
+
+width:100%;
+height:100%;
+
+position:relative;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+.promo-banner img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+}
+
+
+.promo-close{
+
+position:absolute;
+
+top:20px;
+
+right:20px;
+
+width:45px;
+
+height:45px;
+
+border-radius:50%;
+
+border:none;
+
+background:rgba(0,0,0,.65);
+
+color:white;
+
+font-size:25px;
+
+z-index:10;
+
+}
+
+
+.promo-banner{
+
+animation:zoomBanner .5s ease;
+
+}
+
+
+@keyframes zoomBanner{
+
+from{
+
+transform:scale(.9);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
 </style>
 </head>
         
 </body>
+
+<div id="promoPopup" class="promo-overlay">
+
+<div class="promo-banner">
+
+<button class="promo-close" onclick="closePromo()">✕</button>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Cristiano_Ronaldo.jpg">
+
+</div>
+
+</div>
 
 <!-- COUNTRY SELECT -->
 <div id="countryOverlay" class="country-overlay">
@@ -3707,6 +3822,23 @@ String(seconds).padStart(2,"0");
 
 updateCountdown();
 setInterval(updateCountdown,1000);
+
+</script>
+
+<script>
+
+setTimeout(()=>{
+
+document.getElementById("promoPopup").style.display="flex";
+
+},5000);
+
+
+function closePromo(){
+
+document.getElementById("promoPopup").style.display="none";
+
+}
 
 </script>
 
