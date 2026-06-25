@@ -980,11 +980,183 @@ opacity:1;
 
 }
 
+.bottom-nav{
+
+position:fixed;
+
+bottom:15px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:95%;
+
+height:75px;
+
+background:rgba(15,15,15,.75);
+
+backdrop-filter:blur(15px);
+
+-webkit-backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.12);
+
+border-radius:40px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-around;
+
+z-index:9999;
+
+box-shadow:0 8px 30px rgba(0,0,0,.35);
+
+}
+
+
+.nav-item{
+
+flex:1;
+
+text-align:center;
+
+color:#aaa;
+
+text-decoration:none;
+
+font-size:13px;
+
+}
+
+
+.nav-item span,
+.grok-button span{
+
+display:block;
+
+margin-top:4px;
+
+}
+
+
+.nav-item:first-child{
+
+color:white;
+
+}
+
+
+.grok-button{
+
+width:110px;
+
+height:90px;
+
+margin-top:-35px;
+
+border-radius:45px;
+
+background:
+
+linear-gradient(
+135deg,
+#8b35ff,
+#2378ff
+);
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+color:white;
+
+text-decoration:none;
+
+font-size:28px;
+
+box-shadow:
+
+0 0 25px rgba(80,80,255,.5);
+
+border:1px solid rgba(255,255,255,.2);
+
+}
+
+
+.grok-button span{
+
+font-size:14px;
+
+font-weight:600;
+
+}
+
+
+@media(max-width:480px){
+
+.bottom-nav{
+
+height:70px;
+
+width:96%;
+
+}
+
+
+.grok-button{
+
+width:105px;
+
+height:85px;
+
+}
+
+}
+
 </style>
 </head>
         
 </body>
 
+<div class="bottom-nav">
+
+<a href="#" class="nav-item active">
+🏠
+<span>Home</span>
+</a>
+
+<a href="#" class="nav-item">
+⚽
+<span>Matches</span>
+</a>
+
+
+<a href="#" class="grok-button">
+🤖
+<span>Ask Grok</span>
+</a>
+
+
+<a href="#" class="nav-item">
+◔
+<span>Earn</span>
+</a>
+
+
+<a href="#" class="nav-item">
+🏆
+<span>Contest</span>
+</a>
+
+</div>
+        
 <div id="promoPopup" class="promo-overlay">
 
 <div class="promo-banner">
