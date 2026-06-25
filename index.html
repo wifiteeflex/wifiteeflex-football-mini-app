@@ -984,25 +984,25 @@ opacity:1;
 
 position:fixed;
 
-bottom:0px;
+bottom:12px;
 
 left:50%;
 
 transform:translateX(-50%);
 
-width:95%;
+width:92%;
 
-height:75px;
+height:70px;
 
-background:rgba(15,15,15,.75);
+background:rgba(20,20,20,.55);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(20px);
 
--webkit-backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(20px);
 
-border:1px solid rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.08);
 
-border-radius:40px;
+border-radius:30px;
 
 display:flex;
 
@@ -1012,7 +1012,7 @@ justify-content:space-around;
 
 z-index:9999;
 
-box-shadow:0 8px 30px rgba(0,0,0,.35);
+box-shadow:0 10px 35px rgba(0,0,0,.45);
 
 }
 
@@ -1023,49 +1023,47 @@ flex:1;
 
 text-align:center;
 
-color:#aaa;
+color:#b5b5b5;
 
 text-decoration:none;
 
-font-size:13px;
+font-size:12px;
+
+transition:.2s;
 
 }
 
 
-.nav-item span,
-.grok-button span{
+.nav-item i,
+.nav-item span{
 
 display:block;
 
-margin-top:4px;
+margin-top:3px;
 
 }
 
 
-.nav-item:first-child{
+.nav-item.active{
 
-color:white;
+color:#ffffff;
+
+transform:translateY(-2px);
 
 }
 
 
 .grok-button{
 
-width:110px;
+width:95px;
 
-height:90px;
+height:80px;
 
-margin-top:-35px;
+margin-top:-28px;
 
-border-radius:45px;
+border-radius:40px;
 
-background:
-
-linear-gradient(
-135deg,
-#8b35ff,
-#2378ff
-);
+background:linear-gradient(135deg,#8b35ff,#2378ff);
 
 display:flex;
 
@@ -1079,20 +1077,27 @@ color:white;
 
 text-decoration:none;
 
-font-size:28px;
+font-size:22px;
 
-box-shadow:
+box-shadow:0 0 20px rgba(80,80,255,.45);
 
-0 0 25px rgba(80,80,255,.5);
+border:1px solid rgba(255,255,255,.15);
 
-border:1px solid rgba(255,255,255,.2);
+transition:.2s;
+
+}
+
+
+.grok-button:hover{
+
+transform:scale(1.05);
 
 }
 
 
 .grok-button span{
 
-font-size:14px;
+font-size:12px;
 
 font-weight:600;
 
@@ -1103,18 +1108,18 @@ font-weight:600;
 
 .bottom-nav{
 
-height:70px;
+height:65px;
 
-width:96%;
+width:94%;
 
 }
 
 
 .grok-button{
 
-width:105px;
+width:90px;
 
-height:85px;
+height:75px;
 
 }
 
