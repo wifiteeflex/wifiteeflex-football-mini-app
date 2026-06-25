@@ -1127,33 +1127,35 @@ height:85px;
 
 <div class="bottom-nav">
 
-<a href="#" class="nav-item active">
+<button onclick="showPage('homePage')">
 🏠
 <span>Home</span>
-</a>
+</button>
 
-<a href="#" class="nav-item">
+
+<button onclick="showPage('matchesPage')">
 ⚽
 <span>Matches</span>
-</a>
+</button>
 
 
-<a href="#" class="grok-button">
+<button>
 🤖
 <span>Ask Grok</span>
-</a>
+</button>
 
 
-<a href="#" class="nav-item">
-◔
+<button>
+💰
 <span>Earn</span>
-</a>
+</button>
 
 
-<a href="#" class="nav-item">
+<button>
 🏆
 <span>Contest</span>
-</a>
+</button>
+
 
 </div>
         
@@ -1296,6 +1298,17 @@ POWERED BY GROK ENGINE
 <div class="container">
 
 </div>
+        
+<div id="homePage" class="page">
+
+<h2>🏠 Home</h2>
+
+<p>Welcome to AI Football Predictions</p>
+
+</div>
+
+
+<div id="matchesPage" class="page" style="display:none;">
         
 <!-- CARD 1 -->
 
@@ -4011,6 +4024,35 @@ function closePromo(){
 document.getElementById("promoPopup").style.display="none";
 
 }
+
+</script>
+
+<script>
+
+function showPage(page){
+
+
+document.querySelectorAll(".page")
+.forEach(item=>{
+
+item.style.display="none";
+
+});
+
+
+document.getElementById(page)
+.style.display="block";
+
+
+}
+
+
+window.onload=function(){
+
+showPage("homePage");
+
+};
+
 
 </script>
 
