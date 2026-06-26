@@ -984,25 +984,25 @@ opacity:1;
 
 position:fixed;
 
-bottom:12px;
+bottom:0px;
 
 left:50%;
 
 transform:translateX(-50%);
 
-width:92%;
+width:95%;
 
-height:70px;
+height:75px;
 
-background:rgba(20,20,20,.55);
+background:rgba(15,15,15,.75);
 
-backdrop-filter:blur(20px);
+backdrop-filter:blur(15px);
 
--webkit-backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(15px);
 
-border:1px solid rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.12);
 
-border-radius:30px;
+border-radius:40px;
 
 display:flex;
 
@@ -1012,7 +1012,7 @@ justify-content:space-around;
 
 z-index:9999;
 
-box-shadow:0 10px 35px rgba(0,0,0,.45);
+box-shadow:0 8px 30px rgba(0,0,0,.35);
 
 }
 
@@ -1023,47 +1023,49 @@ flex:1;
 
 text-align:center;
 
-color:#b5b5b5;
+color:#aaa;
 
 text-decoration:none;
 
-font-size:12px;
-
-transition:.2s;
+font-size:13px;
 
 }
 
 
-.nav-item i,
-.nav-item span{
+.nav-item span,
+.grok-button span{
 
 display:block;
 
-margin-top:3px;
+margin-top:4px;
 
 }
 
 
-.nav-item.active{
+.nav-item:first-child{
 
-color:#ffffff;
-
-transform:translateY(-2px);
+color:white;
 
 }
 
 
 .grok-button{
 
-width:95px;
+width:110px;
 
-height:80px;
+height:90px;
 
-margin-top:-28px;
+margin-top:-35px;
 
-border-radius:40px;
+border-radius:45px;
 
-background:linear-gradient(135deg,#8b35ff,#2378ff);
+background:
+
+linear-gradient(
+135deg,
+#8b35ff,
+#2378ff
+);
 
 display:flex;
 
@@ -1077,27 +1079,20 @@ color:white;
 
 text-decoration:none;
 
-font-size:22px;
+font-size:28px;
 
-box-shadow:0 0 20px rgba(80,80,255,.45);
+box-shadow:
 
-border:1px solid rgba(255,255,255,.15);
+0 0 25px rgba(80,80,255,.5);
 
-transition:.2s;
-
-}
-
-
-.grok-button:hover{
-
-transform:scale(1.05);
+border:1px solid rgba(255,255,255,.2);
 
 }
 
 
 .grok-button span{
 
-font-size:12px;
+font-size:14px;
 
 font-weight:600;
 
@@ -1108,18 +1103,18 @@ font-weight:600;
 
 .bottom-nav{
 
-height:65px;
+height:70px;
 
-width:94%;
+width:96%;
 
 }
 
 
 .grok-button{
 
-width:90px;
+width:105px;
 
-height:75px;
+height:85px;
 
 }
 
@@ -1129,38 +1124,36 @@ height:75px;
 </head>
         
 </body>
-
+        
 <div class="bottom-nav">
 
-<button onclick="showPage('homePage')">
+<a href="#" class="nav-item active">
 🏠
 <span>Home</span>
-</button>
+</a>
 
-
-<button onclick="showPage('matchesPage')">
+<a href="#" class="nav-item">
 ⚽
 <span>Matches</span>
-</button>
+</a>
 
 
-<button>
+<a href="#" class="grok-button">
 🤖
 <span>Ask Grok</span>
-</button>
+</a>
 
 
-<button>
-💰
+<a href="#" class="nav-item">
+◔
 <span>Earn</span>
-</button>
+</a>
 
 
-<button>
+<a href="#" class="nav-item">
 🏆
 <span>Contest</span>
-</button>
-
+</a>
 
 </div>
         
@@ -1303,17 +1296,6 @@ POWERED BY GROK ENGINE
 <div class="container">
 
 </div>
-        
-<div id="homePage" class="page">
-
-<h2>🏠 Home</h2>
-
-<p>Welcome to AI Football Predictions</p>
-
-</div>
-
-
-<div id="matchesPage" class="page" style="display:none;">
         
 <!-- CARD 1 -->
 
@@ -4033,33 +4015,6 @@ document.getElementById("promoPopup").style.display="none";
 </script>
 
 <script>
-
-function showPage(page){
-
-
-document.querySelectorAll(".page")
-.forEach(item=>{
-
-item.style.display="none";
-
-});
-
-
-document.getElementById(page)
-.style.display="block";
-
-
-}
-
-
-window.onload=function(){
-
-showPage("homePage");
-
-};
-
-
-</script>
 
 </body>
     </html>
