@@ -1127,30 +1127,27 @@ height:85px;
         
 <div class="bottom-nav">
 
-<a href="#" class="nav-item active">
+<a href="javascript:void(0)" onclick="showPage('homePage')" class="nav-item active">
 🏠
 <span>Home</span>
 </a>
 
-<a href="#" class="nav-item">
+<a href="javascript:void(0)" onclick="showPage('matchesPage')" class="nav-item">
 ⚽
 <span>Matches</span>
 </a>
 
-
-<a href="#" class="grok-button">
+<a href="javascript:void(0)" onclick="openGrok()" class="grok-button">
 🤖
 <span>Ask Grok</span>
 </a>
 
-
-<a href="#" class="nav-item">
-◔
+<a href="javascript:void(0)" onclick="showPage('earnPage')" class="nav-item">
+💰
 <span>Earn</span>
 </a>
 
-
-<a href="#" class="nav-item">
+<a href="javascript:void(0)" onclick="showPage('contestPage')" class="nav-item">
 🏆
 <span>Contest</span>
 </a>
@@ -4015,6 +4012,37 @@ document.getElementById("promoPopup").style.display="none";
 </script>
 
 <script>
+
+<script>
+function showPage(pageId){
+
+  // hide all pages
+  document.querySelectorAll('.page').forEach(p=>{
+    p.style.display = 'none';
+  });
+
+  // show selected page
+  document.getElementById(pageId).style.display = 'block';
+
+  // remove active class
+  document.querySelectorAll('.nav-item').forEach(item=>{
+    item.classList.remove('active');
+  });
+
+  // set active
+  event.target.closest('.nav-item')?.classList.add('active');
+}
+
+// Ask Grok action (you can change link later)
+function openGrok(){
+  window.open("https://YOUR-GROK-LINK.com", "_blank");
+}
+
+// open home first
+window.onload = function(){
+  showPage('homePage');
+}
+</script>
 
 </body>
     </html>
