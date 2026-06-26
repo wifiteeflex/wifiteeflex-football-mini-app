@@ -1120,36 +1120,89 @@ height:85px;
 
 }
 
+.grok-chat{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:60%;
+
+background:rgba(15,15,15,.95);
+backdrop-filter:blur(10px);
+
+border-top-left-radius:20px;
+border-top-right-radius:20px;
+
+display:none;
+flex-direction:column;
+
+z-index:99999;
+}
+
+.grok-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px;
+color:#fff;
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.grok-body{
+flex:1;
+padding:10px;
+overflow-y:auto;
+color:#fff;
+}
+
+.grok-input{
+display:flex;
+padding:10px;
+gap:8px;
+}
+
+.grok-input input{
+flex:1;
+padding:10px;
+border-radius:10px;
+border:none;
+outline:none;
+}
+
+.grok-input button{
+padding:10px 15px;
+border:none;
+border-radius:10px;
+background:#16d96f;
+color:#fff;
+font-weight:600;
+}
+
 </style>
 </head>
         
 </body>
-        
+
 <div class="bottom-nav">
 
-<a href="javascript:void(0)" onclick="showPage('homePage')" class="nav-item active">
-🏠
-<span>Home</span>
+<a onclick="showPage('homePage', this)" class="nav-item active">
+🏠 <span>Home</span>
 </a>
 
-<a href="javascript:void(0)" onclick="showPage('matchesPage')" class="nav-item">
-⚽
-<span>Matches</span>
+<a onclick="showPage('matchesPage', this)" class="nav-item">
+⚽ <span>Matches</span>
 </a>
 
-<a href="javascript:void(0)" onclick="openGrok()" class="grok-button">
-🤖
-<span>Ask Grok</span>
+<a onclick="openGrok()" class="grok-button">
+🤖 <span>Ask Grok</span>
 </a>
 
-<a href="javascript:void(0)" onclick="showPage('earnPage')" class="nav-item">
-💰
-<span>Earn</span>
+<a onclick="showPage('earnPage', this)" class="nav-item">
+💰 <span>Earn</span>
 </a>
 
-<a href="javascript:void(0)" onclick="showPage('contestPage')" class="nav-item">
-🏆
-<span>Contest</span>
+<a onclick="showPage('contestPage', this)" class="nav-item">
+🏆 <span>Contest</span>
 </a>
 
 </div>
@@ -3772,6 +3825,24 @@ Double chance (HT) 12
 
 </div>
         
+<div id="grokChat" class="grok-chat">
+
+<div class="grok-header">
+  <span>🤖 Ask Grok</span>
+  <button onclick="closeGrok()">✖</button>
+</div>
+
+<div class="grok-body">
+  <div class="msg bot">Hi 👋 Ask me anything about matches</div>
+</div>
+
+<div class="grok-input">
+  <input type="text" placeholder="Type message...">
+  <button>Send</button>
+</div>
+
+</div>
+        
 <script>
 
 function unlockPrediction(btn){
@@ -4014,33 +4085,35 @@ document.getElementById("promoPopup").style.display="none";
 <script>
 
 <script>
-function showPage(pageId){
+function showPage(pageId, el){
 
-  // hide all pages
   document.querySelectorAll('.page').forEach(p=>{
     p.style.display = 'none';
   });
 
-  // show selected page
   document.getElementById(pageId).style.display = 'block';
 
-  // remove active class
   document.querySelectorAll('.nav-item').forEach(item=>{
     item.classList.remove('active');
   });
 
-  // set active
-  event.target.closest('.nav-item')?.classList.add('active');
+  if(el){
+    el.classList.add('active');
+  }
 }
 
-// Ask Grok action (you can change link later)
-function openGrok(){
-  window.open("https://YOUR-GROK-LINK.com", "_blank");
-}
-
-// open home first
 window.onload = function(){
   showPage('homePage');
+};
+</script>
+
+<script>
+function openGrok(){
+  document.getElementById("grokChat").style.display = "flex";
+}
+
+function closeGrok(){
+  document.getElementById("grokChat").style.display = "none";
 }
 </script>
 
