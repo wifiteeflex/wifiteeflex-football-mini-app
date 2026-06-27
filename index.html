@@ -1182,25 +1182,30 @@ font-weight:600;
 
 <div class="bottom-nav">
 
-<a onclick="showPage('homePage', this)" class="nav-item active">
-🏠 <span>Home</span>
-</a>
+<button onclick="showPage('homePage', this)" class="nav-item active">
+🏠
+<span>Home</span>
+</button>
 
-<a onclick="showPage('matchesPage', this)" class="nav-item">
-⚽ <span>Prediction</span>
-</a>
+<button onclick="showPage('matchesPage', this)" class="nav-item">
+⚽
+<span>Prediction</span>
+</button>
 
-<a onclick="openGrok()" class="grok-button">
-🤖 <span>Ask Grok</span>
-</a>
+<button onclick="openGrok()" class="grok-button">
+🤖
+<span>Ask Grok</span>
+</button>
 
-<a onclick="showPage('earnPage', this)" class="nav-item">
-💰 <span>Earn</span>
-</a>
+<button onclick="showPage('earnPage', this)" class="nav-item">
+💰
+<span>Earn</span>
+</button>
 
-<a onclick="showPage('contestPage', this)" class="nav-item">
-🏆 <span>Contest</span>
-</a>
+<button onclick="showPage('contestPage', this)" class="nav-item">
+🏆
+<span>Contest</span>
+</button>
 
 </div>
         
@@ -4113,6 +4118,23 @@ function closeGrok(){
   document.getElementById("grokChat").style.display = "none";
 }
 </script>
+
+function showPage(page, btn){
+
+document.querySelectorAll(".page").forEach(p=>{
+p.style.display="none";
+});
+
+document.getElementById(page).style.display="block";
+
+
+document.querySelectorAll(".bottom-nav button").forEach(b=>{
+b.classList.remove("active");
+});
+
+btn.classList.add("active");
+
+}
 
 </body>
     </html>
