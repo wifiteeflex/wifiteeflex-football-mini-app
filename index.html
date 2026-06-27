@@ -1631,7 +1631,7 @@ Get smart match analysis powered by AI
 
 <button id="claimBtn" onclick="claimReward()">
 
-Claim
+Coming soon
 
 </button>
 
@@ -1658,7 +1658,7 @@ Claim
 
 <div class="feature-box">
 
-⚽
+🔜
 
 <p>
 Live Matches
@@ -1670,7 +1670,7 @@ Live Matches
 
 <div class="feature-box">
 
-🤖
+🔜
 
 <p>
 Ask Grok AI
@@ -1682,10 +1682,10 @@ Ask Grok AI
 
 <div class="feature-box">
 
-🏆
+🔜
 
 <p>
-Contest
+Vote
 </p>
 
 </div>
@@ -4546,22 +4546,17 @@ showPage("homePage");
 
 // Telegram user
 
-let tg = window.Telegram.WebApp;
+const tg = window.Telegram.WebApp;
 
 tg.ready();
 
-
-
-let user = tg.initDataUnsafe.user;
-
+const user = tg.initDataUnsafe.user;
 
 
 if(user){
 
-
 document.getElementById("userName").innerText =
-user.first_name;
-
+user.first_name || "User";
 
 
 if(user.photo_url){
@@ -4570,7 +4565,6 @@ document.getElementById("userPhoto").src =
 user.photo_url;
 
 }
-
 
 }
 
