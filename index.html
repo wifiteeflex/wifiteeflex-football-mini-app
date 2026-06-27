@@ -1175,6 +1175,216 @@ color:#fff;
 font-weight:600;
 }
 
+.profile-card{
+
+background:rgba(20,20,20,.8);
+
+border-radius:25px;
+
+padding:18px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin:15px;
+
+border:1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+.profile-left{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+color:white;
+
+}
+
+
+.profile-left img{
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+}
+
+
+.profile-left h3{
+
+margin:0;
+
+}
+
+
+
+.profile-left p{
+
+margin:3px 0;
+
+color:#aaa;
+
+}
+
+
+
+.coin-box{
+
+background:#111;
+
+padding:10px 15px;
+
+border-radius:20px;
+
+color:#ffd700;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+.hero-card{
+
+margin:15px;
+
+padding:25px;
+
+border-radius:30px;
+
+background:
+
+linear-gradient(135deg,#0f9b0f,#00ff88);
+
+color:white;
+
+text-align:center;
+
+}
+
+
+
+.hero-card button{
+
+margin-top:15px;
+
+padding:14px 35px;
+
+border:none;
+
+border-radius:30px;
+
+font-size:16px;
+
+}
+
+
+
+.reward-card{
+
+margin:15px;
+
+padding:20px;
+
+border-radius:25px;
+
+background:linear-gradient(135deg,#8b35ff,#2378ff);
+
+color:white;
+
+}
+
+
+
+.reward-content{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+.reward-content button{
+
+border:none;
+
+background:white;
+
+padding:12px 30px;
+
+border-radius:25px;
+
+}
+
+
+
+.section-title{
+
+color:white;
+
+font-size:20px;
+
+margin:20px;
+
+}
+
+
+
+.feature-grid{
+
+display:flex;
+
+gap:12px;
+
+padding:15px;
+
+}
+
+
+
+.feature-box{
+
+flex:1;
+
+background:#151515;
+
+border-radius:20px;
+
+padding:20px;
+
+text-align:center;
+
+color:white;
+
+font-size:25px;
+
+}
+
+
+
+.feature-box p{
+
+font-size:13px;
+
+}
+
 </style>
 </head>
         
@@ -1344,6 +1554,140 @@ POWERED BY GROK ENGINE
 </div>
 
 </header>
+
+<div id="homePage" class="page">
+
+
+<div class="profile-card">
+
+<div class="profile-left">
+
+<img src="https://i.imgur.com/6VBx3io.png">
+
+<div>
+<h3>Welcome 👋</h3>
+<p>Football Fan</p>
+</div>
+
+</div>
+
+
+<div class="coin-box">
+
+🪙 <span id="coins">0</span>
+
+</div>
+
+
+</div>
+
+
+
+<div class="hero-card">
+
+<h1>
+AI Football 🤖 Predictions
+</h1>
+
+<p>
+Get smart match analysis powered by AI
+</p>
+
+
+<button onclick="showPage('matchesPage')">
+
+⚽ View Predictions
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="reward-card">
+
+
+<h2>
+🎁 Daily Reward
+</h2>
+
+
+<div class="reward-content">
+
+<span>
+🪙 100 Coins
+</span>
+
+
+<button onclick="claimReward()">
+
+Claim
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="section-title">
+
+🔥 Hot Features
+
+</div>
+
+
+
+<div class="feature-grid">
+
+
+<div class="feature-box">
+
+⚽
+
+<p>
+Live Matches
+</p>
+
+</div>
+
+
+
+<div class="feature-box">
+
+🤖
+
+<p>
+Ask Grok AI
+</p>
+
+</div>
+
+
+
+<div class="feature-box">
+
+🏆
+
+<p>
+Contest
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
 
 <div id="matchesPage" class="page">
 
