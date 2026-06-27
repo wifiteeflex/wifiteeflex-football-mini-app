@@ -1180,57 +1180,6 @@ font-weight:600;
         
 </body>
 
-<script>
-
-function showPage(pageId, button){
-
-// hide all pages
-document.querySelectorAll(".page").forEach(function(page){
-
-page.style.display="none";
-
-});
-
-
-// show selected page
-let page = document.getElementById(pageId);
-
-if(page){
-
-page.style.display="block";
-
-}
-
-
-// remove active
-document.querySelectorAll(".bottom-nav button").forEach(function(btn){
-
-btn.classList.remove("active");
-
-});
-
-
-// add active
-if(button){
-
-button.classList.add("active");
-
-}
-
-}
-
-
-// open home automatically when app starts
-
-window.onload=function(){
-
-showPage("homePage");
-
-};
-
-
-</script>
-
 <div class="bottom-nav">
 
 <button onclick="showPage('homePage', this)" class="nav-item active">
@@ -4186,6 +4135,57 @@ b.classList.remove("active");
 btn.classList.add("active");
 
 }
+
+<script>
+
+function showPage(pageId, button){
+
+// hide all pages
+document.querySelectorAll(".page").forEach(function(page){
+
+page.style.display="none";
+
+});
+
+
+// show selected page
+let page = document.getElementById(pageId);
+
+if(page){
+
+page.style.display="block";
+
+}
+
+
+// remove active
+document.querySelectorAll(".bottom-nav button").forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
+
+
+// add active
+if(button){
+
+button.classList.add("active");
+
+}
+
+}
+
+
+// open home automatically when app starts
+
+window.onload=function(){
+
+showPage("homePage");
+
+};
+
+
+</script>
 
 </body>
     </html>
