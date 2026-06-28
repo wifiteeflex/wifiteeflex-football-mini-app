@@ -1501,8 +1501,6 @@ color:white;
 
 }
 
-
-
 .reward-info{
 
 display:flex;
@@ -1515,8 +1513,6 @@ color:#aaa;
 
 }
 
-
-
 .ad-info{
 
 display:flex;
@@ -1527,10 +1523,7 @@ margin:20px 0;
 
 }
 
-
-
 .earn-btn{
-
 
 width:100%;
 
@@ -1550,8 +1543,6 @@ font-weight:bold;
 
 }
 
-
-
 .small-text{
 
 text-align:center;
@@ -1564,10 +1555,7 @@ margin-top:15px;
 
 }
 
-
-
 .task-btn{
-
 
 width:100%;
 
@@ -1589,13 +1577,111 @@ justify-content:space-between;
 
 font-size:16px;
 
-
 }
-
 
 .task-btn span{
 
 color:#22e27a;
+
+}
+
+.contest-header{
+
+text-align:center;
+color:white;
+padding:20px;
+
+}
+
+.contest-header h1{
+
+font-size:28px;
+
+}
+
+.contest-banner{
+
+margin:15px;
+
+padding:25px;
+
+border-radius:25px;
+
+background:
+
+linear-gradient(
+135deg,
+#8b35ff,
+#2378ff
+);
+
+color:white;
+
+text-align:center;
+
+}
+
+.contest-banner button{
+
+margin-top:15px;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:30px;
+
+font-size:17px;
+
+background:white;
+
+color:#222;
+
+font-weight:bold;
+
+}
+
+.prize-box,
+.leaderboard,
+.contest-info{
+
+margin:15px;
+
+background:
+
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+padding:20px;
+
+color:white;
+
+}
+
+.prize{
+
+padding:15px;
+
+margin-top:10px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:15px;
+
+}
+
+.player{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:15px;
+
+border-bottom:1px solid rgba(255,255,255,.1);
 
 }
 
@@ -1793,6 +1879,98 @@ POWERED BY GROK ENGINE
 </div>
 
 </header>
+
+<div id="contestPage" class="page">
+
+<div class="contest-header">
+
+<h1>🏆 AI Prediction Contest</h1>
+
+<p>Compete • Predict • Win Rewards</p>
+
+</div>
+
+<div class="contest-banner">
+
+<h2>🔥 Daily Prediction Challenge</h2>
+
+<p>Make the best match predictions and climb the leaderboard</p>
+
+<button onclick="joinContest(this)">
+🚀 Join Contest
+</button>
+
+</div>
+
+<div class="prize-box">
+
+<h2>🎁 Today's Prize Pool</h2>
+
+<div class="prize">
+
+🥇 1st Place — $50
+
+</div>
+
+<div class="prize">
+
+🥈 2nd Place — $25
+
+</div>
+
+<div class="prize">
+
+🥉 3rd Place — $10
+
+</div>
+
+</div>
+
+<div class="leaderboard">
+
+<h2>🏅 Top Predictors</h2>
+
+<div class="player">
+
+<span>1. ⚽ King Predictor</span>
+
+<b>980 pts</b>
+
+</div>
+
+<div class="player">
+
+<span>2. 🔥 Goal Master</span>
+
+<b>870 pts</b>
+
+</div>
+
+<div class="player">
+
+<span>3. 🧠 AI Expert</span>
+
+<b>790 pts</b>
+
+</div>
+
+</div>
+
+<div class="contest-info">
+
+<h3>How it works</h3>
+
+<p>✅ Join contest</p>
+
+<p>✅ Make predictions</p>
+
+<p>✅ Earn points</p>
+
+<p>✅ Win rewards</p>
+
+</div>
+
+</div>
 
 <div id="earnPage" class="page">
 
@@ -5051,6 +5229,24 @@ url: window.location.href
 btn.querySelector("span").innerText = "Rewarded ✅";
 btn.style.opacity = "0.7";
 btn.disabled = true;
+
+}
+
+</script>
+
+<script>
+
+function joinContest(btn){
+
+window.open(
+"https://omg10.com/4/7533041",
+"_blank"
+);
+
+btn.innerHTML="Joined ✅";
+
+btn.disabled=true;
+
 
 }
 
