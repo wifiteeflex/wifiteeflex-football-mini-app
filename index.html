@@ -1482,6 +1482,160 @@ font-size:13px;
 
 }
 
+.earn-header{
+
+padding:20px;
+
+color:white;
+
+}
+
+
+
+.earn-header h1{
+
+font-size:28px;
+
+}
+
+
+
+.balance-card{
+
+margin:15px;
+
+padding:25px;
+
+border-radius:25px;
+
+background:
+linear-gradient(135deg,#8b35ff,#2378ff);
+
+color:white;
+
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+}
+
+
+
+.balance-card h2{
+
+font-size:40px;
+
+margin:10px;
+
+}
+
+
+
+.earn-card,
+.tasks-card{
+
+
+margin:15px;
+
+padding:20px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.12);
+
+color:white;
+
+
+}
+
+
+
+.ad-info{
+
+display:flex;
+
+justify-content:space-between;
+
+margin:20px 0;
+
+}
+
+
+
+.earn-btn{
+
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:30px;
+
+background:#22e27a;
+
+color:black;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+
+
+.small-text{
+
+text-align:center;
+
+color:#aaa;
+
+font-size:13px;
+
+margin-top:15px;
+
+}
+
+
+
+.task-btn{
+
+
+width:100%;
+
+padding:18px;
+
+margin-top:12px;
+
+border:none;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.08);
+
+color:white;
+
+display:flex;
+
+justify-content:space-between;
+
+font-size:16px;
+
+
+}
+
+
+.task-btn span{
+
+color:#22e27a;
+
+}
+
 </style>
 </head>
         
@@ -1676,6 +1830,117 @@ POWERED BY GROK ENGINE
 </div>
 
 </header>
+
+<div id="earnPage" class="page">
+
+<div class="earn-header">
+
+<h1>💰 Earn Rewards</h1>
+
+<p>Complete tasks and earn rewards</p>
+
+</div>
+
+
+<div class="balance-card">
+
+<span>Your Balance</span>
+
+<h2>$<span id="usdBalance">0.0000</span></h2>
+
+<p>≈ ₦<span id="nairaBalance">0</span></p>
+
+</div>
+
+
+
+<div class="earn-card">
+
+<h3>🎬 Daily Ads Reward</h3>
+
+<p>
+Watch ads and earn money
+</p>
+
+<div class="ad-info">
+
+<span>Daily Limit</span>
+
+<b id="adCount">0 / 2</b>
+
+</div>
+
+
+<button onclick="watchRewardAd()" class="earn-btn">
+
+▶ Earn $0.0071
+
+</button>
+
+
+<p class="small-text">
+
+Available again every 24 hours
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="tasks-card">
+
+
+<h3>🚀 More Ways To Earn</h3>
+
+
+
+<button class="task-btn">
+
+👥 Invite Friends
+
+<span>Earn Bonus</span>
+
+</button>
+
+
+
+<button class="task-btn">
+
+𝕏 Follow X
+
+<span>+ Reward</span>
+
+</button>
+
+
+
+<button class="task-btn">
+
+📘 Follow Facebook
+
+<span>+ Reward</span>
+
+</button>
+
+
+
+<button class="task-btn">
+
+💬 Join WhatsApp Channel
+
+<span>+ Reward</span>
+
+</button>
+
+
+
+</div>
+
+
+</div>
 
 <div id="homePage" class="page">
 
@@ -4789,13 +5054,95 @@ hours+"h "+mins+"m";
 
 }
 
-
-
 setInterval(rewardTimer,1000);
 
-
-
 </script>
+
+let balance = 
+Number(localStorage.getItem("usdBalance")) || 0;
+
+
+let ads =
+Number(localStorage.getItem("adsWatched")) || 0;
+
+
+
+function updateBalance(){
+
+document.getElementById("usdBalance").innerHTML =
+balance.toFixed(4);
+
+
+document.getElementById("nairaBalance").innerHTML =
+Math.floor(balance * 1400);
+
+
+document.getElementById("adCount").innerHTML =
+ads+" / 2";
+
+}
+
+
+
+
+function watchRewardAd(){
+
+
+if(ads >= 2){
+
+alert("Daily limit reached. Come back tomorrow");
+
+return;
+
+}
+
+
+
+// OPEN MONETAG REWARDED AD
+
+show_10317085().then(() => {
+
+
+
+// USER FINISHED AD HERE
+
+
+balance = balance + 0.0071;
+
+
+ads = ads + 1;
+
+
+
+localStorage.setItem(
+"usdBalance",
+balance
+);
+
+
+
+localStorage.setItem(
+"adsWatched",
+ads
+);
+
+
+
+updateBalance();
+
+
+
+alert("🎉 Reward added: $0.0071");
+
+
+});
+
+
+}
+
+
+
+window.onload = updateBalance;
 
 </body>
     </html>
