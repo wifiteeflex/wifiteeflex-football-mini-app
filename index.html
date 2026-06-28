@@ -5022,21 +5022,14 @@ hours+"h "+mins+"m";
 
 setInterval(rewardTimer,1000);
 
-</script>
+<script>
 let balance = Number(localStorage.getItem("usdBalance")) || 0;
 let ads = Number(localStorage.getItem("adsWatched")) || 0;
 
 function updateBalance(){
-
-document.getElementById("usdBalance").innerText =
-balance.toFixed(4);
-
-document.getElementById("nairaBalance").innerText =
-Math.floor(balance * 1400);
-
-document.getElementById("adCount").innerText =
-ads + " / 2";
-
+document.getElementById("usdBalance").innerText = balance.toFixed(4);
+document.getElementById("nairaBalance").innerText = Math.floor(balance * 1400);
+document.getElementById("adCount").innerText = ads + " / 2";
 }
 
 function watchRewardAd(){
@@ -5046,37 +5039,29 @@ alert("Daily limit reached. Come back tomorrow");
 return;
 }
 
-
-// CHECK IF MONETAG EXISTS
-
 if(typeof show_10317085 !== "function"){
 alert("Ad not loaded yet. Try again in few seconds");
 return;
 }
-
-
-// RUN REWARDED AD
 
 show_10317085().then(() => {
 
 balance += 0.0071;
 ads++;
 
-
 localStorage.setItem("usdBalance", balance);
 localStorage.setItem("adsWatched", ads);
 
-
 updateBalance();
 
-
-document.getElementById("earnBtn").innerText =
-"Rewarded ✅";
+document.getElementById("earnBtn").innerText = "Rewarded ✅";
 
 });
+
 }
 
 window.onload = updateBalance;
+</script>
 
 function openLink(btn, url){
 
