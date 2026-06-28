@@ -5275,5 +5275,21 @@ btn.disabled = true;
 
 </script>
 
+const tg = window.Telegram.WebApp;
+
+tg.ready();
+
+
+const user = tg.initDataUnsafe.user;
+
+
+if(user){
+
+console.log(user.id);
+
+console.log(user.first_name);
+
+}
+
 </body>
     </html>
