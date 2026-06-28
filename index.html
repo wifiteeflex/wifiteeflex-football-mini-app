@@ -5274,28 +5274,55 @@ btn.disabled = true;
 }
 
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDzP9BdzoYr8z0X6u_9tnHx1eREqs2cLNE",
-    authDomain: "ai-match-predictions-fa41f.firebaseapp.com",
-    databaseURL: "https://ai-match-predictions-fa41f-default-rtdb.firebaseio.com",
-    projectId: "ai-match-predictions-fa41f",
-    storageBucket: "ai-match-predictions-fa41f.firebasestorage.app",
-    messagingSenderId: "832247627193",
-    appId: "1:832247627193:web:1022ed914cad2ef763ca68",
-    measurementId: "G-WDELGZ065F"
-  };
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+
+const firebaseConfig = {
+ apiKey: "AIzaSyDzP9BdzoYr8z0X6u_9tnHx1eREqs2cLNE",
+ authDomain: "ai-match-predictions-fa41f.firebaseapp.com",
+ projectId: "ai-match-predictions-fa41f",
+ storageBucket: "ai-match-predictions-fa41f.firebasestorage.app",
+ messagingSenderId: "832247627193",
+ appId: "1:832247627193:web:b855608c590e774f63ca68"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+const tg = window.Telegram.WebApp;
+
+tg.ready();
+
+
+const user = tg.initDataUnsafe.user;
+
+
+if(user){
+
+await setDoc(doc(db,"users",String(user.id)),{
+
+name:user.first_name || "",
+username:user.username || "",
+photo:user.photo_url || "",
+joined:new Date()
+
+});
+
+
+alert("User saved!");
+
+}else{
+
+alert("Telegram user not detected");
+
+}
+
+
 </script>
 
 </body>
