@@ -1859,111 +1859,49 @@ POWERED BY GROK ENGINE
 
 <div id="earnPage" class="page">
 
-<div class="earn-header">
-
-<h2>💰 Earn Rewards</h2>
-
-<div class="balance-card">
-
-<p>Your Balance</p>
-
-<h1>$<span id="usdBalance">0.0000</span></h1>
-
-</div>
-
-</div>
-
-
+<h1>💰 Earn Rewards</h1>
 
 <div class="earn-card">
 
-<h3>🎁 Daily Reward</h3>
+<h2>Watch Ads & Earn</h2>
 
-<p>
-Watch ads and earn rewards
-</p>
+<p>Earn $0.0071 per completed ad</p>
 
-
-<div class="reward-info">
-
-<span>
-Ads left:
-<b id="adsLeft">2</b>/2
-</span>
-
-
-<span id="timer">
-Ready
-</span>
-
-
-</div>
-
-
-<button id="earnBtn" onclick="watchRewardAd()">
-
-Watch Ad +$0.0071
-
+<button id="earnBtn" onclick="watchRewardAd(this)">
+🎬 Earn $0.0071
 </button>
 
-
 </div>
-
-
 
 
 <div class="earn-card">
 
-<h3>👥 Invite & Earn</h3>
+<h2>Invite Friends</h2>
 
-<p>
-Invite friends and grow your rewards
-</p>
-
+<p>Share and invite friends</p>
 
 <button onclick="shareInvite(this)">
-📤 Invite Friends
+🔗 Reward
 </button>
-
 
 </div>
 
 
-
-
-
 <div class="earn-card">
 
-<h3>🌐 Social Rewards</h3>
-
+<h2>Follow Us</h2>
 
 <button onclick="openLink(this,'YOUR_X_LINK')">
-
 𝕏 Follow X
-
-<span>Reward</span>
-
 </button>
-
 
 <button onclick="openLink(this,'YOUR_FACEBOOK_LINK')">
-
-📘 Follow Facebook
-
-<span>Reward</span>
-
+📘 Facebook
 </button>
-
-
 
 <button onclick="openLink(this,'YOUR_WHATSAPP_LINK')">
-
-💬 Join WhatsApp
-
-<span>Reward</span>
-
+💬 WhatsApp Channel
 </button>
-
 
 </div>
 
@@ -5081,50 +5019,19 @@ hours+"h "+mins+"m";
 setInterval(rewardTimer,1000);
 
 <script>
-let balance =
-Number(localStorage.getItem("usdBalance")) || 0;
+
+let balance = Number(localStorage.getItem("usdBalance")) || 0;
 
 
-let ads =
-Number(localStorage.getItem("adsWatched")) || 0;
-
-
-
-function updateEarn(){
-
-document.getElementById("usdBalance").innerText =
-balance.toFixed(4);
-
-
-document.getElementById("adsLeft").innerText =
-2 - ads;
-
-}
-
-
-
-function watchRewardAd(){
-
-
-if(ads >= 2){
-
-alert("Daily limit reached. Come back tomorrow");
-
-return;
-
-}
-
+function watchRewardAd(btn){
 
 
 if(typeof show_10317085 !== "function"){
 
-alert("Ads loading... try again");
-
+alert("Ads loading, try again");
 return;
 
 }
-
-
 
 
 show_10317085().then(()=>{
@@ -5133,28 +5040,19 @@ show_10317085().then(()=>{
 balance += 0.0071;
 
 
-ads++;
-
-
 localStorage.setItem(
 "usdBalance",
 balance
 );
 
 
-localStorage.setItem(
-"adsWatched",
-ads
-);
+btn.innerHTML="Rewarded ✅";
 
 
+btn.disabled=true;
 
-updateEarn();
 
-
-document.getElementById("earnBtn").innerHTML =
-"Rewarded ✅";
-
+alert("You earned $0.0071");
 
 
 });
@@ -5167,11 +5065,14 @@ document.getElementById("earnBtn").innerHTML =
 
 function openLink(btn,url){
 
+
 window.open(url,"_blank");
 
 
-btn.querySelector("span").innerHTML =
-"Rewarded ✅";
+btn.innerHTML="Rewarded ✅";
+
+
+btn.disabled=true;
 
 
 }
@@ -5181,30 +5082,35 @@ btn.querySelector("span").innerHTML =
 function shareInvite(btn){
 
 
+let text =
+"Join this AI Football Prediction App and earn rewards";
+
+
 if(navigator.share){
+
 
 navigator.share({
 
-title:"AI Football Predictions",
+title:"AI Football Prediction",
 
-text:"Join my AI Prediction App",
+text:text,
 
 url:window.location.href
 
 
 });
 
+
 }
 
 
 btn.innerHTML="Rewarded ✅";
 
+btn.disabled=true;
+
 
 }
 
-
-
-window.onload=updateEarn;
 
 </script>
 
