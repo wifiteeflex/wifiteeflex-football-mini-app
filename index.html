@@ -1608,12 +1608,15 @@ padding:25px;
 border-radius:25px;
 
 background:
-
 linear-gradient(
-135deg,
-#8b35ff,
-#2378ff
-);
+rgba(0,0,0,.55),
+rgba(0,0,0,.75)
+),
+url("https://upload.wikimedia.org/wikipedia/commons/f/f1/Sports_current_event.svg");
+
+background-size:cover;
+
+background-position:center;
 
 color:white;
 
@@ -5238,15 +5241,26 @@ btn.disabled = true;
 
 function joinContest(btn){
 
-window.open(
-"https://omg10.com/4/7533041",
-"_blank"
-);
+let link = "https://omg10.com/4/7533041";
 
-btn.innerHTML="Joined ✅";
+let newWindow = window.open(link, "_blank");
 
-btn.disabled=true;
+// wait until user returns
+let checkReturn = setInterval(function(){
 
+if(newWindow.closed){
+
+clearInterval(checkReturn);
+
+btn.innerHTML = "Joined ✅";
+
+btn.style.opacity = "0.7";
+
+btn.disabled = true;
+
+}
+
+},1000);
 
 }
 
