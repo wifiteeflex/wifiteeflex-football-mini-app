@@ -1899,7 +1899,7 @@ Available again every 24 hours
 </button>
 
 
-<button onclick="openLink(this,'https://chat.whatsapp.com/YOUR_LINK')" class="task-btn">
+<button onclick="openLink(this,'‎Follow the AI Prediction channel on WhatsApp: https://whatsapp.com/channel/0029VbD8yDd96H4NaKBLpL2e')" class="task-btn">
 💬 Join WhatsApp <span>Reward</span>
 </button>
 
@@ -5063,41 +5063,33 @@ document.getElementById("earnBtn").innerText = "Rewarded ✅";
 window.onload = updateBalance;
 </script>
 
+<script>
+
 function openLink(btn, url){
-
 window.open(url, "_blank");
-
 btn.querySelector("span").innerText = "Rewarded ✅";
-
 btn.style.opacity = "0.7";
-
 btn.disabled = true;
-
 }
 
 function shareInvite(btn){
 
-let text =
-"Join this AI Football Prediction App and earn rewards!";
+let text = "Join this AI Football Prediction App and earn rewards!";
 
 if(navigator.share){
-
 navigator.share({
 title: "AI Predictions",
 text: text,
 url: window.location.href
 });
-
 }
 
-
 btn.querySelector("span").innerText = "Rewarded ✅";
-
 btn.style.opacity = "0.7";
-
 btn.disabled = true;
 
 }
+
 </script>
 
 </body>
