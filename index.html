@@ -4595,23 +4595,6 @@ function closeGrok(){
 }
 </script>
 
-function showPage(page, btn){
-
-document.querySelectorAll(".page").forEach(p=>{
-p.style.display="none";
-});
-
-document.getElementById(page).style.display="block";
-
-
-document.querySelectorAll(".bottom-nav button").forEach(b=>{
-b.classList.remove("active");
-});
-
-btn.classList.add("active");
-
-}
-
 <script>
 
 function showPage(pageId, button){
