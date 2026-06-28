@@ -1485,61 +1485,45 @@ font-size:13px;
 .earn-header{
 
 padding:20px;
-
 color:white;
 
 }
 
 
-
-.earn-header h1{
-
-font-size:28px;
-
-}
-
-
-
 .balance-card{
 
-margin:15px;
+background:
+linear-gradient(135deg,#8b35ff,#2378ff);
 
 padding:25px;
 
 border-radius:25px;
 
-background:
-linear-gradient(135deg,#8b35ff,#2378ff);
-
-color:white;
-
 text-align:center;
 
-box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+
+.balance-card p{
+
+opacity:.8;
+
+}
+
+
+.balance-card h1{
+
+font-size:38px;
+
+margin:5px;
 
 }
 
 
 
-.balance-card h2{
-
-font-size:40px;
-
-margin:10px;
-
-}
 
 
-
-.earn-card,
-.tasks-card{
-
-
-margin:15px;
-
-padding:20px;
-
-border-radius:25px;
+.earn-card{
 
 background:rgba(255,255,255,.08);
 
@@ -1547,8 +1531,50 @@ backdrop-filter:blur(15px);
 
 border:1px solid rgba(255,255,255,.12);
 
+margin:15px;
+
+padding:20px;
+
+border-radius:25px;
+
 color:white;
 
+}
+
+
+
+.earn-card button{
+
+width:100%;
+
+padding:15px;
+
+margin-top:12px;
+
+border:none;
+
+border-radius:30px;
+
+font-size:16px;
+
+background:
+linear-gradient(135deg,#8b35ff,#2378ff);
+
+color:white;
+
+}
+
+
+
+.reward-info{
+
+display:flex;
+
+justify-content:space-between;
+
+margin:15px 0;
+
+color:#aaa;
 
 }
 
@@ -1835,20 +1861,15 @@ POWERED BY GROK ENGINE
 
 <div class="earn-header">
 
-<h1>💰 Earn Rewards</h1>
-
-<p>Complete tasks and earn rewards</p>
-
-</div>
-
+<h2>💰 Earn Rewards</h2>
 
 <div class="balance-card">
 
-<span>Your Balance</span>
+<p>Your Balance</p>
 
-<h2>$<span id="usdBalance">0.0000</span></h2>
+<h1>$<span id="usdBalance">0.0000</span></h1>
 
-<p>≈ ₦<span id="nairaBalance">0</span></p>
+</div>
 
 </div>
 
@@ -1856,59 +1877,96 @@ POWERED BY GROK ENGINE
 
 <div class="earn-card">
 
-<h3>🎬 Daily Ads Reward</h3>
+<h3>🎁 Daily Reward</h3>
 
 <p>
-Watch ads and earn money
+Watch ads and earn rewards
 </p>
 
-<div class="ad-info">
 
-<span>Daily Limit</span>
+<div class="reward-info">
 
-<b id="adCount">0 / 2</b>
+<span>
+Ads left:
+<b id="adsLeft">2</b>/2
+</span>
+
+
+<span id="timer">
+Ready
+</span>
+
 
 </div>
 
 
-<button onclick="watchRewardAd()" class="earn-btn" id="earnBtn">
-▶ Earn $0.0071
+<button id="earnBtn" onclick="watchRewardAd()">
+
+Watch Ad +$0.0071
+
 </button>
 
 
-<p class="small-text">
+</div>
 
-Available again every 24 hours
 
+
+
+<div class="earn-card">
+
+<h3>👥 Invite & Earn</h3>
+
+<p>
+Invite friends and grow your rewards
 </p>
 
+
+<button onclick="shareInvite(this)">
+📤 Invite Friends
+</button>
+
+
 </div>
 
-<div class="task-card">
-
-<h3>🚀 More Ways To Earn</h3>
 
 
-<button onclick="openLink(this,'https://x.com/YOUR_X')" class="task-btn">
-𝕏 Follow X <span>Reward</span>
+
+
+<div class="earn-card">
+
+<h3>🌐 Social Rewards</h3>
+
+
+<button onclick="openLink(this,'YOUR_X_LINK')">
+
+𝕏 Follow X
+
+<span>Reward</span>
+
 </button>
 
 
-<button onclick="openLink(this,'https://facebook.com/YOUR_PAGE')" class="task-btn">
-📘 Follow Facebook <span>Reward</span>
+<button onclick="openLink(this,'YOUR_FACEBOOK_LINK')">
+
+📘 Follow Facebook
+
+<span>Reward</span>
+
 </button>
 
 
-<button onclick="openLink(this,'‎Follow the AI Prediction channel on WhatsApp: https://whatsapp.com/channel/0029VbD8yDd96H4NaKBLpL2e')" class="task-btn">
-💬 Join WhatsApp <span>Reward</span>
+
+<button onclick="openLink(this,'YOUR_WHATSAPP_LINK')">
+
+💬 Join WhatsApp
+
+<span>Reward</span>
+
 </button>
 
-
-<button onclick="shareInvite(this)" class="task-btn">
-👥 Invite Friends <span>Reward</span>
-</button>
 
 </div>
+
 
 </div>
 
@@ -5023,72 +5081,130 @@ hours+"h "+mins+"m";
 setInterval(rewardTimer,1000);
 
 <script>
-let balance = Number(localStorage.getItem("usdBalance")) || 0;
-let ads = Number(localStorage.getItem("adsWatched")) || 0;
+let balance =
+Number(localStorage.getItem("usdBalance")) || 0;
 
-function updateBalance(){
-document.getElementById("usdBalance").innerText = balance.toFixed(4);
-document.getElementById("nairaBalance").innerText = Math.floor(balance * 1400);
-document.getElementById("adCount").innerText = ads + " / 2";
+
+let ads =
+Number(localStorage.getItem("adsWatched")) || 0;
+
+
+
+function updateEarn(){
+
+document.getElementById("usdBalance").innerText =
+balance.toFixed(4);
+
+
+document.getElementById("adsLeft").innerText =
+2 - ads;
+
 }
+
+
 
 function watchRewardAd(){
 
+
 if(ads >= 2){
+
 alert("Daily limit reached. Come back tomorrow");
+
 return;
+
 }
+
+
 
 if(typeof show_10317085 !== "function"){
-alert("Ad not loaded yet. Try again in few seconds");
+
+alert("Ads loading... try again");
+
 return;
+
 }
 
-show_10317085().then(() => {
+
+
+
+show_10317085().then(()=>{
+
 
 balance += 0.0071;
+
+
 ads++;
 
-localStorage.setItem("usdBalance", balance);
-localStorage.setItem("adsWatched", ads);
 
-updateBalance();
+localStorage.setItem(
+"usdBalance",
+balance
+);
 
-document.getElementById("earnBtn").innerText = "Rewarded ✅";
+
+localStorage.setItem(
+"adsWatched",
+ads
+);
+
+
+
+updateEarn();
+
+
+document.getElementById("earnBtn").innerHTML =
+"Rewarded ✅";
+
+
 
 });
 
+
 }
 
-window.onload = updateBalance;
-</script>
 
-<script>
 
-function openLink(btn, url){
-window.open(url, "_blank");
-btn.querySelector("span").innerText = "Rewarded ✅";
-btn.style.opacity = "0.7";
-btn.disabled = true;
+
+function openLink(btn,url){
+
+window.open(url,"_blank");
+
+
+btn.querySelector("span").innerHTML =
+"Rewarded ✅";
+
+
 }
+
+
 
 function shareInvite(btn){
 
-let text = "Join this AI Football Prediction App and earn rewards!";
 
 if(navigator.share){
+
 navigator.share({
-title: "AI Predictions",
-text: text,
-url: window.location.href
+
+title:"AI Football Predictions",
+
+text:"Join my AI Prediction App",
+
+url:window.location.href
+
+
 });
-}
-
-btn.querySelector("span").innerText = "Rewarded ✅";
-btn.style.opacity = "0.7";
-btn.disabled = true;
 
 }
+
+
+btn.innerHTML="Rewarded ✅";
+
+
+}
+
+
+
+window.onload=updateEarn;
 
 </script>
 
