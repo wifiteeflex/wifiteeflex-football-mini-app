@@ -1248,8 +1248,6 @@ font-family:Arial;
 
 }
 
-
-
 .simple-profile{
 
 display:flex;
@@ -1266,7 +1264,6 @@ border-radius:18px;
 
 }
 
-
 .simple-profile img{
 
 width:55px;
@@ -1277,14 +1274,11 @@ border-radius:50%;
 
 }
 
-
 .simple-profile h3{
 
 margin:0;
 
 }
-
-
 
 .simple-profile p{
 
@@ -1293,8 +1287,6 @@ color:#aaa;
 font-size:13px;
 
 }
-
-
 
 .coins{
 
@@ -1310,11 +1302,7 @@ color:#ffd700;
 
 }
 
-
-
-
 .simple-banner{
-
 
 margin-top:20px;
 
@@ -1326,7 +1314,6 @@ linear-gradient(
 #002b10
 );
 
-
 padding:25px;
 
 border-radius:20px;
@@ -1334,18 +1321,13 @@ border-radius:20px;
 
 }
 
-
-
 .simple-banner h1{
 
 font-size:28px;
 
 }
 
-
-
 .simple-banner button{
-
 
 background:#00e64d;
 
@@ -1355,19 +1337,13 @@ padding:12px 20px;
 
 border-radius:12px;
 
-color:white;
+color:#000;
 
 font-weight:bold;
 
-
 }
 
-
-
-
-
 .simple-card{
-
 
 margin-top:20px;
 
@@ -1377,10 +1353,7 @@ padding:20px;
 
 border-radius:20px;
 
-
 }
-
-
 
 .simple-card h2{
 
@@ -1388,10 +1361,7 @@ color:#ffd700;
 
 }
 
-
-
 .reward{
-
 
 background:#222;
 
@@ -1403,11 +1373,7 @@ color:#00ff55;
 
 font-weight:bold;
 
-
 }
-
-
-
 
 .title{
 
@@ -1415,22 +1381,15 @@ margin-top:25px;
 
 }
 
-
-
 .countries{
-
 
 display:flex;
 
 gap:12px;
 
-
 }
 
-
-
 .countries div{
-
 
 background:#111;
 
@@ -1442,94 +1401,143 @@ text-align:center;
 
 flex:1;
 
-
 font-size:16px;
 
+}
+
+.vote-header{
+
+padding:10px;
 
 }
 
-.earn-header{
-
-padding:20px;
-
-color:white;
-
-}
-
-.earn-header h1{
+.vote-header h1{
 
 font-size:28px;
 
+margin-bottom:5px;
+
 }
 
-.balance-card{
+.vote-header p{
 
-margin:15px;
+color:#aaa;
 
-padding:25px;
+}
 
-border-radius:25px;
+.vote-balance{
 
 background:
-linear-gradient(135deg,#8b35ff,#2378ff);
 
-color:white;
+linear-gradient(
+135deg,
+#075e24,
+#00c853
+);
 
-text-align:center;
-
-box-shadow:0 10px 30px rgba(0,0,0,.4);
-
-}
-
-.balance-card h2{
-
-font-size:40px;
-
-margin:10px;
-
-}
-
-.earn-card,
-.tasks-card{
-
-margin:15px;
+border-radius:20px;
 
 padding:20px;
 
-border-radius:25px;
+display:flex;
 
-background:rgba(255,255,255,.08);
+justify-content:space-between;
 
-backdrop-filter:blur(15px);
-
-border:1px solid rgba(255,255,255,.12);
-
-color:white;
+align-items:center;
 
 }
 
-.earn-card button{
+.vote-balance span{
 
-width:100%;
+color:#ddd;
+
+}
+
+.vote-balance h2{
+
+font-size:32px;
+
+margin:10px 0;
+
+}
+
+.vote-balance p{
+
+margin:0;
+
+}
+
+.coin-icon{
+
+font-size:50px;
+
+}
+
+.featured-vote,
+.reward-vote,
+.community-card{
+
+background:#111;
+
+margin-top:15px;
+
+padding:20px;
+
+border-radius:20px;
+
+border:1px solid #222;
+
+}
+
+.vote-match{
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+text-align:center;
+
+margin:20px 0;
+
+font-size:18px;
+
+}
+
+.vote-options{
+
+display:flex;
+
+gap:10px;
+
+}
+
+.vote-options button{
+
+flex:1;
+
+background:#00c853;
+
+border:0;
+
+color:#000;
+
+padding:12px;
+
+border-radius:12px;
+
+font-weight:bold;
+
+}
+
+.reward-status{
+
+background:#1c1c1c;
 
 padding:15px;
 
-margin-top:12px;
-
-border:none;
-
-border-radius:30px;
-
-font-size:16px;
-
-background:
-linear-gradient(135deg,#8b35ff,#2378ff);
-
-color:white;
-
-}
-
-.reward-info{
+border-radius:12px;
 
 display:flex;
 
@@ -1537,79 +1545,49 @@ justify-content:space-between;
 
 margin:15px 0;
 
-color:#aaa;
-
 }
 
-.ad-info{
-
-display:flex;
-
-justify-content:space-between;
-
-margin:20px 0;
-
-}
-
-.earn-btn{
+.reward-vote button{
 
 width:100%;
 
-padding:16px;
+padding:15px;
 
-border:none;
+border:0;
 
-border-radius:30px;
+border-radius:15px;
 
-background:#22e27a;
-
-color:black;
-
-font-size:18px;
+background:#00c853;
 
 font-weight:bold;
 
 }
 
-.small-text{
-
-text-align:center;
-
-color:#aaa;
-
-font-size:13px;
-
-margin-top:15px;
-
-}
-
-.task-btn{
+.community-btn{
 
 width:100%;
 
-padding:18px;
-
-margin-top:12px;
-
-border:none;
-
-border-radius:20px;
-
-background:rgba(255,255,255,.08);
+background:#181818;
 
 color:white;
+
+border:1px solid #333;
+
+padding:15px;
+
+border-radius:15px;
+
+margin-top:10px;
 
 display:flex;
 
 justify-content:space-between;
 
-font-size:16px;
-
 }
 
-.task-btn span{
+.community-btn span{
 
-color:#22e27a;
+color:#00c853;
 
 }
 
@@ -1756,10 +1734,10 @@ border-bottom:1px solid rgba(255,255,255,.1);
 <button onclick="showPage('earnPage', this)" class="nav-item">
 
 <div class="nav-icon">
-💰
+🗳️
 </div>
 
-<span>Earn</span>
+<span>Vote</span>
 
 </button>
 
@@ -2003,72 +1981,162 @@ POWERED BY GROK ENGINE
 
 </div>
 
-<div id="earnPage" class="page">
+<div id="VotePage" class="page">
 
-<div class="earn-header">
+<div class="vote-header">
 
-<h1>💰 Earn Rewards</h1>
-
-<p>Complete tasks and earn rewards</p>
-
-</div>
-
-<div class="balance-card">
-
-<span>Your Balance</span>
-
-<h2>$<span id="usdBalance">0.0000</span></h2>
-
-<p>≈ ₦<span id="nairaBalance">0</span></p>
-
-</div>
-
-<div class="earn-card">
-
-<h3>🎬 Daily Ads Reward</h3>
+<h1>
+🗳️ Vote Center
+</h1>
 
 <p>
-Watch ads and earn money
-</p>
-
-<div class="ad-info">
-
-<span>Daily Limit</span>
-
-<b id="adCount">0 / 2</b>
-
-</div>
-
-<button onclick="watchRewardAd()" class="earn-btn" id="earnBtn">
-▶ Earn from contest
-</button>
-
-<p class="small-text">
-
-See how it works
-
+Make predictions. Vote. Earn rewards.
 </p>
 
 </div>
 
-<div class="task-card">
+<div class="vote-balance">
 
-<h3>🚀 More Ways To Earn</h3>
+<div>
 
-<button onclick="openLink(this,'https://x.com/aiprediction_?s=11')" class="task-btn">
-𝕏 Follow X <span>Reward</span>
+<span>
+Your Reward Balance
+</span>
+
+<h2>
+$<span id="usdBalance">0.0000</span>
+</h2>
+
+<p>
+≈ ₦<span id="nairaBalance">0</span>
+</p>
+
+</div>
+
+<div class="coin-icon">
+
+🪙
+
+</div>
+
+</div>
+
+<div class="featured-vote">
+
+<h3>
+🔥 Today's Hot Vote
+</h3>
+
+<div class="vote-match">
+
+<div>
+⚽
+<br>
+Man City
+</div>
+
+<h2>
+VS
+</h2>
+
+<div>
+⚽
+<br>
+Arsenal
+</div>
+
+</div>
+
+<div class="vote-options">
+
+<button>
+Man City Win
 </button>
 
-<button onclick="openLink(this,'https://www.facebook.com/share/1JsxShQXhh/?mibextid=wwXIfr')" class="task-btn">
-📘 Follow Facebook <span>Reward</span>
+<button>
+Draw
 </button>
 
-<button onclick="openLink(this,'‎https://whatsapp.com/channel/0029VbD8yDd96H4NaKBLpL2e')" class="task-btn">
-💬 Join WhatsApp <span>Reward</span>
+<button>
+Arsenal Win
 </button>
 
-<button onclick="shareInvite(this)" class="task-btn">
-👥 Invite Friends <span>Reward</span>
+</div>
+
+</div>
+
+<div class="reward-vote">
+
+<h3>
+🎁 Daily Voting Reward
+</h3>
+
+<p>
+Vote daily and unlock rewards
+</p>
+
+<div class="reward-status">
+
+Daily Vote
+
+<b>
+2 / 2
+</b>
+
+</div>
+
+<button onclick="watchRewardAd()" id="earnBtn">
+
+▶ Vote & Earn
+
+</button>
+
+</div>
+
+<div class="community-card">
+
+<h3>
+🚀 Join Community
+</h3>
+
+<button onclick="openLink(this,'YOUR_X_LINK')" class="community-btn">
+
+𝕏 Follow X
+
+<span>
+Reward
+</span>
+
+</button>
+
+<button onclick="openLink(this,'YOUR_FACEBOOK_LINK')" class="community-btn">
+
+📘 Facebook
+
+<span>
+Reward
+</span>
+
+</button>
+
+<button onclick="openLink(this,'YOUR_WHATSAPP_LINK')" class="community-btn">
+
+💬 WhatsApp Channel
+
+<span>
+Reward
+</span>
+
+</button>
+
+<button onclick="shareInvite(this)" class="community-btn">
+
+👥 Invite Friends
+
+<span>
+Reward
+</span>
+
 </button>
 
 </div>
@@ -2102,7 +2170,7 @@ AI Football Predictions
 <div class="simple-banner">
 
 <h1>
-⚽ AI Match Predictions
+🤖 AI Match Predictions
 </h1>
 
 <p>
@@ -2137,7 +2205,7 @@ Come back daily and collect your coins
 
 <h2 class="title">
 
-🌍 Popular Countries
+Popular Countries🌍
 
 </h2>
 
