@@ -5539,70 +5539,47 @@ console.log("User already exists");
 
 </script>
 
+<script>
+
 let votes = JSON.parse(localStorage.getItem("matchVotes")) || {
-
-arsenal:0,
-draw:0,
-coventry:0
-
+  arsenal: 0,
+  draw: 0,
+  coventry: 0
 };
-
 
 function updateVotes(){
 
+let total = votes.arsenal + votes.draw + votes.coventry;
 
-let total =
-votes.arsenal +
-votes.draw +
-votes.coventry;
+let arsenalPercent = total ? Math.round((votes.arsenal / total) * 100) : 0;
+let drawPercent = total ? Math.round((votes.draw / total) * 100) : 0;
+let coventryPercent = total ? Math.round((votes.coventry / total) * 100) : 0;
 
+document.getElementById("arsenalPercent").innerText =
+arsenalPercent + "%";
 
-let arsenal =
-total ? Math.round((votes.arsenal/total)*100) : 0;
+document.getElementById("drawPercent").innerText =
+drawPercent + "%";
 
-
-let draw =
-total ? Math.round((votes.draw/total)*100) : 0;
-
-
-let coventry =
-total ? Math.round((votes.coventry/total)*100) : 0;
-
-
-
-document.getElementById("arsenalPercent").innerHTML =
-arsenal+"%";
-
-
-document.getElementById("drawPercent").innerHTML =
-draw+"%";
-
-
-document.getElementById("coventryPercent").innerHTML =
-coventry+"%";
-
-
+document.getElementById("coventryPercent").innerText =
+coventryPercent + "%";
 
 document.getElementById("arsenalBar").style.width =
-arsenal+"%";
-
+arsenalPercent + "%";
 
 document.getElementById("drawBar").style.width =
-draw+"%";
-
+drawPercent + "%";
 
 document.getElementById("coventryBar").style.width =
-coventry+"%";
+coventryPercent + "%";
 
 }
 
-
-
-
 function castVote(team){
 
+let alreadyVoted = localStorage.getItem("hasVoted");
 
-if(localStorage.getItem("voted")){
+if(alreadyVoted){
 
 alert("You already voted ⚽");
 
@@ -5610,42 +5587,34 @@ return;
 
 }
 
-
-
 votes[team]++;
-
 
 localStorage.setItem(
 "matchVotes",
 JSON.stringify(votes)
 );
 
-
-
 localStorage.setItem(
-"voted",
-"yes"
+"hasVoted",
+"true"
 );
 
-
-
 document.querySelectorAll(".vote-options button")
-.forEach(btn=>{
+.forEach(button=>{
 
-btn.disabled=true;
+button.disabled = true;
 
 });
 
-
+alert("Vote submitted ✅");
 
 updateVotes();
-
 
 }
 
-
-
 updateVotes();
+
+</script>
 
 </body>
     </html>
