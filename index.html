@@ -1694,6 +1694,48 @@ border-bottom:1px solid rgba(255,255,255,.1);
 
 }
 
+.team{
+
+text-align:center;
+
+}
+
+.team img{
+
+width:65px;
+
+height:65px;
+
+object-fit:contain;
+
+border-radius:50%;
+
+background:#fff;
+
+padding:5px;
+
+}
+
+.team p{
+
+margin-top:8px;
+
+font-weight:bold;
+
+}
+
+.vote-match{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-around;
+
+margin:20px 0;
+
+}
+
 </style>
 </head>
         
@@ -2029,20 +2071,28 @@ $<span id="usdBalance">0.0000</span>
 
 <div class="vote-match">
 
-<div>
-⚽
-<br>
-Man City
+<div class="team">
+
+<img src="https://upload.wikimedia.org/wikipedia/sco/5/53/Arsenal_FC.svg">
+
+<p>
+Arsenal
+</p>
+
 </div>
 
 <h2>
 VS
 </h2>
 
-<div>
-⚽
-<br>
-Arsenal
+<div class="team">
+
+<img src="https://upload.wikimedia.org/wikipedia/de/6/60/Coventry_City.svg">
+
+<p>
+Coventry city
+</p>
+
 </div>
 
 </div>
@@ -2050,7 +2100,7 @@ Arsenal
 <div class="vote-options">
 
 <button>
-Man City Win
+Arsenal Win
 </button>
 
 <button>
@@ -2058,85 +2108,59 @@ Draw
 </button>
 
 <button>
-Arsenal Win
+Coventry City Win
 </button>
 
 </div>
 
 </div>
 
-<div class="reward-vote">
+<div class="featured-vote">
 
 <h3>
-🎁 Daily Voting Reward
+🔥 Today's Hot Vote
 </h3>
+
+<div class="vote-match">
+
+<div class="team">
+
+<img src="https://upload.wikimedia.org/wikipedia/sco/e/eb/Manchester_City_FC_badge.svg">
 
 <p>
-Vote daily and unlock rewards
+Manchester City
 </p>
 
-<div class="reward-status">
+</div>
 
-Daily Vote
+<h2>
+VS
+</h2>
 
-<b>
-2 / 2
-</b>
+<div class="team">
+
+<img src="https://upload.wikimedia.org/wikipedia/sco/e/e5/AFC_Bournemouth_%282013%29.svg">
+
+<p>
+Bournemouth
+</p>
 
 </div>
 
-<button onclick="watchRewardAd()" id="earnBtn">
-
-▶ Vote & Earn
-
-</button>
-
 </div>
 
-<div class="community-card">
+<div class="vote-options">
 
-<h3>
-🚀 Join Community
-</h3>
-
-<button onclick="openLink(this,'YOUR_X_LINK')" class="community-btn">
-
-𝕏 Follow X
-
-<span>
-Reward
-</span>
-
+<button>
+Manchester City
 </button>
 
-<button onclick="openLink(this,'YOUR_FACEBOOK_LINK')" class="community-btn">
-
-📘 Facebook
-
-<span>
-Reward
-</span>
-
+<button>
+Draw
 </button>
 
-<button onclick="openLink(this,'YOUR_WHATSAPP_LINK')" class="community-btn">
-
-💬 WhatsApp Channel
-
-<span>
-Reward
-</span>
-
-</button>
-
-<button onclick="shareInvite(this)" class="community-btn">
-
-👥 Invite Friends
-
-<span>
-Reward
-</span>
-
+<button>
+Bournemouth
 </button>
 
 </div>
