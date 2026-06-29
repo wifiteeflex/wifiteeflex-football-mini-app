@@ -5278,7 +5278,22 @@ btn.disabled = true;
 type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const db = getFirestore(app);
+
+const user = tg.initDataUnsafe.user;
+
+if(user){
+ await setDoc(doc(db,"users",String(user.id)),{
+   id:user.id,
+   name:user.first_name,
+   username:user.username || "",
+   joined:new Date()
+ 
+});
+
+}
 
 const firebaseConfig = {
     apiKey: "AIzaSyBXlxsC22sd4PJBCCcvPS04KfDKOpbpGww",
