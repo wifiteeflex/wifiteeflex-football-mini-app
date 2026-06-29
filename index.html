@@ -5657,46 +5657,42 @@ coventryPercent + "%";
 
 }
 
-let selectedTeam = "";
-
-function castVote(team){
-
-if(localStorage.getItem("hasVoted")){
-
-alert("You already voted ⚽");
-
-return;
+#ntById("votePopup").style.display="none";
 
 }
 
+function confirmVote(){
+
+let selectedTeam = "";
+
+
+function castVote(team){
+
 selectedTeam = team;
+
 
 let name =
 team === "arsenal" ? "Arsenal Win" :
 team === "draw" ? "Draw" :
 "Coventry Win";
 
-document.getElementById("selectedVote").innerText =
-"You selected " + name;
 
-document.getElementById("votePopup").style.display = "flex";
+let confirmVote = confirm(
+"⚽ Confirm Vote\n\nYou selected: " + name + "\n\nAre you sure?"
+);
 
-}
 
-function closeVotePopup(){
+if(confirmVote){
 
-document.getElementById("votePopup").style.display="none";
 
-}
+votes[team]++;
 
-function confirmVote(){
-
-votes[selectedTeam]++;
 
 localStorage.setItem(
 "matchVotes",
 JSON.stringify(votes)
 );
+
 
 localStorage.setItem(
 "hasVoted",
@@ -5710,8 +5706,6 @@ btn.disabled=true;
 
 });
 
-document.getElementById("votePopup").style.display="none";
-
 alert(
 "✅ Vote Submitted\n\nYour prediction has been recorded.\n\nCome back later to check your reward 🎁"
 );
@@ -5720,32 +5714,7 @@ updateVotes();
 
 }
 
-votes[team]++;
-
-localStorage.setItem(
-"matchVotes",
-JSON.stringify(votes)
-);
-
-localStorage.setItem(
-"hasVoted",
-"true"
-);
-
-document.querySelectorAll(".vote-options button")
-.forEach(button=>{
-
-button.disabled = true;
-
-});
-
-alert("Vote submitted ✅");
-
-updateVotes();
-
 }
-
-updateVotes();
 
 </script>
 
