@@ -5280,29 +5280,25 @@ type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
 const firebaseConfig = {
- apiKey: "AIzaSyDzP9BdzoYr8z0X6u_9tnHx1eREqs2cLNE",
- authDomain: "ai-match-predictions-fa41f.firebaseapp.com",
- projectId: "ai-match-predictions-fa41f",
- storageBucket: "ai-match-predictions-fa41f.firebasestorage.app",
- messagingSenderId: "832247627193",
- appId: "1:832247627193:web:b855608c590e774f63ca68"
+  apiKey: "AIzaSyD7A--MF4WEwsTM4uiUWYoUMwQk2ClM7Pk",
+  authDomain: "ai-football-predictions-de2d2.firebaseapp.com",
+  projectId: "ai-football-predictions-de2d2",
+  storageBucket: "ai-football-predictions-de2d2.firebasestorage.app",
+  messagingSenderId: "1062944603331",
+  appId: "1:1062944603331:web:5c61e83145099178dcb676",
+  measurementId: "G-DF882FHS8K"
 };
-
 
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-
 const tg = window.Telegram.WebApp;
 
 tg.ready();
 
-
 const user = tg.initDataUnsafe.user;
-
 
 if(user){
 
@@ -5315,7 +5311,6 @@ joined:new Date()
 
 });
 
-
 alert("User saved!");
 
 }else{
@@ -5323,7 +5318,6 @@ alert("User saved!");
 alert("Telegram user not detected");
 
 }
-
 
 </script>
 
