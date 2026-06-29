@@ -1240,236 +1240,53 @@ font-weight:600;
 
 #homePage{
 
-background:#050908;
+background:#050505;
 color:white;
 padding:15px;
 
-font-family:Arial, sans-serif;
+font-family:Arial;
 
 }
 
-.top-profile{
+
+
+.simple-profile{
 
 display:flex;
-justify-content:space-between;
+
 align-items:center;
 
-background:#0c1411;
+gap:12px;
 
-border:1px solid #1d3427;
+background:#111;
 
 padding:15px;
 
-border-radius:20px;
+border-radius:18px;
 
 }
 
-.profile-user{
 
-display:flex;
-align-items:center;
-gap:12px;
-
-}
-
-.profile-user img{
+.simple-profile img{
 
 width:55px;
+
 height:55px;
 
 border-radius:50%;
 
-border:2px solid #18ff55;
-
 }
 
-.profile-user h3{
 
-margin:0;
-
-font-size:18px;
-
-}
-
-.profile-user p{
-
-color:#aaa;
-
-margin:5px 0;
-
-}
-
-.balance-card{
-
-background:#111;
-
-padding:12px 20px;
-
-border-radius:18px;
-
-border:1px solid #304735;
-
-}
-
-.balance-card span{
-
-color:#aaa;
-
-}
-
-.balance-card h2{
-
-margin:5px 0;
-
-color:#fff;
-
-}
-
-.ai-banner{
-
-margin-top:15px;
-
-height:230px;
-
-border-radius:25px;
-
-background:
-
-linear-gradient(
-90deg,
-rgba(0,0,0,.85),
-rgba(0,40,20,.3)
-),
-
-url("https://upload.wikimedia.org/wikipedia/commons/6/6c/Lionel_Messi_in_2018.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-display:flex;
-
-align-items:center;
-
-padding:25px;
-
-border:1px solid #245333;
-
-}
-
-.ai-banner h1{
-
-font-size:35px;
-
-line-height:1;
+.simple-profile h3{
 
 margin:0;
 
 }
 
-.ai-banner h1::first-line{
 
-color:#20ff55;
 
-}
-
-.ai-banner p{
-
-color:#ddd;
-
-}
-
-.ai-banner button{
-
-background:#17d84b;
-
-color:white;
-
-border:0;
-
-padding:14px 20px;
-
-border-radius:12px;
-
-font-weight:bold;
-
-}
-
-.features{
-
-display:flex;
-
-justify-content:space-between;
-
-background:#0b1110;
-
-padding:20px 10px;
-
-margin-top:15px;
-
-border-radius:20px;
-
-}
-
-.features div{
-
-text-align:center;
-
-font-size:25px;
-
-}
-
-.features p{
-
-font-size:14px;
-
-margin:5px;
-
-}
-
-.features span{
-
-font-size:12px;
-
-color:#aaa;
-
-}
-
-.section-header{
-
-display:flex;
-
-justify-content:space-between;
-
-margin-top:20px;
-
-font-size:18px;
-
-font-weight:bold;
-
-}
-
-.section-header span{
-
-color:#20ff55;
-
-}
-
-.match-card{
-
-background:#0d1312;
-
-border-radius:20px;
-
-margin-top:15px;
-
-padding:15px;
-
-border:1px solid #26382d;
-
-}
-
-.league{
+.simple-profile p{
 
 color:#aaa;
 
@@ -1477,80 +1294,157 @@ font-size:13px;
 
 }
 
-.teams{
 
-display:flex;
 
-justify-content:space-around;
+.coins{
 
-align-items:center;
+margin-left:auto;
 
-text-align:center;
+background:#1b1b1b;
 
-margin-top:15px;
+padding:10px 15px;
 
-font-size:18px;
+border-radius:15px;
 
-}
-
-.confidence{
-
-text-align:right;
-
-color:#20ff55;
+color:#ffd700;
 
 }
 
-.daily-reward{
+
+
+
+.simple-banner{
+
 
 margin-top:20px;
 
 background:
 
 linear-gradient(
-90deg,
-#171000,
-#372900
+135deg,
+#0b7d2b,
+#002b10
 );
+
+
+padding:25px;
+
+border-radius:20px;
+
+
+}
+
+
+
+.simple-banner h1{
+
+font-size:28px;
+
+}
+
+
+
+.simple-banner button{
+
+
+background:#00e64d;
+
+border:none;
+
+padding:12px 20px;
+
+border-radius:12px;
+
+color:white;
+
+font-weight:bold;
+
+
+}
+
+
+
+
+
+.simple-card{
+
+
+margin-top:20px;
+
+background:#111;
 
 padding:20px;
 
 border-radius:20px;
 
+
+}
+
+
+
+.simple-card h2{
+
+color:#ffd700;
+
+}
+
+
+
+.reward{
+
+
+background:#222;
+
+padding:15px;
+
+border-radius:12px;
+
+color:#00ff55;
+
+font-weight:bold;
+
+
+}
+
+
+
+
+.title{
+
+margin-top:25px;
+
+}
+
+
+
+.countries{
+
+
 display:flex;
 
-justify-content:space-between;
+gap:12px;
 
-align-items:center;
 
 }
 
-.daily-reward h2{
-
-color:#ffd000;
-
-}
-
-.daily-reward p{
-
-color:#ccc;
-
-}
-
-.reward-coin{
 
 
-background:#17d84b;
+.countries div{
 
 
-padding:15px 25px;
+background:#111;
 
+padding:20px;
 
 border-radius:15px;
 
-font-size:22px;
+text-align:center;
 
-font-weight:bold;
+flex:1;
+
+
+font-size:16px;
+
 
 }
 
@@ -2119,7 +2013,6 @@ POWERED BY GROK ENGINE
 
 </div>
 
-
 <div class="balance-card">
 
 <span>Your Balance</span>
@@ -2129,8 +2022,6 @@ POWERED BY GROK ENGINE
 <p>≈ ₦<span id="nairaBalance">0</span></p>
 
 </div>
-
-
 
 <div class="earn-card">
 
@@ -2148,11 +2039,9 @@ Watch ads and earn money
 
 </div>
 
-
 <button onclick="watchRewardAd()" class="earn-btn" id="earnBtn">
 ▶ Earn from contest
 </button>
-
 
 <p class="small-text">
 
@@ -2166,21 +2055,17 @@ See how it works
 
 <h3>🚀 More Ways To Earn</h3>
 
-
 <button onclick="openLink(this,'https://x.com/aiprediction_?s=11')" class="task-btn">
 𝕏 Follow X <span>Reward</span>
 </button>
-
 
 <button onclick="openLink(this,'https://www.facebook.com/share/1JsxShQXhh/?mibextid=wwXIfr')" class="task-btn">
 📘 Follow Facebook <span>Reward</span>
 </button>
 
-
 <button onclick="openLink(this,'‎https://whatsapp.com/channel/0029VbD8yDd96H4NaKBLpL2e')" class="task-btn">
 💬 Join WhatsApp <span>Reward</span>
 </button>
-
 
 <button onclick="shareInvite(this)" class="task-btn">
 👥 Invite Friends <span>Reward</span>
@@ -2192,291 +2077,89 @@ See how it works
 
 <div id="homePage" class="page">
 
-
-<!-- PROFILE HEADER -->
-
-<div class="top-profile">
-
-<div class="profile-user">
+<div class="simple-profile">
 
 <img id="userPhoto" src="https://i.imgur.com/6VBx3io.png">
 
 <div>
 <h3>
-Welcome back,
-<span id="userName">User</span> 👋
+Welcome <span id="userName">User</span> 👋
 </h3>
 
 <p>
-🟢 AI Football Member
+AI Football Predictions
 </p>
-
 </div>
 
-</div>
+<div class="coins">
 
-
-<div class="balance-card">
-
-<span>Balance</span>
-
-<h2>
 🪙 <span id="coinBalance">0</span>
-</h2>
 
 </div>
 
-
 </div>
 
-
-
-
-
-<!-- HERO -->
-
-<div class="ai-banner">
-
-
-<div>
+<div class="simple-banner">
 
 <h1>
-AI POWERED
-<br>
-PREDICTIONS
+⚽ AI Match Predictions
 </h1>
 
-
 <p>
-High Accuracy • Smart Analysis • Daily Tips
+Smart football analysis powered by AI
 </p>
-
 
 <button onclick="showPage('matchesPage')">
-⚽ View Today's Predictions
+
+View Predictions
+
 </button>
 
-
 </div>
 
-
-</div>
-
-
-
-
-
-<!-- FEATURES -->
-
-
-<div class="features">
-
-
-<div>
-🎯
-<p>
-Predictions
-</p>
-<span>
-Daily Tips
-</span>
-</div>
-
-
-<div>
-🏆
-<p>
-Contests
-</p>
-<span>
-Win Big
-</span>
-</div>
-
-
-
-<div>
-🎁
-<p>
-Rewards
-</p>
-<span>
-Earn Coins
-</span>
-</div>
-
-
-
-<div>
-👥
-<p>
-Referrals
-</p>
-<span>
-Invite & Earn
-</span>
-</div>
-
-
-
-<div>
-👑
-<p>
-VIP Club
-</p>
-<span>
-Exclusive
-</span>
-</div>
-
-
-</div>
-
-
-
-
-
-
-<!-- TOP MATCHES -->
-
-
-<div class="section-header">
-
-🔥 TOP MATCHES
-
-<span>
-View All →
-</span>
-
-</div>
-
-
-
-
-<div class="match-card">
-
-
-<div class="league">
-🇬🇧 PREMIER LEAGUE
-</div>
-
-
-<div class="teams">
-
-
-<div>
-⚽
-<br>
-Man City
-</div>
-
+<div class="simple-card">
 
 <h2>
-VS
+🎁 Daily Reward
 </h2>
-
-
-<div>
-⚽
-<br>
-Arsenal
-</div>
-
-
-</div>
-
-
-<div class="confidence">
-
-📈 AI Confidence
-<br>
-
-<b>
-87%
-</b>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="match-card">
-
-
-<div class="league">
-🇪🇸 LA LIGA
-</div>
-
-
-<div class="teams">
-
-
-<div>
-⚽
-<br>
-Real Madrid
-</div>
-
-
-<h2>
-VS
-</h2>
-
-
-<div>
-⚽
-<br>
-Barcelona
-</div>
-
-
-</div>
-
-
-<div class="confidence">
-
-📈 AI Confidence
-<br>
-
-<b>
-84%</b>
-
-</div>
-
-
-</div>
-
-<!-- REWARD -->
-
-
-<div class="daily-reward">
-
-<div>
-
-<h2>
-CLAIM DAILY REWARD
-</h2>
-
 
 <p>
-Come back every day and earn free coins!
+Come back daily and collect your coins
 </p>
 
+<div class="reward">
+
+🪙 100 Coins
 
 </div>
 
-
-<div class="reward-coin">
-
-🪙 100
-
 </div>
 
+<h2 class="title">
+
+🌍 Popular Countries
+
+</h2>
+
+<div class="countries">
+
+<div>
+🇬🇧
+<br>
+England
+</div>
+
+<div>
+🇳🇬
+<br>
+Nigeria
+</div>
+
+<div>
+🇪🇸
+<br>
+Spain
+</div>
 
 </div>
 
