@@ -5273,32 +5273,37 @@ btn.disabled = true;
 
 }
 
-<script type="module">
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+try {
 
 const tg = window.Telegram.WebApp;
 
 tg.ready();
 
-
 const user = tg.initDataUnsafe.user;
-
 
 if(user){
 
-alert(
-"User found: " + user.first_name + 
-" ID: " + user.id
-);
+alert("User: " + user.first_name + " ID: " + user.id);
 
+console.log("Telegram user:", user);
 
 }else{
 
-
-alert("No Telegram user found");
-
+alert("No Telegram user detected");
 
 }
 
+} catch (e) {
+
+alert("Script error: " + e.message);
+
+}
+
+});
 
 </script>
 
