@@ -5275,11 +5275,8 @@ btn.disabled = true;
 
 <script type="module">
 
-import { initializeApp } 
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import { getFirestore, doc, setDoc } 
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDzP9BdzoYr8z0X6u_9tnHx1eREqs2cLNE",
@@ -5287,41 +5284,44 @@ const firebaseConfig = {
     projectId: "ai-match-predictions-fa41f",
     storageBucket: "ai-match-predictions-fa41f.firebasestorage.app",
     messagingSenderId: "832247627193",
-    appId: "1:832247627193:web:b855608c590e774f63ca68",
-    measurementId: "G-BMF0D3J65V"
+    appId: "1:832247627193:web:b855608c590e774f63ca68"
 };
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
 
 const tg = window.Telegram.WebApp;
-
 tg.ready();
 
-const user = tg.initDataUnsafe.user;
+const user = tg.initDataUnsafe?.user;
 
 if(user){
 
-await setDoc(
+const userRef = doc(db, "users", String(user.id));
 
-doc(db,"users",String(user.id)),
+const userSnap = await getDoc(userRef);
 
-{
+// only create user if not exists
+if(!userSnap.exists()){
 
+await setDoc(userRef, {
+
+id: user.id,
 name: user.first_name || "",
-
 username: user.username || "",
-
-photo: user.photo_url || "",
-
+balance: 0,
+adsWatched: 0,
 joined: new Date()
 
+});
+
+console.log("New user created");
+
+}else{
+
+console.log("User already exists");
+
 }
-
-);
-
-console.log("User saved:", user.id);
 
 }
 
