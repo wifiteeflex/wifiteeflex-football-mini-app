@@ -1838,6 +1838,58 @@ border-bottom:1px solid rgba(255,255,255,.1);
   color:#aaa;
 }
 
+.vote-results{
+margin-top:15px;
+}
+
+
+.vote-line{
+display:flex;
+justify-content:space-between;
+font-size:13px;
+margin-bottom:5px;
+color:#ddd;
+}
+
+
+.bar{
+height:8px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:12px;
+}
+
+
+.bar div{
+height:100%;
+width:0%;
+transition:.5s;
+border-radius:20px;
+}
+
+
+#arsenalBar{
+background:#ff3030;
+}
+
+
+#drawBar{
+background:#aaa;
+}
+
+
+#coventryBar{
+background:#0066ff;
+}
+
+
+
+.vote-options button:disabled{
+opacity:.5;
+cursor:not-allowed;
+}
+
 </style>
 </head>
         
@@ -2201,7 +2253,62 @@ $<span id="usdBalance">0.0000</span>
     Odds <b>1.56</b>
   </div>
 
-  <div class="vote-question">Who will win?</div>
+  <div class="vote-question">
+Who will win?
+</div>
+
+
+<div class="vote-results">
+
+<div class="vote-line">
+<span>Arsenal Win</span>
+<b id="arsenalPercent">0%</b>
+</div>
+
+<div class="bar">
+<div id="arsenalBar"></div>
+</div>
+
+
+<div class="vote-line">
+<span>Draw</span>
+<b id="drawPercent">0%</b>
+</div>
+
+<div class="bar">
+<div id="drawBar"></div>
+</div>
+
+
+<div class="vote-line">
+<span>Coventry Win</span>
+<b id="coventryPercent">0%</b>
+</div>
+
+<div class="bar">
+<div id="coventryBar"></div>
+</div>
+
+</div>
+
+<div class="vote-options">
+
+<button onclick="castVote('arsenal')" id="arsenalBtn">
+Arsenal Win
+</button>
+
+
+<button onclick="castVote('draw')" id="drawBtn">
+Draw
+</button>
+
+
+<button onclick="castVote('coventry')" id="coventryBtn">
+Coventry Win
+</button>
+
+
+</div>
 
   <div class="vote-options">
     <button>Arsenal Win 1.56</button>
@@ -5431,6 +5538,114 @@ console.log("User already exists");
 }
 
 </script>
+
+let votes = JSON.parse(localStorage.getItem("matchVotes")) || {
+
+arsenal:0,
+draw:0,
+coventry:0
+
+};
+
+
+function updateVotes(){
+
+
+let total =
+votes.arsenal +
+votes.draw +
+votes.coventry;
+
+
+let arsenal =
+total ? Math.round((votes.arsenal/total)*100) : 0;
+
+
+let draw =
+total ? Math.round((votes.draw/total)*100) : 0;
+
+
+let coventry =
+total ? Math.round((votes.coventry/total)*100) : 0;
+
+
+
+document.getElementById("arsenalPercent").innerHTML =
+arsenal+"%";
+
+
+document.getElementById("drawPercent").innerHTML =
+draw+"%";
+
+
+document.getElementById("coventryPercent").innerHTML =
+coventry+"%";
+
+
+
+document.getElementById("arsenalBar").style.width =
+arsenal+"%";
+
+
+document.getElementById("drawBar").style.width =
+draw+"%";
+
+
+document.getElementById("coventryBar").style.width =
+coventry+"%";
+
+}
+
+
+
+
+function castVote(team){
+
+
+if(localStorage.getItem("voted")){
+
+alert("You already voted ⚽");
+
+return;
+
+}
+
+
+
+votes[team]++;
+
+
+localStorage.setItem(
+"matchVotes",
+JSON.stringify(votes)
+);
+
+
+
+localStorage.setItem(
+"voted",
+"yes"
+);
+
+
+
+document.querySelectorAll(".vote-options button")
+.forEach(btn=>{
+
+btn.disabled=true;
+
+});
+
+
+
+updateVotes();
+
+
+}
+
+
+
+updateVotes();
 
 </body>
     </html>
