@@ -1694,30 +1694,17 @@ border-bottom:1px solid rgba(255,255,255,.1);
 
 }
 
-.vote-card{
+.vote-widget{
   width:100%;
+  max-width:420px;
+  margin:20px auto;
+  padding:16px;
   border-radius:18px;
-  padding:18px;
-  color:#fff;
-  position:relative;
-  overflow:hidden;
-
-  /* YOU WILL REPLACE THIS BACKGROUND */
-  background:url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Wembley_Stadium.jpg") center/cover no-repeat;
-}
-
-/* DARK OVERLAY */
-.vote-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
   background:rgba(0,0,0,0.65);
-  z-index:0;
-}
-
-.vote-card > *{
-  position:relative;
-  z-index:1;
+  backdrop-filter:blur(10px);
+  color:#fff;
+  font-family:Arial, sans-serif;
+  box-sizing:border-box;
 }
 
 /* HEADER */
@@ -1727,140 +1714,128 @@ border-bottom:1px solid rgba(255,255,255,.1);
   align-items:flex-start;
 }
 
-.vote-title{
-  font-size:18px;
-  font-weight:800;
-}
-
-.vote-title p{
-  margin:4px 0 0;
-  font-size:13px;
-  opacity:0.7;
-}
-
-/* HOT BADGE */
-.vote-badge{
-  background:linear-gradient(45deg,#ff3b3b,#ff7a00);
-  padding:8px 14px;
-  border-radius:12px;
+.vote-header h3{
+  margin:0;
+  font-size:16px;
   font-weight:700;
 }
 
-/* MATCH INFO */
-.match-info{
-  text-align:center;
-  margin:15px 0;
-  font-size:14px;
-  opacity:0.8;
+.vote-header p{
+  margin:3px 0 0;
+  font-size:12px;
+  color:#aaa;
 }
 
-/* TEAMS AREA */
-.match-area{
+.vote-badge{
+  background:linear-gradient(45deg,#ff4b2b,#ff8c00);
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* INFO */
+.vote-info{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:12px 0;
+  font-size:12px;
+  color:#bbb;
+}
+
+/* MATCH AREA */
+.vote-match{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin:10px 0 20px;
+  margin:15px 0;
 }
 
-.team-box{
- text-align:center;
- flex:1;
+.vote-team{
+  text-align:center;
+  width:40%;
 }
 
-.team-ring{
-  width:110px;
-  height:110px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:auto;
-}
-
- .team-ring img{
-  width:65px;
-  height:65px;
+.vote-team img{
+  width:60px;
+  height:60px;
   object-fit:contain;
+  border-radius:50%;
   background:transparent;
 }
 
-/* glowing rings like image */
-.team-ring.red{
-  border:3px solid rgba(255,0,0,0.6);
-  box-shadow:0 0 20px rgba(255,0,0,0.4);
+.vote-team p{
+  margin-top:6px;
+  font-size:14px;
 }
 
-.team-ring.blue{
-  border:3px solid rgba(0,120,255,0.6);
-  box-shadow:0 0 20px rgba(0,120,255,0.4);
-}
-
-.vs{
-  font-size:26px;
-  font-weight:900;
-  opacity:0.8;
-}
-
-/* ODDS BOX */
-.odds-box{
-  background:rgba(255,255,255,0.08);
-  padding:10px 18px;
-  border-radius:12px;
-  text-align:center;
-  width:120px;
-  margin:0 auto;
-}
-
-.odds-box h2{
-  color:#1aff7a;
-  margin:0;
-}
-
-/* QUESTION */
-.question{
-  text-align:center;
-  margin:12px 0;
-  opacity:0.8;
-}
-
-/* VOTE BUTTONS */
-.vote-buttons{
-  display:flex;
-  gap:10px;
-}
-
-.vote-buttons button{
-  flex:1;
-  border:none;
-  padding:12px;
-  border-radius:12px;
-  font-weight:700;
+.vote-vs{
+  font-size:20px;
+  font-weight:bold;
   color:#fff;
 }
 
-.vote-buttons .red{
-  background:linear-gradient(45deg,#b30000,#ff2e2e);
+/* ODDS */
+.vote-odds{
+  text-align:center;
+  margin:10px 0;
+  font-size:13px;
+  color:#aaa;
 }
 
-.vote-buttons .gray{
-  background:rgba(255,255,255,0.12);
+.vote-odds b{
+  color:#00ff7f;
+  font-size:18px;
 }
 
-.vote-buttons .blue{
-  background:linear-gradient(45deg,#0051ff,#1a75ff);
+/* QUESTION */
+.vote-question{
+  text-align:center;
+  margin:10px 0;
+  font-size:14px;
+  color:#ddd;
+}
+
+/* OPTIONS */
+.vote-options{
+  display:flex;
+  gap:10px;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+.vote-options button{
+  flex:1;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:600;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* BUTTON COLORS */
+.vote-options button:nth-child(1){
+  background:linear-gradient(45deg,#ff2d2d,#b30000);
+}
+
+.vote-options button:nth-child(2){
+  background:#2c2c2c;
+}
+
+.vote-options button:nth-child(3){
+  background:linear-gradient(45deg,#0066ff,#0033aa);
 }
 
 /* FOOTER */
 .vote-footer{
   display:flex;
   justify-content:space-between;
-  font-size:12px;
   margin-top:12px;
-  opacity:0.8;
-}
-
-.green{
-  color:#1aff7a;
+  font-size:11px;
+  color:#aaa;
 }
 
 </style>
@@ -2190,67 +2165,54 @@ $<span id="usdBalance">0.0000</span>
 
 </div>
 
-<div class="vote-card">
+<div class="vote-widget">
 
-  <!-- HEADER -->
   <div class="vote-header">
-    <div class="vote-title">
-      🔥 TODAY’S HOT VOTE
+    <div>
+      <h3>🔥 TODAY'S HOT VOTE</h3>
       <p>Vote now and earn rewards</p>
     </div>
 
-    <div class="vote-badge">🔥 HOT</div>
+    <span class="vote-badge">🔥 HOT</span>
   </div>
 
-  <!-- MATCH INFO -->
-  <div class="match-info">
-    <div class="time">📅 21 August 20:00</div>
-    <div class="league">Premier League</div>
+  <div class="vote-info">
+    <span>📅 21 August 20:00</span>
+    <span>Premier League</span>
   </div>
 
-  <!-- TEAMS -->
-  <div class="match-area">
+  <div class="vote-match">
 
-    <div class="team-box left">
-      <div class="team-ring red">
-        <img src="https://upload.wikimedia.org/wikipedia/sco/5/53/Arsenal_FC.svg">
-      </div>
+    <div class="vote-team">
+      <img src="https://upload.wikimedia.org/wikipedia/sco/5/53/Arsenal_FC.svg">
       <p>Arsenal</p>
     </div>
 
-    <div class="vs">VS</div>
+    <div class="vote-vs">VS</div>
 
-    <div class="team-box right">
-      <div class="team-ring blue">
-        <img src="https://upload.wikimedia.org/wikipedia/de/6/60/Coventry_City.svg">
-      </div>
+    <div class="vote-team">
+      <img src="https://upload.wikimedia.org/wikipedia/de/6/60/Coventry_City.svg">
       <p>Coventry City</p>
     </div>
 
   </div>
 
-  <!-- ODDS -->
-  <div class="odds-box">
-    <span>Odds</span>
-    <h2>1.56</h2>
+  <div class="vote-odds">
+    Odds <b>1.56</b>
   </div>
 
-  <div class="question">Who will win?</div>
+  <div class="vote-question">Who will win?</div>
 
-  <!-- VOTE OPTIONS -->
-  <div class="vote-buttons">
-    <button class="red">Arsenal Win <span>1.56</span></button>
-    <button class="gray">Draw <span>3.90</span></button>
-    <button class="blue">Coventry City Win <span>6.20</span></button>
+  <div class="vote-options">
+    <button>Arsenal Win 1.56</button>
+    <button>Draw 3.90</button>
+    <button>Coventry Win 6.20</button>
   </div>
 
-  <!-- FOOTER -->
   <div class="vote-footer">
-    <div>👥 1,245 people voted</div>
-    <div>🕒 Voting closes in <span class="green">02:45:30</span></div>
+    <span>👥 1,245 voted</span>
+    <span>⏰ Voting closes in 02:45:30</span>
   </div>
-
-</div>
 
 </div>
 
