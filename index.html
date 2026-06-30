@@ -1736,12 +1736,27 @@ border-bottom:1px solid rgba(255,255,255,.1);
 
 /* INFO */
 .vote-info{
+  width:100%;
   display:flex;
   justify-content:center;
-  gap:10px;
-  margin:12px 0;
-  font-size:12px;
-  color:#bbb;
+  align-items:center;
+  margin:10px 0;
+}
+
+/* DATE STYLE (BETTING STYLE HEADER) */
+.vote-date{
+  font-size:14px;
+  font-weight:600;
+  color:#ffffff;
+  background:rgba(0,0,0,0.45);
+  padding:6px 14px;
+  border-radius:20px;
+
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.08);
+
+  letter-spacing:0.5px;
+  text-align:center;
 }
 
 /* MATCH AREA */
@@ -1749,24 +1764,25 @@ border-bottom:1px solid rgba(255,255,255,.1);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin:15px 0;
+  margin:20px 0;
+  padding:0 10px;
 }
 
 .vote-team{
   text-align:center;
-  width:40%;
+  flex:1;
+  padding:0 10px;
 }
 
 .vote-team img{
   width:60px;
   height:60px;
   object-fit:contain;
-  border-radius:50%;
-  background:transparent;
+  margin-bottom:12px;
 }
 
 .vote-team p{
-  margin-top:6px;
+  margin-top:10px;
   font-size:14px;
 }
 
@@ -2246,11 +2262,6 @@ POWERED BY GROK ENGINE
 
 <div id="earnPage" class="page">
 
-<div class="vote-header">
-  <h1>🗳️ Vote Center</h1>
-  <p>Make predictions. Vote. Earn rewards.</p>
-</div>
-
 <div class="vote-balance">
   <div class="balance-info">
     
@@ -2278,17 +2289,16 @@ POWERED BY GROK ENGINE
 
   <div class="vote-header">
     <div>
-      <h3>TODAY'S HOT VOTE</h3>
+      <h3>🔥TODAY'S HOT VOTE</h3>
       <p>Vote now and earn rewards</p>
     </div>
 
     <span class="vote-badge">🔥 HOT</span>
   </div>
 
-  <div class="vote-info">
-    <span>📅 21 August 20:00</span>
-    <span>Premier League</span>
-  </div>
+<div class="vote-info">
+  <span class="vote-date">📅 21 August 20:00</span>
+</div>
 
   <div class="vote-match">
 
@@ -2333,8 +2343,8 @@ Coventry Win
 </div>
 
   <div class="vote-footer">
-    <span>👥 10,245 voted</span>
     <span>⏰ Voting closes in 21 Aug 20:00</span>
+    <span>👥 10,245 voted</span>
   </div>
 
 </div>
