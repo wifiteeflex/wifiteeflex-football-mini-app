@@ -1890,6 +1890,73 @@ opacity:.5;
 cursor:not-allowed;
 }
 
+/* ===== VOTE HEADER ===== */
+.vote-header{
+  text-align:center;
+  margin:15px 0;
+  color:#fff;
+}
+
+.vote-header h1{
+  font-size:22px;
+  font-weight:800;
+  margin:0;
+}
+
+.vote-header p{
+  font-size:13px;
+  opacity:0.7;
+  margin-top:5px;
+}
+
+/* ===== BALANCE CARD ===== */
+.vote-balance{
+  width:92%;
+  margin:15px auto;
+  padding:18px;
+  border-radius:18px;
+  background:linear-gradient(135deg, rgba(0,255,120,0.15), rgba(0,0,0,0.75));
+  backdrop-filter:blur(14px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.08);
+  color:#fff;
+  transition:0.3s;
+}
+
+/* USD */
+.balance-info .usd{
+  font-size:28px;
+  font-weight:900;
+  margin:6px 0;
+  color:#00ff9d;
+  transition:0.3s;
+}
+
+/* GLow effect when updated */
+.glow{
+  text-shadow:0 0 10px #00ff9d, 0 0 20px #00ff9d;
+  transform:scale(1.05);
+}
+
+/* Profit today */
+.profit{
+  font-size:12px;
+  margin-top:5px;
+  color:#ffd166;
+  opacity:0.9;
+}
+
+/* coin */
+.coin-icon{
+  font-size:34px;
+  background:rgba(255,255,255,0.08);
+  padding:12px;
+  border-radius:50%;
+}
+
 </style>
 </head>
         
@@ -2180,48 +2247,38 @@ POWERED BY GROK ENGINE
 <div id="earnPage" class="page">
 
 <div class="vote-header">
-
-<h1>
-🗳️ Vote Center
-</h1>
-
-<p>
-Make predictions. Vote. Earn rewards.
-</p>
-
+  <h1>🗳️ Vote Center</h1>
+  <p>Make predictions. Vote. Earn rewards.</p>
 </div>
 
 <div class="vote-balance">
+  <div class="balance-info">
+    
+    <span class="label">Your Reward Balance</span>
 
-<div>
+    <h2 class="usd">
+      $<span id="usdBalance">0.0000</span>
+    </h2>
 
-<span>
-Your Reward Balance
-</span>
+    <p class="naira">
+      ≈ ₦<span id="nairaBalance">0</span>
+    </p>
 
-<h2>
-$<span id="usdBalance">0.0000</span>
-</h2>
+    <!-- PROFIT TODAY -->
+    <div class="profit">
+      📈 Profit today: <span id="profitToday">+0.00</span>
+    </div>
 
-<p>
-≈ ₦<span id="nairaBalance">0</span>
-</p>
+  </div>
 
-</div>
-
-<div class="coin-icon">
-
-🪙
-
-</div>
-
+  <div class="coin-icon">🪙</div>
 </div>
 
 <div class="vote-widget">
 
   <div class="vote-header">
     <div>
-      <h3>🔥 TODAY'S HOT VOTE</h3>
+      <h3>TODAY'S HOT VOTE</h3>
       <p>Vote now and earn rewards</p>
     </div>
 
@@ -2257,40 +2314,6 @@ $<span id="usdBalance">0.0000</span>
 Who will win?
 </div>
 
-
-<div class="vote-results">
-
-<div class="vote-line">
-<span>Arsenal Win</span>
-<b id="arsenalPercent">0%</b>
-</div>
-
-<div class="bar">
-<div id="arsenalBar"></div>
-</div>
-
-
-<div class="vote-line">
-<span>Draw</span>
-<b id="drawPercent">0%</b>
-</div>
-
-<div class="bar">
-<div id="drawBar"></div>
-</div>
-
-
-<div class="vote-line">
-<span>Coventry Win</span>
-<b id="coventryPercent">0%</b>
-</div>
-
-<div class="bar">
-<div id="coventryBar"></div>
-</div>
-
-</div>
-
 <div class="vote-options">
 
 <button onclick="castVote('arsenal')">
@@ -2310,8 +2333,8 @@ Coventry Win
 </div>
 
   <div class="vote-footer">
-    <span>👥 1,245 voted</span>
-    <span>⏰ Voting closes in 02:45:30</span>
+    <span>👥 10,245 voted</span>
+    <span>⏰ Voting closes in 21 Aug 20:00</span>
   </div>
 
 </div>
@@ -5562,6 +5585,44 @@ updateVotes();
 
 }
 
+</script>
+
+<script>
+function animateBalance(newValue){
+  const el = document.getElementById("usdBalance");
+
+  let start = parseFloat(el.innerText) || 0;
+  let end = parseFloat(newValue);
+
+  let duration = 800;
+  let startTime = null;
+
+  function update(time){
+    if(!startTime) startTime = time;
+
+    let progress = Math.min((time - startTime) / duration, 1);
+
+    let value = start + (end - start) * progress;
+    el.innerText = value.toFixed(4);
+
+    if(progress < 1){
+      requestAnimationFrame(update);
+    } else {
+      el.classList.add("glow");
+
+      setTimeout(()=>{
+        el.classList.remove("glow");
+      }, 800);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+
+function updateProfit(todayAmount){
+  document.getElementById("profitToday").innerText = `+${todayAmount.toFixed(2)}`;
+}
 </script>
 
 </body>
