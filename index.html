@@ -1759,19 +1759,22 @@ border-bottom:1px solid rgba(255,255,255,.1);
   text-align:center;
 }
 
-/* MATCH AREA */
-.vote-match{
+.featured-vote .vote-match{
   display:flex;
   justify-content:space-between;
   align-items:center;
 
   width:100%;
-  padding:0 40px;  /* MAX spacing */
-  margin:30px 0;
+  padding:0 40px;   /* THIS creates the wide spacing */
+  box-sizing:border-box;
+  margin:25px 0;
 }
 
-.vote-team{
-  text-align:center;
+.featured-vote .team{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   flex:1;
 }
 
