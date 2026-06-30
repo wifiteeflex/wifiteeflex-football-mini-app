@@ -2297,21 +2297,17 @@ Who will win?
 Arsenal Win
 </button>
 
+
 <button onclick="castVote('draw')">
 Draw
 </button>
+
 
 <button onclick="castVote('coventry')">
 Coventry Win
 </button>
 
 </div>
-
-  <div class="vote-options">
-    <button>Arsenal Win 1.56</button>
-    <button>Draw 3.90</button>
-    <button>Coventry Win 6.20</button>
-  </div>
 
   <div class="vote-footer">
     <span>👥 1,245 voted</span>
@@ -5492,98 +5488,79 @@ let votes = JSON.parse(localStorage.getItem("matchVotes")) || {
   coventry: 0
 };
 
-
 function updateVotes(){
 
 let total = votes.arsenal + votes.draw + votes.coventry;
-
 
 let arsenalPercent = total ? Math.round((votes.arsenal / total) * 100) : 0;
 let drawPercent = total ? Math.round((votes.draw / total) * 100) : 0;
 let coventryPercent = total ? Math.round((votes.coventry / total) * 100) : 0;
 
-
 document.getElementById("arsenalPercent").innerText =
 arsenalPercent + "%";
-
 
 document.getElementById("drawPercent").innerText =
 drawPercent + "%";
 
-
 document.getElementById("coventryPercent").innerText =
 coventryPercent + "%";
-
 
 document.getElementById("arsenalBar").style.width =
 arsenalPercent + "%";
 
-
 document.getElementById("drawBar").style.width =
 drawPercent + "%";
-
 
 document.getElementById("coventryBar").style.width =
 coventryPercent + "%";
 
-
 }
 
-
+let selectedTeam = "";
 
 function castVote(team){
 
+selectedTeam = team;
 
-let alreadyVoted = localStorage.getItem("hasVoted");
+let name =
+team === "arsenal" ? "Arsenal Win" :
+team === "draw" ? "Draw" :
+"Coventry Win";
 
+let confirmVote = confirm(
+"⚽ Confirm Vote\n\nYou selected: " + name + "\n\nAre you sure?"
+);
 
-if(alreadyVoted){
-
-alert("You already voted ⚽");
-
-return;
-
-}
-
-
+if(confirmVote){
 
 votes[team]++;
-
 
 localStorage.setItem(
 "matchVotes",
 JSON.stringify(votes)
 );
 
-
 localStorage.setItem(
 "hasVoted",
 "true"
 );
 
-
-
 document.querySelectorAll(".vote-options button")
-.forEach(button=>{
+.forEach(btn=>{
 
-button.disabled = true;
+btn.disabled=true;
 
 });
 
-
-
-alert("Vote submitted ✅");
-
+alert(
+"✅ Vote Submitted\n\nYour prediction has been recorded.\n\nCome back later to check your reward 🎁"
+);
 
 updateVotes();
-
 
 }
 
-
-
-updateVotes();
-
+}
 
 </script>
 
