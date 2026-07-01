@@ -880,104 +880,6 @@ transition:.4s ease;
 
 }
 
-.promo-overlay{
-
-display:none;
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,.85);
-
-z-index:999999;
-
-align-items:center;
-justify-content:center;
-
-}
-
-.promo-banner{
-
-width:100%;
-height:100%;
-
-position:relative;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-}
-
-.promo-banner img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-}
-
-.promo-close{
-
-position:absolute;
-
-bottom:20px;   /* 👈 moves it down */
-
-right:20px;
-
-width:45px;
-
-height:45px;
-
-border-radius:50%;
-
-border:none;
-
-background:rgba(0,0,0,.65);
-
-color:white;
-
-font-size:25px;
-
-z-index:10;
-
-}
-
-.promo-banner{
-
-animation:zoomBanner .5s ease;
-
-}
-
-@keyframes zoomBanner{
-
-from{
-
-transform:scale(.9);
-
-opacity:0;
-
-}
-
-to{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
-}
-
 .bottom-nav{
 
 position:fixed;
@@ -1721,17 +1623,7 @@ border-bottom:1px solid rgba(255,255,255,.1);
   margin:20px auto;
   padding:16px;
   border-radius:18px;
-
-  background:
-  linear-gradient(
-  rgba(0,0,0,0.55),
-  rgba(0,0,0,0.75)
-  ),
-  url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Wembley_Stadium.jpg");
-
-  background-size:cover;
-  background-position:center;
-
+  background:rgba(0,0,0,0.65);
   backdrop-filter:blur(10px);
   color:#fff;
   font-family:Arial, sans-serif;
@@ -2075,18 +1967,6 @@ cursor:not-allowed;
 <span>Contest</span>
 
 </button>
-
-</div>
-        
-<div id="promoPopup" class="promo-overlay">
-
-<div class="promo-banner">
-
-<button class="promo-close" onclick="closePromo()">✕</button>
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Cristiano_Ronaldo.jpg">
-
-</div>
 
 </div>
 
@@ -5210,25 +5090,6 @@ updateCountdown();
 setInterval(updateCountdown,1000);
 
 </script>
-
-<script>
-
-setTimeout(()=>{
-
-document.getElementById("promoPopup").style.display="flex";
-
-},60000);
-
-
-function closePromo(){
-
-document.getElementById("promoPopup").style.display="none";
-
-}
-
-</script>
-
-<script>
 
 <script>
 function showPage(pageId, el){
