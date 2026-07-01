@@ -2093,7 +2093,7 @@ font-weight:bold;
   text-align:center;
   color:#fff;
 
-  margin-top:180px;
+  margin-top:150px;
 
   padding:10px;
 
@@ -2153,6 +2153,31 @@ font-weight:bold;
   color:#000;
   font-weight:900;
   cursor:pointer;
+}
+
+.news-card{
+  background:rgba(0,0,0,0.6);
+  padding:12px;
+  margin:10px auto;
+  border-radius:12px;
+  color:#fff;
+  max-width:420px;
+}
+
+.news-card h3{
+  font-size:14px;
+  font-weight:800;
+}
+
+.news-card p{
+  font-size:11px;
+  color:#aaa;
+}
+
+.news-card a{
+  color:#00ff88;
+  font-weight:800;
+  text-decoration:none;
 }
 
 </style>
@@ -2342,6 +2367,8 @@ POWERED BY GROK ENGINE
 
 <div class="ai-header">
 
+<div id="newsFeed"></div>
+
 <h1>
 AI Football Assistant
 </h1>
@@ -2386,18 +2413,6 @@ AI Confidence
 
 <p>
 Away 1up (Win)
-</p>
-
-</div>
-
-<div class="analysis">
-
-<h3>
-📊 AI Analysis
-</h3>
-
-<p>
-Chelsea hold the edge thanks to stronger attacking momentum and superior squad depth.
 </p>
 
 </div>
@@ -5818,6 +5833,43 @@ updateCountdown();
 function remindMe(){
   alert("✅ Reminder set! We will notify you before matches start.");
 }
+</script>
+
+<script>
+async function loadNews(){
+  const rssUrl = "https://www.espn.com/espn/rss/soccer/news";
+
+  const proxy = "https://api.allorigins.win/raw?url=" + encodeURIComponent(rssUrl);
+
+  const res = await fetch(proxy);
+  const text = await res.text();
+
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(text, "text/xml");
+
+  const items = xml.querySelectorAll("item");
+
+  let html = "";
+
+  items.forEach((item, index)=>{
+    if(index > 6) return;
+
+    html += `
+      <div class="news-card">
+        <h3>${item.querySelector("title").textContent}</h3>
+        <p>${item.querySelector("pubDate").textContent}</p>
+        <a href="${item.querySelector("link").textContent}" target="_blank">
+          Read More →
+        </a>
+      </div>
+    `;
+  });
+
+  document.getElementById("newsFeed").innerHTML = html;
+}
+
+loadNews();
+setInterval(loadNews, 300000); // refresh every 5 mins
 </script>
 
 </body>
