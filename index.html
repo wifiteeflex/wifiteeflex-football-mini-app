@@ -2089,6 +2089,151 @@ font-weight:bold;
 
 }
 
+.match-card{
+
+background:rgba(0,0,0,0.65);
+
+border-radius:18px;
+
+padding:15px;
+
+border:1px solid rgba(255,255,255,.08);
+
+color:#fff;
+
+box-sizing:border-box;
+
+}
+
+
+.match-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:12px;
+
+}
+
+
+.league{
+
+font-size:11px;
+
+color:#aaa;
+
+font-weight:700;
+
+}
+
+
+.live-status{
+
+background:#ff3030;
+
+padding:4px 10px;
+
+border-radius:20px;
+
+font-size:10px;
+
+font-weight:900;
+
+}
+
+
+
+.teams{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+.team{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:6px;
+
+font-weight:800;
+
+font-size:13px;
+
+}
+
+
+
+.team img{
+
+width:55px;
+
+height:55px;
+
+object-fit:contain;
+
+}
+
+
+
+.vs{
+
+font-size:26px;
+
+font-weight:900;
+
+}
+
+
+
+.countdown{
+
+text-align:center;
+
+margin:12px 0;
+
+font-size:12px;
+
+color:#00ff88;
+
+font-weight:700;
+
+}
+
+
+
+.match-card button{
+
+width:100%;
+
+padding:11px;
+
+border:none;
+
+border-radius:12px;
+
+background:#00ff88;
+
+color:#000;
+
+font-weight:900;
+
+font-size:13px;
+
+}
+
 </style>
 </head>
         
@@ -2379,18 +2524,59 @@ Confidence 89%
 
   <!-- HEADER -->
   <div class="live-header">
-    <h1>🔥 Live Matches Available</h1>
+    <h1>Live Matches Available</h1>
     <p>premier league • Laliga • Seria A</p>
   </div>
  
   <!-- ROTATING MATCHES -->
   <div class="match-slider">
 
-    <div class="match-card">
-      <div class="teams"><span>Everton</span><b>VS</b><span>Crystal Palace</span></div>
-      <div class="countdown" id="m2"></div>
-      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
+   <div class="match-card">
+
+  <div class="match-top">
+
+    <span class="league">
+      Premier League
+    </span>
+
+    <span class="live-status">
+      🔴 LIVE
+    </span>
+
+  </div>
+
+
+  <div class="teams">
+
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/sco/7/7c/Everton_FC_logo.svg">
+      <span>Everton</span>
     </div>
+
+
+    <div class="vs">
+      VS
+    </div>
+
+
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/hif/c/c1/Crystal_Palace_FC_logo.png">
+      <span>Crystal Palace</span>
+    </div>
+
+
+  </div>
+
+
+  <div class="countdown" id="m2">
+  </div>
+
+
+  <button onclick="openLink(this,'YOUR_MONETAG_LINK')">
+    ▶ Watch Live
+  </button>
+
+</div>
 
     <div class="match-card">
       <div class="teams"><span>Brentford</span><b>VS</b><span>Tottenham</span></div>
@@ -2401,7 +2587,7 @@ Confidence 89%
     <div class="match-card">
       <div class="teams"><span>Fulham</span><b>VS</b><span>Chelsea</span></div>
       <div class="countdown" id="m4"></div>
-      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
+      <button onclick="openLink(this,'https://omg10.com/4/7461922')">▶ Watch Live</button>
     </div>
 
     <div class="match-card">
@@ -2446,16 +2632,16 @@ Confidence 89%
     <span class="label">Your Reward Balance</span>
 
     <h2 class="usd">
-      $<span id="usdBalance">0.0000</span>
+      $<span id="usdBalance">50.789</span>
     </h2>
 
     <p class="naira">
-      ≈ ₦<span id="nairaBalance">0</span>
+      ≈ ₦<span id="70,096.95">0</span>
     </p>
 
     <!-- PROFIT TODAY -->
     <div class="profit">
-      📈 Profit today: <span id="profitToday">+0.00</span>
+      📈 Profit & withdraw: <span id="profitToday">+0.00</span>
     </div>
 
   </div>
