@@ -1514,124 +1514,141 @@ color:#00c853;
 
 }
 
-/* ===== PAGE ===== */
-#contestPage{
-  color:#fff;
-  font-family:Arial, sans-serif;
+.live-container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding:10px;
 }
 
-/* ===== HEADER ===== */
-.live-header{
-  text-align:center;
-  margin:20px 0;
-}
-
-.live-header h1{
-  font-size:22px;
-  font-weight:900;
-}
-
-.live-header p{
-  font-size:13px;
-  opacity:0.7;
-}
-
-/* ===== HOT MATCH ===== */
-.hot-match{
-  width:92%;
-  margin:10px auto 20px;
-}
-
-.hot-badge{
-  background:#ff2d2d;
-  color:#fff;
-  padding:5px 10px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:800;
-}
-
-/* ===== MATCH CARD ===== */
-.match-card{
-  background:rgba(0,0,0,0.65);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:14px;
+.live-card{
+  width:100%;
+  max-width:420px;
+  background:rgba(10,15,25,0.92);
+  border-radius:18px;
   padding:14px;
-  margin-top:10px;
-  text-align:center;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* ===== TEAMS ===== */
-.teams{
+/* TOP HEADER */
+.live-top{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:0 60px;   /* BIG SPACING LIKE BET365 */
-  font-weight:700;
 }
 
-.teams b{
-  font-size:34px;
+.live-title{
+  font-size:14px;
   font-weight:900;
-  color:#fff;
 }
 
-/* ===== LIVE DOT ===== */
-.live-dot{
-  width:8px;
-  height:8px;
-  background:red;
+.live-tag{
+  background:#ff3b30;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.dot{
+  width:7px;
+  height:7px;
+  background:#fff;
   border-radius:50%;
-  display:inline-block;
   animation:blink 1s infinite;
-  margin-right:5px;
 }
 
 @keyframes blink{
   0%{opacity:1;}
-  50%{opacity:0.2;}
+  50%{opacity:0.3;}
   100%{opacity:1;}
 }
 
-/* ===== LIVE TEXT ===== */
-.live-info{
-  margin:8px 0;
-  font-size:12px;
-  color:#00ff88;
+/* DATE */
+.live-date{
+  text-align:center;
+  margin:10px 0;
+  font-size:13px;
+  color:#bbb;
+  font-weight:600;
+}
+
+/* MATCH AREA */
+.match-area{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+}
+
+/* TEAM BOX */
+.team-box{
+  text-align:center;
+}
+
+.team-box img{
+  width:70px;
+  height:70px;
+  object-fit:contain;
+}
+
+.team-box p{
+  margin-top:6px;
+  font-size:14px;
   font-weight:700;
 }
 
-/* ===== COUNTDOWN ===== */
-.countdown{
+/* VS BIG */
+.vs-big{
+  font-size:28px;
+  font-weight:900;
+  color:#fff;
+  letter-spacing:2px;
+}
+
+/* ODDS */
+.odds-row{
+  display:flex;
+  justify-content:space-between;
+  margin-top:12px;
+  gap:8px;
+}
+
+.odd{
+  flex:1;
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+  padding:8px;
+  text-align:center;
+}
+
+.odd span{
   font-size:12px;
   color:#aaa;
-  margin-bottom:10px;
 }
 
-/* ===== BUTTON (MONETAG READY) ===== */
-.match-card button{
+.odd b{
+  display:block;
+  font-size:15px;
+  color:#00ff88;
+}
+
+/* BUTTON */
+.watch-live{
   width:100%;
-  padding:10px;
+  margin-top:12px;
+  padding:12px;
   border:none;
-  border-radius:10px;
+  border-radius:12px;
   background:#00ff88;
   color:#000;
-  font-weight:800;
+  font-weight:900;
   cursor:pointer;
-}
-
-/* ===== SLIDER ===== */
-.match-slider{
-  width:92%;
-  margin:auto;
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  padding-bottom:10px;
-}
-
-.match-slider .match-card{
-  min-width:260px;
 }
 
 .vote-widget{
@@ -2114,83 +2131,65 @@ POWERED BY GROK ENGINE
 <div id="contestPage" class="page">
 
   <!-- HEADER -->
-  <div class="live-header">
-    <h1> Live Matches Available</h1>
-    <p>Seria A • premiere league • Laliga</p>
-  </div>
+  <div class="live-container">
 
-    <div class="match-card Upcoming active">
+  <div class="live-card">
 
-      <div class="teams">
-        <span>Arsenal</span>
-        <b>vs</b>
-        <span>Coventry City</span>
+    <!-- HOT / LIVE TAG -->
+    <div class="live-top">
+      <span class="live-title">🔥 TODAY'S HOT VOTE</span>
+
+      <span class="live-tag">
+        <span class="dot"></span> HOT
+      </span>
+    </div>
+
+    <!-- DATE -->
+    <div class="live-date">
+      21 August 20:00
+    </div>
+
+    <!-- TEAMS -->
+    <div class="match-area">
+
+      <div class="team-box">
+        <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg">
+        <p>Arsenal</p>
       </div>
 
-      <div class="live-info">
-        <span class="live-dot"></span>
-        LIVE
+      <div class="vs-big">VS</div>
+
+      <div class="team-box">
+        <img src="https://upload.wikimedia.org/wikipedia/de/6/60/Coventry_City.svg">
+        <p>Coventry City</p>
       </div>
 
-      <div class="countdown" id="m1"></div>
-
-      <button onclick="openLink(this,'https://omg10.com/4/7461956')">
-        ▶ Watch Live
-      </button>
-
-    </div>
-  </div>
-
-  <!-- ROTATING MATCHES -->
-  <div class="match-slider">
-
-    <div class="match-card">
-      <div class="teams"><span>Everton</span><b>VS</b><span>Palace</span></div>
-      <div class="countdown" id="m2"></div>
-      <button onclick="openLink(this,'https://omg10.com/4/7461922')">▶ Watch Live</button>
     </div>
 
-    <div class="match-card">
-      <div class="teams"><span>Brentford</span><b>VS</b><span>Tottenham</span></div>
-      <div class="countdown" id="m3"></div>
-      <button onclick="openLink(this,'https://omg10.com/4/9295877')">▶ Watch Live</button>
+    <!-- ODDS -->
+    <div class="odds-row">
+
+      <div class="odd">
+        <span>1</span>
+        <b>1.44</b>
+      </div>
+
+      <div class="odd">
+        <span>X</span>
+        <b>4.85</b>
+      </div>
+
+      <div class="odd">
+        <span>2</span>
+        <b>8.00</b>
+      </div>
+
     </div>
 
-    <div class="match-card">
-      <div class="teams"><span>Fulham</span><b>VS</b><span>Chelsea</span></div>
-      <div class="countdown" id="m4"></div>
-      <button onclick="openLink(this,'https://omg10.com/4/8642746')">▶ Watch Live</button>
-    </div>
-
-    <div class="match-card">
-      <div class="teams"><span>Inter</span><b>VS</b><span>Monza</span></div>
-      <div class="countdown" id="m5"></div>
-      <button onclick="openLink(this,'https://omg10.com/4/8659455')">▶ Watch Live</button>
-    </div>
-
-    <div class="match-card">
-      <div class="teams"><span>Newcastle</span><b>VS</b><span>Liverpool</span></div>
-      <div class="countdown" id="m6"></div>
-      <button onclick="openLink(this,'https://omg10.com/4/8729428')">▶ Watch Live</button>
-    </div>
-
-    <div class="match-card">
-      <div class="teams"><span>Ipswich</span><b>VS</b><span>Sunderland</span></div>
-      <div class="countdown" id="m7"></div>
-      <button onclick="openLink(this,'https://omg10.com/4/8676459')">▶ Watch Live</button>
-    </div>
-
-    <div class="match-card">
-      <div class="teams"><span>Nottingham Forest</span><b>VS</b><span>Leeds United</span></div>
-      <div class="countdown" id="m8"></div>
-      <button onclick="openLink(this,'https://omg10.com/4/8859017')">▶ Watch Live</button>
-    </div>
-
-    <div class="match-card">
-      <div class="teams"><span>Brighton</span><b>VS</b><span>Aston Villa</span></div>
-      <div class="countdown" id="m9"></div>
-      <button onclick="openLink(this,'https://omg10.com/4/7533041')">▶ Watch Live</button>
-    </div>
+    <!-- BUTTON -->
+    <button class="watch-live" onclick="window.location.href='https://omg10.com/4/7461956'">
+      ▶ WATCH LIVE
+    </button>
 
   </div>
 
@@ -2239,7 +2238,7 @@ POWERED BY GROK ENGINE
   <div class="vote-match">
 
     <div class="vote-team">
-      <img src="https://upload.wikimedia.org/wikipedia/sco/5/53/Arsenal_FC.svg">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg">
       <p>Arsenal</p>
     </div>
 
@@ -5550,44 +5549,6 @@ function animateBalance(newValue){
 function updateProfit(todayAmount){
   document.getElementById("profitToday").innerText = `+${todayAmount.toFixed(2)}`;
 }
-</script>
-
-<script>
-function countdown(id, dateString){
-  const el = document.getElementById(id);
-  const target = new Date(dateString).getTime();
-
-  setInterval(()=>{
-    const now = new Date().getTime();
-    const diff = target - now;
-
-    if(diff <= 0){
-      el.innerHTML = "LIVE NOW 🔴";
-      return;
-    }
-
-    let d = Math.floor(diff / (1000*60*60*24));
-    let h = Math.floor((diff / (1000*60*60)) % 24);
-    let m = Math.floor((diff / (1000*60)) % 60);
-    let s = Math.floor((diff / 1000) % 60);
-
-    el.innerHTML = `Starts in: ${d}d ${h}h ${m}m ${s}s`;
-
-  },1000);
-}
-
-/* HOT MATCH */
-countdown("m1", "2026-08-21T20:00:00");
-
-/* ROTATING MATCHES */
-countdown("m2", "2026-08-22T15:00:00");
-countdown("m3", "2026-08-21T17:30:00");
-countdown("m4", "2026-08-24T20:00:00");
-countdown("m5", "2026-08-22T14:00:00");
-countdown("m6", "2026-08-22T16:30:00");
-countdown("m7", "2026-08-21T15:00:00");
-countdown("m8", "2026-08-21T15:00:00");
-countdown("m9", "2026-08-23T14:00:00");
 </script>
 
 </body>
