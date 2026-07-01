@@ -1928,29 +1928,6 @@ cursor:not-allowed;
   margin:0 20px;
 }
 
-.live-badge{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  font-size:11px;
-  font-weight:800;
-  color:#00ff88;
-}
-
-.live-dot{
-  width:8px;
-  height:8px;
-  background:#ff2d2d;
-  border-radius:50%;
-  animation:blink 1s infinite;
-}
-
-@keyframes blink{
-  0%{opacity:1;}
-  50%{opacity:0.2;}
-  100%{opacity:1;}
-}
-
 </style>
 </head>
         
@@ -2000,9 +1977,8 @@ cursor:not-allowed;
 
 <button onclick="showPage('contestPage', this)" class="nav-item">
 
-<div class="live-badge">
-  <span class="live-dot"></span>
-  LIVE
+<div class="nav-icon">
+▶️
 </div>
 
 <span>Contest</span>
@@ -2139,19 +2115,15 @@ POWERED BY GROK ENGINE
 
   <!-- HEADER -->
   <div class="live-header">
-    <h1>🔥 Live Matches Available</h1>
-    <p>Watch live • Predict • Earn rewards</p>
+    <h1> Live Matches Available</h1>
+    <p>Seria A • premiere league • Laliga</p>
   </div>
 
-  <!-- HOT MATCH -->
-  <div class="hot-match">
-    <span class="hot-badge">🔥 HOT MATCH</span>
-
-    <div class="match-card live active">
+    <div class="match-card Upcoming active">
 
       <div class="teams">
         <span>Arsenal</span>
-        <b>VS</b>
+        <b>vs</b>
         <span>Coventry City</span>
       </div>
 
@@ -2173,7 +2145,7 @@ POWERED BY GROK ENGINE
   <div class="match-slider">
 
     <div class="match-card">
-      <div class="teams"><span>Everton</span><b>VS</b><span>Crystal Palace</span></div>
+      <div class="teams"><span>Everton</span><b>VS</b><span>Palace</span></div>
       <div class="countdown" id="m2"></div>
       <button onclick="openLink(this,'https://omg10.com/4/7461922')">▶ Watch Live</button>
     </div>
