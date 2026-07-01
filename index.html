@@ -2093,7 +2093,7 @@ font-weight:bold;
   text-align:center;
   color:#fff;
 
-  margin-top:100px;
+  margin-top:180px;
 
   padding:10px;
 
@@ -2155,24 +2155,70 @@ font-weight:bold;
   cursor:pointer;
 }
 
-.news-card{
-  background:rgba(0,0,0,0.6);
-  padding:12px;
-  margin:10px auto;
-  border-radius:12px;
-  color:#fff;
+/* MAIN FEED */
+.flash-feed{
   max-width:420px;
+  margin:20px auto;
+  padding:10px;
 }
 
+/* NEWS CARD */
+.news-card{
+  background:rgba(18,18,18,0.95);
+  border-radius:12px;
+  padding:12px;
+  margin:10px 0;
+  border-left:3px solid #00ff88;
+  box-shadow:0 2px 10px rgba(0,0,0,0.4);
+  transition:0.2s;
+}
+
+/* TAP EFFECT */
+.news-card:active{
+  transform:scale(0.98);
+}
+
+/* TITLE */
 .news-card h3{
   font-size:13px;
   font-weight:800;
+  color:#fff;
+  line-height:1.4;
 }
 
+/* TIME / META */
+.news-card small{
+  display:block;
+  font-size:10px;
+  color:#888;
+  margin-top:5px;
+}
+
+/* READ MORE BUTTON */
 .news-card a{
+  display:inline-block;
+  margin-top:8px;
+  font-size:11px;
+  font-weight:900;
   color:#00ff88;
-  font-weight:800;
   text-decoration:none;
+}
+
+/* FLASH LIVE DOT */
+.live-dot{
+  display:inline-block;
+  width:7px;
+  height:7px;
+  background:red;
+  border-radius:50%;
+  margin-right:5px;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  0%{opacity:1;}
+  50%{opacity:0.2;}
+  100%{opacity:1;}
 }
 
 </style>
@@ -2362,7 +2408,7 @@ POWERED BY GROK ENGINE
 
 <div class="ai-header">
 
-<div id="newsFeed"></div>
+<div id="newsFeed" class="flash-feed"></div>
 
 <h1>
 AI Football Assistant
@@ -5832,38 +5878,45 @@ function remindMe(){
 
 <script>
 
-const newsData = [
+const flashNews = [
   {
     title:"Arsenal boost title hopes after strong training performance",
-    link:"#"
+    time:"LIVE"
   },
   {
-    title:"Chelsea vs Liverpool injury update before big clash",
-    link:"#"
+    title:"Chelsea injury update ahead of Liverpool clash",
+    time:"2m ago"
   },
   {
-    title:"Man City remain favorites after latest AI analysis",
-    link:"#"
+    title:"Man City remain favorites after AI analysis",
+    time:"5m ago"
   },
   {
-    title:"Real Madrid scouting young talent for next season",
-    link:"#"
+    title:"Real Madrid scout top young talent for 2026 season",
+    time:"10m ago"
   },
   {
-    title:"Barcelona tactical changes impress analysts",
-    link:"#"
+    title:"Barcelona tactical system impresses analysts",
+    time:"15m ago"
   }
 ];
 
-function loadNews(){
+function loadFlashNews(){
 
   let html = "";
 
-  newsData.forEach(item=>{
+  flashNews.forEach(item=>{
     html += `
       <div class="news-card">
+
+        <span class="live-dot"></span>
+
         <h3>${item.title}</h3>
-        <a href="${item.link}">Read More →</a>
+
+        <small>${item.time}</small>
+
+        <a href="#">Read More →</a>
+
       </div>
     `;
   });
@@ -5871,7 +5924,7 @@ function loadNews(){
   document.getElementById("newsFeed").innerHTML = html;
 }
 
-loadNews();
+loadFlashNews();
 
 </script>
 
