@@ -2114,65 +2114,87 @@ POWERED BY GROK ENGINE
 <div id="contestPage" class="page">
 
   <!-- HEADER -->
-  <div class="live-container">
+  <div class="live-header">
+    <h1>🔥 Live Matches Available</h1>
+    <p>Watch live • Predict • Earn rewards</p>
+  </div>
 
-  <div class="live-card">
+  <!-- HOT MATCH -->
+  <div class="hot-match">
+    <span class="hot-badge">🔥 HOT MATCH</span>
 
-    <!-- HOT / LIVE TAG -->
-    <div class="live-top">
-      <span class="live-title">🔥 TODAY'S HOT VOTE</span>
+    <div class="match-card live active">
 
-      <span class="live-tag">
-        <span class="dot"></span> HOT
-      </span>
-    </div>
-
-    <!-- DATE -->
-    <div class="live-date">
-      21 August 20:00
-    </div>
-
-    <!-- TEAMS -->
-    <div class="match-area">
-
-      <div class="team-box">
-        <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg">
-        <p>Arsenal</p>
+      <div class="teams">
+        <span>Arsenal</span>
+        <b>VS</b>
+        <span>Coventry City</span>
       </div>
 
-      <div class="vs-big">VS</div>
-
-      <div class="team-box">
-        <img src="https://upload.wikimedia.org/wikipedia/de/6/60/Coventry_City.svg">
-        <p>Coventry City</p>
+      <div class="live-info">
+        <span class="live-dot"></span>
+        LIVE
       </div>
+
+      <div class="countdown" id="m1"></div>
+
+      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">
+        ▶ Watch Live
+      </button>
 
     </div>
+  </div>
 
-    <!-- ODDS -->
-    <div class="odds-row">
+  <!-- ROTATING MATCHES -->
+  <div class="match-slider">
 
-      <div class="odd">
-        <span>1</span>
-        <b>1.44</b>
-      </div>
-
-      <div class="odd">
-        <span>X</span>
-        <b>4.85</b>
-      </div>
-
-      <div class="odd">
-        <span>2</span>
-        <b>8.00</b>
-      </div>
-
+    <div class="match-card">
+      <div class="teams"><span>Everton</span><b>VS</b><span>Crystal Palace</span></div>
+      <div class="countdown" id="m2"></div>
+      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
     </div>
 
-    <!-- BUTTON -->
-    <button class="watch-live" onclick="window.location.href='https://omg10.com/4/7461956'">
-      ▶ WATCH LIVE
-    </button>
+    <div class="match-card">
+      <div class="teams"><span>Brentford</span><b>VS</b><span>Tottenham</span></div>
+      <div class="countdown" id="m3"></div>
+      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
+    </div>
+
+    <div class="match-card">
+      <div class="teams"><span>Fulham</span><b>VS</b><span>Chelsea</span></div>
+      <div class="countdown" id="m4"></div>
+      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
+    </div>
+
+    <div class="match-card">
+      <div class="teams"><span>Inter</span><b>VS</b><span>Monza</span></div>
+      <div class="countdown" id="m5"></div>
+      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
+    </div>
+
+    <div class="match-card">
+      <div class="teams"><span>Newcastle</span><b>VS</b><span>Liverpool</span></div>
+      <div class="countdown" id="m6"></div>
+      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
+    </div>
+
+    <div class="match-card">
+      <div class="teams"><span>Ipswich</span><b>VS</b><span>Sunderland</span></div>
+      <div class="countdown" id="m7"></div>
+      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
+    </div>
+
+    <div class="match-card">
+      <div class="teams"><span>Nottingham Forest</span><b>VS</b><span>Leeds United</span></div>
+      <div class="countdown" id="m8"></div>
+      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
+    </div>
+
+    <div class="match-card">
+      <div class="teams"><span>Brighton</span><b>VS</b><span>Aston Villa</span></div>
+      <div class="countdown" id="m9"></div>
+      <button onclick="openLink(this,'YOUR_MONETAG_LINK')">▶ Watch Live</button>
+    </div>
 
   </div>
 
