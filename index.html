@@ -2165,13 +2165,8 @@ font-weight:bold;
 }
 
 .news-card h3{
-  font-size:14px;
+  font-size:13px;
   font-weight:800;
-}
-
-.news-card p{
-  font-size:11px;
-  color:#aaa;
 }
 
 .news-card a{
@@ -2367,7 +2362,7 @@ POWERED BY GROK ENGINE
 
 <div class="ai-header">
 
-<div id="newsFeed"></div>
+<div id="newsFeed">Loading news...</div>
 
 <h1>
 AI Football Assistant
@@ -5837,39 +5832,52 @@ function remindMe(){
 
 <script>
 async function loadNews(){
-  const rssUrl = "https://www.espn.com/espn/rss/soccer/news";
+
+  const rssUrl = "https://www.goal.com/feeds/news";
 
   const proxy = "https://api.allorigins.win/raw?url=" + encodeURIComponent(rssUrl);
 
-  const res = await fetch(proxy);
-  const text = await res.text();
+  try{
 
-  const parser = new DOMParser();
-  const xml = parser.parseFromString(text, "text/xml");
+    const res = await fetch(proxy);
+    const text = await res.text();
 
-  const items = xml.querySelectorAll("item");
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(text, "text/xml");
 
-  let html = "";
+    const items = xml.querySelectorAll("item");
 
-  items.forEach((item, index)=>{
-    if(index > 6) return;
+    let html = "";
 
-    html += `
-      <div class="news-card">
-        <h3>${item.querySelector("title").textContent}</h3>
-        <p>${item.querySelector("pubDate").textContent}</p>
-        <a href="${item.querySelector("link").textContent}" target="_blank">
-          Read More →
-        </a>
-      </div>
-    `;
-  });
+    if(items.length === 0){
+      document.getElementById("newsFeed").innerHTML = "No news found";
+      return;
+    }
 
-  document.getElementById("newsFeed").innerHTML = html;
+    items.forEach((item, index)=>{
+      if(index > 5) return;
+
+      html += `
+        <div class="news-card">
+          <h3>${item.querySelector("title").textContent}</h3>
+          <a href="${item.querySelector("link").textContent}" target="_blank">
+            Read More →
+          </a>
+        </div>
+      `;
+    });
+
+    document.getElementById("newsFeed").innerHTML = html;
+
+  } catch(err){
+    console.log(err);
+    document.getElementById("newsFeed").innerHTML =
+    "⚠️ Failed to load news (check internet or proxy)";
+  }
 }
 
 loadNews();
-setInterval(loadNews, 300000); // refresh every 5 mins
+setInterval(loadNews, 300000);
 </script>
 
 </body>
