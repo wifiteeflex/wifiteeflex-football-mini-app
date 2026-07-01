@@ -1514,107 +1514,124 @@ color:#00c853;
 
 }
 
-.contest-header{
-
-text-align:center;
-color:white;
-padding:20px;
-
+/* ===== PAGE ===== */
+#contestPage{
+  color:#fff;
+  font-family:Arial, sans-serif;
 }
 
-.contest-header h1{
-
-font-size:28px;
-
+/* ===== HEADER ===== */
+.live-header{
+  text-align:center;
+  margin:20px 0;
 }
 
-.contest-banner{
-
-margin:15px;
-
-padding:25px;
-
-border-radius:25px;
-
-background:
-linear-gradient(
-rgba(0,0,0,.55),
-rgba(0,0,0,.75)
-),
-url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Wembley_Stadium.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-color:white;
-
-text-align:center;
-
+.live-header h1{
+  font-size:22px;
+  font-weight:900;
 }
 
-.contest-banner button{
-
-margin-top:15px;
-
-padding:15px 40px;
-
-border:none;
-
-border-radius:30px;
-
-font-size:17px;
-
-background:white;
-
-color:#222;
-
-font-weight:bold;
-
+.live-header p{
+  font-size:13px;
+  opacity:0.7;
 }
 
-.prize-box,
-.leaderboard,
-.contest-info{
-
-margin:15px;
-
-background:
-
-rgba(255,255,255,.08);
-
-backdrop-filter:blur(15px);
-
-border-radius:25px;
-
-padding:20px;
-
-color:white;
-
+/* ===== HOT MATCH ===== */
+.hot-match{
+  width:92%;
+  margin:10px auto 20px;
 }
 
-.prize{
-
-padding:15px;
-
-margin-top:10px;
-
-background:rgba(255,255,255,.08);
-
-border-radius:15px;
-
+.hot-badge{
+  background:#ff2d2d;
+  color:#fff;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
 }
 
-.player{
+/* ===== MATCH CARD ===== */
+.match-card{
+  background:rgba(0,0,0,0.65);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:14px;
+  margin-top:10px;
+  text-align:center;
+}
 
-display:flex;
+/* ===== TEAMS ===== */
+.teams{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 60px;   /* BIG SPACING LIKE BET365 */
+  font-weight:700;
+}
 
-justify-content:space-between;
+.teams b{
+  font-size:34px;
+  font-weight:900;
+  color:#fff;
+}
 
-padding:15px;
+/* ===== LIVE DOT ===== */
+.live-dot{
+  width:8px;
+  height:8px;
+  background:red;
+  border-radius:50%;
+  display:inline-block;
+  animation:blink 1s infinite;
+  margin-right:5px;
+}
 
-border-bottom:1px solid rgba(255,255,255,.1);
+@keyframes blink{
+  0%{opacity:1;}
+  50%{opacity:0.2;}
+  100%{opacity:1;}
+}
 
+/* ===== LIVE TEXT ===== */
+.live-info{
+  margin:8px 0;
+  font-size:12px;
+  color:#00ff88;
+  font-weight:700;
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown{
+  font-size:12px;
+  color:#aaa;
+  margin-bottom:10px;
+}
+
+/* ===== BUTTON (MONETAG READY) ===== */
+.match-card button{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#00ff88;
+  color:#000;
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* ===== SLIDER ===== */
+.match-slider{
+  width:92%;
+  margin:auto;
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+
+.match-slider .match-card{
+  min-width:260px;
 }
 
 .vote-widget{
@@ -1911,6 +1928,29 @@ cursor:not-allowed;
   margin:0 20px;
 }
 
+.live-badge{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:11px;
+  font-weight:800;
+  color:#00ff88;
+}
+
+.live-dot{
+  width:8px;
+  height:8px;
+  background:#ff2d2d;
+  border-radius:50%;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  0%{opacity:1;}
+  50%{opacity:0.2;}
+  100%{opacity:1;}
+}
+
 </style>
 </head>
         
@@ -1960,8 +2000,9 @@ cursor:not-allowed;
 
 <button onclick="showPage('contestPage', this)" class="nav-item">
 
-<div class="nav-icon">
-🏆
+<div class="live-badge">
+  <span class="live-dot"></span>
+  LIVE
 </div>
 
 <span>Contest</span>
@@ -2096,93 +2137,90 @@ POWERED BY GROK ENGINE
 
 <div id="contestPage" class="page">
 
-<div class="contest-header">
+  <!-- HEADER -->
+  <div class="live-header">
+    <h1>🔥 Live Matches Available</h1>
+    <p>Watch live • Predict • Earn rewards</p>
+  </div>
 
-<h1>AI Prediction Contest</h1>
+  <!-- HOT MATCH -->
+  <div class="hot-match">
+    <span class="hot-badge">🔥 HOT MATCH</span>
 
-<p>Compete • Predict • Win Rewards</p>
+    <div class="match-card live active">
 
-</div>
+      <div class="teams">
+        <span>Arsenal</span>
+        <b>VS</b>
+        <span>Coventry City</span>
+      </div>
 
-<div class="contest-banner">
+      <div class="live-info">
+        <span class="live-dot"></span>
+        LIVE
+      </div>
 
-<h2>AI Daily Prediction Challenge</h2>
+      <div class="countdown" id="m1"></div>
 
-<p>Make the best match predictions and climb the leaderboard</p>
+      <button onclick="openLink(this,'https://omg10.com/4/7461956')">
+        ▶ Watch Live
+      </button>
 
-<button onclick="joinContest(this)">
-🚀 Join Contest
-</button>
+    </div>
+  </div>
 
-</div>
+  <!-- ROTATING MATCHES -->
+  <div class="match-slider">
 
-<div class="prize-box">
+    <div class="match-card">
+      <div class="teams"><span>Everton</span><b>VS</b><span>Crystal Palace</span></div>
+      <div class="countdown" id="m2"></div>
+      <button onclick="openLink(this,'https://omg10.com/4/7461922')">▶ Watch Live</button>
+    </div>
 
-<h2>Today's Prize Pool</h2>
+    <div class="match-card">
+      <div class="teams"><span>Brentford</span><b>VS</b><span>Tottenham</span></div>
+      <div class="countdown" id="m3"></div>
+      <button onclick="openLink(this,'https://omg10.com/4/9295877')">▶ Watch Live</button>
+    </div>
 
-<div class="prize">
+    <div class="match-card">
+      <div class="teams"><span>Fulham</span><b>VS</b><span>Chelsea</span></div>
+      <div class="countdown" id="m4"></div>
+      <button onclick="openLink(this,'https://omg10.com/4/8642746')">▶ Watch Live</button>
+    </div>
 
-🥇 1st Place — $100
+    <div class="match-card">
+      <div class="teams"><span>Inter</span><b>VS</b><span>Monza</span></div>
+      <div class="countdown" id="m5"></div>
+      <button onclick="openLink(this,'https://omg10.com/4/8659455')">▶ Watch Live</button>
+    </div>
 
-</div>
+    <div class="match-card">
+      <div class="teams"><span>Newcastle</span><b>VS</b><span>Liverpool</span></div>
+      <div class="countdown" id="m6"></div>
+      <button onclick="openLink(this,'https://omg10.com/4/8729428')">▶ Watch Live</button>
+    </div>
 
-<div class="prize">
+    <div class="match-card">
+      <div class="teams"><span>Ipswich</span><b>VS</b><span>Sunderland</span></div>
+      <div class="countdown" id="m7"></div>
+      <button onclick="openLink(this,'https://omg10.com/4/8676459')">▶ Watch Live</button>
+    </div>
 
-🥈 2nd Place — $50
+    <div class="match-card">
+      <div class="teams"><span>Nottingham Forest</span><b>VS</b><span>Leeds United</span></div>
+      <div class="countdown" id="m8"></div>
+      <button onclick="openLink(this,'https://omg10.com/4/8859017')">▶ Watch Live</button>
+    </div>
 
-</div>
+    <div class="match-card">
+      <div class="teams"><span>Brighton</span><b>VS</b><span>Aston Villa</span></div>
+      <div class="countdown" id="m9"></div>
+      <button onclick="openLink(this,'https://omg10.com/4/7533041')">▶ Watch Live</button>
+    </div>
 
-<div class="prize">
-
-🥉 3rd Place — $25
-
-</div>
-
-</div>
-
-<div class="leaderboard">
-
-<h2>Top Predictors</h2>
-
-<div class="player">
-
-<span>1. ⚽ King Predictor</span>
-
-<b>980 pts</b>
-
-</div>
-
-<div class="player">
-
-<span>2. 🔥 Goal Master</span>
-
-<b>870 pts</b>
-
-</div>
-
-<div class="player">
-
-<span>3. 🧠 AI Expert</span>
-
-<b>790 pts</b>
-
-</div>
-
-</div>
-
-<div class="contest-info">
-
-<h3>How it works</h3>
-
-<p>✅ Go to Prediction</p>
-
-<p>✅ Click All see predictions</p>
-
-<p>✅ Come back to contest </p>
-
-<p>✅ Click the link & Win rewards</p>
-
-</div>
+  </div>
 
 </div>
 
@@ -5540,6 +5578,44 @@ function animateBalance(newValue){
 function updateProfit(todayAmount){
   document.getElementById("profitToday").innerText = `+${todayAmount.toFixed(2)}`;
 }
+</script>
+
+<script>
+function countdown(id, dateString){
+  const el = document.getElementById(id);
+  const target = new Date(dateString).getTime();
+
+  setInterval(()=>{
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    if(diff <= 0){
+      el.innerHTML = "LIVE NOW 🔴";
+      return;
+    }
+
+    let d = Math.floor(diff / (1000*60*60*24));
+    let h = Math.floor((diff / (1000*60*60)) % 24);
+    let m = Math.floor((diff / (1000*60)) % 60);
+    let s = Math.floor((diff / 1000) % 60);
+
+    el.innerHTML = `Starts in: ${d}d ${h}h ${m}m ${s}s`;
+
+  },1000);
+}
+
+/* HOT MATCH */
+countdown("m1", "2026-08-21T20:00:00");
+
+/* ROTATING MATCHES */
+countdown("m2", "2026-08-22T15:00:00");
+countdown("m3", "2026-08-21T17:30:00");
+countdown("m4", "2026-08-24T20:00:00");
+countdown("m5", "2026-08-22T14:00:00");
+countdown("m6", "2026-08-22T16:30:00");
+countdown("m7", "2026-08-21T15:00:00");
+countdown("m8", "2026-08-21T15:00:00");
+countdown("m9", "2026-08-23T14:00:00");
 </script>
 
 </body>
