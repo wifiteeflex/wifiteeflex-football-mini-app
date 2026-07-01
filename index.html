@@ -1637,7 +1637,7 @@ color:#00c853;
 .vote-widget{
   width:100%;
   max-width:420px;
-  margin:7px auto;
+  margin:5px auto;
   padding:16px;
   border-radius:18px;
   background:rgba(0,0,0,0.65);
@@ -1928,6 +1928,167 @@ cursor:not-allowed;
   margin:0 20px;
 }
 
+.ai-header{
+text-align:center;
+color:#fff;
+margin:20px;
+}
+
+.ai-header h1{
+font-size:24px;
+font-weight:900;
+}
+
+.ai-header p{
+color:#aaa;
+font-size:13px;
+}
+
+.ai-pick-card,
+.ask-ai-card,
+.premium-tip{
+
+width:92%;
+margin:15px auto;
+
+background:rgba(0,0,0,.65);
+
+border-radius:18px;
+
+padding:18px;
+
+color:#fff;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.pick-title{
+
+color:#00ff88;
+
+font-weight:900;
+
+font-size:13px;
+
+}
+
+.ai-pick-card h2{
+
+text-align:center;
+
+font-size:18px;
+
+margin:15px 0;
+
+}
+
+.confidence span{
+
+font-size:12px;
+
+color:#aaa;
+
+}
+
+.progress{
+
+height:10px;
+
+background:#222;
+
+border-radius:20px;
+
+margin-top:8px;
+
+overflow:hidden;
+
+}
+
+.progress-fill{
+
+width:82%;
+
+height:100%;
+
+background:#00ff88;
+
+text-align:center;
+
+font-size:9px;
+
+font-weight:bold;
+
+}
+
+.prediction-box{
+
+background:rgba(0,255,136,.12);
+
+padding:12px;
+
+border-radius:12px;
+
+margin-top:15px;
+
+}
+
+.analysis p{
+
+color:#ccc;
+
+font-size:13px;
+
+line-height:1.5;
+
+}
+
+.ask-ai-card input{
+
+width:100%;
+
+padding:12px;
+
+border-radius:12px;
+
+border:none;
+
+margin-top:10px;
+
+background:#111;
+
+color:#fff;
+
+box-sizing:border-box;
+
+}
+
+.ask-ai-card button{
+
+width:100%;
+
+margin-top:10px;
+
+padding:12px;
+
+border:none;
+
+border-radius:12px;
+
+background:#00ff88;
+
+font-weight:900;
+
+}
+
+.premium-tip span{
+
+color:#00ff88;
+
+font-weight:bold;
+
+}
+
 </style>
 </head>
         
@@ -1955,13 +2116,13 @@ cursor:not-allowed;
 
 </button>
 
-<button onclick="openGrok()" class="grok-button">
+<button onclick="showPage('aiTipsPage', this)" class="grok-button">
 
 <div class="nav-icon grok-icon">
 🤖
 </div>
 
-<span>Ask Grok</span>
+<span>AI Tips</span>
 
 </button>
 
@@ -2110,6 +2271,109 @@ POWERED BY GROK ENGINE
 </div>
 
 </header>
+
+<div id="aiTipsPage" class="page">
+
+<div class="ai-header">
+
+<h1>
+🧠 AI Football Assistant
+</h1>
+
+<p>
+Smart match insights powered by AI
+</p>
+
+</div>
+
+<div class="ai-pick-card">
+
+<div class="pick-title">
+🔥 Today's AI Pick
+</div>
+
+<h2>
+Arsenal vs Coventry City
+</h2>
+
+<div class="confidence">
+
+<span>
+AI Confidence
+</span>
+
+<div class="progress">
+
+<div class="progress-fill">
+82%
+</div>
+
+</div>
+
+</div>
+
+<div class="prediction-box">
+
+<h3>
+🏆 Prediction
+</h3>
+
+<p>
+Arsenal Win
+</p>
+
+</div>
+
+<div class="analysis">
+
+<h3>
+📊 AI Analysis
+</h3>
+
+<p>
+Strong attacking form and better squad quality gives Arsenal the advantage.
+</p>
+
+</div>
+
+</div>
+
+<div class="ask-ai-card">
+
+<h2>
+💬 Ask AI
+</h2>
+
+<p>
+Ask anything about today's matches
+</p>
+
+<input placeholder="Example: Who will win Chelsea vs Liverpool?">
+
+<button>
+Send
+</button>
+
+</div>
+
+<div class="premium-tip">
+
+<h2>
+⭐ AI Recommended Tip
+</h2>
+
+<p>
+Most likely outcome:
+<b>Home Win</b>
+</p>
+
+<span>
+Confidence 89%
+</span>
+
+</div>
+
+</div>
 
 <div id="contestPage" class="page">
 
