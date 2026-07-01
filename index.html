@@ -2093,7 +2093,7 @@ font-weight:bold;
   text-align:center;
   color:#fff;
 
-  margin-top:180px;
+  margin-top:190px;
 
   padding:10px;
 
@@ -2352,28 +2352,6 @@ AI Football Assistant
 
 </div>
 
-<div class="ai-pick-card">
-
-<div class="pick-title">
-Today's AI Pick
-</div>
-
-<h2>
-Fulham vs Chelsea
-</h2>
-
-<div class="confidence">
-
-<span>
-AI Confidence
-</span>
-
-<div class="progress">
-
-<div class="progress-fill">
-92%
-</div>
-
 </div>
 
 </div>
@@ -2399,13 +2377,13 @@ Away 1up (Win)
   <!-- HEADER -->
   <div class="live-header">
 
-  <h1>🔥 Live Matches Available</h1>
+  <h1>🔥 Live Matches Loading</h1>
 
   <p>Premier League • LaLiga • Serie A</p>
 
   <div class="live-status-bar">
     <span class="dot"></span>
-    LIVE AVAILABLE
+    LIVE LOADING
   </div>
 
   <div class="global-countdown" id="globalCountdown"></div>
@@ -5795,7 +5773,7 @@ function updateCountdown(){
     let m = Math.floor((diff / (1000*60)) % 60);
     let s = Math.floor((diff / 1000) % 60);
 
-    el.innerHTML = `Next Match Starts In: ${d}d ${h}h ${m}m ${s}s`;
+    el.innerHTML = `All Match Starts In: ${d}d ${h}h ${m}m ${s}s`;
 
   },1000);
 }
