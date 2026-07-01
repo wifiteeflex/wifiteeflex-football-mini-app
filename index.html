@@ -1514,141 +1514,124 @@ color:#00c853;
 
 }
 
-.live-container{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  padding:10px;
-}
-
-.live-card{
-  width:100%;
-  max-width:420px;
-  background:rgba(10,15,25,0.92);
-  border-radius:18px;
-  padding:14px;
+/* ===== PAGE ===== */
+#contestPage{
   color:#fff;
-  font-family:Arial,sans-serif;
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  font-family:Arial, sans-serif;
 }
 
-/* TOP HEADER */
-.live-top{
+/* ===== HEADER ===== */
+.live-header{
+  text-align:center;
+  margin:20px 0;
+}
+
+.live-header h1{
+  font-size:22px;
+  font-weight:900;
+}
+
+.live-header p{
+  font-size:13px;
+  opacity:0.7;
+}
+
+/* ===== HOT MATCH ===== */
+.hot-match{
+  width:92%;
+  margin:10px auto 20px;
+}
+
+.hot-badge{
+  background:#ff2d2d;
+  color:#fff;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+}
+
+/* ===== MATCH CARD ===== */
+.match-card{
+  background:rgba(0,0,0,0.65);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:14px;
+  margin-top:10px;
+  text-align:center;
+}
+
+/* ===== TEAMS ===== */
+.teams{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:0 60px;   /* BIG SPACING LIKE BET365 */
+  font-weight:700;
 }
 
-.live-title{
-  font-size:14px;
+.teams b{
+  font-size:34px;
   font-weight:900;
+  color:#fff;
 }
 
-.live-tag{
-  background:#ff3b30;
-  padding:4px 10px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:900;
-  display:flex;
-  align-items:center;
-  gap:5px;
-}
-
-.dot{
-  width:7px;
-  height:7px;
-  background:#fff;
+/* ===== LIVE DOT ===== */
+.live-dot{
+  width:8px;
+  height:8px;
+  background:red;
   border-radius:50%;
+  display:inline-block;
   animation:blink 1s infinite;
+  margin-right:5px;
 }
 
 @keyframes blink{
   0%{opacity:1;}
-  50%{opacity:0.3;}
+  50%{opacity:0.2;}
   100%{opacity:1;}
 }
 
-/* DATE */
-.live-date{
-  text-align:center;
-  margin:10px 0;
-  font-size:13px;
-  color:#bbb;
-  font-weight:600;
-}
-
-/* MATCH AREA */
-.match-area{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 20px;
-}
-
-/* TEAM BOX */
-.team-box{
-  text-align:center;
-}
-
-.team-box img{
-  width:70px;
-  height:70px;
-  object-fit:contain;
-}
-
-.team-box p{
-  margin-top:6px;
-  font-size:14px;
+/* ===== LIVE TEXT ===== */
+.live-info{
+  margin:8px 0;
+  font-size:12px;
+  color:#00ff88;
   font-weight:700;
 }
 
-/* VS BIG */
-.vs-big{
-  font-size:28px;
-  font-weight:900;
-  color:#fff;
-  letter-spacing:2px;
-}
-
-/* ODDS */
-.odds-row{
-  display:flex;
-  justify-content:space-between;
-  margin-top:12px;
-  gap:8px;
-}
-
-.odd{
-  flex:1;
-  background:rgba(255,255,255,0.05);
-  border-radius:12px;
-  padding:8px;
-  text-align:center;
-}
-
-.odd span{
+/* ===== COUNTDOWN ===== */
+.countdown{
   font-size:12px;
   color:#aaa;
+  margin-bottom:10px;
 }
 
-.odd b{
-  display:block;
-  font-size:15px;
-  color:#00ff88;
-}
-
-/* BUTTON */
-.watch-live{
+/* ===== BUTTON (MONETAG READY) ===== */
+.match-card button{
   width:100%;
-  margin-top:12px;
-  padding:12px;
+  padding:10px;
   border:none;
-  border-radius:12px;
+  border-radius:10px;
   background:#00ff88;
   color:#000;
-  font-weight:900;
+  font-weight:800;
   cursor:pointer;
+}
+
+/* ===== SLIDER ===== */
+.match-slider{
+  width:92%;
+  margin:auto;
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+
+.match-slider .match-card{
+  min-width:260px;
 }
 
 .vote-widget{
