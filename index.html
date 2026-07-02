@@ -5089,18 +5089,32 @@ const card = btn.closest('.card');
 const pred = card.querySelector('.prediction');
 
 btn.disabled = true;
-btn.innerHTML = "⏳ LOADING AI...";
+btn.innerHTML = "🔄 Connecting to AI Server...";
 
 show_10317085().then(()=>{
 
-btn.innerHTML = "🤖 ANALYZING...";
+setTimeout(()=>{
+btn.innerHTML = "📡 Collecting Match Data...";
+},1500);
+
+setTimeout(()=>{
+btn.innerHTML = "🧠 AI Analyzing 150+ Variables...";
+},3000);
+
+setTimeout(()=>{
+btn.innerHTML = "📈 Calculating Confidence...";
+},5500);
+
+setTimeout(()=>{
+btn.innerHTML = "✅ Prediction Ready!";
+},7000);
 
 setTimeout(()=>{
 
 pred.style.display = "block";
 btn.style.display = "none";
 
-},3000);
+},7800);
 
 }).catch(()=>{
 
@@ -5112,6 +5126,8 @@ btn.innerHTML = "🔒 SEE PREDICTION";
 });
 
 }
+
+</script>
 
 /* ANIMATE PROGRESS */
 
@@ -5126,8 +5142,6 @@ bar.style.width = bar.dataset.width;
 });
 
 }
-
-</script>
 
 <!-- 🔥 FOOTER START -->
 <div class="site-footer">
