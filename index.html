@@ -5113,25 +5113,19 @@ btn.innerHTML = "🔒 SEE PREDICTION";
 
 }
 
-<script>
-function animateProgressBars(){
+/* ANIMATE PROGRESS */
 
-    document.querySelectorAll(".progress-bar").forEach(bar=>{
+window.onload = ()=>{
 
-        bar.style.width = "0%";
+document.querySelectorAll('.progress-bar').forEach(bar=>{
 
-        setTimeout(()=>{
-            bar.style.width = bar.dataset.width;
-        },300);
+setTimeout(()=>{
+bar.style.width = bar.dataset.width;
+},500);
 
-    });
+});
 
 }
-
-// Run when the app loads
-document.addEventListener("DOMContentLoaded", animateProgressBars);
-
-</script>
 
 </script>
 
