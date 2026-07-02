@@ -2170,6 +2170,44 @@ user-select:none;
 
 }
 
+.ai-loader{
+
+display:inline-block;
+
+width:14px;
+
+height:14px;
+
+margin-right:8px;
+
+border:2px solid rgba(255,255,255,.25);
+
+border-top:2px solid #00ff73;
+
+border-radius:50%;
+
+animation:aiSpin .8s linear infinite;
+
+vertical-align:middle;
+
+}
+
+@keyframes aiSpin{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
 </style>
 </head>
         
@@ -5089,39 +5127,69 @@ const card = btn.closest('.card');
 const pred = card.querySelector('.prediction');
 
 btn.disabled = true;
-btn.innerHTML = "⏳ LOADING AI...";
+
+const steps = [
+
+"🔐 Connecting to AI Prediction Server...",
+"📡 Downloading Live Match Statistics...",
+"📊 Checking Team Form & H2H History...",
+"🧠 Running AI Neural Network...",
+"⚽ Analyzing Injuries, Odds & Momentum...",
+"📈 Calculating Win Probability...",
+"🎯 Verifying Prediction Accuracy...",
+"✅ Prediction Ready"
+
+];
+
+let i = 0;
+
+btn.innerHTML = `
+<span class="ai-loader"></span>
+${steps[0]}
+`;
 
 show_10317085().then(()=>{
 
-btn.innerHTML = "🤖 ANALYZING...";
+const interval = setInterval(()=>{
+
+i++;
+
+if(i < steps.length){
+
+btn.innerHTML = `
+<span class="ai-loader"></span>
+${steps[i]}
+`;
+
+}else{
+
+clearInterval(interval);
 
 setTimeout(()=>{
 
-pred.style.display = "block";
-btn.style.display = "none";
+pred.style.display="block";
 
-},3000);
+btn.style.opacity="0";
+
+setTimeout(()=>{
+
+btn.style.display="none";
+
+},400);
+
+},1000);
+
+}
+
+},1500); // Every step changes after 1.5 seconds
 
 }).catch(()=>{
 
 alert("Ad failed. Try again.");
 
-btn.disabled = false;
-btn.innerHTML = "🔒 SEE PREDICTION";
+btn.disabled=false;
 
-});
-
-}
-
-/* ANIMATE PROGRESS */
-
-window.onload = ()=>{
-
-document.querySelectorAll('.progress-bar').forEach(bar=>{
-
-setTimeout(()=>{
-bar.style.width = bar.dataset.width;
-},500);
+btn.innerHTML="🔒 SEE PREDICTION";
 
 });
 
