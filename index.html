@@ -5126,6 +5126,12 @@ function unlockPrediction(btn){
 const card = btn.closest('.card');
 const pred = card.querySelector('.prediction');
 
+/* REMOVE LIVE AVAILABLE IF EXISTS */
+const live = card.querySelector(".live-status, .live-available, .live");
+if(live){
+    live.style.display = "none";
+}
+
 btn.disabled = true;
 
 const steps = [
@@ -5143,6 +5149,7 @@ const steps = [
 
 let i = 0;
 
+/* FIRST STATE */
 btn.innerHTML = `
 <span class="ai-loader"></span>
 ${steps[0]}
@@ -5167,29 +5174,25 @@ clearInterval(interval);
 
 setTimeout(()=>{
 
-pred.style.display="block";
+/* SHOW ONLY PREDICTION */
+pred.style.display = "block";
 
-btn.style.opacity="0";
+/* COMPLETELY REMOVE BUTTON */
+btn.remove();
 
-setTimeout(()=>{
-
-btn.style.display="none";
-
-},400);
-
-},1000);
+},1200);
 
 }
 
-},1500); // Every step changes after 1.5 seconds
+},2200); // ⬅️ slower + more premium feel
 
 }).catch(()=>{
 
 alert("Ad failed. Try again.");
 
-btn.disabled=false;
+btn.disabled = false;
 
-btn.innerHTML="🔒 SEE PREDICTION";
+btn.innerHTML = "🔒 SEE PREDICTION";
 
 });
 
