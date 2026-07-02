@@ -311,18 +311,23 @@ text-align:center;
 }
 
 .minute{
-font-size:12px;
-color:#22ff88;
-font-weight:600;
-margin-bottom:3px;
-transform:translateY(-17px);
+  font-size:15px;
+  color:#22ff88;
+  font-weight:900;
+
+  letter-spacing:0.8px;
+  transform:translateY(-17px);
+
+  text-shadow:
+    0 0 4px rgba(34,255,136,0.6),
+    0 0 10px rgba(34,255,136,0.3);
 }
 
 .vs{
 font-size:12px;
 font-weight:600;
 margin-bottom:4px;
-transform:translateY(25px);
+transform:translateY(20px);
 }
 
 .odds-box{
@@ -388,16 +393,22 @@ font-size:11px;
 /* PREDICTION */
 
 .prediction{
-display:none;
-margin:0 10px 10px;
-background:#0d2f22;
-border:1px solid rgba(0,255,120,.08);
-border-radius:10px;
-padding:10px;
-text-align:center;
-font-size:13px;
-font-weight:600;
-color:#ffd54a;
+  display:none;
+  margin:0 10px 10px;
+  background:#0d2f22;
+  border:1px solid rgba(0,255,120,.12);
+  border-radius:10px;
+  padding:12px;
+  text-align:center;
+
+  font-size:13px;
+  font-weight:500;   /* lighter (not bold) */
+  color:#ffe98a;     /* softer gold for better readability */
+
+  letter-spacing:0.3px;  /* improves clarity */
+  line-height:1.4;       /* makes text easier to read */
+
+  text-shadow:0 1px 2px rgba(0,0,0,0.35); /* subtle sharpness */
 }
         
 /* BUTTONS */
@@ -419,7 +430,7 @@ justify-content:center;
 text-decoration:none;
 font-size:12px;
 font-weight:600;
-color:#fff;
+color:#ffe98a;
 }
 
 .watch{
