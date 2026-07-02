@@ -5089,32 +5089,18 @@ const card = btn.closest('.card');
 const pred = card.querySelector('.prediction');
 
 btn.disabled = true;
-btn.innerHTML = "🔄 Connecting to AI Server...";
+btn.innerHTML = "⏳ LOADING AI...";
 
 show_10317085().then(()=>{
 
-setTimeout(()=>{
-btn.innerHTML = "📡 Collecting Match Data...";
-},1500);
-
-setTimeout(()=>{
-btn.innerHTML = "🧠 AI Analyzing 150+ Variables...";
-},3000);
-
-setTimeout(()=>{
-btn.innerHTML = "📈 Calculating Confidence...";
-},5500);
-
-setTimeout(()=>{
-btn.innerHTML = "✅ Prediction Ready!";
-},7000);
+btn.innerHTML = "🤖 ANALYZING...";
 
 setTimeout(()=>{
 
 pred.style.display = "block";
 btn.style.display = "none";
 
-},7800);
+},3000);
 
 }).catch(()=>{
 
