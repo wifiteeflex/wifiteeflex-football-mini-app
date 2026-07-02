@@ -5254,29 +5254,40 @@ document.getElementById(
         
 <script>
 
-const worldCupDate = new Date("2026-06-12T03:00:00Z").getTime();
+// Match starts: 21 August 2026 20:00
+const matchDate = new Date("2026-08-21T20:00:00").getTime();
 
 function updateCountdown(){
 
-const now = Date.now();
-const distance = worldCupDate - now;
+    const now = Date.now();
+    const distance = matchDate - now;
 
-const days = Math.floor(distance/(1000*60*60*24));
-const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
-const seconds = Math.floor((distance%(1000*60))/1000);
+    if(distance <= 0){
 
-document.getElementById("days").innerText =
-String(days).padStart(2,"0");
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
 
-document.getElementById("hours").innerText =
-String(hours).padStart(2,"0");
+        return;
+    }
 
-document.getElementById("minutes").innerText =
-String(minutes).padStart(2,"0");
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-document.getElementById("seconds").innerText =
-String(seconds).padStart(2,"0");
+    document.getElementById("days").innerText =
+    String(days).padStart(2,"0");
+
+    document.getElementById("hours").innerText =
+    String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").innerText =
+    String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").innerText =
+    String(seconds).padStart(2,"0");
 
 }
 
@@ -5554,35 +5565,6 @@ document.getElementById("earnBtn").innerText = "Rewarded ✅";
 }
 
 window.onload = updateBalance;
-</script>
-
-<script>
-
-function openLink(btn, url){
-window.open(url, "_blank");
-btn.querySelector("span").innerText = "Rewarded ✅";
-btn.style.opacity = "0.7";
-btn.disabled = true;
-}
-
-function shareInvite(btn){
-
-let text = "Join this AI Football Prediction App and earn rewards!";
-
-if(navigator.share){
-navigator.share({
-title: "AI Predictions",
-text: text,
-url: window.location.href
-});
-}
-
-btn.querySelector("span").innerText = "Rewarded ✅";
-btn.style.opacity = "0.7";
-btn.disabled = true;
-
-}
-
 </script>
 
 <script>
