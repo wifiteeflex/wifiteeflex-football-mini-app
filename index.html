@@ -371,17 +371,18 @@ font-size:12px;
 }
 
 .progress{
-  width:100%;
-  height:3px; /* IMPORTANT */
-  background:rgba(255,255,255,0.08);
-  border-radius:10px;
-  overflow:hidden;
+width:100%;
+height:1px;
+background:rgba(22,217,111,0.25);
+border-radius:10px;
+overflow:hidden;
 }
 
 .progress-bar{
   height:100%;
-  width:0%;   /* MUST be 0 */
-  border-radius:10px;
+  width:100%;
+  background:linear-gradient(90deg,#66e6a3,#4fd18c);
+  border-radius:20px;
   transition:width 1.5s ease;
 }
 
@@ -5870,39 +5871,6 @@ document.addEventListener("gestureend", function(e){
 });
 
 <script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  setTimeout(() => {
-
-    document.querySelectorAll('.progress-bar').forEach(bar => {
-
-      let value = parseInt(bar.dataset.width || 0);
-
-      // force animation trigger
-      bar.style.width = value + "%";
-
-      // 🎨 AUTO COLOR SYSTEM
-      if (value >= 80) {
-        bar.style.background = "linear-gradient(90deg,#00e676,#00c853)";
-      }
-      else if (value >= 60) {
-        bar.style.background = "linear-gradient(90deg,#7ee8c1,#5bd6a3)";
-      }
-      else if (value >= 40) {
-        bar.style.background = "linear-gradient(90deg,#ffd54f,#ffb300)";
-      }
-      else {
-        bar.style.background = "linear-gradient(90deg,#ff5252,#ff1744)";
-      }
-
-    });
-
-  }, 300);
-
-});
-</script>
 
 </body>
     </html>
