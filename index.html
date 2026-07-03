@@ -5873,14 +5873,13 @@ document.addEventListener("gestureend", function(e){
 <script>
 
 <script>
-
 window.onload = () => {
 
   document.querySelectorAll('.progress-bar').forEach(bar => {
 
     setTimeout(() => {
 
-      let value = parseInt(bar.dataset.width); // ✅ THIS IS THE LINE
+      let value = parseInt(bar.dataset.width);
 
       bar.style.width = value + "%";
 
@@ -5903,7 +5902,6 @@ window.onload = () => {
   });
 
 }
-
 </script>
 
 </body>
