@@ -380,9 +380,9 @@ overflow:hidden;
 
 .progress-bar{
   height:100%;
-  width:100%;
-  background:linear-gradient(90deg,#66e6a3,#4fd18c);
-  border-radius:20px;
+  width:0%;
+  min-width:0px; /* IMPORTANT FIX */
+  border-radius:10px;
   transition:width 1.5s ease;
 }
 
@@ -2817,11 +2817,11 @@ Coventry City
 
 <div class="confidence-head">
 <span>AI confidence</span>
-<span class="percent">69</span>
+<span class="percent">39</span>
 </div>
 
 <div class="progress">
-<div class="progress-bar" data-width="69"></div>
+  <div class="progress-bar" data-width="39"></div>
 </div>
 
 <div class="match-tabs">
@@ -5871,6 +5871,46 @@ document.addEventListener("gestureend", function(e){
 });
 
 <script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  setTimeout(() => {
+
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+
+      let value = parseInt(bar.dataset.width || 0);
+
+      // ⚡ FORCE RESET FIRST (VERY IMPORTANT)
+      bar.style.width = "0%";
+
+      // ⚡ small delay to allow browser render
+      setTimeout(() => {
+
+        bar.style.width = value + "%";
+
+        // 🎨 COLOR SYSTEM
+        if (value >= 80) {
+          bar.style.background = "linear-gradient(90deg,#00e676,#00c853)";
+        }
+        else if (value >= 60) {
+          bar.style.background = "linear-gradient(90deg,#7ee8c1,#5bd6a3)";
+        }
+        else if (value >= 40) {
+          bar.style.background = "linear-gradient(90deg,#ffd54f,#ffb300)";
+        }
+        else {
+          bar.style.background = "linear-gradient(90deg,#ff5252,#ff1744)";
+        }
+
+      }, 50);
+
+    });
+
+  }, 300);
+
+});
+</script>
 
 </body>
     </html>
