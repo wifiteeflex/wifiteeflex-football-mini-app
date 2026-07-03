@@ -372,16 +372,15 @@ font-size:12px;
 
 .progress{
   width:100%;
-  height:1px;
+  height:3px;
   background:rgba(255,255,255,0.08);
   border-radius:10px;
   overflow:hidden;
-  position:relative;
 }
 
 .progress-bar{
   height:100%;
-  width:100%;
+  width:0%;   /* 🔥 IMPORTANT FIX */
   border-radius:10px;
   transition:width 1.5s ease;
   position:relative;
@@ -5875,14 +5874,13 @@ document.addEventListener("gestureend", function(e){
 <script>
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
 
-window.onload = () => {
+  setTimeout(() => {
 
-  document.querySelectorAll('.progress-bar').forEach(bar => {
+    document.querySelectorAll('.progress-bar').forEach(bar => {
 
-    setTimeout(() => {
-
-      let value = parseInt(bar.dataset.width);
+      let value = parseInt(bar.dataset.width || 0);
 
       bar.style.width = value + "%";
 
@@ -5900,11 +5898,11 @@ window.onload = () => {
         bar.style.background = "linear-gradient(90deg,#ff5252,#ff1744)";
       }
 
-    }, 500);
+    });
 
-  });
+  }, 300);
 
-}
+});
 </script>
 
 </body>
