@@ -5882,20 +5882,20 @@ window.onload = () => {
 
       let value = parseInt(bar.dataset.width);
 
-      bar.style.width = value + "%";
+      bar.style.width = bar.dataset.width;
 
-      // 🎨 AUTO COLOR SYSTEM
+      // 🔥 AUTO COLOR SYSTEM
       if (value >= 80) {
-        bar.style.background = "linear-gradient(90deg,#00e676,#00c853)";
+        bar.style.background = "linear-gradient(90deg,#00e676,#00c853)"; // Strong Green
       }
       else if (value >= 60) {
-        bar.style.background = "linear-gradient(90deg,#7ee8c1,#5bd6a3)";
+        bar.style.background = "linear-gradient(90deg,#7ee8c1,#5bd6a3)"; // Medium Green
       }
       else if (value >= 40) {
-        bar.style.background = "linear-gradient(90deg,#ffd54f,#ffb300)";
+        bar.style.background = "linear-gradient(90deg,#ffd54f,#ffb300)"; // Yellow (medium risk)
       }
       else {
-        bar.style.background = "linear-gradient(90deg,#ff5252,#ff1744)";
+        bar.style.background = "linear-gradient(90deg,#ff5252,#ff1744)"; // Red (low confidence)
       }
 
     }, 500);
