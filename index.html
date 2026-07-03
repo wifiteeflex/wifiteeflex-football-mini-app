@@ -379,10 +379,11 @@ overflow:hidden;
 }
 
 .progress-bar{
-    width:0%;
-    height:100%;
-    border-radius:10px;
-    transition:width 1.8s ease;
+  height:100%;
+  width:100%;
+  background:linear-gradient(90deg,#66e6a3,#4fd18c);
+  border-radius:20px;
+  transition:width 1.5s ease;
 }
 
 /* PREDICTION */
@@ -5120,37 +5121,6 @@ Double chance (HT) 12
 
 <script>
 
-<script>
-function animateProgress(card){
-
-    card.querySelectorAll(".progress-bar").forEach(bar=>{
-
-        const value = parseInt(bar.dataset.width || 0);
-
-        // Reset
-        bar.style.width = "0%";
-
-        // Color
-        if(value >= 80){
-            bar.style.background = "linear-gradient(90deg,#00e676,#00c853)";
-        }
-        else if(value >= 60){
-            bar.style.background = "linear-gradient(90deg,#7ee8c1,#5bd6a3)";
-        }
-        else if(value >= 40){
-            bar.style.background = "linear-gradient(90deg,#ffd54f,#ffb300)";
-        }
-        else{
-            bar.style.background = "linear-gradient(90deg,#ff5252,#ff1744)";
-        }
-
-        setTimeout(()=>{
-            bar.style.width = value + "%";
-        },100);
-
-    });
-
-}
 </script>
 
 function unlockPrediction(btn){
@@ -5207,11 +5177,6 @@ setTimeout(()=>{
 
 /* SHOW ONLY PREDICTION */
 pred.style.display = "block";
-
-// 🔥 Animate the confidence bar
-animateProgress(card);
-
-btn.style.opacity = "0";
 
 setTimeout(()=>{
     btn.style.display = "none";
@@ -5912,23 +5877,6 @@ document.addEventListener("gestureend", function(e){
 });
 
 <script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  document.querySelectorAll(".progress-bar").forEach(bar => {
-
-    console.log("Found:", bar.dataset.width);
-
-    const value = parseInt(bar.dataset.width);
-
-    bar.style.background = "red";
-    bar.style.width = value + "%";
-
-  });
-
-});
-</script>
 
 </body>
     </html>
