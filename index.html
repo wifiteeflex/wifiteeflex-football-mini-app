@@ -5119,92 +5119,79 @@ Double chance (HT) 12
 
 </div>
 
-</script>
-
-</script>
-
+<script>
 function unlockPrediction(btn){
 
-const card = btn.closest('.card');
-const pred = card.querySelector('.prediction');
+    const card = btn.closest('.card');
+    const pred = card.querySelector('.prediction');
 
-/* REMOVE LIVE AVAILABLE IF EXISTS */
-const live = card.querySelector(".live-status, .live-available, .live");
-if(live){
-    live.style.display = "none";
-}
+    const live = card.querySelector(".live-status, .live-available, .live");
+    if(live){
+        live.style.display = "none";
+    }
 
-btn.disabled = true;
+    btn.disabled = true;
 
-const steps = [
+    const steps = [
+        "🔐 Connecting to AI Prediction Server...",
+        "📡 Downloading Live Match Statistics...",
+        "📊 Checking Team Form & H2H History...",
+        "🧠 Running AI Neural Network powered by Grok...",
+        "⚽ Analyzing Injuries, Odds & Momentum...",
+        "📈 Calculating Winning Team Probability...",
+        "🎯 Verifying Prediction Accuracy Match...."
+    ];
 
-"🔐 Connecting to AI Prediction Server...",
-"📡 Downloading Live Match Statistics...",
-"📊 Checking Team Form & H2H History...",
-"🧠 Running AI Neural Network powered by Grok...",
-"⚽ Analyzing Injuries, Odds & Momentum Time...",
-"📈 Calculating Winning Team Probability...",
-"🎯 Verifying Prediction Accuracy Match....",
+    let i = 0;
 
-];
+    btn.innerHTML = `
+        <span class="ai-loader"></span>
+        ${steps[0]}
+    `;
 
-let i = 0;
+    show_10317085().then(()=>{
 
-/* FIRST STATE */
-btn.innerHTML = `
-<span class="ai-loader"></span>
-${steps[0]}
-`;
+        const interval = setInterval(()=>{
 
-show_10317085().then(()=>{
+            i++;
 
-const interval = setInterval(()=>{
+            if(i < steps.length){
 
-i++;
+                btn.innerHTML = `
+                    <span class="ai-loader"></span>
+                    ${steps[i]}
+                `;
 
-if(i < steps.length){
+            } else {
 
-btn.innerHTML = `
-<span class="ai-loader"></span>
-${steps[i]}
-`;
+                clearInterval(interval);
 
-}else{
+                setTimeout(()=>{
 
-clearInterval(interval);
+                    pred.style.display = "block";
 
-setTimeout(()=>{
+                    setTimeout(()=>{
+                        btn.style.display = "none";
+                    },400);
 
-/* SHOW ONLY PREDICTION */
-pred.style.display = "block";
+                    btn.remove();
 
-setTimeout(()=>{
-    btn.style.display = "none";
-},400);
+                },1200);
 
-/* COMPLETELY REMOVE BUTTON */
-btn.remove();
+            }
 
-},1200);
+        },2200);
 
-}
+    }).catch(()=>{
 
-},2200); // ⬅️ slower + more premium feel
+        alert("Ad failed. Try again.");
 
-}).catch(()=>{
+        btn.disabled = false;
+        btn.innerHTML = "🔒 SEE PREDICTION";
 
-alert("Ad failed. Try again.");
-
-btn.disabled = false;
-
-btn.innerHTML = "🔒 SEE PREDICTION";
-
-});
+    });
 
 }
-
-</script>
-
 </script>
 
 <!-- 🔥 FOOTER START -->
