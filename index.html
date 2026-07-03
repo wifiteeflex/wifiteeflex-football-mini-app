@@ -5875,39 +5875,16 @@ document.addEventListener("gestureend", function(e){
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  setTimeout(() => {
+  document.querySelectorAll(".progress-bar").forEach(bar => {
 
-    document.querySelectorAll('.progress-bar').forEach(bar => {
+    console.log("Found:", bar.dataset.width);
 
-      let value = parseInt(bar.dataset.width || 0);
+    const value = parseInt(bar.dataset.width);
 
-      // ⚡ FORCE RESET FIRST (VERY IMPORTANT)
-      bar.style.width = "0%";
+    bar.style.background = "red";
+    bar.style.width = value + "%";
 
-      // ⚡ small delay to allow browser render
-      setTimeout(() => {
-
-        bar.style.width = value + "%";
-
-        // 🎨 COLOR SYSTEM
-        if (value >= 80) {
-          bar.style.background = "linear-gradient(90deg,#00e676,#00c853)";
-        }
-        else if (value >= 60) {
-          bar.style.background = "linear-gradient(90deg,#7ee8c1,#5bd6a3)";
-        }
-        else if (value >= 40) {
-          bar.style.background = "linear-gradient(90deg,#ffd54f,#ffb300)";
-        }
-        else {
-          bar.style.background = "linear-gradient(90deg,#ff5252,#ff1744)";
-        }
-
-      }, 50);
-
-    });
-
-  }, 300);
+  });
 
 });
 </script>
