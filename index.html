@@ -5869,18 +5869,14 @@ document.addEventListener("gestureend", function(e){
     e.preventDefault();
 });
 
-</script>
-
 <script>
-function animateProgress(card){
+window.onload = () => {
 
-  const bars = card.querySelectorAll('.progress-bar');
-
-  bars.forEach(bar => {
+  document.querySelectorAll('.progress-bar').forEach(bar => {
 
     setTimeout(() => {
 
-      let value = parseInt(bar.dataset.width);
+      let value = parseInt(bar.dataset.width); // ✅ THIS IS THE LINE
 
       bar.style.width = value + "%";
 
@@ -5898,7 +5894,7 @@ function animateProgress(card){
         bar.style.background = "linear-gradient(90deg,#ff5252,#ff1744)";
       }
 
-    }, 400);
+    }, 500);
 
   });
 
