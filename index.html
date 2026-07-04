@@ -5413,58 +5413,41 @@ function closeGrok(){
 </script>
 
 <script>
-
 function showPage(pageId, button){
 
-// hide all pages
-document.querySelectorAll(".page").forEach(function(page){
+    // Hide all pages
+    document.querySelectorAll(".page").forEach(function(page){
+        page.style.display = "none";
+    });
 
-page.style.display="none";
+    // Show selected page
+    const page = document.getElementById(pageId);
+    if(page){
+        page.style.display = "block";
+    }
+
+    // Remove active state
+    document.querySelectorAll(".bottom-nav button").forEach(function(btn){
+        btn.classList.remove("active");
+    });
+
+    // Add active state
+    if(button){
+        button.classList.add("active");
+    }
+}
+
+// 🚀 Open Home immediately
+document.addEventListener("DOMContentLoaded", function(){
+
+    const homeBtn = document.querySelector('.bottom-nav button[onclick*="homePage"]');
+
+    showPage("homePage", homeBtn);
 
 });
-
-
-// show selected page
-let page = document.getElementById(pageId);
-
-if(page){
-
-page.style.display="block";
-
-}
-
-
-// remove active
-document.querySelectorAll(".bottom-nav button").forEach(function(btn){
-
-btn.classList.remove("active");
-
-});
-
-
-// add active
-if(button){
-
-button.classList.add("active");
-
-}
-
-}
-
-
-// open home automatically when app starts
-
-window.onload=function(){
-
-showPage("homePage");
-
-};
-
-
 </script>
 
 <script>
-
 
 // Telegram user
 
