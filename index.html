@@ -6039,5 +6039,69 @@ document.addEventListener("gestureend", function(e){
 
 <script>
 
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const onboarding = document.getElementById("onboarding");
+const slides = document.querySelectorAll(".onboard-slide");
+const nextBtns = document.querySelectorAll(".nextBtn");
+const skipBtns = document.querySelectorAll(".skipBtn");
+const openBtn = document.getElementById("openApp");
+
+let current = 0;
+
+// 🔥 TEST MODE (always show onboarding)
+onboarding.style.display = "flex";
+
+function showSlide(index){
+
+    slides.forEach(slide=>{
+        slide.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+
+}
+
+nextBtns.forEach(btn=>{
+
+    btn.addEventListener("click",()=>{
+
+        current++;
+
+        if(current < slides.length){
+            showSlide(current);
+        }
+
+    });
+
+});
+
+skipBtns.forEach(btn=>{
+    btn.addEventListener("click",finishTutorial);
+});
+
+openBtn.addEventListener("click",finishTutorial);
+
+function finishTutorial(){
+
+    onboarding.style.opacity="0";
+
+    setTimeout(()=>{
+
+        onboarding.style.display="none";
+
+        // Show Home Page
+        showPage("homePage", document.querySelector(".bottom-nav button"));
+
+    },350);
+
+}
+
+});
+
+</script>
+
 </body>
     </html>
