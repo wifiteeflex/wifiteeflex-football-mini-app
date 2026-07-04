@@ -371,18 +371,28 @@ font-size:12px;
 }
 
 .progress{
-width:100%;
-height:1px;
-background:rgba(22,217,111,0.25);
-border-radius:10px;
-overflow:hidden;
+    width:100%;
+    height:3px;
+    background:rgba(255,255,255,0.10);
+    border-radius:10px;
+    overflow:hidden;
 }
 
 .progress-bar{
     height:100%;
-    width:100%;
-    border-radius:20px;
-    transition:width 1.5s ease;
+    border-radius:10px;
+}
+
+.progress-bar.low{
+    background:linear-gradient(90deg,#E53935,#C62828);
+}
+
+.progress-bar.medium{
+    background:linear-gradient(90deg,#FFC107,#FFB300);
+}
+
+.progress-bar.high{
+    background:linear-gradient(90deg,#16C784,#00B86B);
 }
 
 /* PREDICTION */
@@ -2820,7 +2830,7 @@ Coventry City
 </div>
 
 <div class="progress">
-    <div class="progress-bar" data-width="39"></div>
+    <div class="progress-bar low" style="width:39%;"></div>
 </div>
 
 <div class="match-tabs">
@@ -5848,40 +5858,6 @@ document.addEventListener("gestureend", function(e){
 });
 
 <script>
-
-<script>
-function animateProgress(card){
-
-    card.querySelectorAll(".progress-bar").forEach(bar=>{
-
-        const value = parseInt(bar.dataset.width || 0);
-
-        // Start from 0
-        bar.style.width = "0%";
-
-        // Professional colors
-        if(value <= 40){
-            // 🔴 Low confidence
-            bar.style.background = "linear-gradient(90deg,#E53935,#C62828)";
-        }
-        else if(value <= 70){
-            // 🟡 Medium confidence
-            bar.style.background = "linear-gradient(90deg,#FFC107,#FFB300)";
-        }
-        else{
-            // 🟢 High confidence
-            bar.style.background = "linear-gradient(90deg,#16C784,#00B86B)";
-        }
-
-        // Animate to the final width
-        setTimeout(()=>{
-            bar.style.width = value + "%";
-        },100);
-
-    });
-
-}
-</script>
 
 </body>
     </html>
