@@ -5900,6 +5900,8 @@ function showPage(pageId, button){
 
     if(page){
         page.style.display = "block";
+page.style.position = "relative";
+page.style.zIndex = "9999";
         currentPage = pageId;
     }
 
