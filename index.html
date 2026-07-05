@@ -5877,35 +5877,31 @@ document.addEventListener("gestureend", function(e){
 <script>
 
 <script>
-
 let currentPage = "homePage";
-let switching = false;
 
 function showPage(pageId, button){
 
-    // Prevent double switching
-    if(switching || currentPage === pageId){
-        return;
+    if(currentPage === pageId) return;
+
+    // Hide all pages immediately
+    const pages = document.querySelectorAll(".page");
+
+    for(let i=0;i<pages.length;i++){
+        pages[i].style.display = "none";
+        pages[i].style.visibility = "hidden";
     }
 
-    switching = true;
+    // Show target page immediately
+    const target = document.getElementById(pageId);
 
-    // Hide all pages instantly
-    document.querySelectorAll(".page").forEach(page=>{
-        page.style.display = "none";
-    });
-
-    // Show selected page immediately
-    const page = document.getElementById(pageId);
-
-    if(page){
-        page.style.display = "block";
-page.style.position = "relative";
-page.style.zIndex = "9999";
-        currentPage = pageId;
+    if(target){
+        target.style.visibility = "visible";
+        target.style.display = "block";
     }
 
-    // Active button
+    currentPage = pageId;
+
+    // Bottom nav active state
     document.querySelectorAll(".bottom-nav button").forEach(btn=>{
         btn.classList.remove("active");
     });
@@ -5914,36 +5910,9 @@ page.style.zIndex = "9999";
         button.classList.add("active");
     }
 
-    // Unlock switching after a short moment
-    requestAnimationFrame(()=>{
-        switching = false;
-    });
+    window.scrollTo(0,0);
 
 }
-
-// Open Home immediately
-document.addEventListener("DOMContentLoaded", function(){
-
-    document.querySelectorAll(".page").forEach(page=>{
-        page.style.display = "none";
-    });
-
-    const home = document.getElementById("homePage");
-
-    if(home){
-        home.style.display = "block";
-    }
-
-    currentPage = "homePage";
-
-    const homeBtn = document.querySelector('.bottom-nav button[onclick*="homePage"]');
-
-    if(homeBtn){
-        homeBtn.classList.add("active");
-    }
-
-});
-
 </script>
 
 </body>
