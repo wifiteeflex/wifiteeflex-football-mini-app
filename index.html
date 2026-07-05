@@ -5876,5 +5876,40 @@ document.addEventListener("gestureend", function(e){
 
 <script>
 
+<script>
+function showPage(pageId, button){
+
+    // Hide all pages
+    document.querySelectorAll(".page").forEach(function(page){
+        page.style.display = "none";
+    });
+
+    // Show selected page
+    const page = document.getElementById(pageId);
+    if(page){
+        page.style.display = "block";
+    }
+
+    // Remove active state
+    document.querySelectorAll(".bottom-nav button").forEach(function(btn){
+        btn.classList.remove("active");
+    });
+
+    // Add active state
+    if(button){
+        button.classList.add("active");
+    }
+}
+
+// 🚀 Open Home immediately
+document.addEventListener("DOMContentLoaded", function(){
+
+    const homeBtn = document.querySelector('.bottom-nav button[onclick*="homePage"]');
+
+    showPage("homePage", homeBtn);
+
+});
+</script>
+
 </body>
     </html>
