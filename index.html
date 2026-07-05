@@ -5422,36 +5422,34 @@ function closeGrok(){
 <script>
 function showPage(pageId, button){
 
-    // Hide all pages
-    document.querySelectorAll(".page").forEach(function(page){
+    // Hide all pages instantly
+    document.querySelectorAll(".page").forEach(page=>{
         page.style.display = "none";
     });
 
-    // Show selected page
+    // Show requested page immediately
     const page = document.getElementById(pageId);
+
     if(page){
         page.style.display = "block";
     }
 
-    // Remove active state
-    document.querySelectorAll(".bottom-nav button").forEach(function(btn){
+    // Update active navigation button
+    document.querySelectorAll(".bottom-nav button").forEach(btn=>{
         btn.classList.remove("active");
     });
 
-    // Add active state
     if(button){
         button.classList.add("active");
     }
+
+    // Move to top immediately
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+
 }
-
-// 🚀 Open Home immediately
-document.addEventListener("DOMContentLoaded", function(){
-
-    const homeBtn = document.querySelector('.bottom-nav button[onclick*="homePage"]');
-
-    showPage("homePage", homeBtn);
-
-});
 </script>
 
 <script>
