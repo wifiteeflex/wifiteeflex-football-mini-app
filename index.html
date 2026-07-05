@@ -5420,23 +5420,28 @@ function closeGrok(){
 </script>
 
 <script>
-let currentPage = "homePage";
+let currentPage = "";
 
 function showPage(pageId, button){
 
+    // Don't reload the page if it's already open
     if(currentPage === pageId) return;
+
     currentPage = pageId;
 
+    // Hide every page
     document.querySelectorAll(".page").forEach(page=>{
         page.style.display = "none";
     });
 
-    const target = document.getElementById(pageId);
+    // Show selected page immediately
+    const page = document.getElementById(pageId);
 
-    if(target){
-        target.style.display = "block";
+    if(page){
+        page.style.display = "block";
     }
 
+    // Update active button
     document.querySelectorAll(".bottom-nav button").forEach(btn=>{
         btn.classList.remove("active");
     });
@@ -5445,12 +5450,27 @@ function showPage(pageId, button){
         button.classList.add("active");
     }
 
+    // Jump to top
     window.scrollTo(0,0);
+
 }
 
-// ONLY RUN ONCE — NO DELAYS, NO DOMCONTENTLOADED
-showPage("homePage");
+// Open Home once when the app starts
+document.addEventListener("DOMContentLoaded", function(){
 
+    currentPage = "homePage";
+
+    const home = document.getElementById("homePage");
+
+    if(home){
+        document.querySelectorAll(".page").forEach(page=>{
+            page.style.display = "none";
+        });
+
+        home.style.display = "block";
+    }
+
+});
 </script>
 
 <script>
