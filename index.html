@@ -2282,6 +2282,80 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
         
 <header>
 
+<!-- COUNTRY SELECT -->
+<div id="countryOverlay" class="country-overlay">
+
+<div class="country-box">
+
+<h2>Welcome to AI Match Predictions</h2>
+
+<p>
+Choose your preferred country to unlock personalized match insights, and AI-powered analysis.
+</p>
+
+<div class="country-slider">
+
+<div class="country-item" onclick="selectCountry('Ghana')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_map_of_Nigeria.svg">
+<span>Nigeria</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('United Kingdom')">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_the_United_Kingdom.png">
+<span>UK</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('Germany')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg">
+<span>Germany</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('South Africa')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/0/04/Flag_map_of_South_Africa.svg">
+<span>South Africa</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('Kenya')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg">
+<span>Kenya</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('Ghana')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_map_of_Ghana.svg">
+<span>Ghana</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('United Kingdom')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Flag_of_Afghanistan_%282013%E2%80%932021%29.svg">
+<span>Afghanistan</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('United Kingdom')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_%C3%85land.svg">
+<span>Åland Islands</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('United Kingdom')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_Map_of_Algeria.png">
+<span>Algeria</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('United Kingdom')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Anguilla.svg">
+<span>Anguilla</span>
+</div>
+
+<div class="country-item" onclick="selectCountry('United Kingdom')">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_Map_Of_Antarctica.png">
+<span>Antarctica</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 <div class="header-top">
 
 <div class="logo-title">
@@ -5229,6 +5303,46 @@ Official Lead Partner
 <!-- 🔥 FOOTER END -->
         
 <script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const savedCountry = localStorage.getItem("userCountry");
+
+const overlay = document.getElementById("countryOverlay");
+
+
+if(savedCountry){
+
+overlay.style.display = "none";
+
+}else{
+
+overlay.style.display = "flex";
+
+}
+
+});
+
+
+function selectCountry(country){
+
+
+localStorage.setItem(
+"userCountry",
+country
+);
+
+
+document.getElementById(
+"countryOverlay"
+).style.display="none";
+
+
+}
+
+</script>
 
 // Match starts: 21 August 2026 20:00
 const matchDate = new Date("2026-08-21T20:00:00").getTime();
