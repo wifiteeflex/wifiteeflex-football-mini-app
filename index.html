@@ -5876,44 +5876,5 @@ document.addEventListener("gestureend", function(e){
 
 <script>
 
-<script>
-let currentPage = "homePage";
-
-function showPage(pageId, button){
-
-    if(currentPage === pageId) return;
-
-    // Hide all pages immediately
-    const pages = document.querySelectorAll(".page");
-
-    for(let i=0;i<pages.length;i++){
-        pages[i].style.display = "none";
-        pages[i].style.visibility = "hidden";
-    }
-
-    // Show target page immediately
-    const target = document.getElementById(pageId);
-
-    if(target){
-        target.style.visibility = "visible";
-        target.style.display = "block";
-    }
-
-    currentPage = pageId;
-
-    // Bottom nav active state
-    document.querySelectorAll(".bottom-nav button").forEach(btn=>{
-        btn.classList.remove("active");
-    });
-
-    if(button){
-        button.classList.add("active");
-    }
-
-    window.scrollTo(0,0);
-
-}
-</script>
-
 </body>
     </html>
