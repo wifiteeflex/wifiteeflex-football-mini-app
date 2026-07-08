@@ -5180,6 +5180,11 @@ function unlockPrediction(btn){
     const card = btn.closest('.card');
     const pred = card.querySelector('.prediction');
 
+    const live = card.querySelector(".live-status, .live-available, .live");
+    if(live){
+        live.style.display = "none";
+    }
+
     btn.disabled = true;
 
     const steps = [
