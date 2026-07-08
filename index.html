@@ -2816,9 +2816,10 @@ HOME or AWAY
 
 <div class="buttons">
 
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ LIVE AVAILABLE
-</a>
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+NOT AVAILABLE
+</button>
 
 <button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
@@ -3171,9 +3172,10 @@ Over 2.5 Goals
 
 <div class="buttons">
 
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ LIVE AVAILABLE
-</a>
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+NOT AVAILABLE
+</button>
 
 <button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
@@ -3407,9 +3409,10 @@ Over 2.5 Goals
 
 <div class="buttons">
 
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ LIVE AVAILABLE
-</a>
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+NOT AVAILABLE
+</button>
 
 <button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
@@ -3762,9 +3765,10 @@ Over 2.5 Goals
 
 <div class="buttons">
 
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ LIVE AVAILABLE
-</a>
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+NOT AVAILABLE
+</button>
 
 <button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
@@ -4113,9 +4117,10 @@ HT (Over 0.5) Goals
 
 <div class="buttons">
 
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ LIVE AVAILABLE
-</a>
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+NOT AVAILABLE
+</button>
 
 <button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
@@ -4468,9 +4473,10 @@ HOME WIN
 
 <div class="buttons">
 
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ LIVE AVAILABLE
-</a>
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+NOT AVAILABLE
+</button>
 
 <button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
@@ -5061,9 +5067,10 @@ Away Win (1up)
 
 <div class="buttons">
 
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ LIVE AVAILABLE
-</a>
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+NOT AVAILABLE
+</button>
 
 <button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
@@ -5078,11 +5085,6 @@ function unlockPrediction(btn){
 
     const card = btn.closest('.card');
     const pred = card.querySelector('.prediction');
-
-    const live = card.querySelector(".live-status, .live-available, .live");
-    if(live){
-        live.style.display = "none";
-    }
 
     btn.disabled = true;
 
