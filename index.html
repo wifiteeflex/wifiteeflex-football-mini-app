@@ -2219,33 +2219,125 @@ POWERED BY GROK ENGINE
 
 <div class="tabs">
 
-<button class="tab active" onclick="showLeaguePage('allLeague', this)">
+<a class="tab active" href="https://omg10.com/4/7461956">
 ⚽ All Matches
-</button>
+</a>
 
-<button class="tab" onclick="showLeaguePage('premierLeague', this)">
-🔴 Premier League
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🏴 Premier League
+</a>
 
-<button class="tab" onclick="showLeaguePage('serieALeague', this)">
-⏰ Serie A
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🇪🇸 LaLiga
+</a>
 
-<button class="tab" onclick="showLeaguePage('laligaLeague', this)">
-👑 LaLiga
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🇮🇹 Serie A
+</a>
 
-<button class="tab" onclick="showLeaguePage('portugalLeague', this)">
+<a class="tab" href="https://omg10.com/4/7461956">
+🇮🇹 Serie B
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇩🇪 Bundesliga
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇫🇷 Ligue 1
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
 🇵🇹 Liga Portugal
-</button>
+</a>
 
-<button class="tab" onclick="showLeaguePage('championshipLeague', this)">
-🏆 Championship
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🇳🇱 Eredivisie
+</a>
 
-<button class="tab" onclick="showLeaguePage('superLigaLeague', this)">
-⚡ Super Liga
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🇧🇪 Belgian Pro League
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇹🇷 Süper Lig
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🏴 Championship
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇦🇹 Austrian Bundesliga
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇨🇭 Swiss Super League
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇬🇷 Greek Super League
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇩🇰 Danish Superliga
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇸🇪 Swedish Allsvenskan
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇳🇴 Eliteserien
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇵🇱 Ekstraklasa
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🏆 UEFA Champions League
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🌍 UEFA Europa League
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🌐 UEFA Conference League
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🌎 FIFA Club World Cup
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🏴 League One
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🏴 League Two
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇧🇪 Belgian Pro League
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🏴 Scottish Premiership
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇨🇭 Swiss Super League
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇦🇹 Austrian Bundesliga
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇬🇷 Greek Super League
+</a>
 
 </div>
 
@@ -2482,7 +2574,7 @@ Spain
         
 <!-- CARD 2 -->
 
-<div class="card premier">
+<div class="card">
 
 <div class="card-top">
 
@@ -3681,7 +3773,7 @@ SERIA A
 
 <!-- CARD 12 -->
 
-<div class="card seriea">
+<div class="card">
 
 <div class="card-top">
 
@@ -5775,43 +5867,6 @@ document.addEventListener("gestureend", function(e){
 });
 
 <script>
-
-<script>
-function showLeague(league, button){
-
-    // Remove active tab
-    document.querySelectorAll(".tabs .tab").forEach(tab=>{
-        tab.classList.remove("active");
-    });
-
-    // Make clicked tab active
-    button.classList.add("active");
-
-    // Show/Hide cards
-    document.querySelectorAll(".card").forEach(card=>{
-
-        if(league === "all"){
-
-            card.style.display = "block";
-
-        }else{
-
-            if(card.classList.contains(league)){
-
-                card.style.display = "block";
-
-            }else{
-
-                card.style.display = "none";
-
-            }
-
-        }
-
-    });
-
-}
-</script>
 
 </body>
     </html>
