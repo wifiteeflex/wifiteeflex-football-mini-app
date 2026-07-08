@@ -178,7 +178,7 @@ linear-gradient(
 rgba(0,15,30,.45),
 rgba(0,15,30,.65)
 ),
-url("https://upload.wikimedia.org/wikipedia/commons/a/a1/Sunderland_Stadium_of_Light_aerial.jpg");
+url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Wembley_Stadium.jpg");
 
 background-size:cover;
 background-position:center;
@@ -2219,33 +2219,33 @@ POWERED BY GROK ENGINE
 
 <div class="tabs">
 
-<a class="tab active" href="https://omg10.com/4/7461956">
+<button class="tab active" onclick="showLeague('all', this)">
 ⚽ All Matches
-</a>
+</button>
 
-<a class="tab" href="https://omg10.com/4/7461956">
+<button class="tab" onclick="showLeague('premier', this)">
 🔴 Premier League
-</a>
+</button>
 
-<a class="tab" href="https://omg10.com/4/7461956">
+<button class="tab" onclick="showLeague('seriea', this)">
 ⏰ Serie A
-</a>
+</button>
 
-<a class="tab" href="https://omg10.com/4/7461956">
+<button class="tab" onclick="showLeague('laliga', this)">
 👑 LaLiga
-</a>
+</button>
 
-<a class="tab" href="https://omg10.com/4/7461956">
+<button class="tab" onclick="showLeague('portugal', this)">
 🇵🇹 Liga Portugal
-</a>
+</button>
 
-<a class="tab" href="https://omg10.com/4/7461956">
+<button class="tab" onclick="showLeague('championship', this)">
 🏆 Championship
-</a>
+</button>
 
-<a class="tab" href="https://omg10.com/4/7461956">
+<button class="tab" onclick="showLeague('superliga', this)">
 ⚡ Super Liga
-</a>
+</button>
 
 </div>
 
@@ -2480,7 +2480,7 @@ Spain
 
 <!-- CARD 2 -->
 
-<div class="card">
+<div class="card premier">
 
 <div class="card-top">
 
@@ -5773,6 +5773,43 @@ document.addEventListener("gestureend", function(e){
 });
 
 <script>
+
+<script>
+function showLeague(league, button){
+
+    // Remove active tab
+    document.querySelectorAll(".tabs .tab").forEach(tab=>{
+        tab.classList.remove("active");
+    });
+
+    // Make clicked tab active
+    button.classList.add("active");
+
+    // Show/Hide cards
+    document.querySelectorAll(".card").forEach(card=>{
+
+        if(league === "all"){
+
+            card.style.display = "block";
+
+        }else{
+
+            if(card.classList.contains(league)){
+
+                card.style.display = "block";
+
+            }else{
+
+                card.style.display = "none";
+
+            }
+
+        }
+
+    });
+
+}
+</script>
 
 </body>
     </html>
