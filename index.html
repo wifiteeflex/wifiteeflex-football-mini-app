@@ -2147,16 +2147,17 @@ transform:rotate(360deg);
     justify-content:center;
 
     opacity:0;
-    transform:translateY(20px) scale(.96);
-    transition:all .45s ease;
+    transform:translateY(30px) scale(.90);
+    filter:blur(8px);
+
+    transition:all .7s cubic-bezier(.22,1,.36,1);
 
     background:linear-gradient(135deg,#00ff9d,#00b8ff);
     color:#071018;
     font-weight:900;
     border-radius:14px;
     padding:12px 20px;
-
-    margin:0;
+    box-shadow:0 0 0 rgba(0,255,157,0);
 }
 
 </style>
@@ -5243,15 +5244,24 @@ function unlockPrediction(btn){
 
                     pred.style.display = "flex";
 
-setTimeout(()=>{
-    pred.style.opacity = "1";
-    pred.style.transform = "translateY(0) scale(1)";
-},50);
+// Initial state
+pred.style.opacity = "0";
+pred.style.transform = "translateY(30px) scale(.90)";
+pred.style.filter = "blur(8px)";
+pred.style.boxShadow = "0 0 0 rgba(0,255,157,0)";
 
-setTimeout(()=>{
+requestAnimationFrame(() => {
+
+    pred.style.transition =
+        "all .7s cubic-bezier(.22,1,.36,1)";
+
     pred.style.opacity = "1";
     pred.style.transform = "translateY(0) scale(1)";
-},50);
+    pred.style.filter = "blur(0)";
+    pred.style.boxShadow =
+        "0 0 30px rgba(0,255,157,.45)";
+
+});
 
                     setTimeout(()=>{
                         btn.style.display = "none";
@@ -5898,6 +5908,19 @@ document.addEventListener("gesturechange", function(e){
 document.addEventListener("gestureend", function(e){
     e.preventDefault();
 });
+
+<script>
+
+<script>
+setTimeout(() => {
+
+    pred.style.transform = "scale(1.04)";
+
+    setTimeout(() => {
+        pred.style.transform = "scale(1)";
+    },150);
+
+},700);
 
 <script>
 
