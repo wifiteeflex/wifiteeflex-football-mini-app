@@ -2146,23 +2146,21 @@ transform:rotate(360deg);
     align-items:center;
     justify-content:center;
 
-    opacity:0;
-    transform:translateY(20px) scale(.96);
-    filter:blur(6px);
+    font-size:15px !important;
+    font-weight:600 !important;
 
-    transition:all .6s cubic-bezier(.22,1,.36,1);
+    padding:8px 14px !important;
 
     background:linear-gradient(135deg,#00ff9d,#00b8ff);
+
     color:#071018;
 
-    font-size:17px;
-    font-weight:600;
-    letter-spacing:.2px;
+    box-shadow:none !important;
+    text-shadow:none !important;
 
-    border-radius:14px;
-    padding:12px 18px;
-
-    box-shadow:none;   /* Removes glow */
+    opacity:0;
+    transform:translateY(20px) scale(.96);
+    transition:all .5s ease;
 }
 
 </style>
@@ -5253,7 +5251,7 @@ function unlockPrediction(btn){
 pred.style.opacity = "0";
 pred.style.transform = "translateY(30px) scale(.90)";
 pred.style.filter = "blur(8px)";
-pred.style.boxShadow = "0 0 0 rgba(0,255,157,0)";
+pred.style.boxShadow = "none";
 
 requestAnimationFrame(() => {
 
