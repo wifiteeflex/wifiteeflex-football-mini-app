@@ -2141,6 +2141,24 @@ transform:rotate(360deg);
 
 }
 
+.prediction{
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    opacity:0;
+    transform:translateY(20px) scale(.96);
+    transition:all .45s ease;
+
+    background:linear-gradient(135deg,#00ff9d,#00b8ff);
+    color:#071018;
+    font-weight:900;
+    border-radius:14px;
+    padding:12px 20px;
+
+    margin:0;
+}
+
 </style>
 </head>
         
@@ -5223,7 +5241,17 @@ function unlockPrediction(btn){
 
                 setTimeout(()=>{
 
-                    pred.style.display = "block";
+                    pred.style.display = "flex";
+
+setTimeout(()=>{
+    pred.style.opacity = "1";
+    pred.style.transform = "translateY(0) scale(1)";
+},50);
+
+setTimeout(()=>{
+    pred.style.opacity = "1";
+    pred.style.transform = "translateY(0) scale(1)";
+},50);
 
                     setTimeout(()=>{
                         btn.style.display = "none";
