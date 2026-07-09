@@ -2147,23 +2147,22 @@ transform:rotate(360deg);
     justify-content:center;
 
     opacity:0;
-    transform:translateY(30px) scale(.90);
-    filter:blur(8px);
+    transform:translateY(20px) scale(.96);
+    filter:blur(6px);
 
-    transition:all .7s cubic-bezier(.22,1,.36,1);
+    transition:all .6s cubic-bezier(.22,1,.36,1);
 
     background:linear-gradient(135deg,#00ff9d,#00b8ff);
     color:#071018;
 
-    font-size:21px;
+    font-size:17px;
     font-weight:600;
     letter-spacing:.2px;
-    text-transform:uppercase;
 
     border-radius:14px;
-    padding:14px 22px;
+    padding:12px 18px;
 
-    box-shadow:0 0 0 rgba(0,255,157,0);
+    box-shadow:none;   /* Removes glow */
 }
 
 </style>
@@ -5925,7 +5924,6 @@ requestAnimationFrame(() => {
     pred.style.opacity = "1";
     pred.style.transform = "translateY(0) scale(1)";
     pred.style.filter = "blur(0)";
-    pred.style.boxShadow = "0 0 30px rgba(0,255,157,.45)";
 
     // Bounce animation
     pred.animate([
