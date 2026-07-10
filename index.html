@@ -2177,7 +2177,7 @@ linear-gradient(rgba(0,0,0,.55),
 
 rgba(0,0,0,.75)),
 
-url("https://images.unsplash.com/photo-1574629810360-7efbbe195018");
+url("https://upload.wikimedia.org/wikipedia/commons/1/17/2026_FIFA_World_Cup_emblem.svg");
 
 background-size:cover;
 
@@ -2192,10 +2192,26 @@ color:#fff;
 .predicting{
 
 font-size:14px;
-
 color:#d1d5db;
-
 margin-bottom:20px;
+
+animation:blinkPredict 1.5s infinite;
+
+}
+
+@keyframes blinkPredict{
+
+0%{
+opacity:1;
+}
+
+50%{
+opacity:.35;
+}
+
+100%{
+opacity:1;
+}
 
 }
 
