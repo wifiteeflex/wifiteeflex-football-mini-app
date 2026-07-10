@@ -2174,8 +2174,8 @@ linear-gradient(rgba(0,0,0,.55),
 rgba(0,0,0,.75)),
 url("https://upload.wikimedia.org/wikipedia/commons/1/17/2026_FIFA_World_Cup_emblem.svg");
 
-background-size:cover;
-background-position:center 5%;
+background-size:100% auto;
+background-position:center top;
 
 text-align:center;
 color:#fff;
@@ -2187,6 +2187,24 @@ color:#fff;
 font-size:14px;
 color:#d1d5db;
 margin-bottom:20px;
+
+animation:blinkPredict 1.5s infinite;
+
+}
+
+@keyframes blinkPredict{
+
+0%{
+opacity:1;
+}
+
+50%{
+opacity:.35;
+}
+
+100%{
+opacity:1;
+}
 
 }
 
@@ -2224,7 +2242,7 @@ gap:10px;
 width:100%;
 box-sizing:border-box;
 
-margin-top:150px;
+margin-top:100px;
 
 }
 
