@@ -2163,6 +2163,115 @@ transform:rotate(360deg);
     transition:all .5s ease;
 }
 
+.worldcup-card{
+
+margin-top:20px;
+padding:20px;
+border-radius:30px;
+
+background:
+linear-gradient(rgba(0,0,0,.55),
+rgba(0,0,0,.75)),
+url("https://upload.wikimedia.org/wikipedia/commons/1/17/2026_FIFA_World_Cup_emblem.svg");
+
+background-size:cover;
+background-position:center;
+
+text-align:center;
+color:#fff;
+
+}
+
+.predicting{
+
+font-size:14px;
+color:#d1d5db;
+margin-bottom:20px;
+
+}
+
+.worldcup-card h2{
+
+font-size:45px;
+font-weight:800;
+margin-bottom:10px;
+
+}
+
+.prize{
+
+font-size:26px;
+font-weight:700;
+margin-bottom:35px;
+
+}
+
+.match-box{
+
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+padding:25px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+.team-side img{
+
+width:80px;
+height:55px;
+border-radius:10px;
+
+}
+
+.team-side h3{
+
+margin-top:12px;
+font-size:22px;
+
+}
+
+.team-percent{
+
+font-size:55px;
+font-weight:800;
+margin-top:15px;
+
+}
+
+.red{
+
+color:#ff2e55;
+
+}
+
+.draw-percent{
+
+font-size:55px;
+font-weight:800;
+color:#bdbdbd;
+
+}
+
+.center-time span{
+
+font-size:22px;
+color:#d1d5db;
+
+}
+
+.center-time h1{
+
+font-size:60px;
+margin-top:8px;
+
+}
+
 </style>
 </head>
         
@@ -2371,13 +2480,65 @@ POWERED BY GROK ENGINE
 
 <div class="ai-header">
 
-<h1>
-AI Football Assistant
-</h1>
+<h1>AI Football Assistant</h1>
+<p>powered by Grok Engine</p>
 
-<p>
- powered by Grok Engine
-</p>
+</div>
+
+<!-- WORLD CUP CARD HERE -->
+
+<div class="worldcup-card">
+
+    <div class="predicting">
+        🟢 4611 Predicting now
+    </div>
+
+    <h2>FIFA World Cup 2026™</h2>
+
+    <p class="prize">
+        Predict. Win. $200k prize
+    </p>
+
+    <div class="match-box">
+
+        <div class="team-side">
+
+            <img src="https://flagcdn.com/w320/es.png">
+
+            <h3>Spain</h3>
+
+            <div class="team-percent red">
+                59%
+            </div>
+
+        </div>
+
+        <div class="center-time">
+
+            <span>Today</span>
+
+            <h1>20:00</h1>
+
+            <div class="draw-percent">
+                24%
+            </div>
+
+        </div>
+
+        <div class="team-side">
+
+            <img src="https://flagcdn.com/w320/be.png">
+
+            <h3>Belgium</h3>
+
+            <div class="team-percent red">
+                17%
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
 </div>
