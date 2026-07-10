@@ -2175,7 +2175,7 @@ rgba(0,0,0,.75)),
 url("https://upload.wikimedia.org/wikipedia/commons/1/17/2026_FIFA_World_Cup_emblem.svg");
 
 background-size:cover;
-background-position:center 40%;
+background-position:center 30%;
 
 text-align:center;
 color:#fff;
@@ -2229,10 +2229,8 @@ margin-top:100px;
 }
 
 .team-side{
-
-width:30%;
-text-align:center;
-
+flex:1;
+padding:0 15px;
 }
 
 .center-time{
@@ -2243,11 +2241,9 @@ text-align:center;
 }
 
 .team-side img{
-
-width:65px;
-height:45px;
-border-radius:10px;
-
+width:95px;
+height:65px;
+border-radius:12px;
 }
 
 .team-side h3{
@@ -2322,6 +2318,25 @@ opacity:.2;
 opacity:1;
 }
 
+}
+
+#voteMessage{
+margin-top:20px;
+font-size:18px;
+font-weight:700;
+color:#00ff73;
+display:none;
+}
+
+.vote-btn.selected{
+transform:scale(1.05);
+box-shadow:0 0 25px rgba(255,255,255,.35);
+opacity:1;
+}
+
+.vote-btn.disabled{
+opacity:.45;
+pointer-events:none;
 }
 
 </style>
@@ -2593,7 +2608,28 @@ POWERED BY GROK ENGINE
 
         </div>
 
-    </div>
+<div class="vote-buttons">
+
+<button class="vote-btn home"
+onclick="submitVote(this,'Arsenal Win')">
+Arsenal Win
+</button>
+
+<button class="vote-btn draw"
+onclick="submitVote(this,'Draw')">
+Draw
+</button>
+
+<button class="vote-btn away"
+onclick="submitVote(this,'Coventry Win')">
+Coventry Win
+</button>
+
+</div>
+
+<div id="voteMessage"></div>
+
+</div>
 
 </div>
 
@@ -6155,6 +6191,70 @@ requestAnimationFrame(() => {
 });
 
 <script>
+
+<script>
+
+function submitVote(button,team){
+
+    // Already voted
+    if(localStorage.getItem("userVote")){
+        return;
+    }
+
+    // Save vote
+    localStorage.setItem("userVote",team);
+
+    // Disable all buttons
+    document.querySelectorAll(".vote-btn").forEach(btn=>{
+
+        btn.classList.add("disabled");
+
+    });
+
+    // Highlight selected
+    button.classList.remove("disabled");
+    button.classList.add("selected");
+
+    // Show message
+    const msg =
+    document.getElementById("voteMessage");
+
+    msg.style.display="block";
+    msg.innerHTML =
+    "✅ Vote Submitted";
+
+}
+
+window.addEventListener("load",()=>{
+
+    const savedVote =
+    localStorage.getItem("userVote");
+
+    if(savedVote){
+
+        document.querySelectorAll(".vote-btn")
+        .forEach(btn=>{
+
+            btn.classList.add("disabled");
+
+            if(btn.innerText.trim()===savedVote){
+
+                btn.classList.remove("disabled");
+                btn.classList.add("selected");
+
+            }
+
+        });
+
+        voteMessage.style.display="block";
+        voteMessage.innerHTML =
+        "✅ Vote Submitted";
+
+    }
+
+});
+
+</script>
 
 </body>
     </html>
