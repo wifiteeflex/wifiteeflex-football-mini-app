@@ -2224,6 +2224,8 @@ gap:10px;
 width:100%;
 box-sizing:border-box;
 
+margin-top:50px;
+
 }
 
 .team-side{
@@ -2297,6 +2299,28 @@ margin-top:8px;
 
 font-size:60px;
 margin-top:8px;
+
+}
+
+.online-dot{
+
+animation:blinkDot 1s infinite;
+
+}
+
+@keyframes blinkDot{
+
+0%{
+opacity:1;
+}
+
+50%{
+opacity:.2;
+}
+
+100%{
+opacity:1;
+}
 
 }
 
@@ -2518,8 +2542,12 @@ POWERED BY GROK ENGINE
 <div class="worldcup-card">
 
     <div class="predicting">
-        🟢 4611 Predicting now
-    </div>
+
+<span class="online-dot">🟢</span>
+
+4611 Predicting now
+
+</div>
 
     <h2>FIFA World Cup 2026™</h2>
 
