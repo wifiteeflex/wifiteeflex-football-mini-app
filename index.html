@@ -2163,6 +2163,54 @@ transform:rotate(360deg);
     transition:all .5s ease;
 }
 
+.reward-card{
+
+background:#131722;
+border-radius:20px;
+padding:18px;
+margin:18px 15px;
+text-align:center;
+
+}
+
+.reward-card h3{
+
+font-size:20px;
+margin-bottom:10px;
+color:#fff;
+
+}
+
+.reward-card p{
+
+color:#cbd5e1;
+font-size:14px;
+
+}
+
+.reward-card button{
+
+margin-top:15px;
+border:none;
+padding:12px 25px;
+border-radius:12px;
+
+background:linear-gradient(135deg,#00ff9d,#00b8ff);
+
+font-weight:700;
+font-size:14px;
+
+}
+
+.vote-buttons{
+
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+
+}
+
 </style>
 </head>
         
@@ -2370,9 +2418,97 @@ POWERED BY GROK ENGINE
 <div id="aiTipsPage" class="page">
 
 <div class="ai-header">
-
 <h1>AI Football Assistant</h1>
 <p>powered by Grok Engine</p>
+</div>
+
+<!-- Daily Reward -->
+
+<div class="reward-card">
+
+<h3>🎁 Daily Reward</h3>
+
+<p>Claim coins every day.</p>
+
+<button onclick="claimReward()">
+Claim Reward
+</button>
+
+</div>
+
+<!-- Streak -->
+
+<div class="reward-card">
+
+<h3>🔥 Login Streak</h3>
+
+<p id="streakText">
+Current Streak: 0 Days
+</p>
+
+</div>
+
+<!-- Community Vote -->
+
+<div class="reward-card">
+
+<h3>🗳 Who Will Win?</h3>
+
+<div class="vote-buttons">
+
+<button onclick="vote(this)">
+🇪🇸 Spain
+</button>
+
+<button onclick="vote(this)">
+🤝 Draw
+</button>
+
+<button onclick="vote(this)">
+🇧🇪 Belgium
+</button>
+
+</div>
+
+</div>
+
+<!-- Leaderboard -->
+
+<div class="reward-card">
+
+<h3>🏆 Top Predictors</h3>
+
+<p>🥇 John - 1200 pts</p>
+<p>🥈 David - 950 pts</p>
+<p>🥉 Mike - 810 pts</p>
+
+</div>
+
+<!-- Lucky Spin -->
+
+<div class="reward-card">
+
+<h3>🎰 Lucky Spin</h3>
+
+<button onclick="spinReward()">
+Spin Now
+</button>
+
+</div>
+
+<!-- Locked VIP -->
+
+<div class="reward-card">
+
+<h3>👑 VIP Prediction</h3>
+
+<p>
+Prediction Locked 🔒
+</p>
+
+<button onclick="unlockVip()">
+Unlock Prediction
+</button>
 
 </div>
 
@@ -5936,6 +6072,68 @@ requestAnimationFrame(() => {
 });
 
 <script>
+
+<script>
+
+let streak = localStorage.getItem("streak") || 0;
+
+document.getElementById("streakText").innerHTML =
+"Current Streak: "+streak+" Days";
+
+function claimReward(){
+
+show_10317085().then(()=>{
+
+alert("🎁 Reward Claimed!");
+
+streak++;
+
+localStorage.setItem("streak",streak);
+
+document.getElementById("streakText").innerHTML =
+"Current Streak: "+streak+" Days";
+
+});
+
+}
+
+function vote(btn){
+
+if(localStorage.getItem("voted")){
+
+alert("You already voted.");
+
+return;
+
+}
+
+btn.innerHTML = "✅ Submitted";
+
+localStorage.setItem("voted",true);
+
+}
+
+function spinReward(){
+
+show_10317085().then(()=>{
+
+alert("🎰 You won 20 coins!");
+
+});
+
+}
+
+function unlockVip(){
+
+show_10317085().then(()=>{
+
+alert("👑 VIP Prediction Unlocked!");
+
+});
+
+}
+
+</script>
 
 </body>
     </html>
