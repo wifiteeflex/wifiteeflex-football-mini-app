@@ -2163,128 +2163,6 @@ transform:rotate(360deg);
     transition:all .5s ease;
 }
 
-.ai-card{
-
-background:#111827;
-
-margin:18px 15px;
-
-padding:20px;
-
-border-radius:22px;
-
-text-align:center;
-
-box-shadow:0 8px 30px rgba(0,0,0,.35);
-
-}
-
-.ai-title{
-
-font-size:18px;
-
-font-weight:700;
-
-margin-bottom:18px;
-
-color:#fff;
-
-}
-
-.ai-match{
-
-font-size:20px;
-
-font-weight:800;
-
-color:#fff;
-
-margin-bottom:15px;
-
-}
-
-.ai-confidence{
-
-font-size:14px;
-
-color:#00ff73;
-
-margin-bottom:20px;
-
-}
-
-.ai-btn{
-
-border:none;
-
-padding:13px 25px;
-
-border-radius:14px;
-
-background:linear-gradient(135deg,#00ff9d,#00b8ff);
-
-font-weight:700;
-
-font-size:14px;
-
-color:#071018;
-
-}
-
-.free-tip{
-
-color:#cbd5e1;
-
-font-size:13px;
-
-margin-bottom:20px;
-
-}
-
-.community-item{
-
-display:flex;
-
-align-items:center;
-
-gap:10px;
-
-margin-bottom:18px;
-
-color:#fff;
-
-}
-
-.community-bar{
-
-flex:1;
-
-height:10px;
-
-background:#1f2937;
-
-border-radius:50px;
-
-overflow:hidden;
-
-}
-
-.community-fill{
-
-height:100%;
-
-background:#00ff73;
-
-border-radius:50px;
-
-}
-
-.community-fill.red{
-
-background:#ff3d5a;
-
-}
-
 </style>
 </head>
         
@@ -2498,98 +2376,94 @@ POWERED BY GROK ENGINE
 
 </div>
 
-<!-- TODAY PREDICTION -->
-
-<div class="ai-card">
-
-<div class="ai-title">
-🔥 Today's AI Prediction
+<div class="left-info">
+<div class="upcoming-badge">UPCOMING</div>
 </div>
 
-<div class="ai-match">
-🇪🇸 Spain VS Belgium 🇧🇪
+<div class="hot">🔥 HOT</div>
+
 </div>
 
-<div class="ai-confidence">
-Confidence: 89%
+<div class="match-area">
+
+<div class="team">
+
+<div class="team-logo">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/2/20/Hull_City_Crest_2014.svg">
 </div>
 
-<button class="ai-btn" onclick="show_10317085()">
+<div class="team-name">
+Hull city
+</div>
+
+</div>
+
+<div class="center">
+
+<div class="minute">22 August 12:30</div>
+
+<div class="vs">VS</div>
+
+<div class="odds-box">
+<span>Odds</span>
+<strong>1.86</strong>
+</div>
+
+</div>
+
+<div class="team">
+
+<div class="team-logo">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/pt/b/b6/Manchester_United_FC_logo.png">
+</div>
+
+<div class="team-name">
+Manchester Utd
+</div>
+
+</div>
+
+</div>
+
+<div class="confidence-wrap">
+
+<div class="confidence-head">
+<span>AI predict</span>
+<span class="percent">Over 2.5✔️</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" data-width="100%"></div>
+</div>
+
+<div class="match-tabs">
+
+<a href="https://omg10.com/4/7461956">Overview</a>
+
+<a href="https://omg10.com/4/7461956">H2H</a>
+
+<a href="https://omg10.com/4/7461956" class="active">Chat</a>
+
+<a href="https://omg10.com/4/7461956">Lineups</a>
+
+<a href="https://omg10.com/4/7461956">Odds</a>
+
+</div>
+
+</div>
+
+<div class="prediction">
+BTTS (Yes)
+</div>
+
+<div class="buttons">
+
+<a class="bet" href="https://omg10.com/4/8859017">
+↗ WATCH LIVE
+</a>
+
+<button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
-</button>
-
-</div>
-
-<!-- COMMUNITY PICK -->
-
-<div class="ai-card">
-
-<div class="ai-title">
-📊 Community Pick
-</div>
-
-<div class="community-item">
-
-<span>🇪🇸 Spain</span>
-
-<div class="community-bar">
-<div class="community-fill" style="width:67%;"></div>
-</div>
-
-<span>67%</span>
-
-</div>
-
-<div class="community-item">
-
-<span>🇧🇪 Belgium</span>
-
-<div class="community-bar">
-<div class="community-fill red" style="width:33%;"></div>
-</div>
-
-<span>33%</span>
-
-</div>
-
-</div>
-
-<!-- DAILY FREE TIP -->
-
-<div class="ai-card">
-
-<div class="ai-title">
-🎁 Daily Free Tip
-</div>
-
-<p class="free-tip">
-Claim one free AI tip every 24 hours.
-</p>
-
-<button class="ai-btn" onclick="show_10317085()">
-CLAIM FREE TIP
-</button>
-
-</div>
-
-<!-- TRENDING -->
-
-<div class="ai-card">
-
-<div class="ai-title">
-🔥 Trending Match
-</div>
-
-<div class="ai-match">
-Arsenal VS Chelsea
-</div>
-
-<p class="free-tip">
-12,421 users predicted this match.
-</p>
-
-<button class="ai-btn" onclick="show_10317085()">
-VIEW MATCH
 </button>
 
 </div>
