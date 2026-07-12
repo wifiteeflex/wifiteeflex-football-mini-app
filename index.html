@@ -2163,51 +2163,125 @@ transform:rotate(360deg);
     transition:all .5s ease;
 }
 
-.reward-card{
+.ai-card{
 
-background:#131722;
-border-radius:20px;
-padding:18px;
+background:#111827;
+
 margin:18px 15px;
+
+padding:20px;
+
+border-radius:22px;
+
 text-align:center;
+
+box-shadow:0 8px 30px rgba(0,0,0,.35);
 
 }
 
-.reward-card h3{
+.ai-title{
 
-font-size:20px;
-margin-bottom:10px;
+font-size:18px;
+
+font-weight:700;
+
+margin-bottom:18px;
+
 color:#fff;
 
 }
 
-.reward-card p{
+.ai-match{
 
-color:#cbd5e1;
-font-size:14px;
+font-size:20px;
+
+font-weight:800;
+
+color:#fff;
+
+margin-bottom:15px;
 
 }
 
-.reward-card button{
+.ai-confidence{
 
-margin-top:15px;
+font-size:14px;
+
+color:#00ff73;
+
+margin-bottom:20px;
+
+}
+
+.ai-btn{
+
 border:none;
-padding:12px 25px;
-border-radius:12px;
+
+padding:13px 25px;
+
+border-radius:14px;
 
 background:linear-gradient(135deg,#00ff9d,#00b8ff);
 
 font-weight:700;
+
 font-size:14px;
+
+color:#071018;
 
 }
 
-.vote-buttons{
+.free-tip{
+
+color:#cbd5e1;
+
+font-size:13px;
+
+margin-bottom:20px;
+
+}
+
+.community-item{
 
 display:flex;
+
+align-items:center;
+
 gap:10px;
-justify-content:center;
-flex-wrap:wrap;
+
+margin-bottom:18px;
+
+color:#fff;
+
+}
+
+.community-bar{
+
+flex:1;
+
+height:10px;
+
+background:#1f2937;
+
+border-radius:50px;
+
+overflow:hidden;
+
+}
+
+.community-fill{
+
+height:100%;
+
+background:#00ff73;
+
+border-radius:50px;
+
+}
+
+.community-fill.red{
+
+background:#ff3d5a;
 
 }
 
@@ -2418,96 +2492,104 @@ POWERED BY GROK ENGINE
 <div id="aiTipsPage" class="page">
 
 <div class="ai-header">
+
 <h1>AI Football Assistant</h1>
 <p>powered by Grok Engine</p>
+
 </div>
 
-<!-- Daily Reward -->
+<!-- TODAY PREDICTION -->
 
-<div class="reward-card">
+<div class="ai-card">
 
-<h3>🎁 Daily Reward</h3>
+<div class="ai-title">
+🔥 Today's AI Prediction
+</div>
 
-<p>Claim coins every day.</p>
+<div class="ai-match">
+🇪🇸 Spain VS Belgium 🇧🇪
+</div>
 
-<button onclick="claimReward()">
-Claim Reward
+<div class="ai-confidence">
+Confidence: 89%
+</div>
+
+<button class="ai-btn" onclick="show_10317085()">
+🔒 SEE PREDICTION
 </button>
 
 </div>
 
-<!-- Streak -->
+<!-- COMMUNITY PICK -->
 
-<div class="reward-card">
+<div class="ai-card">
 
-<h3>🔥 Login Streak</h3>
+<div class="ai-title">
+📊 Community Pick
+</div>
 
-<p id="streakText">
-Current Streak: 0 Days
+<div class="community-item">
+
+<span>🇪🇸 Spain</span>
+
+<div class="community-bar">
+<div class="community-fill" style="width:67%;"></div>
+</div>
+
+<span>67%</span>
+
+</div>
+
+<div class="community-item">
+
+<span>🇧🇪 Belgium</span>
+
+<div class="community-bar">
+<div class="community-fill red" style="width:33%;"></div>
+</div>
+
+<span>33%</span>
+
+</div>
+
+</div>
+
+<!-- DAILY FREE TIP -->
+
+<div class="ai-card">
+
+<div class="ai-title">
+🎁 Daily Free Tip
+</div>
+
+<p class="free-tip">
+Claim one free AI tip every 24 hours.
 </p>
 
-</div>
-
-<!-- Community Vote -->
-
-<div class="reward-card">
-
-<h3>🗳 Who Will Win?</h3>
-
-<div class="vote-buttons">
-
-<button onclick="vote(this)">
-🇪🇸 Spain
-</button>
-
-<button onclick="vote(this)">
-🤝 Draw
-</button>
-
-<button onclick="vote(this)">
-🇧🇪 Belgium
+<button class="ai-btn" onclick="show_10317085()">
+CLAIM FREE TIP
 </button>
 
 </div>
 
+<!-- TRENDING -->
+
+<div class="ai-card">
+
+<div class="ai-title">
+🔥 Trending Match
 </div>
 
-<!-- Leaderboard -->
-
-<div class="reward-card">
-
-<h3>🏆 Top Predictors</h3>
-
-<p>🥇 John - 1200 pts</p>
-<p>🥈 David - 950 pts</p>
-<p>🥉 Mike - 810 pts</p>
-
+<div class="ai-match">
+Arsenal VS Chelsea
 </div>
 
-<!-- Lucky Spin -->
-
-<div class="reward-card">
-
-<h3>🎰 Lucky Spin</h3>
-
-<button onclick="spinReward()">
-Spin Now
-</button>
-
-</div>
-
-<!-- Locked VIP -->
-
-<div class="reward-card">
-
-<h3>👑 VIP Prediction</h3>
-
-<p>
-Prediction Locked 🔒
+<p class="free-tip">
+12,421 users predicted this match.
 </p>
 
-<button onclick="unlockVip()">
-Unlock Prediction
+<button class="ai-btn" onclick="show_10317085()">
+VIEW MATCH
 </button>
 
 </div>
@@ -6072,68 +6154,6 @@ requestAnimationFrame(() => {
 });
 
 <script>
-
-<script>
-
-let streak = localStorage.getItem("streak") || 0;
-
-document.getElementById("streakText").innerHTML =
-"Current Streak: "+streak+" Days";
-
-function claimReward(){
-
-show_10317085().then(()=>{
-
-alert("🎁 Reward Claimed!");
-
-streak++;
-
-localStorage.setItem("streak",streak);
-
-document.getElementById("streakText").innerHTML =
-"Current Streak: "+streak+" Days";
-
-});
-
-}
-
-function vote(btn){
-
-if(localStorage.getItem("voted")){
-
-alert("You already voted.");
-
-return;
-
-}
-
-btn.innerHTML = "✅ Submitted";
-
-localStorage.setItem("voted",true);
-
-}
-
-function spinReward(){
-
-show_10317085().then(()=>{
-
-alert("🎰 You won 20 coins!");
-
-});
-
-}
-
-function unlockVip(){
-
-show_10317085().then(()=>{
-
-alert("👑 VIP Prediction Unlocked!");
-
-});
-
-}
-
-</script>
 
 </body>
     </html>
