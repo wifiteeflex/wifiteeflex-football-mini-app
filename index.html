@@ -2191,15 +2191,25 @@ z-index:999999;
 width:90%;
 max-width:380px;
 
-background:#111827;
+padding:35px;
 
-padding:30px;
+border-radius:35px;
 
-border-radius:30px;
+background:
 
-text-align:center;
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.75)
+),
+
+url("https://upload.wikimedia.org/wikipedia/commons/6/68/Leo_Messi_%28cropped%29.jpg");
+
+background-size:cover;
+background-position:center;
 
 color:#fff;
+
+text-align:center;
 
 }
 
@@ -6156,79 +6166,46 @@ requestAnimationFrame(() => {
 
 <script>
 
+document.addEventListener("DOMContentLoaded",()=>{
+
 let currentPopup = 0;
 
 const slides =
-document.querySelectorAll(
-".popup-slide"
-);
+document.querySelectorAll(".popup-slide");
 
 const btn =
-document.getElementById(
-"popupBtn"
-);
+document.getElementById("popupBtn");
 
-btn.onclick = ()=>{
+btn.addEventListener("click",()=>{
 
 slides[currentPopup]
-.classList.remove(
-"active"
-);
+.classList.remove("active");
 
 currentPopup++;
 
-if(
-currentPopup >=
-slides.length
-){
+if(currentPopup >= slides.length){
 
 document.getElementById(
 "welcomePopup"
-).style.display =
-"none";
-
-localStorage.setItem(
-"appIntroSeen",
-"yes"
-);
+).style.display = "none";
 
 return;
 
 }
 
 slides[currentPopup]
-.classList.add(
-"active"
-);
+.classList.add("active");
 
-if(
-currentPopup ==
-slides.length-1
-){
+if(currentPopup === slides.length-1){
 
 btn.innerHTML =
 "🚀 OPEN APP";
 
 }
 
-};
+});
 
-window.onload = ()=>{
-
-if(
-localStorage.getItem(
-"appIntroSeen"
-)
-){
-
-document.getElementById(
-"welcomePopup"
-).style.display =
-"none";
-
-}
-
-};
+});
 
 </script>
 
