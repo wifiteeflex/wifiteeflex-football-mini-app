@@ -178,7 +178,7 @@ linear-gradient(
 rgba(0,15,30,.45),
 rgba(0,15,30,.65)
 ),
-url("https://images.unsplash.com/photo-1574629810360-7efbbe195018");
+url("https://upload.wikimedia.org/wikipedia/commons/3/3c/Wembley_Stadium.jpg");
 
 background-size:cover;
 background-position:center;
@@ -2163,6 +2163,145 @@ transform:rotate(360deg);
     transition:all .5s ease;
 }
 
+.ai-meter-card{
+
+margin:25px 15px;
+
+padding:30px 25px;
+
+border-radius:30px;
+
+background:
+
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(18px);
+
+text-align:center;
+
+color:#fff;
+
+}
+
+
+.ai-meter-card h3{
+
+font-size:22px;
+
+margin-bottom:25px;
+
+font-weight:800;
+
+}
+
+
+.meter-percent{
+
+font-size:65px;
+
+font-weight:900;
+
+color:#00ff73;
+
+margin-bottom:20px;
+
+animation:pulseMeter 1.5s infinite;
+
+}
+
+
+@keyframes pulseMeter{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+
+.meter-bar{
+
+width:100%;
+
+height:16px;
+
+background:
+
+rgba(255,255,255,.08);
+
+border-radius:50px;
+
+overflow:hidden;
+
+margin:auto;
+
+}
+
+
+.meter-fill{
+
+width:89%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+90deg,
+#00ff73,
+#00b8ff
+);
+
+border-radius:50px;
+
+animation:fillMeter 2s ease;
+
+}
+
+
+@keyframes fillMeter{
+
+from{
+
+width:0%;
+
+}
+
+to{
+
+width:89%;
+
+}
+
+}
+
+
+.meter-text{
+
+margin-top:20px;
+
+font-size:18px;
+
+font-weight:700;
+
+color:#00ff73;
+
+}
+
 </style>
 </head>
         
@@ -2373,6 +2512,30 @@ POWERED BY GROK ENGINE
 
 <h1>AI Football Assistant</h1>
 <p>powered by Grok Engine</p>
+
+</div>
+
+<div class="ai-meter-card">
+
+<h3>🤖 AI Prediction Meter</h3>
+
+<div class="meter-percent">
+
+89%
+
+</div>
+
+<div class="meter-bar">
+
+<div class="meter-fill"></div>
+
+</div>
+
+<p class="meter-text">
+
+🔥 Strong Signal
+
+</p>
 
 </div>
 
