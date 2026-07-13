@@ -2163,157 +2163,117 @@ transform:rotate(360deg);
     transition:all .5s ease;
 }
 
-.daily-quiz-card{
+#welcomePopup{
 
-margin:20px 15px;
+position:fixed;
 
-padding:20px;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.85);
+
+backdrop-filter:blur(20px);
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+z-index:999999;
+
+}
+
+.popup-card{
+
+width:90%;
+max-width:380px;
+
+background:#111827;
+
+padding:30px;
 
 border-radius:30px;
-
-background:
-linear-gradient(
-rgba(0,0,0,.55),
-rgba(0,0,0,.8)
-);
-
-backdrop-filter:blur(18px);
 
 text-align:center;
 
 color:#fff;
 
-overflow:hidden;
+}
+
+.popup-slide{
+
+display:none;
 
 }
 
-.quiz-header{
+.popup-slide.active{
 
-font-size:15px;
+display:block;
 
-font-weight:800;
-
-color:#00ff73;
-
-margin-bottom:15px;
-
-letter-spacing:1px;
+animation:fadeSlide .4s;
 
 }
 
-.daily-quiz-card img{
+@keyframes fadeSlide{
 
-width:100%;
+from{
 
-height:230px;
-
-object-fit:cover;
-
-border-radius:25px;
-
-margin-bottom:15px;
+opacity:0;
+transform:translateY(20px);
 
 }
 
-.quiz-live{
-
-font-size:14px;
-
-color:#ccc;
-
-margin-bottom:18px;
-
-animation:pulseQuiz 1.2s infinite;
-
-}
-
-@keyframes pulseQuiz{
-
-0%{
-
-opacity:.5;
-
-}
-
-50%{
+to{
 
 opacity:1;
-
-}
-
-100%{
-
-opacity:.5;
+transform:translateY(0);
 
 }
 
 }
 
-#questionText{
+.popup-card h2{
 
 font-size:28px;
 
-font-weight:800;
-
-line-height:1.4;
-
-margin-bottom:30px;
+margin-bottom:20px;
 
 }
 
-.quiz-options{
+.popup-card p{
 
-display:flex;
+font-size:16px;
 
-flex-direction:column;
+line-height:1.7;
 
-gap:16px;
+color:#cbd5e1;
 
 }
 
-.quiz-options button{
+#popupBtn{
 
-padding:18px;
+margin-top:35px;
+
+width:100%;
+
+padding:16px;
 
 border:none;
 
 border-radius:18px;
 
-font-size:20px;
-
-font-weight:700;
-
 background:
 
-rgba(255,255,255,.08);
-
-color:#fff;
-
-}
-
-.quiz-options button:active{
-
-transform:scale(.96);
-
-}
-
-#quizMessage{
-
-margin-top:20px;
-
-font-size:20px;
-
-font-weight:800;
-
-}
-
-.quiz-score{
-
-margin-top:25px;
+linear-gradient(
+135deg,
+#00ff73,
+#00b8ff
+);
 
 font-size:18px;
-
-color:#00ff73;
 
 font-weight:800;
 
@@ -5384,6 +5344,73 @@ NOT AVAILABLE
 
 </div>
 
+<div id="welcomePopup">
+
+<div class="popup-card">
+
+<div class="popup-slide active">
+
+<h2>⚽ Welcome</h2>
+
+<p>
+Welcome to AI Football Assistant powered by Grok.
+Get football predictions, quizzes and live scores.
+</p>
+
+</div>
+
+<div class="popup-slide">
+
+<h2>📜 Rules</h2>
+
+<p>
+
+• Predictions are for entertainment.
+
+• Always gamble responsibly.
+
+• Users must be 18+.
+
+</p>
+
+</div>
+
+<div class="popup-slide">
+
+<h2>⚠ Disclaimer</h2>
+
+<p>
+
+This app does not guarantee winnings.
+
+You are fully responsible for your decisions.
+
+</p>
+
+</div>
+
+<div class="popup-slide">
+
+<h2>🚀 Ready?</h2>
+
+<p>
+
+Enjoy AI Tips and Daily Football Quizzes.
+
+</p>
+
+</div>
+
+<button id="popupBtn">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+
 <script>
 function unlockPrediction(btn){
 
@@ -6128,126 +6155,82 @@ requestAnimationFrame(() => {
 <script>
 
 <script>
-const footballQuiz = [
 
-{
-q:"Have Switzerland ever beaten Argentina?",
-correct:true
-},
+let currentPopup = 0;
 
-{
-q:"Did Messi win the 2022 World Cup?",
-correct:true
-},
+const slides =
+document.querySelectorAll(
+".popup-slide"
+);
 
-{
-q:"Has Arsenal won the UCL?",
-correct:false
-},
-
-{
-q:"Did Ronaldo win Euro 2016?",
-correct:true
-},
-
-{
-q:"Has Nigeria ever reached a World Cup semifinal?",
-correct:false
-}
-
-];
-
-let currentQuiz = 0;
-
-let score = 0;
-
-function loadQuiz(){
-
+const btn =
 document.getElementById(
-"questionText"
-).innerHTML =
-footballQuiz[currentQuiz].q;
+"popupBtn"
+);
 
-document.getElementById(
-"quizMessage"
-).innerHTML = "";
+btn.onclick = ()=>{
 
-}
+slides[currentPopup]
+.classList.remove(
+"active"
+);
 
-function checkAnswer(choice){
-
-const q =
-footballQuiz[currentQuiz];
-
-if(choice === q.correct){
-
-score++;
-
-document.getElementById(
-"quizScore"
-).innerHTML = score;
-
-document.getElementById(
-"quizMessage"
-).innerHTML =
-"✅ Correct!";
-
-setTimeout(()=>{
-
-currentQuiz++;
+currentPopup++;
 
 if(
-currentQuiz >=
-footballQuiz.length
+currentPopup >=
+slides.length
 ){
 
 document.getElementById(
-"questionText"
-).innerHTML =
-"🏆 Quiz Completed";
-
-document.querySelector(
-".quiz-options"
+"welcomePopup"
 ).style.display =
 "none";
+
+localStorage.setItem(
+"appIntroSeen",
+"yes"
+);
 
 return;
 
 }
 
-loadQuiz();
+slides[currentPopup]
+.classList.add(
+"active"
+);
 
-},1200);
+if(
+currentPopup ==
+slides.length-1
+){
 
-}else{
-
-document.getElementById(
-"quizMessage"
-).innerHTML =
-"❌ Wrong answer";
-
-show_10317085().then(()=>{
-
-score = 0;
-
-currentQuiz = 0;
-
-document.getElementById(
-"quizScore"
-).innerHTML =
-"0";
-
-loadQuiz();
-
-});
+btn.innerHTML =
+"🚀 OPEN APP";
 
 }
 
+};
+
+window.onload = ()=>{
+
+if(
+localStorage.getItem(
+"appIntroSeen"
+)
+){
+
+document.getElementById(
+"welcomePopup"
+).style.display =
+"none";
+
 }
 
-loadQuiz();
+};
 
-<script>
+</script>
 
 </body>
     </html>
