@@ -2173,9 +2173,18 @@ left:0;
 width:100%;
 height:100%;
 
-background:rgba(0,0,0,.85);
+background:
 
-backdrop-filter:blur(20px);
+linear-gradient(
+rgba(0,0,0,.45),
+rgba(0,0,0,.80)
+),
+
+url("https://upload.wikimedia.org/wikipedia/commons/6/68/Leo_Messi_%28cropped%29.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 
 display:flex;
 
@@ -2183,33 +2192,6 @@ justify-content:center;
 align-items:center;
 
 z-index:999999;
-
-}
-
-.popup-card{
-
-width:90%;
-max-width:380px;
-
-padding:35px;
-
-border-radius:35px;
-
-background:
-
-linear-gradient(
-rgba(0,0,0,.55),
-rgba(0,0,0,.75)
-),
-
-url("https://upload.wikimedia.org/wikipedia/commons/6/68/Leo_Messi_%28cropped%29.jpg");
-
-background-size:cover;
-background-position:center;
-
-color:#fff;
-
-text-align:center;
 
 }
 
@@ -2286,6 +2268,25 @@ linear-gradient(
 font-size:18px;
 
 font-weight:800;
+
+}
+
+.popup-card{
+
+width:90%;
+max-width:380px;
+
+padding:35px;
+
+border-radius:35px;
+
+background:transparent;
+
+backdrop-filter:blur(12px);
+
+text-align:center;
+
+color:#fff;
 
 }
 
@@ -2499,40 +2500,6 @@ POWERED BY GROK ENGINE
 
 <h1>AI Football Assistant</h1>
 <p>powered by Grok Engine</p>
-
-</div>
-
-<div class="daily-quiz-card">
-
-<div class="quiz-header">
-DAILY FOOTBALL QUIZ
-</div>
-
-<img id="quizImage"
-src="https://upload.wikimedia.org/wikipedia/commons/6/68/Leo_Messi_%28cropped%29.jpg">
-
-<div class="quiz-live">
-
-🟢 <span id="quizPlayers">4,821</span>
-Players playing now
-
-</div>
-
-<h2 id="questionText">
-
-Have Switzerland ever beaten Argentina?
-
-</h2>
-
-<div class="quiz-options">
-
-<button onclick="checkAnswer(true)">
-Yes, they have ✅
-</button>
-
-<button onclick="checkAnswer(false)">
-No, never ❌
-</button>
 
 </div>
 
@@ -6166,7 +6133,7 @@ requestAnimationFrame(() => {
 
 <script>
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", function(){
 
 let currentPopup = 0;
 
@@ -6176,7 +6143,7 @@ document.querySelectorAll(".popup-slide");
 const btn =
 document.getElementById("popupBtn");
 
-btn.addEventListener("click",()=>{
+btn.onclick = function(){
 
 slides[currentPopup]
 .classList.remove("active");
@@ -6203,7 +6170,7 @@ btn.innerHTML =
 
 }
 
-});
+};
 
 });
 
