@@ -2165,55 +2165,77 @@ transform:rotate(360deg);
 
 .ai-meter-card{
 
-margin:60px 15px 25px 15px;
+margin:80px 18px 30px;
 
-/* increase first value to move it further down */
+padding:35px 25px;
 
-padding:30px 25px;
-
-border-radius:30px;
+border-radius:35px;
 
 background:
 
-rgba(255,255,255,.02);
+rgba(255,255,255,.03);
 
-/* very transparent */
+backdrop-filter:blur(25px);
 
-backdrop-filter:blur(12px);
-
--webkit-backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(25px);
 
 border:
 
-1px solid rgba(255,255,255,.06);
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 8px 40px rgba(0,0,0,.35);
 
 text-align:center;
 
-color:#fff;
+overflow:hidden;
+
+position:relative;
 
 }
 
 .ai-meter-card h3{
 
-font-size:22px;
+font-size:18px;
 
-margin-bottom:25px;
+font-weight:700;
 
-font-weight:800;
+color:#d1d5db;
+
+letter-spacing:1px;
+
+margin-bottom:35px;
+
+position:relative;
+
+z-index:2;
 
 }
 
 .meter-percent{
 
-font-size:65px;
+font-size:90px;
 
 font-weight:900;
 
-color:#00ff73;
+background:
 
-margin-bottom:20px;
+linear-gradient(
+135deg,
+#00ff73,
+#00d9ff
+);
 
-animation:pulseMeter 1.5s infinite;
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+margin-bottom:30px;
+
+position:relative;
+
+z-index:2;
 
 }
 
@@ -2245,17 +2267,91 @@ transform:scale(1);
 
 width:100%;
 
-height:16px;
+height:10px;
 
 background:
 
-rgba(255,255,255,.08);
+rgba(255,255,255,.06);
 
-border-radius:50px;
+border-radius:100px;
 
 overflow:hidden;
 
-margin:auto;
+position:relative;
+
+z-index:2;
+
+}
+
+
+.ai-meter-card::before{
+
+content:"";
+
+position:absolute;
+
+width:250px;
+height:250px;
+
+background:
+
+radial-gradient(
+circle,
+rgba(0,255,115,.18),
+transparent
+);
+
+top:-100px;
+left:-80px;
+
+border-radius:50%;
+
+}
+
+
+.ai-meter-card::after{
+
+content:"";
+
+position:absolute;
+
+width:250px;
+height:250px;
+
+background:
+
+radial-gradient(
+circle,
+rgba(0,184,255,.15),
+transparent
+);
+
+bottom:-120px;
+right:-100px;
+
+border-radius:50%;
+
+}
+
+.meter-fill{
+
+width:89%;
+
+height:100%;
+
+border-radius:100px;
+
+background:
+
+linear-gradient(
+90deg,
+#00ff73,
+#00d9ff
+);
+
+box-shadow:
+
+0 0 25px rgba(0,255,115,.4);
 
 }
 
@@ -2300,13 +2396,17 @@ width:89%;
 
 .meter-text{
 
-margin-top:20px;
+margin-top:35px;
 
-font-size:18px;
+font-size:20px;
 
-font-weight:700;
+font-weight:800;
 
-color:#00ff73;
+color:white;
+
+position:relative;
+
+z-index:2;
 
 }
 
