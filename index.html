@@ -2554,16 +2554,8 @@ POWERED BY GROK ENGINE
 
 </div>
 
-<div class="ai-meter-card">
-
-<h3>🤖 AI Prediction Meter</h3>
-
-<div class="meter-percent" id="aiPercent">
-0%
-</div>
-
-<div class="meter-bar">
-<div class="meter-fill"></div>
+<div class="meter-percent">
+<span id="aiPercent">0</span>%
 </div>
 
 <p class="meter-text" id="aiStatus">
@@ -6137,32 +6129,44 @@ requestAnimationFrame(() => {
 
 <script>
 
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
 let percent = 0;
 
 const target = 89;
 
+const percentEl =
+document.getElementById(
+"aiPercent"
+);
+
+const statusEl =
+document.getElementById(
+"aiStatus"
+);
+
 const counter =
-setInterval(()=>{
+setInterval(function(){
 
 percent++;
 
-document.getElementById(
-"aiPercent"
-).innerHTML =
-percent + "%";
+percentEl.innerHTML =
+percent;
 
 if(percent >= target){
 
 clearInterval(counter);
 
-document.getElementById(
-"aiStatus"
-).innerHTML =
+statusEl.innerHTML =
 "🔥 Strong Signal";
 
 }
 
-},25);
+},30);
+
+});
 
 </script>
 
