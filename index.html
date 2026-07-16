@@ -2188,6 +2188,61 @@ overflow:hidden;
 
 }
 
+.ai-float{
+    position:fixed;
+    left:15px;
+    bottom:120px;
+    z-index:9999;
+}
+
+.ai-circle{
+
+    width:75px;
+    height:75px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.25);
+
+    border:3px solid rgba(255,255,255,.8);
+
+    animation:floatAI 3s ease-in-out infinite;
+}
+
+
+.ai-circle img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+}
+
+
+@keyframes floatAI{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
 </style>
 </head>
         
@@ -2195,6 +2250,12 @@ overflow:hidden;
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
 </body>
+
+<div class="ai-float">
+    <div class="ai-circle">
+        <img src="https://i.imgur.com/15UxycY.jpeg" alt="AI Assistant">
+    </div>
+</div>
 
 <div class="bottom-nav">
 
