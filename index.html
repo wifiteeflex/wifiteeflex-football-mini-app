@@ -2189,15 +2189,18 @@ overflow:hidden;
 }
 
 .ask-ai-bot{
-    position:fixed;
-    right:15px;
-    bottom:110px;
-    z-index:999999;
 
-    display:none;
+display:none;
 
-    align-items:center;
-    gap:10px;
+position:fixed;
+right:15px;
+bottom:110px;
+
+z-index:999999;
+
+align-items:center;
+gap:10px;
+
 }
 
 .ai-label{
@@ -5782,11 +5785,34 @@ function showPage(pageId, el){
   if(el){
     el.classList.add('active');
   }
+
+  /* 👇 AI BOT */
+
+  const aiBot =
+  document.getElementById("askAiBot");
+
+  if(aiBot){
+
+      if(pageId === "matchesPage"){
+
+          aiBot.style.display = "flex";
+
+      }else{
+
+          aiBot.style.display = "none";
+
+      }
+
+  }
+
 }
 
 window.onload = function(){
+
   showPage('homePage');
+
 };
+
 </script>
 
 <script>
