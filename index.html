@@ -6288,30 +6288,31 @@ requestAnimationFrame(() => {
 
 <script>
 
-function toggleAiBot(){
+function checkPage(){
 
-    const matchesPage =
-    document.getElementById("matchesPage");
-
-    const aiBot =
+    const bot =
     document.getElementById("askAiBot");
 
+    const matchPage =
+    document.getElementById("matchesPage");
+
     if(
-        matchesPage &&
-        matchesPage.classList.contains("active")
+        matchPage.style.display==="block"
+        ||
+        matchPage.classList.contains("active")
     ){
 
-        aiBot.style.display="flex";
+        bot.style.display="flex";
 
     }else{
 
-        aiBot.style.display="none";
+        bot.style.display="none";
 
     }
 
 }
 
-setInterval(toggleAiBot,500);
+setInterval(checkPage,300);
 
 </script>
 
