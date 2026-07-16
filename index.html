@@ -2189,21 +2189,15 @@ overflow:hidden;
 }
 
 .ask-ai-bot{
-
     position:fixed;
-
     right:15px;
     bottom:110px;
-
     z-index:999999;
 
     display:none;
 
     align-items:center;
     gap:10px;
-
-    text-decoration:none;
-
 }
 
 .ai-label{
@@ -6289,31 +6283,26 @@ requestAnimationFrame(() => {
 
 <script>
 
-function checkPage(){
+function updateAiBot(){
 
     const bot =
     document.getElementById("askAiBot");
 
-    const matchPage =
+    const matchesPage =
     document.getElementById("matchesPage");
 
-    if(
-        matchPage.style.display==="block"
-        ||
-        matchPage.classList.contains("active")
-    ){
+    if(!bot || !matchesPage) return;
 
-        bot.style.display="flex";
+    const visible =
+    window.getComputedStyle(matchesPage)
+    .display !== "none";
 
-    }else{
-
-        bot.style.display="none";
-
-    }
+    bot.style.display =
+    visible ? "flex" : "none";
 
 }
 
-setInterval(checkPage,300);
+setInterval(updateAiBot,200);
 
 </script>
 
