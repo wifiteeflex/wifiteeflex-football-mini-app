@@ -5576,72 +5576,96 @@ Ask Ai🤖
 </a>
 
 <script>
-function unlockPrediction(btn) {
-    const card = btn.closest('.card');
-    if (!card) return;
+function unlockPrediction(btn){
 
+    const card = btn.closest('.card');
     const pred = card.querySelector('.prediction');
+
+    const live = card.querySelector(".live-status, .live-available, .live");
+    if(live){
+        live.style.display = "none";
+    }
 
     btn.disabled = true;
 
     const steps = [
-        "🔐 Connecting to AI Server...",
-        "📡 Fetching Match Data...",
-        "📊 Analyzing Form & Stats...",
-        "🧠 Running Grok AI Prediction...",
-        "⚽ Checking Key Factors...",
-        "📈 Final Probability Calculation...",
-        "🎯 Prediction Ready!"
+        "🔐 Connecting to AI Prediction Server...",
+        "📡 Downloading Live Match Statistics...",
+        "📊 Checking Team Form & H2H History...",
+        "🧠 Running AI Neural Network powered by Grok...",
+        "⚽ Analyzing Injuries, Odds & Momentum...",
+        "📈 Calculating Winning Team Probability...",
+        "🎯 Verifying Prediction with Accuracy Match...."
     ];
 
     let i = 0;
-    btn.innerHTML = `<span class="ai-loader"></span> ${steps[0]}`;
 
-    show_10317085().then(() => {
-        const interval = setInterval(() => {
+    btn.innerHTML = `
+        <span class="ai-loader"></span>
+        ${steps[0]}
+    `;
+
+    show_10317085().then(()=>{
+
+        const interval = setInterval(()=>{
+
             i++;
-            if (i < steps.length) {
-                btn.innerHTML = `<span class="ai-loader"></span> ${steps[i]}`;
+
+            if(i < steps.length){
+
+                btn.innerHTML = `
+                    <span class="ai-loader"></span>
+                    ${steps[i]}
+                `;
+
             } else {
+
                 clearInterval(interval);
 
-                setTimeout(() => {
-                    // Show prediction
+                setTimeout(()=>{
+
                     pred.style.display = "flex";
-                    pred.style.opacity = "0";
-                    pred.style.transform = "translateY(25px) scale(0.9)";
 
-                    requestAnimationFrame(() => {
-                        pred.style.transition = "all 0.8s cubic-bezier(0.22,1,0.36,1)";
-                        pred.style.opacity = "1";
-                        pred.style.transform = "translateY(0) scale(1)";
-                    });
+// Initial state
+pred.style.opacity = "0";
+pred.style.transform = "translateY(30px) scale(.90)";
+pred.style.filter = "blur(8px)";
+pred.style.boxShadow = "none";
 
-                    // Hide "NOT AVAILABLE", "LIVE UNAVAILABLE", etc.
-                    const badButtons = card.querySelectorAll('.watch, .bet, button[disabled], a');
-                    badButtons.forEach(el => {
-                        const text = (el.textContent || el.innerText || "").toUpperCase();
-                        if (text.includes("NOT AVAILABLE") || 
-                            text.includes("LIVE") || 
-                            text.includes("UNAVAILABLE") ||
-                            text.includes("AVAILABLE")) {
-                            el.style.display = "none";
-                        }
-                    });
+requestAnimationFrame(() => {
 
-                    // Remove the clicked SEE PREDICTION button
-                    setTimeout(() => {
-                        btn.remove();
-                    }, 700);
+    pred.style.transition =
+        "all .7s cubic-bezier(.22,1,.36,1)";
 
-                }, 900);
+    pred.style.opacity = "1";
+    pred.style.transform = "translateY(0) scale(1)";
+    pred.style.filter = "blur(0)";
+    pred.style.boxShadow =
+        "0 0 30px rgba(0,255,157,.45)";
+
+});
+
+                    setTimeout(()=>{
+                        btn.style.display = "none";
+                    },400);
+
+                    btn.remove();
+
+                },1200);
+
             }
-        }, 1750);
-    }).catch(() => {
-        alert("Please try again.");
+
+        },2200);
+
+    }).catch(()=>{
+
+        alert("Ad failed. Try again.");
+
         btn.disabled = false;
         btn.innerHTML = "🔒 SEE PREDICTION";
+
     });
+
 }
 </script>
 
@@ -5871,48 +5895,36 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>
 
 <script>
+// Run after the page fully loads
+document.addEventListener("DOMContentLoaded", function () {
 
-// Telegram user
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand(); // Optional: makes it full height
 
-const tg = window.Telegram.WebApp;
+    const user = tg.initDataUnsafe?.user || tg.initDataUnsafe?.user;
 
-tg.ready();
+    if (user && user.first_name) {
+        // Set Name
+        const nameEl = document.getElementById("userName");
+        if (nameEl) nameEl.innerText = user.first_name;
 
-const user = tg.initDataUnsafe.user;
+        // Set Photo
+        const photoEl = document.getElementById("userPhoto");
+        if (photoEl && user.photo_url) {
+            photoEl.src = user.photo_url;
+        }
+    } else {
+        console.log("⚠️ Could not get Telegram user data. Are you testing inside Telegram?");
+    }
 
+    // Coin System
+    let coins = localStorage.getItem("coins") || 0;
+    const coinEl = document.getElementById("coinBalance");
+    if (coinEl) coinEl.innerText = coins;
 
-if(user){
-
-document.getElementById("userName").innerText =
-user.first_name || "User";
-
-
-if(user.photo_url){
-
-document.getElementById("userPhoto").src =
-user.photo_url;
-
-}
-
-}
-
-
-
-
-// COIN SYSTEM
-
-
-let coins = localStorage.getItem("coins");
-
-
-if(!coins){
-
-coins = 0;
-
-}
-
-
-document.getElementById("coinBalance").innerText = coins;
+});
+</script>
 
 
 
