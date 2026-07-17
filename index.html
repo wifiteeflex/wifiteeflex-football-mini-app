@@ -5895,38 +5895,43 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>
 
 <script>
-// Run after the page fully loads
-document.addEventListener("DOMContentLoaded", function () {
 
-    const tg = window.Telegram.WebApp;
-    tg.ready();
-    tg.expand(); // Optional: makes it full height
+// Telegram user
 
-    const user = tg.initDataUnsafe?.user || tg.initDataUnsafe?.user;
+const tg = window.Telegram.WebApp;
 
-    if (user && user.first_name) {
-        // Set Name
-        const nameEl = document.getElementById("userName");
-        if (nameEl) nameEl.innerText = user.first_name;
+tg.ready();
 
-        // Set Photo
-        const photoEl = document.getElementById("userPhoto");
-        if (photoEl && user.photo_url) {
-            photoEl.src = user.photo_url;
-        }
-    } else {
-        console.log("⚠️ Could not get Telegram user data. Are you testing inside Telegram?");
-    }
-
-    // Coin System
-    let coins = localStorage.getItem("coins") || 0;
-    const coinEl = document.getElementById("coinBalance");
-    if (coinEl) coinEl.innerText = coins;
-
-});
-</script>
+const user = tg.initDataUnsafe.user;
 
 
+if(user){
+
+document.getElementById("userName").innerText =
+user.first_name || "User";
+
+
+if(user.photo_url){
+
+document.getElementById("userPhoto").src =
+user.photo_url;
+
+}
+
+}
+
+// COIN SYSTEM
+
+let coins = localStorage.getItem("coins");
+
+
+if(!coins){
+
+coins = 0;
+
+}
+
+document.getElementById("coinBalance").innerText = coins;
 
 // DAILY REWARD
 
@@ -5934,18 +5939,11 @@ document.addEventListener("DOMContentLoaded", function () {
 let lastClaim =
 localStorage.getItem("lastClaim");
 
-
-
 let oneDay = 24 * 60 * 60 * 1000;
-
-
 
 function claimReward(){
 
-
 let now = Date.now();
-
-
 
 if(lastClaim && now - lastClaim < oneDay){
 
@@ -5954,17 +5952,11 @@ alert("Come back tomorrow 🎁");
 
 return;
 
-
 }
-
-
 
 coins = Number(coins) + 100;
 
-
-
 localStorage.setItem("coins", coins);
-
 
 localStorage.setItem("lastClaim", now);
 
@@ -5972,28 +5964,17 @@ localStorage.setItem("lastClaim", now);
 
 document.getElementById("coinBalance").innerText = coins;
 
-
-
 document.getElementById("claimBtn").innerText =
 "Claimed ✅";
 
-
-
 }
-
-
-
 
 // COUNTDOWN
 
-
 function rewardTimer(){
-
 
 let last =
 localStorage.getItem("lastClaim");
-
-
 
 if(!last){
 
@@ -6001,26 +5982,17 @@ return;
 
 }
 
-
-
 let remaining =
 oneDay - (Date.now()-last);
-
-
 
 let hours =
 Math.floor(remaining / 3600000);
 
-
-
 let mins =
 Math.floor((remaining % 3600000)/60000);
 
-
-
 document.getElementById("claimBtn").innerText =
 hours+"h "+mins+"m";
-
 
 }
 
