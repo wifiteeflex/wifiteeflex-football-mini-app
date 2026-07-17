@@ -5581,15 +5581,6 @@ function unlockPrediction(btn) {
     if (!card) return;
 
     const pred = card.querySelector('.prediction');
-    const buttonsContainer = card.querySelector('.buttons');
-
-    // Hide the LIVE button (green one) and all other live elements
-    const liveButton = card.querySelector('.bet');   // Green LIVE AVAILABLE
-    if (liveButton) liveButton.style.display = 'none';
-
-    // Hide any unavailable buttons
-    const unavailable = card.querySelectorAll('.watch');
-    unavailable.forEach(el => el.style.display = 'none');
 
     btn.disabled = true;
 
@@ -5615,7 +5606,7 @@ function unlockPrediction(btn) {
                 clearInterval(interval);
 
                 setTimeout(() => {
-                    // Show ONLY the prediction
+                    // === SHOW PREDICTION FIRST ===
                     pred.style.display = "flex";
                     pred.style.opacity = "0";
                     pred.style.transform = "translateY(25px) scale(0.9)";
@@ -5626,10 +5617,14 @@ function unlockPrediction(btn) {
                         pred.style.transform = "translateY(0) scale(1)";
                     });
 
-                    // Remove the SEE PREDICTION button
+                    // === THEN HIDE LIVE BUTTON AFTER PREDICTION SHOWS ===
                     setTimeout(() => {
+                        const liveButton = card.querySelector('.bet'); // Green LIVE AVAILABLE
+                        if (liveButton) liveButton.style.display = 'none';
+
+                        // Remove the SEE PREDICTION button
                         btn.remove();
-                    }, 700);
+                    }, 600);
 
                 }, 900);
             }
