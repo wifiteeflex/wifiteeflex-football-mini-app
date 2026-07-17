@@ -2215,29 +2215,27 @@ animation:floatBot 3s ease-in-out infinite;
 
 /* LABEL */
 
-.ai-label{
+.ask-ai-bot{
 
-background:rgba(0,0,0,.75);
+position:fixed;
 
-color:#fff;
+right:12px;
+bottom:200px;
 
-padding:7px 11px;
+touch-action:none;
+cursor:grab;
 
-border-radius:30px;
+z-index:999999;
 
-font-size:11px;
-font-weight:700;
+display:flex;
+align-items:center;
+gap:6px;
 
-backdrop-filter:blur(10px);
+text-decoration:none;
 
-border:
-1px solid rgba(255,255,255,.15);
-
-box-shadow:
-0 0 20px rgba(0,0,0,.25);
+animation:floatBot 3s ease-in-out infinite;
 
 }
-
 
 /* CIRCLE */
 
@@ -6323,57 +6321,6 @@ requestAnimationFrame(() => {
 });
 
 <script>
-
-<script>
-
-const bot = document.querySelector(".ask-ai-bot");
-
-let dragging = false;
-let startX, startY;
-let currentX, currentY;
-
-
-bot.addEventListener("touchstart", function(e){
-
-dragging = true;
-
-const touch = e.touches[0];
-
-startX = touch.clientX - bot.offsetLeft;
-startY = touch.clientY - bot.offsetTop;
-
-bot.style.right = "auto";
-bot.style.bottom = "auto";
-
-});
-
-
-document.addEventListener("touchmove", function(e){
-
-if(!dragging) return;
-
-e.preventDefault();
-
-const touch = e.touches[0];
-
-currentX = touch.clientX - startX;
-currentY = touch.clientY - startY;
-
-
-bot.style.left = currentX + "px";
-bot.style.top = currentY + "px";
-
-
-},{passive:false});
-
-
-document.addEventListener("touchend", function(){
-
-dragging = false;
-
-});
-
-</script>
 
 </body>
     </html>
