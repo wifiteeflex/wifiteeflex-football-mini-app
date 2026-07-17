@@ -2193,23 +2193,25 @@ overflow:hidden;
 position:fixed;
 
 right:12px;
-bottom:180px;
-
-touch-action:none;
-cursor:grab;
+bottom:160px;
 
 z-index:999999;
 
 display:flex;
+
 align-items:center;
+
 gap:6px;
 
 text-decoration:none;
 
+touch-action:none;
+
+cursor:grab;
+
 animation:floatBot 3s ease-in-out infinite;
 
 }
-
 
 /* LABEL */
 
@@ -6324,47 +6326,50 @@ requestAnimationFrame(() => {
 
 <script>
 
-const bot =
-document.querySelector(".ask-ai-bot");
+const bot = document.querySelector(".ask-ai-bot");
 
-let isDragging = false;
+let dragging = false;
+let startX, startY;
+let currentX, currentY;
 
-let offsetX, offsetY;
 
-bot.addEventListener("touchstart", e=>{
+bot.addEventListener("touchstart", function(e){
 
-isDragging = true;
+dragging = true;
 
-offsetX =
-e.touches[0].clientX -
-bot.offsetLeft;
+const touch = e.touches[0];
 
-offsetY =
-e.touches[0].clientY -
-bot.offsetTop;
-
-});
-
-document.addEventListener("touchmove", e=>{
-
-if(!isDragging) return;
-
-bot.style.left =
-(e.touches[0].clientX - offsetX)
-+ "px";
-
-bot.style.top =
-(e.touches[0].clientY - offsetY)
-+ "px";
+startX = touch.clientX - bot.offsetLeft;
+startY = touch.clientY - bot.offsetTop;
 
 bot.style.right = "auto";
 bot.style.bottom = "auto";
 
 });
 
-document.addEventListener("touchend", ()=>{
 
-isDragging = false;
+document.addEventListener("touchmove", function(e){
+
+if(!dragging) return;
+
+e.preventDefault();
+
+const touch = e.touches[0];
+
+currentX = touch.clientX - startX;
+currentY = touch.clientY - startY;
+
+
+bot.style.left = currentX + "px";
+bot.style.top = currentY + "px";
+
+
+},{passive:false});
+
+
+document.addEventListener("touchend", function(){
+
+dragging = false;
 
 });
 
