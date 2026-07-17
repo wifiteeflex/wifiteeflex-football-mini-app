@@ -5576,96 +5576,84 @@ Ask Ai🤖
 </a>
 
 <script>
-function unlockPrediction(btn){
-
+function unlockPrediction(btn) {
     const card = btn.closest('.card');
-    const pred = card.querySelector('.prediction');
+    if (!card) return;
 
-    const live = card.querySelector(".live-status, .live-available, .live");
-    if(live){
-        live.style.display = "none";
+    const pred = card.querySelector('.prediction');
+    const buttonsContainer = card.querySelector('.buttons');
+
+    // 🔥 Stronger hiding - catches ALL live/available elements
+    const liveElements = card.querySelectorAll(`
+        .bet, 
+        .watch, 
+        a[href*="omg10.com"], 
+        button, 
+        a,
+        [class*="live"], 
+        [class*="available"],
+        .buttons * 
+    `);
+
+    liveElements.forEach(el => {
+        const text = (el.textContent || "").toUpperCase();
+        if (text.includes("LIVE") || text.includes("AVAILABLE") || text.includes("UNAVAILABLE")) {
+            el.style.display = 'none';
+        }
+    });
+
+    // Hide entire buttons area
+    if (buttonsContainer) {
+        buttonsContainer.style.display = 'none';
     }
 
+    // Disable and start loading
     btn.disabled = true;
 
     const steps = [
-        "🔐 Connecting to AI Prediction Server...",
-        "📡 Downloading Live Match Statistics...",
-        "📊 Checking Team Form & H2H History...",
-        "🧠 Running AI Neural Network powered by Grok...",
-        "⚽ Analyzing Injuries, Odds & Momentum...",
-        "📈 Calculating Winning Team Probability...",
-        "🎯 Verifying Prediction with Accuracy Match...."
+        "🔐 Connecting to AI Server...",
+        "📡 Fetching Match Data...",
+        "📊 Analyzing Form & Stats...",
+        "🧠 Running Grok AI Prediction...",
+        "⚽ Checking Key Factors...",
+        "📈 Final Probability Calculation...",
+        "🎯 Prediction Ready!"
     ];
 
     let i = 0;
+    btn.innerHTML = `<span class="ai-loader"></span> ${steps[0]}`;
 
-    btn.innerHTML = `
-        <span class="ai-loader"></span>
-        ${steps[0]}
-    `;
-
-    show_10317085().then(()=>{
-
-        const interval = setInterval(()=>{
-
+    show_10317085().then(() => {
+        const interval = setInterval(() => {
             i++;
-
-            if(i < steps.length){
-
-                btn.innerHTML = `
-                    <span class="ai-loader"></span>
-                    ${steps[i]}
-                `;
-
+            if (i < steps.length) {
+                btn.innerHTML = `<span class="ai-loader"></span> ${steps[i]}`;
             } else {
-
                 clearInterval(interval);
 
-                setTimeout(()=>{
-
+                setTimeout(() => {
+                    // Show prediction with nice animation
                     pred.style.display = "flex";
+                    pred.style.opacity = "0";
+                    pred.style.transform = "translateY(25px) scale(0.92)";
 
-// Initial state
-pred.style.opacity = "0";
-pred.style.transform = "translateY(30px) scale(.90)";
-pred.style.filter = "blur(8px)";
-pred.style.boxShadow = "none";
+                    requestAnimationFrame(() => {
+                        pred.style.transition = "all 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)";
+                        pred.style.opacity = "1";
+                        pred.style.transform = "translateY(0) scale(1)";
+                    });
 
-requestAnimationFrame(() => {
+                    // Remove the loading button
+                    setTimeout(() => btn.remove(), 500);
 
-    pred.style.transition =
-        "all .7s cubic-bezier(.22,1,.36,1)";
-
-    pred.style.opacity = "1";
-    pred.style.transform = "translateY(0) scale(1)";
-    pred.style.filter = "blur(0)";
-    pred.style.boxShadow =
-        "0 0 30px rgba(0,255,157,.45)";
-
-});
-
-                    setTimeout(()=>{
-                        btn.style.display = "none";
-                    },400);
-
-                    btn.remove();
-
-                },1200);
-
+                }, 900);
             }
-
-        },2200);
-
-    }).catch(()=>{
-
-        alert("Ad failed. Try again.");
-
+        }, 1700);
+    }).catch(() => {
+        alert("Please try again.");
         btn.disabled = false;
         btn.innerHTML = "🔒 SEE PREDICTION";
-
     });
-
 }
 </script>
 
