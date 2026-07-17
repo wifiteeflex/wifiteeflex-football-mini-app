@@ -5606,7 +5606,7 @@ function unlockPrediction(btn) {
                 clearInterval(interval);
 
                 setTimeout(() => {
-                    // === SHOW PREDICTION FIRST ===
+                    // Show prediction
                     pred.style.display = "flex";
                     pred.style.opacity = "0";
                     pred.style.transform = "translateY(25px) scale(0.9)";
@@ -5617,14 +5617,22 @@ function unlockPrediction(btn) {
                         pred.style.transform = "translateY(0) scale(1)";
                     });
 
-                    // === THEN HIDE LIVE BUTTON AFTER PREDICTION SHOWS ===
-                    setTimeout(() => {
-                        const liveButton = card.querySelector('.bet'); // Green LIVE AVAILABLE
-                        if (liveButton) liveButton.style.display = 'none';
+                    // Hide "NOT AVAILABLE", "LIVE UNAVAILABLE", etc.
+                    const badButtons = card.querySelectorAll('.watch, .bet, button[disabled], a');
+                    badButtons.forEach(el => {
+                        const text = (el.textContent || el.innerText || "").toUpperCase();
+                        if (text.includes("NOT AVAILABLE") || 
+                            text.includes("LIVE") || 
+                            text.includes("UNAVAILABLE") ||
+                            text.includes("AVAILABLE")) {
+                            el.style.display = "none";
+                        }
+                    });
 
-                        // Remove the SEE PREDICTION button
+                    // Remove the clicked SEE PREDICTION button
+                    setTimeout(() => {
                         btn.remove();
-                    }, 600);
+                    }, 700);
 
                 }, 900);
             }
