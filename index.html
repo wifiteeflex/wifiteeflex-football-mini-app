@@ -2626,7 +2626,7 @@ Coventry Win
 
 <div class="simple-profile">
 
-<img id="userPhoto" src="https://i.imgur.com/6VBx3io.png">
+<img id="userPhoto" src="https://i.imgur.com/f3XrsGW.jpeg">
 
 <div>
 <h3>
@@ -6281,56 +6281,6 @@ requestAnimationFrame(() => {
 });
 
 <script>
-
-<script>
-// Run as soon as possible
-(function() {
-
-    function initTelegramUser() {
-        const tg = window.Telegram?.WebApp;
-        if (!tg) {
-            console.log("Telegram WebApp not found");
-            return;
-        }
-
-        tg.ready();
-        tg.expand();
-
-        const user = tg.initDataUnsafe?.user;
-
-        console.log("🔍 Telegram User:", user); // Debug
-
-        if (user && user.first_name) {
-            // Update name
-            const nameEl = document.getElementById("userName");
-            if (nameEl) nameEl.textContent = user.first_name;
-
-            // Update photo
-            const photoEl = document.getElementById("userPhoto");
-            if (photoEl && user.photo_url) {
-                photoEl.src = user.photo_url;
-            }
-
-            console.log("✅ User data applied successfully");
-        } else {
-            console.log("⚠️ No user data available yet");
-        }
-    }
-
-    // Try immediately and also after full load
-    initTelegramUser();
-    document.addEventListener("DOMContentLoaded", initTelegramUser);
-    window.addEventListener("load", initTelegramUser);
-
-})();
-
-// Coin System
-document.addEventListener("DOMContentLoaded", function() {
-    let coins = localStorage.getItem("coins") || 0;
-    const coinEl = document.getElementById("coinBalance");
-    if (coinEl) coinEl.textContent = coins;
-});
-</script>
 
 </body>
     </html>
