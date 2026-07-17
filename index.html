@@ -2190,7 +2190,7 @@ overflow:hidden;
 
 .ask-ai-bot{
 
-display:none;
+display:none !important;
 
 position:fixed;
 right:15px;
@@ -2200,8 +2200,6 @@ z-index:999999;
 
 align-items:center;
 gap:10px;
-
-text-decoration:none;
 
 }
 
@@ -5761,32 +5759,28 @@ document.querySelectorAll('.page').forEach(p=>{
 p.style.display='none';
 });
 
-
 document.getElementById(pageId).style.display='block';
-
 
 document.querySelectorAll('.nav-item').forEach(item=>{
 item.classList.remove('active');
 });
-
 
 if(el){
 el.classList.add('active');
 }
 
 
-// AI BOT CONTROL
+/* AI BOT */
 
-let bot = document.getElementById("askAiBot");
+const bot =
+document.getElementById("askAiBot");
 
+if(bot){
 
-if(pageId == "matchesPage"){
-
-bot.style.display="flex";
-
-}else{
-
-bot.style.display="none";
+    bot.style.display =
+    pageId === "matchesPage"
+    ? "flex"
+    : "none";
 
 }
 
@@ -6294,40 +6288,17 @@ requestAnimationFrame(() => {
 
 <script>
 
-function showPage(pageId, el){
+if(bot){
 
-document.querySelectorAll('.page').forEach(p=>{
-p.style.display='none';
-});
+    if(pageId==="matchesPage"){
 
+        bot.style.display="flex";
 
-document.getElementById(pageId).style.display='block';
+    }else{
 
+        bot.style.display="none";
 
-document.querySelectorAll('.nav-item').forEach(item=>{
-item.classList.remove('active');
-});
-
-
-if(el){
-el.classList.add('active');
-}
-
-
-// AI BOT CONTROL
-
-let bot = document.getElementById("askAiBot");
-
-
-if(pageId == "matchesPage"){
-
-bot.style.display="flex";
-
-}else{
-
-bot.style.display="none";
-
-}
+    }
 
 }
 
