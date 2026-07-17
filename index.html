@@ -6283,41 +6283,52 @@ requestAnimationFrame(() => {
 <script>
 
 <script>
+// Run as soon as possible
+(function() {
 
-// Wait until everything is loaded
+    function initTelegramUser() {
+        const tg = window.Telegram?.WebApp;
+        if (!tg) {
+            console.log("Telegram WebApp not found");
+            return;
+        }
+
+        tg.ready();
+        tg.expand();
+
+        const user = tg.initDataUnsafe?.user;
+
+        console.log("🔍 Telegram User:", user); // Debug
+
+        if (user && user.first_name) {
+            // Update name
+            const nameEl = document.getElementById("userName");
+            if (nameEl) nameEl.textContent = user.first_name;
+
+            // Update photo
+            const photoEl = document.getElementById("userPhoto");
+            if (photoEl && user.photo_url) {
+                photoEl.src = user.photo_url;
+            }
+
+            console.log("✅ User data applied successfully");
+        } else {
+            console.log("⚠️ No user data available yet");
+        }
+    }
+
+    // Try immediately and also after full load
+    initTelegramUser();
+    document.addEventListener("DOMContentLoaded", initTelegramUser);
+    window.addEventListener("load", initTelegramUser);
+
+})();
+
+// Coin System
 document.addEventListener("DOMContentLoaded", function() {
-
-    const tg = window.Telegram.WebApp;
-    tg.ready();
-    tg.expand();
-
-    const user = tg.initDataUnsafe?.user;
-
-    console.log("Telegram User Data:", user); // For debugging
-
-    if (user) {
-        // Update Name
-        const nameElement = document.getElementById("userName");
-        if (nameElement) {
-            nameElement.innerText = user.first_name || "User";
-        }
-
-        // Update Photo
-        const photoElement = document.getElementById("userPhoto");
-        if (photoElement && user.photo_url) {
-            photoElement.src = user.photo_url;
-        }
-    } else {
-        console.log("Not running inside Telegram or no user data");
-    }
-
-    // Coin balance
     let coins = localStorage.getItem("coins") || 0;
-    const coinElement = document.getElementById("coinBalance");
-    if (coinElement) {
-        coinElement.innerText = coins;
-    }
-
+    const coinEl = document.getElementById("coinBalance");
+    if (coinEl) coinEl.textContent = coins;
 });
 </script>
 
