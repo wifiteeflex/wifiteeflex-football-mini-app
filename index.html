@@ -5583,31 +5583,21 @@ function unlockPrediction(btn) {
     const pred = card.querySelector('.prediction');
     const buttonsContainer = card.querySelector('.buttons');
 
-    // 🔥 Stronger hiding - catches ALL live/available elements
-    const liveElements = card.querySelectorAll(`
-        .bet, 
-        .watch, 
-        a[href*="omg10.com"], 
-        button, 
-        a,
-        [class*="live"], 
-        [class*="available"],
-        .buttons * 
-    `);
-
-    liveElements.forEach(el => {
-        const text = (el.textContent || "").toUpperCase();
-        if (text.includes("LIVE") || text.includes("AVAILABLE") || text.includes("UNAVAILABLE")) {
-            el.style.display = 'none';
+    // === AGGRESSIVELY HIDE EVERYTHING LIVE-RELATED ===
+    const allLiveElements = card.querySelectorAll('.buttons *, .bet, .watch, a, button');
+    allLiveElements.forEach(el => {
+        const text = (el.textContent || el.innerText || "").toUpperCase();
+        if (text.includes("LIVE") || text.includes("AVAILABLE") || text.includes("UNAVAILABLE") || 
+            text.includes("NOT AVAILABLE")) {
+            el.style.display = "none";
         }
     });
 
-    // Hide entire buttons area
+    // Hide the whole buttons row
     if (buttonsContainer) {
-        buttonsContainer.style.display = 'none';
+        buttonsContainer.style.display = "none";
     }
 
-    // Disable and start loading
     btn.disabled = true;
 
     const steps = [
@@ -5632,25 +5622,27 @@ function unlockPrediction(btn) {
                 clearInterval(interval);
 
                 setTimeout(() => {
-                    // Show prediction with nice animation
+                    // Show ONLY the prediction
                     pred.style.display = "flex";
                     pred.style.opacity = "0";
-                    pred.style.transform = "translateY(25px) scale(0.92)";
+                    pred.style.transform = "translateY(30px) scale(0.9)";
 
                     requestAnimationFrame(() => {
-                        pred.style.transition = "all 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)";
+                        pred.style.transition = "all 0.8s cubic-bezier(0.22,1,0.36,1)";
                         pred.style.opacity = "1";
                         pred.style.transform = "translateY(0) scale(1)";
                     });
 
-                    // Remove the loading button
-                    setTimeout(() => btn.remove(), 500);
+                    // Completely remove the loading button
+                    setTimeout(() => {
+                        btn.remove();
+                    }, 600);
 
-                }, 900);
+                }, 800);
             }
-        }, 1700);
+        }, 1800);
     }).catch(() => {
-        alert("Please try again.");
+        alert("Try again.");
         btn.disabled = false;
         btn.innerHTML = "🔒 SEE PREDICTION";
     });
