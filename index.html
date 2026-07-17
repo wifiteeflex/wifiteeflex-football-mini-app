@@ -5757,38 +5757,38 @@ setInterval(updateCountdown,1000);
 
 function showPage(pageId, el){
 
-  document.querySelectorAll('.page').forEach(p=>{
-    p.style.display = 'none';
-  });
+document.querySelectorAll('.page').forEach(p=>{
+p.style.display='none';
+});
 
-  document.getElementById(pageId).style.display = 'block';
 
-  document.querySelectorAll('.nav-item').forEach(item=>{
-    item.classList.remove('active');
-  });
+document.getElementById(pageId).style.display='block';
 
-  if(el){
-    el.classList.add('active');
-  }
 
-  /* 👇 AI BOT */
+document.querySelectorAll('.nav-item').forEach(item=>{
+item.classList.remove('active');
+});
 
-  const aiBot =
-  document.getElementById("askAiBot");
 
-  if(aiBot){
+if(el){
+el.classList.add('active');
+}
 
-      if(pageId === "matchesPage"){
 
-          aiBot.style.display = "flex";
+// AI BOT CONTROL
 
-      }else{
+let bot = document.getElementById("askAiBot");
 
-          aiBot.style.display = "none";
 
-      }
+if(pageId == "matchesPage"){
 
-  }
+bot.style.display="flex";
+
+}else{
+
+bot.style.display="none";
+
+}
 
 }
 
