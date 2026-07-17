@@ -5581,22 +5581,15 @@ function unlockPrediction(btn) {
     if (!card) return;
 
     const pred = card.querySelector('.prediction');
-    const liveButton = card.querySelector('.bet');           // The green LIVE AVAILABLE button
     const buttonsContainer = card.querySelector('.buttons');
 
-    // Hide ONLY the LIVE AVAILABLE button
-    if (liveButton) {
-        liveButton.style.display = 'none';
-    }
+    // Hide the LIVE button (green one) and all other live elements
+    const liveButton = card.querySelector('.bet');   // Green LIVE AVAILABLE
+    if (liveButton) liveButton.style.display = 'none';
 
-    // Optional: Hide other unavailable texts if any
-    const allTexts = card.querySelectorAll('.watch, button, a');
-    allTexts.forEach(el => {
-        const text = (el.textContent || "").toUpperCase();
-        if (text.includes("UNAVAILABLE") || text.includes("NOT AVAILABLE")) {
-            el.style.display = 'none';
-        }
-    });
+    // Hide any unavailable buttons
+    const unavailable = card.querySelectorAll('.watch');
+    unavailable.forEach(el => el.style.display = 'none');
 
     btn.disabled = true;
 
@@ -5622,10 +5615,10 @@ function unlockPrediction(btn) {
                 clearInterval(interval);
 
                 setTimeout(() => {
-                    // Show the prediction
+                    // Show ONLY the prediction
                     pred.style.display = "flex";
                     pred.style.opacity = "0";
-                    pred.style.transform = "translateY(25px) scale(0.92)";
+                    pred.style.transform = "translateY(25px) scale(0.9)";
 
                     requestAnimationFrame(() => {
                         pred.style.transition = "all 0.8s cubic-bezier(0.22,1,0.36,1)";
@@ -5633,7 +5626,7 @@ function unlockPrediction(btn) {
                         pred.style.transform = "translateY(0) scale(1)";
                     });
 
-                    // Remove the SEE PREDICTION button after loading
+                    // Remove the SEE PREDICTION button
                     setTimeout(() => {
                         btn.remove();
                     }, 700);
