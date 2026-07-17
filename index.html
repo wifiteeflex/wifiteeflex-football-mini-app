@@ -5581,22 +5581,22 @@ function unlockPrediction(btn) {
     if (!card) return;
 
     const pred = card.querySelector('.prediction');
+    const liveButton = card.querySelector('.bet');           // The green LIVE AVAILABLE button
     const buttonsContainer = card.querySelector('.buttons');
 
-    // === AGGRESSIVELY HIDE EVERYTHING LIVE-RELATED ===
-    const allLiveElements = card.querySelectorAll('.buttons *, .bet, .watch, a, button');
-    allLiveElements.forEach(el => {
-        const text = (el.textContent || el.innerText || "").toUpperCase();
-        if (text.includes("LIVE") || text.includes("AVAILABLE") || text.includes("UNAVAILABLE") || 
-            text.includes("NOT AVAILABLE")) {
-            el.style.display = "none";
+    // Hide ONLY the LIVE AVAILABLE button
+    if (liveButton) {
+        liveButton.style.display = 'none';
+    }
+
+    // Optional: Hide other unavailable texts if any
+    const allTexts = card.querySelectorAll('.watch, button, a');
+    allTexts.forEach(el => {
+        const text = (el.textContent || "").toUpperCase();
+        if (text.includes("UNAVAILABLE") || text.includes("NOT AVAILABLE")) {
+            el.style.display = 'none';
         }
     });
-
-    // Hide the whole buttons row
-    if (buttonsContainer) {
-        buttonsContainer.style.display = "none";
-    }
 
     btn.disabled = true;
 
@@ -5622,10 +5622,10 @@ function unlockPrediction(btn) {
                 clearInterval(interval);
 
                 setTimeout(() => {
-                    // Show ONLY the prediction
+                    // Show the prediction
                     pred.style.display = "flex";
                     pred.style.opacity = "0";
-                    pred.style.transform = "translateY(30px) scale(0.9)";
+                    pred.style.transform = "translateY(25px) scale(0.92)";
 
                     requestAnimationFrame(() => {
                         pred.style.transition = "all 0.8s cubic-bezier(0.22,1,0.36,1)";
@@ -5633,16 +5633,16 @@ function unlockPrediction(btn) {
                         pred.style.transform = "translateY(0) scale(1)";
                     });
 
-                    // Completely remove the loading button
+                    // Remove the SEE PREDICTION button after loading
                     setTimeout(() => {
                         btn.remove();
-                    }, 600);
+                    }, 700);
 
-                }, 800);
+                }, 900);
             }
-        }, 1800);
+        }, 1750);
     }).catch(() => {
-        alert("Try again.");
+        alert("Please try again.");
         btn.disabled = false;
         btn.innerHTML = "🔒 SEE PREDICTION";
     });
