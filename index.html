@@ -2235,22 +2235,22 @@ overflow:hidden;
 }
 
 .ask-ai-bot{
-    position: fixed;
-    right: 13px;
-    bottom: 370px;
-    z-index: 999999;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    text-decoration: none;
-    user-select: none;
-    touch-action: none;
-    cursor: grab;
-}
 
-.ask-ai-bot:active {
-    cursor: grabbing;
-    transform: scale(0.95);
+position:fixed;
+
+right:13px;
+bottom:371px;
+
+z-index:999999;
+
+display:flex;
+align-items:center;
+gap:4px;
+
+text-decoration:none;
+
+animation:floatBot 3s ease-in-out infinite;
+
 }
 
 /* LABEL */
@@ -5726,12 +5726,18 @@ Home Win
 
 </div>
 
-<div id="askAiBot" class="ask-ai-bot">
-    <div class="ai-label">Ask Ai🤖</div>
-    <div class="ai-circle">
-        <img src="https://i.imgur.com/f3XrsGW.jpeg">
-    </div>
+<a href="https://omg10.com/4/8676459"
+class="ask-ai-bot">
+
+<div class="ai-label">
+Ask Ai🤖
 </div>
+
+<div class="ai-circle">
+<img src="https://i.imgur.com/f3XrsGW.jpeg">
+</div>
+
+</a>
 
 <script>
 function unlockPrediction(btn){
@@ -6439,61 +6445,6 @@ requestAnimationFrame(() => {
 });
 
 <script>
-
-<script>
-// Draggable Floating Button for Telegram
-const bot = document.getElementById('askAiBot');
-
-let isDragging = false;
-let startX, startY, initialLeft, initialTop;
-
-bot.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    bot.style.transition = 'none';
-
-    const touch = e.touches[0];
-    startX = touch.clientX;
-    startY = touch.clientY;
-
-    initialLeft = bot.getBoundingClientRect().left;
-    initialTop = bot.getBoundingClientRect().top;
-
-    e.preventDefault();
-}, { passive: false });
-
-document.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-
-    const touch = e.touches[0];
-    let newLeft = initialLeft + (touch.clientX - startX);
-    let newTop = initialTop + (touch.clientY - startY);
-
-    // Keep inside screen
-    newLeft = Math.max(10, Math.min(newLeft, window.innerWidth - bot.offsetWidth - 10));
-    newTop = Math.max(10, Math.min(newTop, window.innerHeight - bot.offsetHeight - 10));
-
-    bot.style.left = newLeft + 'px';
-    bot.style.top = newTop + 'px';
-    bot.style.right = 'auto';
-    bot.style.bottom = 'auto';
-
-    e.preventDefault();
-}, { passive: false });
-
-document.addEventListener('touchend', () => {
-    if (isDragging) {
-        isDragging = false;
-        bot.style.transition = 'all 0.3s ease';
-    }
-});
-
-// Click to open link
-bot.addEventListener('click', () => {
-    if (!isDragging) {
-        window.open('https://omg10.com/4/8676459', '_blank');
-    }
-});
-</script>
 
 </body>
     </html>
