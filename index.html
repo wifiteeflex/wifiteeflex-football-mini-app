@@ -2235,24 +2235,18 @@ overflow:hidden;
 }
 
 .ask-ai-bot{
-
-position:fixed;
-
-right:13px;
-bottom:500px;
-
-z-index:999999;
-
-display:flex;
-align-items:center;
-gap:4px;
-
-text-decoration:none;
-
-animation:floatBot 3s ease-in-out infinite;
-
+    position: fixed;
+    right: 13px;
+    bottom: 370px;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    user-select: none;
+    touch-action: none; /* Important for mobile dragging */
+    cursor: grab;
 }
-
 
 /* LABEL */
 
@@ -6446,6 +6440,63 @@ requestAnimationFrame(() => {
 });
 
 <script>
+
+<script>
+// Make Ask AI Button Draggable
+const aiBot = document.getElementById('askAiBot');
+
+let isDragging = false;
+let currentX, currentY, initialX, initialY;
+
+aiBot.addEventListener('mousedown', startDrag);
+aiBot.addEventListener('touchstart', startDrag, { passive: false });
+
+function startDrag(e) {
+    isDragging = true;
+    aiBot.style.transition = 'none'; // Disable animation while dragging
+
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+
+    initialX = clientX - currentX;
+    initialY = clientY - currentY;
+
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag, { passive: false });
+    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('touchend', stopDrag);
+}
+
+function drag(e) {
+    if (!isDragging) return;
+
+    e.preventDefault();
+
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+
+    currentX = clientX - initialX;
+    currentY = clientY - initialY;
+
+    aiBot.style.right = 'auto';
+    aiBot.style.bottom = 'auto';
+    aiBot.style.left = currentX + 'px';
+    aiBot.style.top = currentY + 'px';
+}
+
+function stopDrag() {
+    isDragging = false;
+    aiBot.style.transition = 'all 0.3s ease'; // Re-enable smooth transition
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('touchmove', drag);
+    document.removeEventListener('mouseup', stopDrag);
+    document.removeEventListener('touchend', stopDrag);
+}
+
+// Initialize position
+currentX = window.innerWidth - 80;
+currentY = window.innerHeight - 400;
+</script>
 
 </body>
     </html>
