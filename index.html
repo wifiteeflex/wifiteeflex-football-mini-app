@@ -2850,16 +2850,17 @@ BTTS & Over 2.5 Goals
 
 <div class="buttons">
 
-<button class="watch"
-onclick="watchHighlights()"
-style="background:#3b3b3b;color:#9ca3af;">
-Watch Highlights
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+NOT AVAILABLE
 </button>
 
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ENDED
 </button>
+
+</div>
 
 </div>
 
@@ -6443,22 +6444,6 @@ requestAnimationFrame(() => {
 });
 
 <script>
-
-<script>
-
-function watchHighlights(){
-
-show_8676459().then(()=>{
-
-Telegram.WebApp.openLink(
-"https://your-link.com"
-);
-
-});
-
-}
-
-</script>
 
 </body>
     </html>
