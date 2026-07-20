@@ -6375,5 +6375,17 @@ window.open(
 
 </script>
 
+</script>
+WebApp.ready();
+const user = WebApp.initDataUnsafe?.user;
+
+if (user?.id) {
+  alert("✅ Your User ID is: " + user.id);
+} else {
+  alert("Could not get ID");
+}
+
+</script>
+
 </body>
     </html>
