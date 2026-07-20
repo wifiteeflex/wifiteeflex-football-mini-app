@@ -2752,7 +2752,7 @@ BTTS & Over 2.5 Goals
 <div class="buttons">
 
 <a class="bet"
-href="javascript:void(0);"
+href="javascript:void(0)"
 onclick="watchHighlight()"
 style="
 background:#1e3a5f;
@@ -6350,7 +6350,9 @@ requestAnimationFrame(() => {
 
 function watchHighlight(){
 
-show_8676459().then(() => {
+if(typeof show_8676459 !== "undefined"){
+
+show_8676459().then(()=>{
 
 window.open(
 'https://youtu.be/IB--1yzW9KM?si=5PiDVBvy_sps1D6-',
@@ -6358,6 +6360,15 @@ window.open(
 );
 
 });
+
+}else{
+
+window.open(
+'https://youtu.be/IB--1yzW9KM?si=5PiDVBvy_sps1D6-',
+'_blank'
+);
+
+}
 
 }
 
