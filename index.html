@@ -2234,9 +2234,37 @@ overflow:hidden;
 
 }
 
-.ai-popup{
+.ai-banner{
 
-position:fixed;
+position:relative;
+
+width:100%;
+
+height:260px;
+
+border-radius:28px;
+
+overflow:hidden;
+
+margin-top:15px;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.45);
+
+}
+
+.ai-banner img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+}
+
+.ai-overlay{
+
+position:absolute;
 
 top:0;
 left:0;
@@ -2245,79 +2273,46 @@ width:100%;
 height:100%;
 
 background:
-rgba(0,0,0,.65);
-
-display:none;
-
-justify-content:center;
-align-items:center;
-
-z-index:999999;
-
-}
-
-.popup-box{
-
-width:90%;
-max-width:360px;
-
-background:#fff;
-
-border-radius:28px;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-.popup-box img{
-
-width:220px;
-
-border-radius:20px;
-
-}
-
-.popup-buttons{
+linear-gradient(
+to top,
+rgba(0,0,0,.85),
+rgba(0,0,0,.25)
+);
 
 display:flex;
 
-gap:10px;
+flex-direction:column;
 
-margin-top:20px;
+justify-content:flex-end;
+
+padding:25px;
 
 }
 
-.chat-btn{
-
-flex:1;
-
-background:#0066ff;
-
-padding:14px;
-
-border-radius:16px;
+.ai-overlay h1{
 
 color:#fff;
 
-font-weight:700;
+font-size:30px;
 
-text-decoration:none;
+font-weight:800;
+
+margin:0;
+
+text-shadow:
+0 5px 15px rgba(0,0,0,.5);
 
 }
 
-.popup-buttons button{
+.ai-overlay p{
 
-flex:1;
+margin-top:8px;
 
-border:none;
+color:#00ff9d;
 
-background:#e5e7eb;
+font-size:15px;
 
-border-radius:16px;
-
-font-weight:700;
+font-weight:600;
 
 }
 
@@ -2328,40 +2323,6 @@ font-weight:700;
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
 </body>
-
-<div id="aiPopup" class="ai-popup">
-
-<div class="popup-box">
-
-<img src="https://i.imgur.com/Pk6Fesz.jpeg">
-
-<h3>AI Football Assistant 🤖</h3>
-
-<p>
-Hi, let us know if you have any football questions.
-Get live predictions and AI match analysis.
-</p>
-
-<div class="popup-buttons">
-
-<a href="https://omg10.com/4/8729428"
-class="chat-btn">
-
-Chat now
-
-</a>
-
-<button onclick="closePopup()">
-
-Just browsing
-
-</button>
-
-</div>
-
-</div>
-
-</div>
 
 <div class="bottom-nav">
 
@@ -2561,10 +2522,17 @@ POWERED BY GROK ENGINE
 
 <div id="aiTipsPage" class="page">
 
-<div class="ai-header">
+<div class="ai-banner">
 
-<h1>AI Football Assistant</h1>
-<p>powered by Grok Engine</p>
+<img src="https://i.imgur.com/3MaQMMS.jpeg">
+
+<div class="ai-overlay">
+
+<h1>🤖 AI Football Assistant</h1>
+
+<p>
+Powered by Grok Engine
+</p>
 
 </div>
 
@@ -2723,7 +2691,7 @@ Smart football analysis powered by AI
 </p>
 
 <button onclick="showPage('matchesPage', this)">
-   📊 View AI Predictions
+   🤖 View Predictions
 </button>
 
 </div>
