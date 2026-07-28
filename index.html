@@ -2293,18 +2293,21 @@ font-weight:600;
 
 }
 
-.grok-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    padding:4px 12px;
-    border-radius:30px;
-    background:linear-gradient(90deg,#0d1117,#161b22);
-    border:1px solid rgba(0,255,157,.25);
-    color:#00ff9d;
-    font-size:11px;
+.grok-watermark{
+    position:absolute;
+    top:8px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:10px;
     font-weight:700;
-    box-shadow:0 0 12px rgba(0,255,157,.15);
+    color:rgba(0,0,0,.25);   /* Black with transparency */
+    text-transform:uppercase;
+    letter-spacing:1px;
+    background:none;
+    border:none;
+    box-shadow:none;
+    pointer-events:none;
+    user-select:none;
 }
 
 </style>
@@ -2903,11 +2906,8 @@ LEAGUE
 Arsenal
 </div>
 
-</div>
-
-<div class="grok-badge">
-    <span>🤖</span>
-    <span>Powered by Grok AI</span>
+<div class="grok-watermark">
+    POWERED BY GROK
 </div>
 
 <div class="center">
