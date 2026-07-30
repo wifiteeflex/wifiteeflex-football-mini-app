@@ -2310,53 +2310,6 @@ font-weight:600;
     user-select:none;
 }
 
-.country-tabs{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    padding:10px;
-}
-
-.country-btn{
-    background:#111827;
-    color:white;
-    border:none;
-    padding:10px 16px;
-    border-radius:20px;
-    font-weight:700;
-    white-space:nowrap;
-}
-
-
-.country-btn.active{
-    background:#00ff9d;
-    color:#000;
-}
-
-
-.league-menu{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    padding:10px;
-}
-
-
-.league-menu button{
-    background:#1f2937;
-    color:white;
-    border:none;
-    padding:10px 14px;
-    border-radius:12px;
-    font-size:14px;
-}
-
-
-.league-menu button:hover{
-    background:#00ff9d;
-    color:black;
-}
-
 </style>
 </head>
         
@@ -6842,96 +6795,8 @@ target="_blank">
 </div>
 
 <!-- FOOTER TEXT -->
-<div class="country-tabs">
-
-<button class="country-btn active" onclick="openCountry('england', this)">
-🏴 England
-</button>
-
-<button class="country-btn" onclick="openCountry('spain', this)">
-🇪🇸 Spain
-</button>
-
-<button class="country-btn" onclick="openCountry('italy', this)">
-🇮🇹 Italy
-</button>
-
-<button class="country-btn" onclick="openCountry('germany', this)">
-🇩🇪 Germany
-</button>
-
-</div>
-
-
-<div class="league-menu" id="england">
-
-<button onclick="showLeague('premier')">
-Premier League
-</button>
-
-<button onclick="showLeague('eflcup')">
-EFL Cup
-</button>
-
-<button onclick="showLeague('championship')">
-Championship
-</button>
-
-<button onclick="showLeague('league1')">
-League One
-</button>
-
-<button onclick="showLeague('league2')">
-League Two
-</button>
-
-<button onclick="showLeague('national')">
-National League
-</button>
-
-</div>
-
-
-<div class="league-menu" id="spain" style="display:none;">
-
-<button onclick="showLeague('laliga')">
-La Liga
-</button>
-
-<button onclick="showLeague('laliga2')">
-La Liga 2
-</button>
-
-<button onclick="showLeague('copa')">
-Copa del Rey
-</button>
-
-</div>
-
-
-<div class="league-menu" id="italy" style="display:none;">
-
-<button onclick="showLeague('seriea')">
-Serie A
-</button>
-
-<button onclick="showLeague('serieb')">
-Serie B
-</button>
-
-</div>
-
-
-<div class="league-menu" id="germany" style="display:none;">
-
-<button onclick="showLeague('bundesliga')">
-Bundesliga
-</button>
-
-<button onclick="showLeague('bundesliga2')">
-Bundesliga 2
-</button>
-
+<div class="footer-text">
+Daily AI-powered football predictions, live scores, betting predictions & winning tips.
 </div>
 
 <!-- 🔥 MONETAG BANNER -->
@@ -7529,43 +7394,6 @@ function showLeague(league, btn){
             card.style.display = "block";
         }else{
             card.style.display = "none";
-        }
-
-    });
-
-}
-</script>
-
-<script>
-function openCountry(country, btn){
-
-    document.querySelectorAll(".league-menu").forEach(menu=>{
-        menu.style.display="none";
-    });
-
-
-    document.getElementById(country).style.display="flex";
-
-
-    document.querySelectorAll(".country-btn").forEach(button=>{
-        button.classList.remove("active");
-    });
-
-
-    btn.classList.add("active");
-
-}
-
-
-
-function showLeague(league){
-
-    document.querySelectorAll(".card").forEach(card=>{
-
-        if(card.classList.contains(league)){
-            card.style.display="block";
-        }else{
-            card.style.display="none";
         }
 
     });
