@@ -7399,6 +7399,9 @@ requestAnimationFrame(() => {
 <script>
 function showLeague(league, btn){
 
+    console.log("League clicked:", league);
+
+    // Active tab
     document.querySelectorAll(".tab").forEach(tab=>{
         tab.classList.remove("active");
     });
@@ -7407,16 +7410,15 @@ function showLeague(league, btn){
         btn.classList.add("active");
     }
 
-    document.querySelectorAll(".league-section").forEach(section=>{
+    // Show/Hide cards
+    document.querySelectorAll(".card").forEach(card=>{
 
-        if(league === "all" || section.classList.contains(league)){
-
-            section.style.display = "block";
-
+        if(league === "all"){
+            card.style.display = "block";
+        }else if(card.classList.contains(league)){
+            card.style.display = "block";
         }else{
-
-            section.style.display = "none";
-
+            card.style.display = "none";
         }
 
     });
