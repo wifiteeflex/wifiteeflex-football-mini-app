@@ -2408,9 +2408,9 @@ POWERED BY GROK ENGINE
 🇮🇹 Serie B
 </a>
 
-<a class="tab" href="https://omg10.com/4/7461956">
-🇪🇸 LaLiga
-</a>
+<button class="tab" onclick="showLeague('laliga', this)">
+🇪🇸 La Liga
+</button>
 
 <a class="tab" href="https://omg10.com/4/7461956">
 🇫🇷 Ligue 1
@@ -6568,7 +6568,7 @@ LEAGUE
 
 <!-- CARD 31 -->
 
-<div class="card">
+<div class="card laliga">
 
 <div class="card-top">
 
@@ -7374,6 +7374,33 @@ requestAnimationFrame(() => {
 
 });
 
+<script>
+
+<script>
+function showLeague(league, btn){
+
+    // Active button
+    document.querySelectorAll(".tab").forEach(tab=>{
+        tab.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+
+    // Show/Hide cards
+    document.querySelectorAll(".card").forEach(card=>{
+
+        if(league === "all"){
+            card.style.display = "block";
+        }else{
+            card.style.display =
+                card.classList.contains(league)
+                ? "block"
+                : "none";
+        }
+
+    });
+
+}
 <script>
 
 </body>
