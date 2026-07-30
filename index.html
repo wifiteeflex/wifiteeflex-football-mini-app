@@ -2412,6 +2412,10 @@ Click Me
 🇪🇸 La Liga
 </button>
 
+<button onclick="showLeague('laliga', this)">
+TEST LALIGA
+</button>
+
 <a class="tab" href="https://omg10.com/4/7461956">
 🇫🇷 Ligue 1
 </a>
@@ -7368,34 +7372,33 @@ requestAnimationFrame(() => {
 <script>
 
 <script>
-function showLeague(league, btn) {
+function showLeague(league, btn){
 
-    // Active button
-    document.querySelectorAll(".tab").forEach(tab => {
+    console.log("League clicked:", league);
+
+    // Active tab
+    document.querySelectorAll(".tab").forEach(tab=>{
         tab.classList.remove("active");
     });
 
-    btn.classList.add("active");
+    if(btn){
+        btn.classList.add("active");
+    }
 
-    // Show cards
-    document.querySelectorAll(".card").forEach(card => {
+    // Show/Hide cards
+    document.querySelectorAll(".card").forEach(card=>{
 
-        if (league === "all") {
+        if(league === "all"){
             card.style.display = "block";
-        } else {
-            card.style.display =
-                card.classList.contains(league)
-                ? "block"
-                : "none";
+        }else if(card.classList.contains(league)){
+            card.style.display = "block";
+        }else{
+            card.style.display = "none";
         }
 
     });
 
 }
-</script>
-
-<script>
-alert("JavaScript is working!");
 </script>
 
 </body>
