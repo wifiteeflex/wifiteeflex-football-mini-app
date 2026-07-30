@@ -7377,31 +7377,8 @@ requestAnimationFrame(() => {
 <script>
 
 <script>
-function showLeague(league, btn){
-
-    // Active button
-    document.querySelectorAll(".tab").forEach(tab=>{
-        tab.classList.remove("active");
-    });
-
-    btn.classList.add("active");
-
-    // Show/Hide cards
-    document.querySelectorAll(".card").forEach(card=>{
-
-        if(league === "all"){
-            card.style.display = "block";
-        }else{
-            card.style.display =
-                card.classList.contains(league)
-                ? "block"
-                : "none";
-        }
-
-    });
-
-}
-<script>
+alert("JavaScript is working!");
+</script>
 
 </body>
     </html>
