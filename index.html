@@ -2435,134 +2435,64 @@ POWERED BY GROK ENGINE
 
 <div class="tabs">
 
-<a class="tab active" href="https://omg10.com/4/7461956">
+<button class="tab active" onclick="showLeague('all', this)">
 ⚽ All Matches
+</button>
+
+<button class="tab" onclick="showLeague('premier', this)">
+🏆 Premier League
+</button>
+
+<button class="tab" onclick="showLeague('bundesliga', this)">
+🇩🇪 Bundesliga
+</button>
+
+<button class="tab" onclick="showLeague('seriea', this)">
+🇮🇹 Serie A
+</button>
+
+<button class="tab" onclick="showLeague('seriea', this)">
+🇪🇸 LaLiga
+</button>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇮🇹 Serie B
 </a>
 
-<button class="country-btn active" onclick="openCountry('england', this)">
+<a class="tab" href="https://omg10.com/4/7461956">
+🇪🇸 LaLiga
+</a>
 
-🏴 England
+<a class="tab" href="https://omg10.com/4/7461956">
+🇫🇷 Ligue 1
+</a>
 
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🇵🇹 Liga Portugal
+</a>
 
-<button class="country-btn" onclick="openCountry('spain', this)">
+<a class="tab" href="https://omg10.com/4/7461956">
+🇳🇱 Eredivisie
+</a>
 
-🇪🇸 Spain
+<a class="tab" href="https://omg10.com/4/7461956">
+🇧🇪 Belgian Pro League
+</a>
 
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🇹🇷 Süper Lig
+</a>
 
-<button class="country-btn" onclick="openCountry('italy', this)">
-
-🇮🇹 Italy
-
-</button>
-
-<button class="country-btn" onclick="openCountry('germany', this)">
-
-🇩🇪 Germany
-
-</button>
-
-</div>
-
-<div class="league-menu" id="england">
-
-<button onclick="showLeague('premier')">
-
-Premier League
-
-</button>
-
-<button onclick="showLeague('eflcup')">
-
-EFL Cup
-
-</button>
-
-<button onclick="showLeague('championship')">
-
-Championship
-
-</button>
-
-<button onclick="showLeague('league1')">
-
-League One
-
-</button>
-
-<button onclick="showLeague('league2')">
-
-League Two
-
-</button>
-
-<button onclick="showLeague('national')">
-
-National League
-
-</button>
-
-</div>
-
-<div class="league-menu" id="spain" style="display:none;">
-
-<button onclick="showLeague('laliga')">
-
-La Liga
-
-</button>
-
-<button onclick="showLeague('laliga2')">
-
-La Liga 2
-
-</button>
-
-<button onclick="showLeague('copa')">
-
-Copa del Rey
-
-</button>
-
-</div>
-
-<div class="league-menu" id="italy" style="display:none;">
-
-<button onclick="showLeague('seriea')">
-
-Serie A
-
-</button>
-
-<button onclick="showLeague('serieb')">
-
-Serie B
-
-</button>
-
-</div>
-
-<div class="league-menu" id="germany" style="display:none;">
-
-<button onclick="showLeague('bundesliga')">
-
-Bundesliga
-
-</button>
-
-<button onclick="showLeague('bundesliga2')">
-
-Bundesliga 2
-
-</button>
-
-</div>
-
-</div>
+<a class="tab" href="https://omg10.com/4/7461956">
+🏴 Championship
+</a>
 
 <a class="tab" href="https://omg10.com/4/7461956">
 🇦🇹 Austrian Bundesliga
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇨🇭 Swiss Super League
 </a>
 
 <a class="tab" href="https://omg10.com/4/7461956">
@@ -2571,6 +2501,10 @@ Bundesliga 2
 
 <a class="tab" href="https://omg10.com/4/7461956">
 🇩🇰 Danish Superliga
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇸🇪 Swedish Allsvenskan
 </a>
 
 <a class="tab" href="https://omg10.com/4/7461956">
@@ -6908,8 +6842,96 @@ target="_blank">
 </div>
 
 <!-- FOOTER TEXT -->
-<div class="footer-text">
-Daily AI-powered football predictions, live scores, betting predictions & winning tips.
+<div class="country-tabs">
+
+<button class="country-btn active" onclick="openCountry('england', this)">
+🏴 England
+</button>
+
+<button class="country-btn" onclick="openCountry('spain', this)">
+🇪🇸 Spain
+</button>
+
+<button class="country-btn" onclick="openCountry('italy', this)">
+🇮🇹 Italy
+</button>
+
+<button class="country-btn" onclick="openCountry('germany', this)">
+🇩🇪 Germany
+</button>
+
+</div>
+
+
+<div class="league-menu" id="england">
+
+<button onclick="showLeague('premier')">
+Premier League
+</button>
+
+<button onclick="showLeague('eflcup')">
+EFL Cup
+</button>
+
+<button onclick="showLeague('championship')">
+Championship
+</button>
+
+<button onclick="showLeague('league1')">
+League One
+</button>
+
+<button onclick="showLeague('league2')">
+League Two
+</button>
+
+<button onclick="showLeague('national')">
+National League
+</button>
+
+</div>
+
+
+<div class="league-menu" id="spain" style="display:none;">
+
+<button onclick="showLeague('laliga')">
+La Liga
+</button>
+
+<button onclick="showLeague('laliga2')">
+La Liga 2
+</button>
+
+<button onclick="showLeague('copa')">
+Copa del Rey
+</button>
+
+</div>
+
+
+<div class="league-menu" id="italy" style="display:none;">
+
+<button onclick="showLeague('seriea')">
+Serie A
+</button>
+
+<button onclick="showLeague('serieb')">
+Serie B
+</button>
+
+</div>
+
+
+<div class="league-menu" id="germany" style="display:none;">
+
+<button onclick="showLeague('bundesliga')">
+Bundesliga
+</button>
+
+<button onclick="showLeague('bundesliga2')">
+Bundesliga 2
+</button>
+
 </div>
 
 <!-- 🔥 MONETAG BANNER -->
