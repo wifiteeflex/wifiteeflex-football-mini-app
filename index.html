@@ -2392,9 +2392,9 @@ POWERED BY GROK ENGINE
 ⚽ All Matches
 </a>
 
-<a class="tab" href="https://omg10.com/4/7461956">
+<button class="tab" onclick="showLeague('premier', this)">
 🇺🇸 Premier League
-</a>
+</button>
 
 <a class="tab" href="https://omg10.com/4/7461956">
 🇩🇪 Bundesliga
@@ -7377,8 +7377,31 @@ requestAnimationFrame(() => {
 <script>
 
 <script>
-alert("JavaScript is working!");
+function showLeague(league, btn) {
+
+    // Active button
+    document.querySelectorAll(".tab").forEach(tab => {
+        tab.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+
+    // Show cards
+    document.querySelectorAll(".card").forEach(card => {
+
+        if (league === "all") {
+            card.style.display = "block";
+        } else {
+            card.style.display =
+                card.classList.contains(league)
+                ? "block"
+                : "none";
+        }
+
+    });
+
+}
 </script>
 
 </body>
-    </html>
+</html>
