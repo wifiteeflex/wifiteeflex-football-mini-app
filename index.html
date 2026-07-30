@@ -7363,5 +7363,35 @@ requestAnimationFrame(() => {
 });
 </script>
 
+<script>
+function showLeague(league, btn){
+
+    console.log("League clicked:", league);
+
+    // Active tab
+    document.querySelectorAll(".tab").forEach(tab=>{
+        tab.classList.remove("active");
+    });
+
+    if(btn){
+        btn.classList.add("active");
+    }
+
+    // Show/Hide cards
+    document.querySelectorAll(".card").forEach(card=>{
+
+        if(league === "all"){
+            card.style.display = "block";
+        }else if(card.classList.contains(league)){
+            card.style.display = "block";
+        }else{
+            card.style.display = "none";
+        }
+
+    });
+
+}
+</script>
+
 </body>
 </html>
