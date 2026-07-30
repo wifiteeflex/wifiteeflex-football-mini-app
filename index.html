@@ -7399,25 +7399,23 @@ requestAnimationFrame(() => {
 <script>
 function showLeague(league, btn){
 
-    // Highlight active league button
-    document.querySelectorAll(".league-menu button").forEach(button=>{
-        button.classList.remove("active");
+    document.querySelectorAll(".tab").forEach(tab=>{
+        tab.classList.remove("active");
     });
 
     if(btn){
         btn.classList.add("active");
     }
 
-    // Show or hide match cards
-    document.querySelectorAll(".card").forEach(card=>{
+    document.querySelectorAll(".league-section").forEach(section=>{
 
-        if(league === "all" || card.classList.contains(league)){
+        if(league === "all" || section.classList.contains(league)){
 
-            card.style.display = "block";
+            section.style.display = "block";
 
         }else{
 
-            card.style.display = "none";
+            section.style.display = "none";
 
         }
 
