@@ -2388,29 +2388,33 @@ POWERED BY GROK ENGINE
 
 <div class="tabs">
 
-<button class="tab active" onclick="showLeague('all', this)">
+<a class="tab active" href="https://omg10.com/4/7461956">
 ⚽ All Matches
-</button>
+</a>
 
-<button class="tab" onclick="showLeague('premier', this)">
-🏆 Premier League
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🇺🇸 Premier League
+</a>
 
-<button class="tab" onclick="showLeague('bundesliga', this)">
+<a class="tab" href="https://omg10.com/4/7461956">
 🇩🇪 Bundesliga
-</button>
+</a>
 
-<button class="tab" onclick="showLeague('seriea', this)">
+<a class="tab" href="https://omg10.com/4/7461956">
 🇮🇹 Serie A
-</button>
+</a>
 
-<button class="tab" onclick="showLeague('seriea', this)">
-🇪🇸 La liga
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🇮🇹 Serie B
+</a>
 
-<button class="tab" onclick="showLeague('seriea', this)">
-🇮🇹 league 1
-</button>
+<a class="tab" href="https://omg10.com/4/7461956">
+🇪🇸 LaLiga
+</a>
+
+<a class="tab" href="https://omg10.com/4/7461956">
+🇫🇷 Ligue 1
+</a>
 
 <a class="tab" href="https://omg10.com/4/7461956">
 🇵🇹 Liga Portugal
@@ -5730,10 +5734,6 @@ LEAGUE 1
 
 </div>
 
-</div>
-
-</div>
-
 <!-- CARD 26 -->
 
 <div class="card league 1">
@@ -5833,8 +5833,6 @@ Home Win
 </div>
 
 </div>
-
-<div class="league-section laliga">
         
 <div class="worldcup-header">
 
@@ -5852,10 +5850,6 @@ LEAGUE
 </div>
 
 <div class="wc-line"></div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -5958,8 +5952,6 @@ Home or away (12)
 </div>
 
 </div>
-
-<div class="league-section laliga">
         
 <div class="worldcup-header">
 
@@ -5977,10 +5969,6 @@ LEAGUE
 </div>
 
 <div class="wc-line"></div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -6082,8 +6070,6 @@ LIVE UNAVAILABLE
 </div>
 
 </div>
-
-<div class="league-section laliga">
         
 <div class="worldcup-header">
 
@@ -6101,10 +6087,6 @@ LEAGUE
 </div>
 
 <div class="wc-line"></div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -6208,8 +6190,6 @@ LIVE UNAVAILABLE
 </div>
 
 </div>
-
-<div class="league-section laliga">
         
 <div class="worldcup-header">
 
@@ -6227,10 +6207,6 @@ LEAGUE
 </div>
 
 <div class="wc-line"></div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -6333,8 +6309,6 @@ Over 1.5 Goals
 </div>
 
 </div>
-
-<div class="league-section laliga">
         
 <div class="worldcup-header">
 
@@ -6352,10 +6326,6 @@ LEAGUE
 </div>
 
 <div class="wc-line"></div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -6457,8 +6427,6 @@ LIVE UNAVAILABLE
 </div>
 
 </div>
-
-<div class="league-section laliga">
         
 <div class="worldcup-header">
 
@@ -6476,10 +6444,6 @@ LEAGUE
 </div>
 
 <div class="wc-line"></div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -6582,8 +6546,6 @@ Home win
 </div>
 
 </div>
-
-<div class="league-section laliga">
         
 <div class="worldcup-header">
 
@@ -6601,10 +6563,6 @@ LEAGUE
 </div>
 
 <div class="wc-line"></div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -7407,36 +7365,6 @@ requestAnimationFrame(() => {
     });
 
 });
-</script>
-
-<script>
-function showLeague(league, btn){
-
-    console.log("League clicked:", league);
-
-    // Active tab
-    document.querySelectorAll(".tab").forEach(tab=>{
-        tab.classList.remove("active");
-    });
-
-    if(btn){
-        btn.classList.add("active");
-    }
-
-    // Show/Hide cards
-    document.querySelectorAll(".card").forEach(card=>{
-
-        if(league === "all"){
-            card.style.display = "block";
-        }else if(card.classList.contains(league)){
-            card.style.display = "block";
-        }else{
-            card.style.display = "none";
-        }
-
-    });
-
-}
 </script>
 
 </body>
