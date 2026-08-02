@@ -7233,65 +7233,53 @@ requestAnimationFrame(() => {
 });
 </script>
 
-<script>
-let matchMinute = 0;
-let matchSecond = 0;
-let addedTime = 5; // Extra time
+</script>
+const MATCH_LENGTH = 95; // 90 + 5 stoppage
 
-const liveClock = document.getElementById("liveClock");
+let matchStart = localStorage.getItem("matchStartTime");
 
-function updateLiveClock() {
+if(!matchStart){
+    matchStart = Date.now();
+    localStorage.setItem("matchStartTime", matchStart);
+}
 
-    // First Half
-    if (matchMinute < 45) {
+matchStart = Number(matchStart);
 
-        liveClock.innerHTML =
-            `🟢 LIVE ${String(matchMinute).padStart(2,"0")}:${String(matchSecond).padStart(2,"0")}`;
+function updateLiveMinute(){
 
-    }
+    const minuteBox = document.querySelector(".minute");
 
-    // Halftime
-    else if (matchMinute === 45) {
+    if(!minuteBox) return;
 
-        liveClock.innerHTML = "🟡 HALF TIME";
+    let elapsedMinutes = Math.floor((Date.now() - matchStart) / 60000);
 
-    }
+    if(elapsedMinutes < 45){
 
-    // Second Half
-    else if (matchMinute > 45 && matchMinute <= 90) {
+        minuteBox.innerHTML = `🔴 LIVE ${elapsedMinutes + 1}'`;
 
-        liveClock.innerHTML =
-            `🟢 LIVE ${String(matchMinute).padStart(2,"0")}:${String(matchSecond).padStart(2,"0")}`;
+    }else if(elapsedMinutes === 45){
 
-    }
+        minuteBox.innerHTML = "🟡 HALF TIME";
 
-    // Added Time
-    else if (matchMinute > 90 && matchMinute <= (90 + addedTime)) {
+    }else if(elapsedMinutes < 90){
 
-        liveClock.innerHTML =
-            `🔴 ${matchMinute}+${matchMinute-90}'`;
+        minuteBox.innerHTML = `🔴 LIVE ${elapsedMinutes}'`;
 
-    }
+    }else if(elapsedMinutes < MATCH_LENGTH){
 
-    // Full Time
-    else {
+        let extra = elapsedMinutes - 89;
+        minuteBox.innerHTML = `🔴 LIVE 90+${extra}'`;
 
-        liveClock.innerHTML = "⚫ FULL TIME";
-        clearInterval(timer);
+    }else{
 
-    }
+        minuteBox.innerHTML = "⚫ FULL TIME";
 
-    // Speed control
-    matchSecond++;
-
-    if(matchSecond >= 60){
-        matchSecond = 0;
-        matchMinute++;
     }
 
 }
 
-const timer = setInterval(updateLiveClock,1000);
+updateLiveMinute();
+setInterval(updateLiveMinute,1000);
 </script>
 
 </body>
