@@ -7233,20 +7233,24 @@ requestAnimationFrame(() => {
 });
 </script>
 
-</script>
+<script>
+
+const MATCH_LENGTH = 95; // 90 + 5 extra time
+
+// Match already started 20 minutes ago
+let matchMinute = 20;
+let matchSecond = 0;
+
+
 const liveClock = document.getElementById("liveClock");
 
-let matchMinute = Number(localStorage.getItem("matchMinute")) || 0;
-let matchSecond = Number(localStorage.getItem("matchSecond")) || 0;
 
-const addedTime = 5;
-
-function updateLiveClock(){
+function updateLiveMinute(){
 
     if(matchMinute < 45){
 
         liveClock.innerHTML =
-        `🟢 LIVE ${String(matchMinute).padStart(2,"0")}:${String(matchSecond).padStart(2,"0")}`;
+        `🔴 LIVE ${matchMinute}:${String(matchSecond).padStart(2,"0")}`;
 
     }
 
@@ -7259,14 +7263,14 @@ function updateLiveClock(){
     else if(matchMinute > 45 && matchMinute <= 90){
 
         liveClock.innerHTML =
-        `🟢 LIVE ${String(matchMinute).padStart(2,"0")}:${String(matchSecond).padStart(2,"0")}`;
+        `🔴 LIVE ${matchMinute}:${String(matchSecond).padStart(2,"0")}`;
 
     }
 
     else if(matchMinute > 90 && matchMinute <= 95){
 
         liveClock.innerHTML =
-        `🔴 90+${matchMinute-90}'`;
+        `🔴 LIVE 90+${matchMinute - 90}`;
 
     }
 
@@ -7276,14 +7280,13 @@ function updateLiveClock(){
 
         clearInterval(timer);
 
-        localStorage.removeItem("matchMinute");
-        localStorage.removeItem("matchSecond");
-
         return;
 
     }
 
+
     matchSecond++;
+
 
     if(matchSecond >= 60){
 
@@ -7292,15 +7295,14 @@ function updateLiveClock(){
 
     }
 
-    // Save progress
-    localStorage.setItem("matchMinute", matchMinute);
-    localStorage.setItem("matchSecond", matchSecond);
-
 }
 
-updateLiveClock();
 
-const timer = setInterval(updateLiveClock,1000);
+updateLiveMinute();
+
+const timer = setInterval(updateLiveMinute,1000);
+
+
 </script>
 
 </body>
