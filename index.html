@@ -2878,7 +2878,7 @@ GAMES INT
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+<div class="upcoming-badge">LIVE</div>
 </div>
 
 <div class="hot">Club friendly</div>
@@ -2901,13 +2901,13 @@ Liverpool
 
 <div class="center">
 
-<div class="minute">Today 21:00</div>
+<div class="minute" id="liveClock">LIVE 00:00</div>
 
 <div class="vs">VS</div>
 
 <div class="odds-box">
-<span>Odds</span>
-<strong>2.20</strong>
+<span>LIVE</span>
+<strong>0-0</strong>
 </div>
 
 </div>
@@ -2970,7 +2970,7 @@ box-shadow:0 0 12px rgba(229,57,53,.45);
 </a>
 
 <button class="watch" onclick="unlockPrediction(this)">
-🔒 SEE PREDICTION
+LIVE PREDICTION
 </button>
 
 </div>
@@ -7231,6 +7231,67 @@ requestAnimationFrame(() => {
     });
 
 });
+</script>
+
+<script>
+let matchMinute = 0;
+let matchSecond = 0;
+let addedTime = 5; // Extra time
+
+const liveClock = document.getElementById("liveClock");
+
+function updateLiveClock() {
+
+    // First Half
+    if (matchMinute < 45) {
+
+        liveClock.innerHTML =
+            `🟢 LIVE ${String(matchMinute).padStart(2,"0")}:${String(matchSecond).padStart(2,"0")}`;
+
+    }
+
+    // Halftime
+    else if (matchMinute === 45) {
+
+        liveClock.innerHTML = "🟡 HALF TIME";
+
+    }
+
+    // Second Half
+    else if (matchMinute > 45 && matchMinute <= 90) {
+
+        liveClock.innerHTML =
+            `🟢 LIVE ${String(matchMinute).padStart(2,"0")}:${String(matchSecond).padStart(2,"0")}`;
+
+    }
+
+    // Added Time
+    else if (matchMinute > 90 && matchMinute <= (90 + addedTime)) {
+
+        liveClock.innerHTML =
+            `🔴 ${matchMinute}+${matchMinute-90}'`;
+
+    }
+
+    // Full Time
+    else {
+
+        liveClock.innerHTML = "⚫ FULL TIME";
+        clearInterval(timer);
+
+    }
+
+    // Speed control
+    matchSecond++;
+
+    if(matchSecond >= 60){
+        matchSecond = 0;
+        matchMinute++;
+    }
+
+}
+
+const timer = setInterval(updateLiveClock,1000);
 </script>
 
 </body>
