@@ -2907,7 +2907,7 @@ Liverpool
 
 <div class="odds-box">
 <span>LIVE</span>
-<strong>0-0</strong>
+<strong>1-0</strong>
 </div>
 
 </div>
@@ -2954,7 +2954,7 @@ Leeds Utd
 </div>
 
 <div class="prediction">
-Away 1up (Yes)
+Away over 1.5 Goals
 </div>
 
 <div class="buttons">
@@ -7234,52 +7234,73 @@ requestAnimationFrame(() => {
 </script>
 
 </script>
-const MATCH_LENGTH = 95; // 90 + 5 stoppage
+const liveClock = document.getElementById("liveClock");
 
-let matchStart = localStorage.getItem("matchStartTime");
+let matchMinute = Number(localStorage.getItem("matchMinute")) || 0;
+let matchSecond = Number(localStorage.getItem("matchSecond")) || 0;
 
-if(!matchStart){
-    matchStart = Date.now();
-    localStorage.setItem("matchStartTime", matchStart);
-}
+const addedTime = 5;
 
-matchStart = Number(matchStart);
+function updateLiveClock(){
 
-function updateLiveMinute(){
+    if(matchMinute < 45){
 
-    const minuteBox = document.querySelector(".minute");
-
-    if(!minuteBox) return;
-
-    let elapsedMinutes = Math.floor((Date.now() - matchStart) / 60000);
-
-    if(elapsedMinutes < 45){
-
-        minuteBox.innerHTML = `🔴 LIVE ${elapsedMinutes + 1}'`;
-
-    }else if(elapsedMinutes === 45){
-
-        minuteBox.innerHTML = "🟡 HALF TIME";
-
-    }else if(elapsedMinutes < 90){
-
-        minuteBox.innerHTML = `🔴 LIVE ${elapsedMinutes}'`;
-
-    }else if(elapsedMinutes < MATCH_LENGTH){
-
-        let extra = elapsedMinutes - 89;
-        minuteBox.innerHTML = `🔴 LIVE 90+${extra}'`;
-
-    }else{
-
-        minuteBox.innerHTML = "⚫ FULL TIME";
+        liveClock.innerHTML =
+        `🟢 LIVE ${String(matchMinute).padStart(2,"0")}:${String(matchSecond).padStart(2,"0")}`;
 
     }
 
+    else if(matchMinute === 45){
+
+        liveClock.innerHTML = "🟡 HALF TIME";
+
+    }
+
+    else if(matchMinute > 45 && matchMinute <= 90){
+
+        liveClock.innerHTML =
+        `🟢 LIVE ${String(matchMinute).padStart(2,"0")}:${String(matchSecond).padStart(2,"0")}`;
+
+    }
+
+    else if(matchMinute > 90 && matchMinute <= 95){
+
+        liveClock.innerHTML =
+        `🔴 90+${matchMinute-90}'`;
+
+    }
+
+    else{
+
+        liveClock.innerHTML = "⚫ FULL TIME";
+
+        clearInterval(timer);
+
+        localStorage.removeItem("matchMinute");
+        localStorage.removeItem("matchSecond");
+
+        return;
+
+    }
+
+    matchSecond++;
+
+    if(matchSecond >= 60){
+
+        matchSecond = 0;
+        matchMinute++;
+
+    }
+
+    // Save progress
+    localStorage.setItem("matchMinute", matchMinute);
+    localStorage.setItem("matchSecond", matchSecond);
+
 }
 
-updateLiveMinute();
-setInterval(updateLiveMinute,1000);
+updateLiveClock();
+
+const timer = setInterval(updateLiveClock,1000);
 </script>
 
 </body>
