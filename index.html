@@ -2954,7 +2954,7 @@ Leeds Utd
 </div>
 
 <div class="prediction">
-Away over 1.5 Goals
+AWAY OVER 1.5 Goals
 </div>
 
 <div class="buttons">
@@ -7234,75 +7234,11 @@ requestAnimationFrame(() => {
 </script>
 
 <script>
-
-const MATCH_LENGTH = 95; // 90 + 5 extra time
-
-// Match already started 20 minutes ago
-let matchMinute = 42;
-let matchSecond = 0;
-
-
 const liveClock = document.getElementById("liveClock");
 
-
-function updateLiveMinute(){
-
-    if(matchMinute < 45){
-
-        liveClock.innerHTML =
-        `🔴 LIVE ${matchMinute}:${String(matchSecond).padStart(2,"0")}`;
-
-    }
-
-    else if(matchMinute === 45){
-
-        liveClock.innerHTML = "🟡 HALF TIME";
-
-    }
-
-    else if(matchMinute > 45 && matchMinute <= 90){
-
-        liveClock.innerHTML =
-        `🔴 LIVE ${matchMinute}:${String(matchSecond).padStart(2,"0")}`;
-
-    }
-
-    else if(matchMinute > 90 && matchMinute <= 95){
-
-        liveClock.innerHTML =
-        `🔴 LIVE 90+${matchMinute - 90}`;
-
-    }
-
-    else{
-
-        liveClock.innerHTML = "⚫ FULL TIME";
-
-        clearInterval(timer);
-
-        return;
-
-    }
-
-
-    matchSecond++;
-
-
-    if(matchSecond >= 60){
-
-        matchSecond = 0;
-        matchMinute++;
-
-    }
-
+if(liveClock){
+    liveClock.innerHTML = "🟡 HALF TIME";
 }
-
-
-updateLiveMinute();
-
-const timer = setInterval(updateLiveMinute,1000);
-
-
 </script>
 
 </body>
