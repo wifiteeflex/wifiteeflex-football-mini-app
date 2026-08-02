@@ -2901,7 +2901,7 @@ Liverpool
 
 <div class="center">
 
-<div class="minute" id="liveClock">LIVE 00:00</div>
+<div class="minute" id="liveClock">LIVE</div>
 
 <div class="vs">VS</div>
 
@@ -7231,75 +7231,6 @@ requestAnimationFrame(() => {
     });
 
 });
-</script>
-
-<script>
-
-const MATCH_LENGTH = 95; // 90 minutes + 5 extra time
-
-// The actual time the match started
-// Change this to the real kickoff time
-const matchStartTime = new Date("2026-08-02T20:00:00").getTime();
-
-
-function updateLiveClock(){
-
-    const liveClock = document.getElementById("liveClock");
-
-    if(!liveClock) return;
-
-
-    const now = Date.now();
-
-    let totalMinutes = Math.floor(
-        (now - matchStartTime) / 60000
-    );
-
-
-    if(totalMinutes < 45){
-
-        liveClock.innerHTML =
-        `🔴 LIVE ${totalMinutes}'`;
-
-    }
-
-    else if(totalMinutes === 45){
-
-        liveClock.innerHTML =
-        "🟡 HALF TIME";
-
-    }
-
-    else if(totalMinutes < 90){
-
-        liveClock.innerHTML =
-        `🔴 LIVE ${totalMinutes}'`;
-
-    }
-
-    else if(totalMinutes <= 95){
-
-        liveClock.innerHTML =
-        `🔴 LIVE 90+${totalMinutes - 90}'`;
-
-    }
-
-    else{
-
-        liveClock.innerHTML =
-        "⚫ FULL TIME";
-
-        clearInterval(timer);
-
-    }
-
-}
-
-
-updateLiveClock();
-
-const timer = setInterval(updateLiveClock,1000);
-
 </script>
 
 </body>
