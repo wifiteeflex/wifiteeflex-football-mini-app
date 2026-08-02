@@ -2310,6 +2310,22 @@ font-weight:600;
     user-select:none;
 }
 
+#liveClock {
+    animation: liveBlink 1s infinite;
+    color: #ff0000;
+    font-weight: 700;
+}
+
+@keyframes liveBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
 </style>
 </head>
         
