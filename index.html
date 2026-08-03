@@ -2370,13 +2370,17 @@ margin-top:4px;
 
 .highlights-title{
 
-margin:18px 15px 10px;
+margin:18px auto 10px;
 
 font-size:18px;
 
 font-weight:700;
 
 color:#fff;
+
+text-align:center;
+
+width:100%;
 
 }
 
@@ -2625,7 +2629,7 @@ Liverpool
 <div class="vs">VS</div>
 
 <div class="odds-box">
-<span>FINAL SCORE</span>
+<span>FULL TIME</span>
 <strong>2 - 4</strong>
 </div>
 
@@ -2680,16 +2684,20 @@ Away Over 1.5 Goals
 
 <div class="buttons">
 
-<button class="bet"
-
-onclick="watchHighlights('https://www.youtube.com/live/Z_F6f_DqY2c?si=L6QBPIGWFUufmmVC')">
+<a class="bet"
+href="https://www.youtube.com/live/Z_F6f_DqY2c?si=L6QBPIGWFUufmmVC"
+target="_blank"
+style="
+background:#1e3a5f;
+color:#fff;
+">
 
 ▶ Watch Highlights
-</button>
+</a>
 
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-✔ Prediction Won
+Prediction Won🏆
 </button>
 
 </div>
@@ -7403,52 +7411,6 @@ requestAnimationFrame(() => {
     });
 
 });
-</script>
-
-<script>
-
-function watchHighlights(videoUrl){
-
-    if(typeof show_10317085 !== "function"){
-
-        window.open(videoUrl,"_blank");
-
-        return;
-
-    }
-
-    show_10317085().then(()=>{
-
-        const btn = event.target;
-
-        btn.disabled = true;
-
-        btn.innerHTML = "📺 Loading Highlights...";
-
-        setTimeout(()=>{
-
-            btn.innerHTML = "🔄 Opening Video...";
-
-        },1000);
-
-        setTimeout(()=>{
-
-            window.open(videoUrl,"_blank");
-
-            btn.disabled = false;
-
-            btn.innerHTML = "▶ Watch Highlights";
-
-        },2200);
-
-    }).catch(()=>{
-
-        alert("Ad failed to load.");
-
-    });
-
-}
-
 </script>
 
 </body>
