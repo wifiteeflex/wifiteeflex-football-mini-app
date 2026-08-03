@@ -2310,20 +2310,74 @@ font-weight:600;
     user-select:none;
 }
 
-#liveClock {
-    animation: liveBlink 1s infinite;
-    color: #ff0000;
-    font-weight: 700;
+.accuracy-card{
+
+background:#111827;
+
+margin:15px;
+
+padding:18px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+
 }
 
-@keyframes liveBlink {
-    0%, 100% {
-        opacity: 1;
-    }
+.accuracy-title{
 
-    50% {
-        opacity: 0.2;
-    }
+color:#fff;
+
+font-size:17px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.accuracy-stats{
+
+display:flex;
+
+justify-content:space-between;
+
+text-align:center;
+
+}
+
+.stat-number{
+
+font-size:26px;
+
+font-weight:800;
+
+color:#22c55e;
+
+}
+
+.stat-text{
+
+font-size:13px;
+
+color:#9ca3af;
+
+margin-top:4px;
+
+}
+
+.highlights-title{
+
+margin:18px 15px 10px;
+
+font-size:18px;
+
+font-weight:700;
+
+color:#fff;
+
 }
 
 </style>
@@ -2537,6 +2591,157 @@ POWERED BY GROK ENGINE
 <img src="https://i.imgur.com/3MaQMMS.jpeg">
 
 <div class="ai-overlay">
+
+<h2>🔥 AI Tips & Highlights</h2>
+
+<p>Verified AI Predictions & Match Highlights</p>
+
+</div>
+
+</div>
+
+<!-- ACCURACY CARD -->
+
+<div class="accuracy-card">
+
+<div class="accuracy-title">
+🤖 AI Performance Today
+</div>
+
+<div class="accuracy-stats">
+
+<div>
+<div class="stat-number">8</div>
+<div class="stat-text">Won</div>
+</div>
+
+<div>
+<div class="stat-number">1</div>
+<div class="stat-text">Lost</div>
+</div>
+
+<div>
+<div class="stat-number">89%</div>
+<div class="stat-text">Accuracy</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- TODAY'S HIGHLIGHTS -->
+
+<div class="highlights-title">
+
+🏆 Today's Winning Predictions
+
+</div>
+
+<!-- Ended CARD 1 -->
+
+<div class="card premier">
+
+<div class="card-top">
+
+<div class="left-info">
+<div class="upcoming-badge">✔ FULL TIME</div>
+</div>
+
+<div class="hot">Club friendly</div>
+
+</div>
+
+<div class="match-area">
+
+<div class="team">
+
+<div class="team-logo">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/hif/b/bd/Liverpool_FC.png">
+</div>
+
+<div class="team-name">
+Liverpool
+</div>
+
+</div>
+
+<div class="center">
+
+<div class="minute" id="liveClock">ENDED</div>
+
+<div class="vs">VS</div>
+
+<div class="odds-box">
+<span>FINAL SCORE</span>
+<strong>2 - 4</strong>
+</div>
+
+</div>
+
+<div class="team">
+
+<div class="team-logo">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/de/d/de/Leeds_United.svg">
+</div>
+
+<div class="team-name">
+Leeds Utd
+</div>
+
+</div>
+
+</div>
+
+<div class="confidence-wrap">
+
+<div class="confidence-head">
+<span>🏆 Winning Pick</span>
+<span class="percent">Away 1.5 Goals🏆</span>
+</div>
+
+<div class="progress">
+    <div class="progress-bar high" style="width:100%;"></div>
+</div>
+
+<div class="match-tabs">
+
+<a href="https://omg10.com/4/7461956">Overview</a>
+
+<a href="https://omg10.com/4/7461956">H2H</a>
+
+<a href="https://omg10.com/4/7461956" class="active">Chat</a>
+
+<a href="https://omg10.com/4/7461956">Lineups</a>
+
+<a href="https://omg10.com/4/7461956">Odds</a>
+
+</div>
+
+</div>
+
+<div class="prediction">
+✅ Prediction Won
+<br>
+Away Over 1.5 Goals
+</div>
+
+<div class="buttons">
+
+<a class="bet"
+href="https://www.youtube.com/live/Z_F6f_DqY2c?si=L6QBPIGWFUufmmVC"
+target="_blank"
+style="
+background:#1e3a5f;
+color:#fff;
+">
+
+▶ Watch Highlights
+</a>
+
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+✔ Prediction Won
+</button>
 
 </div>
 
