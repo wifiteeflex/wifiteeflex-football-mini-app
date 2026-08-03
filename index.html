@@ -2380,11 +2380,117 @@ color:#fff;
 
 }
 
+.highlight-popup{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.85);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+z-index:999999;
+
+}
+
+.popup-box{
+
+background:#111827;
+
+padding:25px;
+
+border-radius:18px;
+
+width:85%;
+max-width:320px;
+
+text-align:center;
+
+color:#fff;
+
+box-shadow:0 0 25px rgba(0,0,0,.5);
+
+}
+
+.popup-icon{
+
+font-size:45px;
+
+margin-bottom:15px;
+
+animation:pulse 1s infinite;
+
+}
+
+.loading-bar{
+
+margin-top:18px;
+
+height:8px;
+
+background:#2d3748;
+
+border-radius:30px;
+
+overflow:hidden;
+
+}
+
+#loadingFill{
+
+width:0%;
+
+height:100%;
+
+background:linear-gradient(90deg,#00c853,#00e676);
+
+transition:width .3s linear;
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1);}
+
+50%{transform:scale(1.12);}
+
+100%{transform:scale(1);}
+
+}
+
 </style>
 </head>
         
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<div id="highlightPopup" class="highlight-popup">
+
+    <div class="popup-box">
+
+        <div class="popup-icon">📺</div>
+
+        <div id="popupText">
+            Loading Highlights...
+        </div>
+
+        <div class="loading-bar">
+
+            <div id="loadingFill"></div>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 
@@ -2680,16 +2786,12 @@ Away Over 1.5 Goals
 
 <div class="buttons">
 
-<a class="bet"
-href="https://www.youtube.com/live/Z_F6f_DqY2c?si=L6QBPIGWFUufmmVC"
-target="_blank"
-style="
-background:#1e3a5f;
-color:#fff;
-">
+<button class="bet"
+
+onclick="watchHighlights('https://www.youtube.com/live/Z_F6f_DqY2c?si=L6QBPIGWFUufmmVC')">
 
 ▶ Watch Highlights
-</a>
+</button>
 
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
@@ -7407,6 +7509,86 @@ requestAnimationFrame(() => {
     });
 
 });
+</script>
+
+<script>
+
+function watchHighlights(videoUrl){
+
+    if(typeof show_10317085 !== "function"){
+
+        window.open(videoUrl,"_blank");
+
+        return;
+
+    }
+
+    show_10317085().then(()=>{
+
+        const popup =
+        document.getElementById("highlightPopup");
+
+        const text =
+        document.getElementById("popupText");
+
+        const fill =
+        document.getElementById("loadingFill");
+
+        popup.style.display="flex";
+
+        fill.style.width="0%";
+
+        text.innerHTML="📺 Loading Highlights...";
+
+        let progress=0;
+
+        const timer=setInterval(()=>{
+
+            progress+=5;
+
+            fill.style.width=progress+"%";
+
+            if(progress==30){
+
+                text.innerHTML=
+                "📡 Connecting to Video Server...";
+
+            }
+
+            if(progress==60){
+
+                text.innerHTML=
+                "🎬 Preparing HD Highlights...";
+
+            }
+
+            if(progress>=100){
+
+                clearInterval(timer);
+
+                text.innerHTML=
+                "✅ Opening Video...";
+
+                setTimeout(()=>{
+
+                    popup.style.display="none";
+
+                    window.open(videoUrl,"_blank");
+
+                },700);
+
+            }
+
+        },120);
+
+    }).catch(()=>{
+
+        alert("Ad failed. Please try again.");
+
+    });
+
+}
+
 </script>
 
 </body>
