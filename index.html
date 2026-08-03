@@ -2380,92 +2380,6 @@ color:#fff;
 
 }
 
-.highlight-popup{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,.85);
-
-display:none;
-
-justify-content:center;
-align-items:center;
-
-z-index:999999;
-
-}
-
-.popup-box{
-
-background:#111827;
-
-padding:25px;
-
-border-radius:18px;
-
-width:85%;
-max-width:320px;
-
-text-align:center;
-
-color:#fff;
-
-box-shadow:0 0 25px rgba(0,0,0,.5);
-
-}
-
-.popup-icon{
-
-font-size:45px;
-
-margin-bottom:15px;
-
-animation:pulse 1s infinite;
-
-}
-
-.loading-bar{
-
-margin-top:18px;
-
-height:8px;
-
-background:#2d3748;
-
-border-radius:30px;
-
-overflow:hidden;
-
-}
-
-#loadingFill{
-
-width:0%;
-
-height:100%;
-
-background:linear-gradient(90deg,#00c853,#00e676);
-
-transition:width .3s linear;
-
-}
-
-@keyframes pulse{
-
-0%{transform:scale(1);}
-
-50%{transform:scale(1.12);}
-
-100%{transform:scale(1);}
-
-}
-
 </style>
 </head>
         
@@ -6793,26 +6707,6 @@ LIVE UNAVAILABLE
 
 </div>
 
-<div id="highlightPopup" class="highlight-popup">
-
-    <div class="popup-box">
-
-        <div class="popup-icon">📺</div>
-
-        <div id="popupText">
-            Loading Highlights...
-        </div>
-
-        <div class="loading-bar">
-
-            <div id="loadingFill"></div>
-
-        </div>
-
-    </div>
-
-</div>
-
 <script>
 function unlockPrediction(btn){
 
@@ -7525,65 +7419,31 @@ function watchHighlights(videoUrl){
 
     show_10317085().then(()=>{
 
-        const popup =
-        document.getElementById("highlightPopup");
+        const btn = event.target;
 
-        const text =
-        document.getElementById("popupText");
+        btn.disabled = true;
 
-        const fill =
-        document.getElementById("loadingFill");
+        btn.innerHTML = "📺 Loading Highlights...";
 
-        popup.style.display="flex";
+        setTimeout(()=>{
 
-        fill.style.width="0%";
+            btn.innerHTML = "🔄 Opening Video...";
 
-        text.innerHTML="📺 Loading Highlights...";
+        },1000);
 
-        let progress=0;
+        setTimeout(()=>{
 
-        const timer=setInterval(()=>{
+            window.open(videoUrl,"_blank");
 
-            progress+=5;
+            btn.disabled = false;
 
-            fill.style.width=progress+"%";
+            btn.innerHTML = "▶ Watch Highlights";
 
-            if(progress==30){
-
-                text.innerHTML=
-                "📡 Connecting to Video Server...";
-
-            }
-
-            if(progress==60){
-
-                text.innerHTML=
-                "🎬 Preparing HD Highlights...";
-
-            }
-
-            if(progress>=100){
-
-                clearInterval(timer);
-
-                text.innerHTML=
-                "✅ Opening Video...";
-
-                setTimeout(()=>{
-
-                    popup.style.display="none";
-
-                    window.open(videoUrl,"_blank");
-
-                },700);
-
-            }
-
-        },120);
+        },2200);
 
     }).catch(()=>{
 
-        alert("Ad failed. Please try again.");
+        alert("Ad failed to load.");
 
     });
 
