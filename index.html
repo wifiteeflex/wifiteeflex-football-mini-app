@@ -2594,124 +2594,6 @@ POWERED BY GROK ENGINE
 
 <div class="ai-highlights">
 
-</div>
-
-</div>
-
-</div>
-
-<!-- CARD 1 -->
-
-<div class="card premier">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">FULL TIME</div>
-</div>
-
-<div class="hot">Club friendly</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/lt/5/5e/Jeju_SK_FC_emblema.png?utm_source=lt.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Jeju SK FC
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute">ENDED</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>FULL TIME</span>
-<strong>1 - 2</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg?utm_source=sco.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Bayern Munich
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>🏆 Winning Pick</span>
-<span class="percent">Away win (HT)🏆</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar high" style="width:100%;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-OVER 3.5 GOALS
-</div>
-
-<div class="buttons">
-
-<a class="bet"
-href="https://omg10.com/4/7461956"
-target="_blank"
-style="
-background:#1e3a5f;
-color:#fff;
-">
-
-▶ Watch Highlights
-</a>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-Prediction Won🥇
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 <!-- Ended card 2 -->
 
 <div class="card premier">
@@ -2738,6 +2620,10 @@ Prediction Won🥇
 Chelsea
 </div>
 
+</div>
+
+<div class="grok-watermark">
+    POWERED BY GROK
 </div>
 
 <div class="center">
@@ -8229,19 +8115,19 @@ requestAnimationFrame(() => {
 
 <script>
 (function () {
-  const clockEl = document.getElementById('liveClockSecond');
-  const STORAGE_KEY = 'liveMatch_SecondHalf';
-  const HALF_DURATION = 45 * 60; // another 45 minutes
+  const clockEl = document.getElementById('liveClockFirst');
+  const STORAGE_KEY = 'liveMatch_FirstHalf';
+  const HALF_DURATION = 45 * 60; // 45 minutes in seconds
 
   let saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-  let elapsed = saved ? saved.elapsed : 0; // starts counting from 0 (will be displayed as 45+)
+  let elapsed = saved ? saved.elapsed : 0;
   let lastTick = Date.now();
 
   function formatTime(seconds) {
     if (seconds > HALF_DURATION) seconds = HALF_DURATION;
-    const totalMinutes = 45 + Math.floor(seconds / 60);
+    const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `LIVE ${String(totalMinutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    return `LIVE ${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   }
 
   function tick() {
