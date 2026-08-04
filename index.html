@@ -3064,7 +3064,7 @@ BG pathum Utd
 
 <div class="center">
 
-<div class="minute">LIVE</div>
+<div class="minute" id="liveClockSecond">LIVE 45:00</div>
 
 <div class="vs">VS</div>
 
@@ -8122,19 +8122,19 @@ requestAnimationFrame(() => {
 
 <script>
 (function () {
-  const clockEl = document.getElementById('liveClockFirst');
-  const STORAGE_KEY = 'liveMatch_FirstHalf';
-  const HALF_DURATION = 45 * 60; // 45 minutes in seconds
+  const clockEl = document.getElementById('liveClockSecond');
+  const STORAGE_KEY = 'liveMatch_SecondHalf';
+  const HALF_DURATION = 45 * 60; // another 45 minutes
 
   let saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-  let elapsed = saved ? saved.elapsed : 0;
+  let elapsed = saved ? saved.elapsed : 0; // starts counting from 0 (will be displayed as 45+)
   let lastTick = Date.now();
 
   function formatTime(seconds) {
     if (seconds > HALF_DURATION) seconds = HALF_DURATION;
-    const mins = Math.floor(seconds / 60);
+    const totalMinutes = 45 + Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `LIVE ${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    return `LIVE ${String(totalMinutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   }
 
   function tick() {
