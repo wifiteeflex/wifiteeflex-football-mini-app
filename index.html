@@ -3064,7 +3064,7 @@ Milan
 
 <div class="center">
 
-<div class="minute" id="liveClockFirst">LIVE 00:00</div>
+<div class="minute">LIVE</div>
 
 <div class="vs">VS</div>
 
@@ -3167,7 +3167,7 @@ GAMES INT
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+<div class="upcoming-badge">LIVE</div>
 </div>
 
 <div class="hot">Club friendly</div>
@@ -3190,13 +3190,13 @@ Chelsea
 
 <div class="center">
 
-<div class="minute">05 August 12:30</div>
+<div class="minute">LIVE</div>
 
 <div class="vs">VS</div>
 
 <div class="odds-box">
-<span>Odds</span>
-<strong>1.84</strong>
+<span>LIVE</span>
+<strong>0-0</strong>
 </div>
 
 </div>
@@ -3248,8 +3248,15 @@ HT UNDER 1.5 GOALS
 
 <div class="buttons">
 
-<a class="bet" href="https://omg10.com/4/8859017">
-↗ LIVE AVAILABLE
+<a class="bet"
+href="https://omg10.com/4/7461956"
+target="_blank"
+style="
+background:#1e3a5f;
+color:#fff;
+">
+
+▶ Watch Live
 </a>
 
 <button class="watch" onclick="unlockPrediction(this)">
@@ -7889,57 +7896,6 @@ requestAnimationFrame(() => {
     const totalMinutes = 45 + Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `LIVE ${String(totalMinutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-  }
-
-  function tick() {
-    const now = Date.now();
-    const delta = Math.floor((now - lastTick) / 1000);
-    lastTick = now;
-
-    if (delta > 0 && elapsed < HALF_DURATION) {
-      elapsed += delta;
-      if (elapsed > HALF_DURATION) elapsed = HALF_DURATION;
-
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        elapsed: elapsed,
-        updated: now
-      }));
-    }
-
-    clockEl.textContent = formatTime(elapsed);
-
-    if (elapsed < HALF_DURATION) {
-      requestAnimationFrame(tick);
-    }
-  }
-
-  lastTick = Date.now();
-  tick();
-
-  setInterval(() => {
-    if (elapsed < HALF_DURATION) {
-      lastTick = Date.now() - 1000;
-      tick();
-    }
-  }, 1000);
-})();
-</script>
-
-<script>
-(function () {
-  const clockEl = document.getElementById('liveClockFirst');
-  const STORAGE_KEY = 'liveMatch_FirstHalf';
-  const HALF_DURATION = 45 * 60; // 45 minutes in seconds
-
-  let saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-  let elapsed = saved ? saved.elapsed : 0;
-  let lastTick = Date.now();
-
-  function formatTime(seconds) {
-    if (seconds > HALF_DURATION) seconds = HALF_DURATION;
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `LIVE ${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   }
 
   function tick() {
