@@ -3093,7 +3093,7 @@ Inter
 
 <div class="confidence-head">
 <span>AI confidence</span>
-<span class="percent">100</span>
+<span class="percent">HT (12)❌</span>
 </div>
 
 <div class="progress">
@@ -3219,8 +3219,8 @@ Juventus
 <div class="confidence-wrap">
 
 <div class="confidence-head">
-<span>AI confidence</span>
-<span class="percent">75</span>
+<span>AI predict</span>
+<span class="percent">HT Under 1.5🏆</span>
 </div>
 
 <div class="progress">
@@ -7881,57 +7881,6 @@ requestAnimationFrame(() => {
     });
 
 });
-</script>
-
-<script>
-(function () {
-  const clockEl = document.getElementById('liveClockSecond');
-  const STORAGE_KEY = 'liveMatch_SecondHalf';
-  const HALF_DURATION = 45 * 60; // another 45 minutes
-
-  let saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-  let elapsed = saved ? saved.elapsed : 0; // starts counting from 0 (will be displayed as 45+)
-  let lastTick = Date.now();
-
-  function formatTime(seconds) {
-    if (seconds > HALF_DURATION) seconds = HALF_DURATION;
-    const totalMinutes = 45 + Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `LIVE ${String(totalMinutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-  }
-
-  function tick() {
-    const now = Date.now();
-    const delta = Math.floor((now - lastTick) / 1000);
-    lastTick = now;
-
-    if (delta > 0 && elapsed < HALF_DURATION) {
-      elapsed += delta;
-      if (elapsed > HALF_DURATION) elapsed = HALF_DURATION;
-
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        elapsed: elapsed,
-        updated: now
-      }));
-    }
-
-    clockEl.textContent = formatTime(elapsed);
-
-    if (elapsed < HALF_DURATION) {
-      requestAnimationFrame(tick);
-    }
-  }
-
-  lastTick = Date.now();
-  tick();
-
-  setInterval(() => {
-    if (elapsed < HALF_DURATION) {
-      lastTick = Date.now() - 1000;
-      tick();
-    }
-  }, 1000);
-})();
 </script>
 
 </body>
