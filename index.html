@@ -2380,6 +2380,108 @@ color:#fff;
 
 }
 
+/* ===== WALLET MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal-box {
+  background: #141414;
+  width: 100%;
+  max-width: 340px;
+  border-radius: 22px;
+  padding: 24px;
+  border: 1px solid #2a2a2a;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.close-btn {
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.wallet-balance {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.wallet-balance p {
+  margin: 0 0 6px;
+  color: #888;
+  font-size: 14px;
+}
+
+.wallet-balance h2 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  color: #22c55e;
+}
+
+.withdraw-btn {
+  width: 100%;
+  background: #22c55e;
+  color: #052e16;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.withdraw-btn:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.min-note {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin: 12px 0 0;
+}
+
+/* Make daily card feel clickable */
+.daily-card {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.daily-card:active {
+  transform: scale(0.98);
+}
+
+/* Cooldown state */
+.daily-card.disabled {
+  opacity: 0.65;
+  pointer-events: none;
+}
+.daily-card.disabled .reward-pill {
+  background: #222;
+  color: #888;
+}
+
 </style>
 </head>
         
@@ -2940,89 +3042,84 @@ Coventry Win
 
 <div id="homePage" class="page">
 
-<div class="simple-profile">
+  <!-- PROFILE HEADER -->
+  <div class="profile-header">
+    <img id="userPhoto" class="avatar" src="https://i.imgur.com/f3XrsGW.jpeg" alt="User">
+    <div class="user-info">
+      <h3>Welcome <span id="userName">User</span> 👋</h3>
+      <p>AI Football Predictions</p>
+    </div>
+    
+    <!-- Clickable Balance -->
+    <div class="coin-pill" onclick="openWallet()">
+      <span>$</span>
+      <span id="coinBalance">0.0000</span>
+    </div>
+  </div>
 
-<img id="userPhoto" src="https://i.imgur.com/f3XrsGW.jpeg">
+  <!-- AI BANNER (unchanged) -->
+  <div class="ai-banner">
+    <div class="banner-content">
+      <div class="banner-icon">🤖</div>
+      <h1>AI Match Predictions</h1>
+      <p>Smart football analysis powered by AI</p>
+      <button class="primary-btn" onclick="showPage('matchesPage', this)">
+        🤖 View Predictions
+      </button>
+    </div>
+  </div>
 
-<div>
-<h3>
-Welcome <span id="userName">User</span> 👋
-</h3>
+  <!-- DAILY REWARD (now clickable) -->
+  <div class="daily-card" id="dailyRewardCard" onclick="onDailyRewardClick()">
+    <div class="daily-left">
+      <div class="gift-icon">🎁</div>
+      <div>
+        <h2>Daily Reward</h2>
+        <p id="rewardStatusText">Watch ad & earn $0.0001</p>
+      </div>
+    </div>
+    <div class="reward-pill" id="rewardButton">
+      Claim
+    </div>
+  </div>
 
-<p>
-AI Football Predictions
-</p>
-</div>
-
-<div class="coins">
-
-🪙 <span id="coinBalance">0</span>
-
-</div>
-
-</div>
-
-<div class="simple-banner">
-
-<h1>
-🤖 AI Match Predictions
-</h1>
-
-<p>
-Smart football analysis powered by AI
-</p>
-
-<button onclick="showPage('matchesPage', this)">
-   🤖 View Predictions
-</button>
-
-</div>
-
-<div class="simple-card">
-
-<h2>
-🎁 Daily Reward
-</h2>
-
-<p>
-Come back daily and collect your coins
-</p>
-
-<div class="reward">
-
-🪙 100 Coins
-
-</div>
-
-</div>
-
-<h2 class="title">
-
-Popular Countries🌍
-
-</h2>
-
-<div class="countries">
-
-<div>
-🇬🇧
-<br>
-England
-</div>
-
-<div>
-🇳🇬
-<br>
-Nigeria
-</div>
-
-<div>
-🇪🇸
-<br>
-Spain
-</div>
+  <!-- POPULAR COUNTRIES -->
+  <h2 class="section-title">Popular Countries 🌍</h2>
+  <div class="countries-grid">
+    <div class="country-card">
+      <span class="flag">🇬🇧</span>
+      <span>England</span>
+    </div>
+    <div class="country-card">
+      <span class="flag">🇳🇬</span>
+      <span>Nigeria</span>
+    </div>
+    <div class="country-card">
+      <span class="flag">🇪🇸</span>
+      <span>Spain</span>
+    </div>
+  </div>
 
 </div>
+
+<!-- ===== WALLET MODAL ===== -->
+<div id="walletModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>My Wallet</h3>
+      <span class="close-btn" onclick="closeWallet()">✕</span>
+    </div>
+    
+    <div class="wallet-balance">
+      <p>Available Balance</p>
+      <h2>$<span id="walletBalance">0.0000</span></h2>
+    </div>
+
+    <button class="withdraw-btn" id="withdrawBtn" onclick="requestWithdraw()">
+      Withdraw
+    </button>
+    <p class="min-note">Minimum withdrawal: $20.00</p>
+  </div>
 
 </div>
 
@@ -7320,6 +7417,166 @@ requestAnimationFrame(() => {
     }
   }, 1000);
 })();
+</script>
+
+<script>
+// ==============================
+// DAILY REWARD + BALANCE SYSTEM
+// ==============================
+
+const REWARD_AMOUNT = 0.0001;          // $0.0001 per ad
+const COOLDOWN_MINUTES = 30;           // 30 minutes cooldown
+const MIN_WITHDRAW = 20;               // $20 minimum
+
+// Load balance from localStorage
+function getBalance() {
+  return parseFloat(localStorage.getItem("userBalance") || "0");
+}
+
+function saveBalance(amount) {
+  localStorage.setItem("userBalance", amount.toFixed(4));
+  updateBalanceUI();
+}
+
+function updateBalanceUI() {
+  const bal = getBalance().toFixed(4);
+  document.getElementById("coinBalance").textContent = bal;
+  document.getElementById("walletBalance").textContent = bal;
+
+  // Enable / disable withdraw button
+  const btn = document.getElementById("withdrawBtn");
+  if (getBalance() >= MIN_WITHDRAW) {
+    btn.disabled = false;
+  } else {
+    btn.disabled = true;
+  }
+}
+
+// Check if user can claim
+function canClaim() {
+  const lastClaim = localStorage.getItem("lastClaimTime");
+  if (!lastClaim) return true;
+
+  const now = Date.now();
+  const diff = now - parseInt(lastClaim);
+  const minutesPassed = diff / (1000 * 60);
+
+  return minutesPassed >= COOLDOWN_MINUTES;
+}
+
+// Get remaining cooldown time
+function getRemainingTime() {
+  const lastClaim = localStorage.getItem("lastClaimTime");
+  if (!lastClaim) return 0;
+
+  const now = Date.now();
+  const diff = now - parseInt(lastClaim);
+  const remainingMs = (COOLDOWN_MINUTES * 60 * 1000) - diff;
+
+  return Math.max(0, remainingMs);
+}
+
+// Update the Daily Reward button status
+function updateRewardUI() {
+  const card = document.getElementById("dailyRewardCard");
+  const statusText = document.getElementById("rewardStatusText");
+  const button = document.getElementById("rewardButton");
+
+  if (canClaim()) {
+    card.classList.remove("disabled");
+    statusText.textContent = "Watch ad & earn $0.0001";
+    button.textContent = "Claim";
+    button.style.color = "#22c55e";
+  } else {
+    card.classList.add("disabled");
+    const remaining = getRemainingTime();
+    const mins = Math.floor(remaining / 60000);
+    const secs = Math.floor((remaining % 60000) / 1000);
+    statusText.textContent = `Available in ${mins}m ${secs}s`;
+    button.textContent = "Wait";
+    button.style.color = "#888";
+  }
+}
+
+// ===== THIS IS THE FUNCTION YOU WILL CONNECT TO MONETAG =====
+function onDailyRewardClick() {
+  if (!canClaim()) {
+    alert("Please wait for the cooldown to finish.");
+    return;
+  }
+
+  // 🔥 PUT YOUR MONETAG REWARDED AD CODE HERE 🔥
+  // Example (replace with your real Monetag code):
+  /*
+  show_XXXXXX({
+    type: 'rewarded',
+    callback: function() {
+      // This runs ONLY after user finishes the ad
+      claimSuccess();
+    }
+  });
+  */
+
+  // Temporary for testing (remove this line after you add Monetag)
+  claimSuccess();
+}
+
+// Called after successful rewarded ad
+function claimSuccess() {
+  // Add money
+  const newBalance = getBalance() + REWARD_AMOUNT;
+  saveBalance(newBalance);
+
+  // Set cooldown
+  localStorage.setItem("lastClaimTime", Date.now().toString());
+
+  // Update UI
+  updateRewardUI();
+  updateBalanceUI();
+
+  // Optional nice feedback
+  alert(`+$0.0001 added!\nNew balance: $${newBalance.toFixed(4)}`);
+}
+
+// Wallet modal
+function openWallet() {
+  updateBalanceUI();
+  document.getElementById("walletModal").style.display = "flex";
+}
+
+function closeWallet() {
+  document.getElementById("walletModal").style.display = "none";
+}
+
+// Withdraw
+function requestWithdraw() {
+  const balance = getBalance();
+  if (balance < MIN_WITHDRAW) {
+    alert(`Minimum withdrawal is $${MIN_WITHDRAW}.00`);
+    return;
+  }
+
+  // You can later connect this to your backend / Telegram bot
+  const confirm = window.confirm(
+    `Withdraw $${balance.toFixed(4)}?\n\nMinimum is $20.\nWe will process your request.`
+  );
+
+  if (confirm) {
+    // For now just show success (later send to your server)
+    alert("Withdrawal request submitted successfully!\nOur team will contact you.");
+    // Optional: reset balance after successful request
+    // saveBalance(0);
+  }
+}
+
+// Run when page loads
+document.addEventListener("DOMContentLoaded", function() {
+  updateBalanceUI();
+  updateRewardUI();
+
+  // Update cooldown timer every second
+  setInterval(updateRewardUI, 1000);
+});
 </script>
 
 </body>
