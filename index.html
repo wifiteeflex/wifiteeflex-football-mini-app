@@ -2380,232 +2380,6 @@ color:#fff;
 
 }
 
-/* ===== HOME PAGE STYLES ===== */
-#homePage {
-  padding: 16px 16px 32px;
-  background: #0a0a0a;
-  min-height: 100vh;
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-/* Profile Header */
-.profile-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  padding: 12px 14px;
-  background: #141414;
-  border-radius: 18px;
-  border: 1px solid #222;
-}
-
-.avatar {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #2a2a2a;
-}
-
-.user-info {
-  flex: 1;
-}
-
-.user-info h3 {
-  margin: 0;
-  font-size: 17px;
-  font-weight: 600;
-  color: #fff;
-}
-
-.user-info p {
-  margin: 2px 0 0;
-  font-size: 13px;
-  color: #888;
-}
-
-.coin-pill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #1c1c1c;
-  padding: 8px 14px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 15px;
-  border: 1px solid #2a2a2a;
-}
-
-.coin-icon {
-  font-size: 16px;
-}
-
-/* AI Banner */
-.ai-banner {
-  background: linear-gradient(145deg, #0d3d1f, #0a2a16);
-  border-radius: 22px;
-  padding: 28px 22px;
-  margin-bottom: 18px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #1a4a2a;
-}
-
-.ai-banner::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -30%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(34, 197, 94, 0.15), transparent 70%);
-  pointer-events: none;
-}
-
-.banner-content {
-  position: relative;
-  z-index: 1;
-}
-
-.banner-icon {
-  font-size: 32px;
-  margin-bottom: 8px;
-}
-
-.ai-banner h1 {
-  margin: 0 0 6px;
-  font-size: 26px;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #fff;
-}
-
-.ai-banner p {
-  margin: 0 0 20px;
-  font-size: 14px;
-  color: #a7f3c0;
-  opacity: 0.9;
-}
-
-.primary-btn {
-  background: #22c55e;
-  color: #052e16;
-  border: none;
-  padding: 13px 24px;
-  border-radius: 50px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
-  transition: all 0.2s ease;
-}
-
-.primary-btn:active {
-  transform: scale(0.97);
-  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
-}
-
-/* Daily Reward Card */
-.daily-card {
-  background: #141414;
-  border-radius: 20px;
-  padding: 18px 18px;
-  margin-bottom: 28px;
-  border: 1px solid #222;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.daily-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.gift-icon {
-  font-size: 28px;
-  background: #1f1f1f;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-}
-
-.daily-card h2 {
-  margin: 0 0 3px;
-  font-size: 17px;
-  font-weight: 600;
-  color: #fbbf24; /* gold */
-}
-
-.daily-card p {
-  margin: 0;
-  font-size: 13px;
-  color: #888;
-}
-
-.reward-pill {
-  background: #1a1a1a;
-  padding: 10px 16px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #22c55e;
-  border: 1px solid #2a2a2a;
-  white-space: nowrap;
-}
-
-/* Section Title */
-.section-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 14px 4px;
-  color: #fff;
-}
-
-/* Countries Grid */
-.countries-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.country-card {
-  background: #141414;
-  border-radius: 18px;
-  padding: 18px 10px;
-  text-align: center;
-  border: 1px solid #222;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.country-card:active {
-  transform: scale(0.96);
-  background: #1a1a1a;
-}
-
-.country-card .flag {
-  font-size: 28px;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.country-card span:last-child {
-  font-size: 13px;
-  font-weight: 500;
-  color: #ccc;
-}
-
 </style>
 </head>
         
@@ -3166,61 +2940,89 @@ Coventry Win
 
 <div id="homePage" class="page">
 
-  <!-- ===== PROFILE HEADER ===== -->
-  <div class="profile-header">
-    <img id="userPhoto" class="avatar" src="https://i.imgur.com/f3XrsGW.jpeg" alt="User">
-    <div class="user-info">
-      <h3>Welcome <span id="userName">User</span> 👋</h3>
-      <p>AI Football Predictions</p>
-    </div>
-    <div class="coin-pill">
-      <span class="coin-icon">🪙</span>
-      <span id="coinBalance">0</span>
-    </div>
-  </div>
+<div class="simple-profile">
 
-  <!-- ===== AI PREDICTIONS BANNER ===== -->
-  <div class="ai-banner">
-    <div class="banner-content">
-      <div class="banner-icon">🤖</div>
-      <h1>AI Match Predictions</h1>
-      <p>Smart football analysis powered by AI</p>
-      <button class="primary-btn" onclick="showPage('matchesPage', this)">
-        🤖 View Predictions
-      </button>
-    </div>
-  </div>
+<img id="userPhoto" src="https://i.imgur.com/f3XrsGW.jpeg">
 
-  <!-- ===== DAILY REWARD ===== -->
-  <div class="daily-card">
-    <div class="daily-left">
-      <div class="gift-icon">🎁</div>
-      <div>
-        <h2>Daily Reward</h2>
-        <p>Come back daily and collect your coins</p>
-      </div>
-    </div>
-    <div class="reward-pill">
-      🪙 <span>100 Coins</span>
-    </div>
-  </div>
+<div>
+<h3>
+Welcome <span id="userName">User</span> 👋
+</h3>
 
-  <!-- ===== POPULAR COUNTRIES ===== -->
-  <h2 class="section-title">Popular Countries 🌍</h2>
-  <div class="countries-grid">
-    <div class="country-card" onclick="/* your function */">
-      <span class="flag">🇬🇧</span>
-      <span>England</span>
-    </div>
-    <div class="country-card" onclick="/* your function */">
-      <span class="flag">🇳🇬</span>
-      <span>Nigeria</span>
-    </div>
-    <div class="country-card" onclick="/* your function */">
-      <span class="flag">🇪🇸</span>
-      <span>Spain</span>
-    </div>
-  </div>
+<p>
+AI Football Predictions
+</p>
+</div>
+
+<div class="coins">
+
+🪙 <span id="coinBalance">0</span>
+
+</div>
+
+</div>
+
+<div class="simple-banner">
+
+<h1>
+🤖 AI Match Predictions
+</h1>
+
+<p>
+Smart football analysis powered by AI
+</p>
+
+<button onclick="showPage('matchesPage', this)">
+   🤖 View Predictions
+</button>
+
+</div>
+
+<div class="simple-card">
+
+<h2>
+🎁 Daily Reward
+</h2>
+
+<p>
+Come back daily and collect your coins
+</p>
+
+<div class="reward">
+
+🪙 100 Coins
+
+</div>
+
+</div>
+
+<h2 class="title">
+
+Popular Countries🌍
+
+</h2>
+
+<div class="countries">
+
+<div>
+🇬🇧
+<br>
+England
+</div>
+
+<div>
+🇳🇬
+<br>
+Nigeria
+</div>
+
+<div>
+🇪🇸
+<br>
+Spain
+</div>
+
+</div>
 
 </div>
 
