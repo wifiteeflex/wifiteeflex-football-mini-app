@@ -2380,6 +2380,143 @@ color:#fff;
 
 }
 
+#splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at center, #0d1117 0%, #050508 70%);
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+
+  #splash.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .brand {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #00e676;
+    margin-bottom: 52px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .countdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.35s forwards;
+  }
+
+  .time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 64px;
+  }
+
+  .number {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(0, 230, 118, 0.4);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 8px;
+  }
+
+  .separator {
+    font-size: 36px;
+    font-weight: 300;
+    color: rgba(0, 230, 118, 0.5);
+    margin-bottom: 18px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.3px;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+
+  .wa-btn {
+    display: inline-block;
+    max-width: 280px;
+    padding: 14px 22px;
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    border-radius: 14px;
+    color: #25d366;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.65s forwards;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .wa-btn:active {
+    background: rgba(37, 211, 102, 0.22);
+    border-color: rgba(37, 211, 102, 0.55);
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.25;
+    pointer-events: none;
+  }
+  .orb-1 {
+    width: 220px;
+    height: 220px;
+    background: #00e676;
+    top: 18%;
+    left: -60px;
+  }
+  .orb-2 {
+    width: 180px;
+    height: 180px;
+    background: #00b0ff;
+    bottom: 22%;
+    right: -40px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 400px) {
+    .number { font-size: 36px; }
+    .time-block { min-width: 56px; }
+    .separator { font-size: 30px; }
+    .wa-btn { max-width: 260px; font-size: 12.5px; }
+  }
+
 </style>
 </head>
         
@@ -6573,6 +6710,44 @@ LIVE UNAVAILABLE
 
 </div>
 
+<!-- Full-screen persistent 10-day countdown – paste right after <body> -->
+<div id="splash">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="brand">AI Football Predictions</div>
+
+  <div class="countdown">
+    <div class="time-block">
+      <div class="number" id="days">10</div>
+      <div class="label">DAYS</div>
+    </div>
+    <div class="separator">:</div>
+    <div class="time-block">
+      <div class="number" id="hours">00</div>
+      <div class="label">HOURS</div>
+    </div>
+    <div class="separator">:</div>
+    <div class="time-block">
+      <div class="number" id="minutes">00</div>
+      <div class="label">MINS</div>
+    </div>
+    <div class="separator">:</div>
+    <div class="time-block">
+      <div class="number" id="seconds">00</div>
+      <div class="label">SECS</div>
+    </div>
+  </div>
+
+  <div class="subtitle">Something big is coming…</div>
+
+  <div class="wa-btn" id="waBtn">
+    Follow the official WhatsApp channel to get notified immediately when it launches
+  </div>
+</div>
+
+</div>
+
 <script>
 function unlockPrediction(btn){
 
@@ -7320,6 +7495,67 @@ requestAnimationFrame(() => {
     }
   }, 1000);
 })();
+</script>
+
+<script>
+  const tg = window.Telegram.WebApp;
+  tg.ready();
+  tg.expand();
+  tg.setHeaderColor('#050508');
+  tg.setBackgroundColor('#050508');
+
+  // ========== PERSISTENT COUNTDOWN ==========
+  const STORAGE_KEY = 'ai_football_countdown_target';
+
+  let targetDate;
+  const saved = localStorage.getItem(STORAGE_KEY);
+
+  if (saved) {
+    targetDate = new Date(parseInt(saved));
+  } else {
+    targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 10);
+    localStorage.setItem(STORAGE_KEY, targetDate.getTime().toString());
+  }
+
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+  const splash = document.getElementById('splash');
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate.getTime() - now;
+
+    if (distance <= 0) {
+      clearInterval(timer);
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00';
+      secondsEl.textContent = '00';
+      setTimeout(() => splash.classList.add('hide'), 600);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    daysEl.textContent = String(days).padStart(2, '0');
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
+
+  // Open WhatsApp channel using Telegram method
+  document.getElementById('waBtn').addEventListener('click', function() {
+    tg.openLink('https://whatsapp.com/channel/0029VbD8yDd96H4NaKBLpL2e');
+  });
 </script>
 
 </body>
