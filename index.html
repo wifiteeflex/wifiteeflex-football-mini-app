@@ -2380,397 +2380,103 @@ color:#fff;
 
 }
 
-/* =========================================
-   FULL SCREEN LAUNCH OVERLAY
-   ========================================= */
+.ask-ai-bot{
 
-#launchCountdown {
-    position: fixed;
-    inset: 0;
+position:fixed;
 
-    width: 100vw;
-    height: 100dvh;
+left:13px;
+bottom:373px;
 
-    z-index: 999999999;
+z-index:999999;
 
-    overflow: hidden;
+display:flex;
+align-items:center;
+gap:4px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+text-decoration:none;
 
-    background: #020810;
+animation:floatBot 3s ease-in-out infinite;
 
-    isolation: isolate;
+}
+
+/* LABEL */
+
+.ai-label{
+
+background:rgba(0,0,0,.75);
+
+color:#fff;
+
+padding:6px 10px;
+
+border-radius:25px;
+
+font-size:10px;
+font-weight:700;
+
+text-shadow:none;
+
+backdrop-filter:blur(10px);
+
+border:
+1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 0 20px rgba(0,0,0,.25);
+
 }
 
 
-/* =========================================
-   FULL SCREEN IMAGE
-   ========================================= */
+/* CIRCLE */
 
-.launch-image {
-    position: absolute;
+.ai-circle{
 
-    inset: 0;
+width:45px;
+height:45px;
 
-    width: 100%;
-    height: 100%;
+border-radius:50%;
 
-    background-image: url("YOUR-IMAGE-URL-HERE");
+overflow:hidden;
 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+background:#fff;
 
-    z-index: -3;
+box-shadow:
+0 8px 25px rgba(0,0,0,.35);
+
+border:
+3px solid rgba(255,255,255,.8);
+
 }
 
 
-/* =========================================
-   BLUE CINEMATIC OVERLAY
-   ========================================= */
+/* IMAGE */
 
-.launch-blue-overlay {
-    position: absolute;
+.ai-circle img{
 
-    inset: 0;
+width:100%;
+height:100%;
 
-    width: 100%;
-    height: 100%;
+object-fit:cover;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0, 20, 45, 0.78) 0%,
-            rgba(0, 40, 80, 0.68) 45%,
-            rgba(0, 8, 20, 0.88) 100%
-        );
-
-    backdrop-filter: blur(2px);
-
-    z-index: -2;
 }
 
 
-/* Subtle blue glow */
+/* FLOAT EFFECT */
 
-.launch-blue-overlay::after {
-    content: "";
+@keyframes floatBot{
 
-    position: absolute;
+0%,100%{
 
-    width: 70vw;
-    height: 70vw;
+transform:translateY(0);
 
-    max-width: 650px;
-    max-height: 650px;
-
-    left: 50%;
-    top: 45%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background: rgba(0, 140, 255, 0.13);
-
-    filter: blur(90px);
 }
 
+50%{
 
-/* =========================================
-   CONTENT
-   ========================================= */
+transform:translateY(-8px);
 
-.launch-content {
-    position: relative;
-
-    z-index: 5;
-
-    width: 92%;
-    max-width: 650px;
-
-    padding: 40px 20px;
-
-    text-align: center;
-
-    color: white;
 }
 
-
-/* =========================================
-   BADGE
-   ========================================= */
-
-.launch-badge {
-    display: inline-block;
-
-    padding: 8px 18px;
-
-    border-radius: 50px;
-
-    background: rgba(0, 100, 200, 0.25);
-
-    border: 1px solid rgba(100, 190, 255, 0.45);
-
-    color: #8ed7ff;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 22px;
-
-    box-shadow:
-        0 0 25px rgba(0, 140, 255, 0.15);
-}
-
-
-/* =========================================
-   FOOTBALL
-   ========================================= */
-
-.football-icon {
-    width: 75px;
-    height: 75px;
-
-    margin: 0 auto 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: rgba(0, 30, 60, 0.65);
-
-    border: 1px solid rgba(90, 190, 255, 0.45);
-
-    font-size: 36px;
-
-    box-shadow:
-        0 0 40px rgba(0, 150, 255, 0.22);
-}
-
-
-/* =========================================
-   TITLE
-   ========================================= */
-
-.launch-content h1 {
-
-    margin: 0;
-
-    font-size: clamp(
-        34px,
-        8vw,
-        58px
-    );
-
-    line-height: 1.02;
-
-    font-weight: 900;
-
-    letter-spacing: -2px;
-
-    text-shadow:
-        0 4px 25px rgba(0,0,0,0.7);
-}
-
-
-/* =========================================
-   SUBTITLE
-   ========================================= */
-
-.launch-subtitle {
-
-    margin: 16px 0 32px;
-
-    color: rgba(255,255,255,0.82);
-
-    font-size: clamp(
-        14px,
-        3.8vw,
-        18px
-    );
-
-    text-shadow:
-        0 2px 10px rgba(0,0,0,0.7);
-}
-
-
-/* =========================================
-   COUNTDOWN
-   ========================================= */
-
-.countdown-timer {
-
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 9px;
-}
-
-
-/* Individual boxes */
-
-.time-box {
-
-    padding: 18px 5px 14px;
-
-    border-radius: 18px;
-
-    background:
-        rgba(0, 20, 40, 0.62);
-
-    border:
-        1px solid
-        rgba(110, 200, 255, 0.25);
-
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-        inset 0 0 20px
-        rgba(0, 130, 255, 0.06);
-}
-
-
-/* Numbers */
-
-.time-box span {
-
-    display: block;
-
-    font-size: clamp(
-        30px,
-        8vw,
-        52px
-    );
-
-    line-height: 1;
-
-    font-weight: 900;
-
-    color: #64d8ff;
-
-    font-variant-numeric:
-        tabular-nums;
-
-    text-shadow:
-        0 0 25px
-        rgba(60, 190, 255, 0.55);
-}
-
-
-/* Labels */
-
-.time-box small {
-
-    display: block;
-
-    margin-top: 9px;
-
-    color:
-        rgba(255,255,255,0.55);
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-}
-
-
-/* =========================================
-   COMING SOON
-   ========================================= */
-
-.coming-text {
-
-    margin-top: 28px;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 5px;
-
-    color: white;
-
-    text-shadow:
-        0 2px 10px rgba(0,0,0,0.8);
-}
-
-
-/* =========================================
-   BRAND
-   ========================================= */
-
-.launch-brand {
-
-    margin-top: 25px;
-
-    color: #55d8ff;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    text-shadow:
-        0 0 15px rgba(0,170,255,0.4);
-}
-
-
-/* =========================================
-   SMALL PHONES
-   ========================================= */
-
-@media (max-width: 390px) {
-
-    .launch-content {
-        padding: 25px 12px;
-    }
-
-    .launch-badge {
-        font-size: 9px;
-        letter-spacing: 3px;
-    }
-
-    .football-icon {
-        width: 62px;
-        height: 62px;
-        font-size: 30px;
-    }
-
-    .countdown-timer {
-        gap: 5px;
-    }
-
-    .time-box {
-        padding: 15px 3px 12px;
-    }
-
-    .time-box span {
-        font-size: 28px;
-    }
-
-    .time-box small {
-        font-size: 7px;
-        letter-spacing: 1px;
-    }
-
-    .launch-brand {
-        font-size: 11px;
-    }
 }
 
 </style>
@@ -8105,67 +7811,18 @@ LIVE UNAVAILABLE
 
 </div>
 
-<div id="launchCountdown">
+<a href="https://omg10.com/4/8676459"
+class="ask-ai-bot">
 
-    <!-- Full-screen launch image -->
-    <div class="launch-image"></div>
-
-    <!-- Blue cinematic overlay -->
-    <div class="launch-blue-overlay"></div>
-
-    <!-- Countdown content -->
-    <div class="launch-content">
-
-        <div class="launch-badge">
-            OFFICIAL LAUNCH
-        </div>
-
-        <div class="football-icon">⚽</div>
-
-        <h1>
-            AI FOOTBALL<br>
-            PREDICTIONS
-        </h1>
-
-        <p class="launch-subtitle">
-            The next generation of football analysis
-        </p>
-
-        <div class="countdown-timer">
-
-            <div class="time-box">
-                <span id="countDays">00</span>
-                <small>DAYS</small>
-            </div>
-
-            <div class="time-box">
-                <span id="countHours">00</span>
-                <small>HOURS</small>
-            </div>
-
-            <div class="time-box">
-                <span id="countMinutes">00</span>
-                <small>MINUTES</small>
-            </div>
-
-            <div class="time-box">
-                <span id="countSeconds">00</span>
-                <small>SECONDS</small>
-            </div>
-
-        </div>
-
-        <div class="coming-text">
-            COMING SOON
-        </div>
-
-        <div class="launch-brand">
-            www.Aifootballpredictions.com
-        </div>
-
-    </div>
-
+<div class="ai-circle">
+<img src="https://i.imgur.com/f3XrsGW.jpeg">
 </div>
+
+<div class="ai-label">
+Ask Ai🤖
+</div>
+
+</a>
 
 <script>
 function unlockPrediction(btn){
@@ -8863,167 +8520,6 @@ requestAnimationFrame(() => {
     });
 
 });
-</script>
-
-<script>
-(function () {
-  const clockEl = document.getElementById('liveClockFirst');
-  const STORAGE_KEY = 'liveMatch_FirstHalf';
-  const HALF_DURATION = 45 * 60; // 45 minutes in seconds
-
-  let saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
-  let elapsed = saved ? saved.elapsed : 0;
-  let lastTick = Date.now();
-
-  function formatTime(seconds) {
-    if (seconds > HALF_DURATION) seconds = HALF_DURATION;
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `LIVE ${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-  }
-
-  function tick() {
-    const now = Date.now();
-    const delta = Math.floor((now - lastTick) / 1000);
-    lastTick = now;
-
-    if (delta > 0 && elapsed < HALF_DURATION) {
-      elapsed += delta;
-      if (elapsed > HALF_DURATION) elapsed = HALF_DURATION;
-
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        elapsed: elapsed,
-        updated: now
-      }));
-    }
-
-    clockEl.textContent = formatTime(elapsed);
-
-    if (elapsed < HALF_DURATION) {
-      requestAnimationFrame(tick);
-    }
-  }
-
-  lastTick = Date.now();
-  tick();
-
-  setInterval(() => {
-    if (elapsed < HALF_DURATION) {
-      lastTick = Date.now() - 1000;
-      tick();
-    }
-  }, 1000);
-})();
-</script>
-
-<script>
-/*
-=========================================
-AI FOOTBALL PREDICTIONS LAUNCH COUNTDOWN
-=========================================
-
-Launch:
-August 16, 2026
-00:00 Lagos / West Africa Time
-
-Lagos is UTC+1, therefore:
-August 16 00:00 Lagos
-=
-August 15 23:00 UTC
-*/
-
-const LAUNCH_TIMESTAMP =
-    Date.parse("2026-08-15T23:00:00.000Z");
-
-
-function updateLaunchCountdown() {
-
-    const now = Date.now();
-
-    const remaining = LAUNCH_TIMESTAMP - now;
-
-
-    /*
-    If launch time has arrived,
-    permanently remove the countdown.
-    */
-
-    if (remaining <= 0) {
-
-        const countdown =
-            document.getElementById("launchCountdown");
-
-        if (countdown) {
-            countdown.remove();
-        }
-
-        return;
-    }
-
-
-    const SECOND = 1000;
-
-    const MINUTE =
-        SECOND * 60;
-
-    const HOUR =
-        MINUTE * 60;
-
-    const DAY =
-        HOUR * 24;
-
-
-    const days =
-        Math.floor(remaining / DAY);
-
-    const hours =
-        Math.floor(
-            (remaining % DAY) / HOUR
-        );
-
-    const minutes =
-        Math.floor(
-            (remaining % HOUR) / MINUTE
-        );
-
-    const seconds =
-        Math.floor(
-            (remaining % MINUTE) / SECOND
-        );
-
-
-    document.getElementById("countDays")
-        .textContent =
-        String(days).padStart(2, "0");
-
-
-    document.getElementById("countHours")
-        .textContent =
-        String(hours).padStart(2, "0");
-
-
-    document.getElementById("countMinutes")
-        .textContent =
-        String(minutes).padStart(2, "0");
-
-
-    document.getElementById("countSeconds")
-        .textContent =
-        String(seconds).padStart(2, "0");
-}
-
-
-/* Run immediately */
-
-updateLaunchCountdown();
-
-
-/* Update every second */
-
-setInterval(
-    updateLaunchCountdown,
-    1000
-);
 </script>
 
 </body>
