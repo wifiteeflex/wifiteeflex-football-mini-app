@@ -2380,6 +2380,286 @@ color:#fff;
 
 }
 
+/* =====================================
+   AI FOOTBALL PREDICTIONS LAUNCH SCREEN
+   ===================================== */
+
+.launch-countdown {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    min-height: 100vh;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(0, 255, 100, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 180, 80, 0.10),
+            transparent 35%
+        ),
+        #010502;
+
+    color: #ffffff;
+}
+
+/* Moving glow */
+
+.countdown-bg {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+
+    background: rgba(0, 255, 100, 0.08);
+
+    filter: blur(90px);
+
+    animation: countdownGlow 4s ease-in-out infinite;
+}
+
+@keyframes countdownGlow {
+
+    0% {
+        transform: scale(0.85);
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.85);
+        opacity: 0.45;
+    }
+}
+
+
+/* Main content */
+
+.countdown-content {
+    position: relative;
+    z-index: 2;
+
+    width: 92%;
+    max-width: 600px;
+
+    padding: 45px 22px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(3, 13, 7, 0.82);
+
+    border: 1px solid rgba(70, 255, 140, 0.22);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 0 70px rgba(0, 255, 100, 0.08),
+        inset 0 0 40px rgba(0, 255, 100, 0.025);
+}
+
+
+/* Launch badge */
+
+.launch-badge {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color: #4cff96;
+}
+
+
+/* Football icon */
+
+.football-icon {
+    width: 78px;
+    height: 78px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 37px;
+
+    background: #061b0d;
+
+    border: 1px solid rgba(72, 255, 145, 0.35);
+
+    box-shadow:
+        0 0 30px rgba(0, 255, 100, 0.18);
+
+    animation: footballPulse 3s ease-in-out infinite;
+}
+
+@keyframes footballPulse {
+
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 255, 100, 0.12);
+    }
+
+    50% {
+        box-shadow: 0 0 45px rgba(0, 255, 100, 0.30);
+    }
+}
+
+
+/* Title */
+
+.countdown-content h1 {
+    margin: 0;
+
+    font-size: clamp(28px, 7vw, 48px);
+
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+
+/* Subtitle */
+
+.launch-subtitle {
+    margin: 14px 0 35px;
+
+    color: #9eafa5;
+
+    font-size: 14px;
+}
+
+
+/* Countdown */
+
+.countdown-timer {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 9px;
+}
+
+
+/* Individual time box */
+
+.time-box {
+    padding: 18px 5px 14px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* Numbers */
+
+.time-box span {
+    display: block;
+
+    font-size: clamp(30px, 8vw, 52px);
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    color: #4cff96;
+
+    font-variant-numeric: tabular-nums;
+
+    text-shadow:
+        0 0 20px rgba(72, 255, 145, 0.30);
+}
+
+
+/* Labels */
+
+.time-box small {
+    display: block;
+
+    margin-top: 9px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
+
+    color: #728279;
+}
+
+
+/* Coming soon */
+
+.coming-text {
+    margin-top: 32px;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    font-weight: 700;
+
+    color: #d5ddd8;
+}
+
+
+/* Mobile */
+
+@media (max-width: 390px) {
+
+    .countdown-content {
+        padding: 35px 15px;
+    }
+
+    .countdown-timer {
+        gap: 5px;
+    }
+
+    .time-box {
+        padding: 15px 3px 12px;
+    }
+
+    .time-box span {
+        font-size: 28px;
+    }
+
+    .time-box small {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+}
+
 </style>
 </head>
         
@@ -2387,6 +2667,56 @@ color:#fff;
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
 </body>
+
+<div id="launchCountdown" class="launch-countdown">
+  <div class="countdown-bg"></div>
+
+  <div class="countdown-content">
+
+    <div class="launch-badge">
+      OFFICIAL LAUNCH
+    </div>
+
+    <div class="football-icon">
+      ⚽
+    </div>
+
+    <h1>AI FOOTBALL<br>PREDICTIONS</h1>
+
+    <p class="launch-subtitle">
+      The next generation of football analysis
+    </p>
+
+    <div class="countdown-timer">
+
+      <div class="time-box">
+        <span id="countDays">00</span>
+        <small>DAYS</small>
+      </div>
+
+      <div class="time-box">
+        <span id="countHours">00</span>
+        <small>HOURS</small>
+      </div>
+
+      <div class="time-box">
+        <span id="countMinutes">00</span>
+        <small>MINUTES</small>
+      </div>
+
+      <div class="time-box">
+        <span id="countSeconds">00</span>
+        <small>SECONDS</small>
+      </div>
+
+    </div>
+
+    <div class="coming-text">
+      COMING SOON
+    </div>
+
+  </div>
+</div>
 
 <div class="bottom-nav">
 
@@ -8459,6 +8789,116 @@ requestAnimationFrame(() => {
     }
   }, 1000);
 })();
+</script>
+
+<script>
+/*
+=========================================
+AI FOOTBALL PREDICTIONS LAUNCH COUNTDOWN
+=========================================
+
+Launch:
+August 16, 2026
+00:00 Lagos / West Africa Time
+
+Lagos is UTC+1, therefore:
+August 16 00:00 Lagos
+=
+August 15 23:00 UTC
+*/
+
+const LAUNCH_TIMESTAMP =
+    Date.parse("2026-08-15T23:00:00.000Z");
+
+
+function updateLaunchCountdown() {
+
+    const now = Date.now();
+
+    const remaining = LAUNCH_TIMESTAMP - now;
+
+
+    /*
+    If launch time has arrived,
+    permanently remove the countdown.
+    */
+
+    if (remaining <= 0) {
+
+        const countdown =
+            document.getElementById("launchCountdown");
+
+        if (countdown) {
+            countdown.remove();
+        }
+
+        return;
+    }
+
+
+    const SECOND = 1000;
+
+    const MINUTE =
+        SECOND * 60;
+
+    const HOUR =
+        MINUTE * 60;
+
+    const DAY =
+        HOUR * 24;
+
+
+    const days =
+        Math.floor(remaining / DAY);
+
+    const hours =
+        Math.floor(
+            (remaining % DAY) / HOUR
+        );
+
+    const minutes =
+        Math.floor(
+            (remaining % HOUR) / MINUTE
+        );
+
+    const seconds =
+        Math.floor(
+            (remaining % MINUTE) / SECOND
+        );
+
+
+    document.getElementById("countDays")
+        .textContent =
+        String(days).padStart(2, "0");
+
+
+    document.getElementById("countHours")
+        .textContent =
+        String(hours).padStart(2, "0");
+
+
+    document.getElementById("countMinutes")
+        .textContent =
+        String(minutes).padStart(2, "0");
+
+
+    document.getElementById("countSeconds")
+        .textContent =
+        String(seconds).padStart(2, "0");
+}
+
+
+/* Run immediately */
+
+updateLaunchCountdown();
+
+
+/* Update every second */
+
+setInterval(
+    updateLaunchCountdown,
+    1000
+);
 </script>
 
 </body>
