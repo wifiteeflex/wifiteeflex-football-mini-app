@@ -8519,11 +8519,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     tg.ready();
     tg.expand();
 
-    // Make sure the Mini App was opened through Telegram
+    const status = document.createElement("div");
+
+    status.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 10px;
+        right: 10px;
+        z-index: 999999;
+        padding: 15px;
+        background: #111;
+        color: white;
+        border: 2px solid #00ff88;
+        border-radius: 12px;
+        font-size: 14px;
+        font-family: Arial;
+    `;
+
+    document.body.appendChild(status);
+
+    // Check Telegram
     if (!tg.initData) {
-        console.log("Not opened inside Telegram.");
+
+        status.innerHTML =
+            "❌ Telegram data NOT detected.<br><br>" +
+            "The Mini App may not be receiving Telegram initData.";
+
         return;
     }
+
+    status.innerHTML =
+        "✅ Telegram data detected.<br><br>" +
+        "Connecting to AI Football backend...";
 
     try {
 
@@ -8531,9 +8558,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             "https://ai-football-backend-ed3m.onrender.com/api/register",
             {
                 method: "POST",
+
                 headers: {
                     "Content-Type": "application/json"
                 },
+
                 body: JSON.stringify({
                     initData: tg.initData
                 })
@@ -8544,43 +8573,25 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (result.success) {
 
-            console.log("✅ Telegram user registered");
-
-            console.log(
-                "Telegram ID:",
-                result.user.telegram_user_id
-            );
-
-            console.log(
-                "Name:",
-                result.user.first_name
-            );
-
-            console.log(
-                "Username:",
-                result.user.username
-            );
-
-            console.log(
-                "Notifications:",
-                result.user.allows_write_to_pm
-            );
+            status.innerHTML =
+                "🎉 USER REGISTERED SUCCESSFULLY!<br><br>" +
+                "Telegram ID: " +
+                result.user.telegram_user_id;
 
         } else {
 
-            console.error(
-                "❌ Registration failed:",
-                result.message
-            );
+            status.innerHTML =
+                "❌ BACKEND REJECTED USER<br><br>" +
+                "Error: " +
+                result.message;
 
         }
 
     } catch (error) {
 
-        console.error(
-            "❌ Backend connection error:",
-            error
-        );
+        status.innerHTML =
+            "❌ BACKEND CONNECTION FAILED<br><br>" +
+            error.message;
 
     }
 
