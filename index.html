@@ -3262,19 +3262,6 @@ LEAGUE
 
 </div>
 
-<div class="wc-bar">
-
-<div class="wc-label">LEAGUE STARTS IN</div>
-
-<div class="wc-time">
-<span id="days">05</span>d :
-<span id="hours">00</span>h :
-<span id="minutes">00</span>m :
-<span id="seconds">00</span>s
-</div>
-
-</div>
-
 <!-- CARD 4 -->
 
 <div class="card premier">
@@ -7513,18 +7500,24 @@ requestAnimationFrame(() => {
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", async () => {
+const tg = window.Telegram.WebApp;
 
-    const tg = window.Telegram.WebApp;
+tg.ready();
+tg.expand();
 
-    tg.ready();
-    tg.expand();
+let registering = false;
 
-    // Make sure the Mini App was opened through Telegram
+async function registerTelegramUser() {
+
+    // Prevent duplicate requests at the exact same time
+    if (registering) return;
+
     if (!tg.initData) {
-        console.log("Not opened inside Telegram.");
+        console.log("⚠️ Telegram initData not available");
         return;
     }
+
+    registering = true;
 
     try {
 
@@ -7545,7 +7538,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (result.success) {
 
-            console.log("✅ Telegram user registered");
+            console.log("✅ USER REGISTERED / LAST SEEN UPDATED");
 
             console.log(
                 "Telegram ID:",
@@ -7555,11 +7548,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.log(
                 "Name:",
                 result.user.first_name
-            );
-
-            console.log(
-                "Username:",
-                result.user.username
             );
 
             console.log(
@@ -7573,18 +7561,39 @@ document.addEventListener("DOMContentLoaded", async () => {
                 "❌ Registration failed:",
                 result.message
             );
-
         }
 
     } catch (error) {
 
         console.error(
-            "❌ Backend connection error:",
+            "❌ Registration connection error:",
             error
         );
 
+    } finally {
+
+        registering = false;
+    }
+}
+
+
+// Register immediately when Mini App loads
+registerTelegramUser();
+
+
+// Register again whenever the user returns to the Mini App
+document.addEventListener("visibilitychange", () => {
+
+    if (document.visibilityState === "visible") {
+        registerTelegramUser();
     }
 
+});
+
+
+// Also register when the Mini App receives focus
+window.addEventListener("focus", () => {
+    registerTelegramUser();
 });
 </script>
 
