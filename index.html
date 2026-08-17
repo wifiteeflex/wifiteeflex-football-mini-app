@@ -2478,36 +2478,30 @@ transform:translateY(-8px);
 }
 
 .odds-box {
-    width: 180px !important;
-    min-width: 180px !important;
-    padding: 8px 12px !important;
-    text-align: center;
+    width: 220px !important;
+    min-width: 220px !important;
+    padding: 8px 15px !important;
+    text-align: center !important;
 }
 
-.odds-box {
-    width: 180px !important;
-    min-width: 180px !important;
-    padding: 8px 12px !important;
-    text-align: center;
-}
-
-.odds-box span {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 12px;
-    font-weight: 700;
+.odds-box > span {
+    display: block !important;
+    margin-bottom: 4px !important;
 }
 
 .odds-values {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 25px !important;
 }
 
 .odds-values strong {
-    font-size: 18px;
-    font-weight: 800;
+    display: inline-block !important;
+    font-size: 20px !important;
+    white-space: nowrap !important;
 }
 
 </style>
@@ -3075,6 +3069,7 @@ BK Hacken
 
 <div class="odds-box">
     <span>Odds</span>
+
     <div class="odds-values">
         <strong>1.33</strong>
         <strong>8.13</strong>
