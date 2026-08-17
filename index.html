@@ -2477,61 +2477,6 @@ transform:translateY(-8px);
 
 }
 
-/* FORCE ODDS BOX TO LANDSCAPE */
-.odds-box.landscape-odds {
-    width: 220px !important;
-    min-width: 220px !important;
-    height: auto !important;
-    min-height: 70px !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    padding: 8px 15px !important;
-    box-sizing: border-box !important;
-}
-
-/* Odds title */
-.odds-box.landscape-odds .odds-label {
-    display: block !important;
-    width: 100% !important;
-
-    text-align: center !important;
-
-    font-size: 14px !important;
-    font-weight: 700 !important;
-
-    margin: 0 0 5px 0 !important;
-}
-
-/* THE TWO ODDS MUST BE SIDE BY SIDE */
-.odds-box.landscape-odds .odds-row {
-    display: flex !important;
-    flex-direction: row !important;
-
-    justify-content: space-between !important;
-    align-items: center !important;
-
-    width: 100% !important;
-    gap: 30px !important;
-}
-
-/* Each odds number */
-.odds-box.landscape-odds .odds-row span {
-    display: block !important;
-
-    flex: 1 1 0 !important;
-
-    text-align: center !important;
-
-    font-size: 20px !important;
-    font-weight: 800 !important;
-
-    white-space: nowrap !important;
-}
-
 </style>
 </head>
         
@@ -3096,15 +3041,8 @@ BK Hacken
 <div class="vs">VS</div>
 
 <div class="odds-box">
-    <span>Odds</span>
-
-    <div class="odds-box landscape-odds">
-    <div class="odds-label">Odds</div>
-
-    <div class="odds-row">
-        <span>1.33</span>
-        <span>8.13</span>
-    </div>
+<span>Odds</span>
+<strong>1.33</strong>
 </div>
 
 </div>
@@ -3176,7 +3114,7 @@ color:#fff;
 </div>
 
 <!-- ========================= -->
-<!-- TODAY CARD 10 -->
+<!-- TODAY CARD 5 -->
 <!-- ========================= -->
 
 <div class="card ai-tip-card">
@@ -3187,7 +3125,7 @@ color:#fff;
 <div class="upcoming-badge">UPCOMING</div>
 </div>
 
-<div class="hot">Club friendly</div>
+<div class="hot">Liga portugal</div>
 
 </div>
 
@@ -3196,24 +3134,24 @@ color:#fff;
 <div class="team">
 
 <div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/hif/b/bd/Liverpool_FC.png?utm_source=hif.wikipedia.org&utm_campaign=index&utm_content=original">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Casa-pia-ac-2017-logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original">
 </div>
 
 <div class="team-name">
-Liverpool
+Casa pia lisbon
 </div>
 
 </div>
 
 <div class="center">
 
-<div class="minute">Today 6:00</div>
+<div class="minute">Today 8:15</div>
 
 <div class="vs">VS</div>
 
 <div class="odds-box">
 <span>Odds</span>
-<strong>1.42</strong>
+<strong>1.25</strong>
 </div>
 
 </div>
@@ -3221,11 +3159,11 @@ Liverpool
 <div class="team">
 
 <div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Logo_Como_1907_2019.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/a/a2/SL_Benfica_logo.svg?utm_source=sco.wikipedia.org&utm_campaign=index&utm_content=original">
 </div>
 
 <div class="team-name">
-Como
+Benfica
 </div>
 
 </div>
@@ -3236,11 +3174,11 @@ Como
 
 <div class="confidence-head">
 <span>AI confidence</span>
-<span class="percent">100</span>
+<span class="percent">50</span>
 </div>
 
 <div class="progress">
-    <div class="progress-bar high" style="width:100%;"></div>
+    <div class="progress-bar high" style="width:50%;"></div>
 </div>
 
 <div class="match-tabs">
@@ -3260,15 +3198,21 @@ Como
 </div>
 
 <div class="prediction">
-BTTS (Yes)
+Away win (2p)
 </div>
 
 <div class="buttons">
 
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-LIVE UNAVAILABLE
-</button>
+<a class="bet"
+href="https://omg10.com/4/7461956"
+target="_blank"
+style="
+background:#1e3a5f;
+color:#fff;
+">
+
+▶ LIVE AVAILABLE
+</a>
 
 <button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
