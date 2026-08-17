@@ -2477,30 +2477,58 @@ transform:translateY(-8px);
 
 }
 
-.odds-box {
+/* FORCE ODDS BOX TO LANDSCAPE */
+.odds-box.landscape-odds {
     width: 220px !important;
     min-width: 220px !important;
+    height: auto !important;
+    min-height: 70px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
     padding: 8px 15px !important;
-    text-align: center !important;
+    box-sizing: border-box !important;
 }
 
-.odds-box > span {
+/* Odds title */
+.odds-box.landscape-odds .odds-label {
     display: block !important;
-    margin-bottom: 4px !important;
+    width: 100% !important;
+
+    text-align: center !important;
+
+    font-size: 14px !important;
+    font-weight: 700 !important;
+
+    margin: 0 0 5px 0 !important;
 }
 
-.odds-values {
+/* THE TWO ODDS MUST BE SIDE BY SIDE */
+.odds-box.landscape-odds .odds-row {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: space-around !important;
+
+    justify-content: space-between !important;
     align-items: center !important;
+
     width: 100% !important;
-    gap: 25px !important;
+    gap: 30px !important;
 }
 
-.odds-values strong {
-    display: inline-block !important;
+/* Each odds number */
+.odds-box.landscape-odds .odds-row span {
+    display: block !important;
+
+    flex: 1 1 0 !important;
+
+    text-align: center !important;
+
     font-size: 20px !important;
+    font-weight: 800 !important;
+
     white-space: nowrap !important;
 }
 
@@ -3070,9 +3098,12 @@ BK Hacken
 <div class="odds-box">
     <span>Odds</span>
 
-    <div class="odds-values">
-        <strong>1.33</strong>
-        <strong>8.13</strong>
+    <div class="odds-box landscape-odds">
+    <div class="odds-label">Odds</div>
+
+    <div class="odds-row">
+        <span>1.33</span>
+        <span>8.13</span>
     </div>
 </div>
 
@@ -3135,645 +3166,6 @@ color:#fff;
 
 ▶ LIVE AVAILABLE
 </a>
-
-<button class="watch" onclick="unlockPrediction(this)">
-🔒 SEE PREDICTION
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY CARD 4 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">Ended</div>
-</div>
-
-<div class="hot">Championship</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/0/02/Burnley_FC_badge.png?utm_source=sco.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Burnley
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute">Match Ended</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>FULL TIME</span>
-<strong>2 - 2</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/c/c2/West_Ham_United_FC_logo.svg?utm_source=sco.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-West Ham
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>Winning Pick</span>
-<span class="percent">BTTS (Yes)🏆</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar high" style="width:100%;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-BTTS (Yes)
-</div>
-
-<div class="buttons">
-
-<a class="bet"
-href="https://omg10.com/4/7461956"
-target="_blank"
-style="
-background:#1e3a5f;
-color:#fff;
-">
-
-▶ Watch Highlight
-</a>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-Prediction Won🥇
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY CARD 5 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">Ended</div>
-</div>
-
-<div class="hot">Spain laliga</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/RealSantanderRC_1923.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Racing santader
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute">Match Ended</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>FULL TIME</span>
-<strong>2 - 2</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sr/f/fc/Villarreal_CF_logo.png?utm_source=sr.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Villarreal
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>Winning Pick</span>
-<span class="percent">Away (1up)🔴</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar low" style="width:100%;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-Away (1up)
-</div>
-
-<div class="buttons">
-
-<a class="bet"
-href="https://omg10.com/4/7461956"
-target="_blank"
-style="
-background:#1e3a5f;
-color:#fff;
-">
-
-▶ Watch Highlight
-</a>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-Prediction Lost🔴
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY CARD 6 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">Ended</div>
-</div>
-
-<div class="hot">Super liga</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/fi/9/92/Randers_FC_Logo.png?utm_source=fi.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Randers FC
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute">Match Ended</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>FULL TIME</span>
-<strong>0 - 3</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/pt/e/ea/FC_K%C3%B8benhavn.png?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Copenhagen
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>Winning Pick</span>
-<span class="percent">Over 1.5 Goals🏆</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar high" style="width:100%;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-Over 1.5 Goals
-</div>
-
-<div class="buttons">
-
-<a class="bet"
-href="https://omg10.com/4/7461956"
-target="_blank"
-style="
-background:#1e3a5f;
-color:#fff;
-">
-
-▶ Watch Highlight
-</a>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-Prediction Won🥇
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY CARD 7 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">LIVE</div>
-</div>
-
-<div class="hot">Spain laliga</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/fr/a/a5/Rcd_espanyol_de_barcelona.png?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Espanyol
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute">LIVE</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>LIVE</span>
-<strong>1 - 0</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/fr/e/ef/Logo_Levante_UD.svg?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Levante
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>AI confidence</span>
-<span class="percent">100</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar high" style="width:100%;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-Home or Away (12)
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-LIVE UNAVAILABLE
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)">
-🔒 SEE PREDICTION
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY CARD 8 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
-
-<div class="hot">Turkiye lig</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/4/47/Besiktas_JK%27s_official_logo.png?utm_source=sco.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Basikat
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute">Today 7:30</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.19</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/6/62/Ey%C3%BCpspor_Logosu.png?utm_source=tr.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Eyupspor
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>AI confidence</span>
-<span class="percent">100</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar high" style="width:100%;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-Home win (1up)
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-LIVE UNAVAILABLE
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)">
-🔒 SEE PREDICTION
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY CARD 9 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
-
-<div class="hot">Trophee des</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/pt/8/8d/RC_Lens.png?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-RC Lens
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute">Today 7:45</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.12</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-PSG
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>AI confidence</span>
-<span class="percent">100</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar high" style="width:100%;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-Away over 0.5 Goals
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-LIVE UNAVAILABLE
-</button>
 
 <button class="watch" onclick="unlockPrediction(this)">
 🔒 SEE PREDICTION
