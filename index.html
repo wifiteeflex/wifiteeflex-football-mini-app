@@ -2477,155 +2477,6 @@ transform:translateY(-8px);
 
 }
 
-/* =========================================
-   AI TIPS 48-HOUR LOCK
-   ========================================= */
-
-#aiTipsPage {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-    background: #000;
-}
-
-/* Blurred football background */
-#aiTipsLock {
-    position: relative;
-    min-height: 75vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    background-image:
-        linear-gradient(
-            rgba(0,0,0,0.48),
-            rgba(0,0,0,0.58)
-        ),
-        url("YOUR-FOOTBALL-BACKGROUND.jpg");
-
-    background-size: cover;
-    background-position: center;
-
-    text-align: center;
-}
-
-/* Blur the background without blurring the text */
-#aiTipsLock::before {
-    content: "";
-    position: absolute;
-    inset: -20px;
-
-    background-image: url("YOUR-FOOTBALL-BACKGROUND.jpg");
-    background-size: cover;
-    background-position: center;
-
-    filter: blur(8px);
-
-    transform: scale(1.08);
-
-    z-index: 0;
-}
-
-/* Dark overlay */
-#aiTipsLock::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: rgba(0,0,0,0.42);
-
-    z-index: 1;
-}
-
-/* Lock content */
-.ai-lock-content {
-    position: relative;
-    z-index: 2;
-
-    width: 100%;
-    max-width: 600px;
-
-    padding: 45px 20px;
-
-    color: #fff;
-
-    text-align: center;
-}
-
-.ai-lock-icon {
-    font-size: 45px;
-    margin-bottom: 8px;
-}
-
-.ai-lock-content h1 {
-    margin: 0 0 10px;
-
-    font-size: 32px;
-    font-weight: 800;
-
-    color: #fff;
-}
-
-.ai-lock-content p {
-    margin: 0 auto 25px;
-
-    max-width: 500px;
-
-    font-size: 18px;
-    line-height: 1.5;
-
-    color: #eee;
-}
-
-.ai-countdown-title {
-    font-size: 20px;
-    font-weight: 700;
-
-    color: #fff;
-
-    margin-top: 10px;
-}
-
-#aiTipsCountdown {
-    margin-top: 8px;
-
-    font-size: 42px;
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    color: #20ff78;
-
-    text-shadow:
-        0 0 10px rgba(32,255,120,0.45);
-}
-
-.ai-countdown-label {
-    margin-top: 5px;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    color: #bbb;
-    letter-spacing: 2px;
-}
-
-.ai-check-back {
-    margin-top: 25px !important;
-
-    font-size: 16px !important;
-    color: #ddd !important;
-}
-
-
-/* Hide actual predictions while locked */
-#aiTipsContent {
-    display: none;
-}
-
 </style>
 </head>
         
@@ -2832,51 +2683,18 @@ POWERED BY GROK ENGINE
 
 <div id="aiTipsPage" class="page">
 
-    <!-- AI TIPS LOCK -->
+<a href="https://omg10.com/4/8676459"
+class="ask-ai-bot">
 
-    <div id="aiTipsLock">
+<div class="ai-circle">
+<img src="https://i.imgur.com/f3XrsGW.jpeg">
+</div>
 
-        <div class="ai-lock-content">
+<div class="ai-label">
+Ask Ai🤖
+</div>
 
-            <div class="ai-lock-icon">🤖</div>
-
-            <h1>AI Predictions Loading...</h1>
-
-            <p>
-
-                Our AI is analyzing the latest football data,
-
-                form and statistics.
-
-            </p>
-
-            <div class="ai-countdown-title">
-
-                Predictions available in
-
-            </div>
-
-            <div id="aiTipsCountdown">
-
-                48:00:00
-
-            </div>
-
-            <div class="ai-countdown-label">
-
-                HOURS &nbsp; MINUTES &nbsp; SECONDS
-
-            </div>
-
-            <p class="ai-check-back">
-
-                Please check back when the countdown ends.
-
-            </p>
-
-        </div>
-
-    </div>
+</a>
 
 <div class="highlights-title">
 Monday, 16 August 2026
