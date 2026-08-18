@@ -2477,6 +2477,43 @@ transform:translateY(-8px);
 
 }
 
+/* =========================================
+   AI TIPS 48-HOUR LOCK
+   ========================================= */
+
+.ai-tips-lock {
+    position: absolute;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.90),
+            rgba(0, 20, 10, 0.96)
+        );
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+#aiTipsPage {
+    position: relative;
+    min-height: 100vh;
+}
+
+.ai-lock-content {
+    width: 100%;
+    max-width: 420px;
+
+    text
+
 </style>
 </head>
         
@@ -2682,6 +2719,68 @@ POWERED BY GROK ENGINE
 </header>
 
 <div id="aiTipsPage" class="page">
+
+<div id="aiTipsPage" class="page">
+
+<!-- AI TIPS LOCK -->
+
+<div id="aiTipsLock" class="ai-tips-lock">
+
+<div class="ai-lock-content">
+
+<div class="ai-loader">
+
+🤖
+
+</div>
+
+<h2>AI Predictions Loading...</h2>
+
+<p>
+
+Our AI is analyzing the latest football data,
+
+form and statistics.
+
+</p>
+
+<div class="ai-countdown-title">
+
+Predictions available in
+
+</div>
+
+<div id="aiTipsCountdown" class="ai-countdown">
+
+48:00:00
+
+</div>
+
+<div class="ai-countdown-labels">
+
+<span>HOURS</span>
+
+<span>MINUTES</span>
+
+<span>SECONDS</span>
+
+</div>
+
+<div class="ai-loading-bar">
+
+<div></div>
+
+</div>
+
+<small>
+
+Please check back when the countdown ends.
+
+</small>
+
+</div>
+
+</div>
 
 <div class="highlights-title">
 Monday, 16 August 2026
@@ -7415,6 +7514,87 @@ document.addEventListener("visibilitychange", () => {
 window.addEventListener("focus", () => {
     registerTelegramUser();
 });
+</script>
+
+<script>
+(function () {
+
+    const LOCK_KEY = "aiTipsLockDeadline";
+    const LOCK_DURATION = 48 * 60 * 60 * 1000; // 48 hours
+
+    const lock = document.getElementById("aiTipsLock");
+    const countdown = document.getElementById("aiTipsCountdown");
+
+    if (!lock || !countdown) return;
+
+    /*
+     * Create the deadline ONLY ONCE.
+     * After it is saved, it will never be changed.
+     */
+    let deadline = localStorage.getItem(LOCK_KEY);
+
+    if (!deadline) {
+        deadline = Date.now() + LOCK_DURATION;
+
+        localStorage.setItem(
+            LOCK_KEY,
+            String(deadline)
+        );
+    }
+
+    deadline = Number(deadline);
+
+
+    function updateCountdown() {
+
+        const remaining = deadline - Date.now();
+
+        /*
+         * 48 hours finished.
+         * NEVER create another countdown.
+         */
+        if (remaining <= 0) {
+
+            countdown.textContent = "00:00:00";
+
+            lock.style.display = "none";
+
+            clearInterval(timer);
+
+            return;
+        }
+
+
+        const totalSeconds =
+            Math.floor(remaining / 1000);
+
+        const hours =
+            Math.floor(totalSeconds / 3600);
+
+        const minutes =
+            Math.floor((totalSeconds % 3600) / 60);
+
+        const seconds =
+            totalSeconds % 60;
+
+
+        countdown.textContent =
+            String(hours).padStart(2, "0") +
+            ":" +
+            String(minutes).padStart(2, "0") +
+            ":" +
+            String(seconds).padStart(2, "0");
+    }
+
+
+    updateCountdown();
+
+    const timer = setInterval(
+        updateCountdown,
+        1000
+    );
+
+})();
 </script>
 
 </body>
