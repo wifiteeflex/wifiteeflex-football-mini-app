@@ -2481,194 +2481,149 @@ transform:translateY(-8px);
    AI TIPS 48-HOUR LOCK
    ========================================= */
 
-.ai-tips-lock {
-    position: absolute;
-    inset: 0;
-    z-index: 99999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.90),
-            rgba(0, 20, 10, 0.96)
-        );
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    padding: 25px;
-    box-sizing: border-box;
-}
-
 #aiTipsPage {
     position: relative;
     min-height: 100vh;
+    overflow: hidden;
+    background: #000;
 }
 
-.ai-lock-content {
-    width: 100%;
-    max-width: 420px;
-
-    text-align: center;
-
-    padding: 35px 25px;
-
-    border: 1px solid rgba(0, 255, 100, 0.25);
-
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(10, 30, 20, 0.96),
-            rgba(0, 0, 0, 0.98)
-        );
-
-    box-shadow:
-        0 0 50px rgba(0, 255, 100, 0.10);
-
-    box-sizing: border-box;
-}
-
-.ai-loader {
-    width: 75px;
-    height: 75px;
-
-    margin: 0 auto 20px;
+/* Blurred football background */
+#aiTipsLock {
+    position: relative;
+    min-height: 75vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 50%;
+    overflow: hidden;
 
-    background: rgba(0, 255, 100, 0.10);
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.48),
+            rgba(0,0,0,0.58)
+        ),
+        url("YOUR-FOOTBALL-BACKGROUND.jpg");
 
-    border: 2px solid rgba(0, 255, 100, 0.35);
+    background-size: cover;
+    background-position: center;
 
-    font-size: 38px;
-
-    animation: aiPulse 1.8s infinite;
+    text-align: center;
 }
 
-.ai-lock-content h2 {
-    margin: 0 0 12px;
+/* Blur the background without blurring the text */
+#aiTipsLock::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+
+    background-image: url("YOUR-FOOTBALL-BACKGROUND.jpg");
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(8px);
+
+    transform: scale(1.08);
+
+    z-index: 0;
+}
+
+/* Dark overlay */
+#aiTipsLock::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.42);
+
+    z-index: 1;
+}
+
+/* Lock content */
+.ai-lock-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 600px;
+
+    padding: 45px 20px;
 
     color: #fff;
 
-    font-size: 25px;
+    text-align: center;
+}
+
+.ai-lock-icon {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.ai-lock-content h1 {
+    margin: 0 0 10px;
+
+    font-size: 32px;
     font-weight: 800;
+
+    color: #fff;
 }
 
 .ai-lock-content p {
     margin: 0 auto 25px;
 
-    max-width: 340px;
+    max-width: 500px;
 
-    color: #aaa;
+    font-size: 18px;
+    line-height: 1.5;
 
-    font-size: 14px;
-    line-height: 1.6;
+    color: #eee;
 }
 
 .ai-countdown-title {
-    color: #aaa;
-
-    font-size: 13px;
-
-    margin-bottom: 8px;
-}
-
-.ai-countdown {
-    color: #00ff66;
-
-    font-size: 48px;
-
-    font-weight: 900;
-
-    letter-spacing: 3px;
-
-    font-variant-numeric: tabular-nums;
-
-    text-shadow:
-        0 0 20px rgba(0, 255, 100, 0.35);
-
-    margin-bottom: 5px;
-}
-
-.ai-countdown-labels {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 42px;
-
-    color: #666;
-
-    font-size: 9px;
-
+    font-size: 20px;
     font-weight: 700;
 
-    letter-spacing: 1px;
+    color: #fff;
 
-    margin-bottom: 25px;
+    margin-top: 10px;
 }
 
-.ai-loading-bar {
-    width: 100%;
-    height: 5px;
+#aiTipsCountdown {
+    margin-top: 8px;
 
-    overflow: hidden;
+    font-size: 42px;
+    font-weight: 800;
 
-    border-radius: 10px;
+    letter-spacing: 2px;
 
-    background: rgba(255,255,255,0.08);
+    color: #20ff78;
 
-    margin-bottom: 20px;
+    text-shadow:
+        0 0 10px rgba(32,255,120,0.45);
 }
 
-.ai-loading-bar div {
-    width: 45%;
-    height: 100%;
+.ai-countdown-label {
+    margin-top: 5px;
 
-    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
 
-    background: #00ff66;
-
-    animation: aiLoading 1.5s infinite ease-in-out;
+    color: #bbb;
+    letter-spacing: 2px;
 }
 
-.ai-lock-content small {
-    color: #666;
+.ai-check-back {
+    margin-top: 25px !important;
 
-    font-size: 11px;
+    font-size: 16px !important;
+    color: #ddd !important;
 }
 
-@keyframes aiPulse {
 
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(0,255,100,0);
-    }
-
-    50% {
-        transform: scale(1.08);
-        box-shadow: 0 0 30px rgba(0,255,100,0.15);
-    }
-}
-
-@keyframes aiLoading {
-
-    0% {
-        transform: translateX(-120%);
-    }
-
-    100% {
-        transform: translateX(250%);
-    }
+/* Hide actual predictions while locked */
+#aiTipsContent {
+    display: none;
 }
 
 </style>
@@ -7674,80 +7629,64 @@ window.addEventListener("focus", () => {
 <script>
 (function () {
 
-    const LOCK_KEY = "aiTipsLockDeadline";
-    const LOCK_DURATION = 48 * 60 * 60 * 1000; // 48 hours
+    const LOCK_TIME = 48 * 60 * 60 * 1000; // 48 hours
+    const STORAGE_KEY = "aiTipsLockStartTime";
 
     const lock = document.getElementById("aiTipsLock");
+    const content = document.getElementById("aiTipsContent");
     const countdown = document.getElementById("aiTipsCountdown");
 
-    if (!lock || !countdown) return;
-
-    /*
-     * Create the deadline ONLY ONCE.
-     * After it is saved, it will never be changed.
-     */
-    let deadline = localStorage.getItem(LOCK_KEY);
-
-    if (!deadline) {
-        deadline = Date.now() + LOCK_DURATION;
-
-        localStorage.setItem(
-            LOCK_KEY,
-            String(deadline)
-        );
+    if (!lock || !content || !countdown) {
+        console.error("AI Tips lock elements not found.");
+        return;
     }
 
-    deadline = Number(deadline);
+    /* Get existing timer */
+    let startTime = localStorage.getItem(STORAGE_KEY);
 
+    /*
+     * Only create the timer ONCE.
+     * Refreshing/reopening the app will NOT reset it.
+     */
+    if (!startTime) {
+        startTime = Date.now().toString();
+        localStorage.setItem(STORAGE_KEY, startTime);
+    }
 
-    function updateCountdown() {
+    startTime = Number(startTime);
 
-        const remaining = deadline - Date.now();
+    function updateAITipsLock() {
 
-        /*
-         * 48 hours finished.
-         * NEVER create another countdown.
-         */
+        const elapsed = Date.now() - startTime;
+        const remaining = LOCK_TIME - elapsed;
+
         if (remaining <= 0) {
 
-            countdown.textContent = "00:00:00";
-
             lock.style.display = "none";
+            content.style.display = "block";
 
-            clearInterval(timer);
+            countdown.textContent = "00:00:00";
 
             return;
         }
 
+        const totalSeconds = Math.floor(remaining / 1000);
 
-        const totalSeconds =
-            Math.floor(remaining / 1000);
-
-        const hours =
-            Math.floor(totalSeconds / 3600);
-
-        const minutes =
-            Math.floor((totalSeconds % 3600) / 60);
-
-        const seconds =
-            totalSeconds % 60;
-
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+        const seconds = totalSeconds % 60;
 
         countdown.textContent =
-            String(hours).padStart(2, "0") +
-            ":" +
-            String(minutes).padStart(2, "0") +
-            ":" +
+            String(hours).padStart(2, "0") + ":" +
+            String(minutes).padStart(2, "0") + ":" +
             String(seconds).padStart(2, "0");
     }
 
+    updateAITipsLock();
 
-    updateCountdown();
-
-    const timer = setInterval(
-        updateCountdown,
-        1000
-    );
+    setInterval(updateAITipsLock, 1000);
 
 })();
 </script>
