@@ -2573,16 +2573,12 @@ transform:translateY(-8px);
 }
 
 /* =========================================
-   AI TIPS FULL SCREEN LOCK OVERLAY
+   AI TIPS FULL SCREEN OVERLAY
 ========================================= */
 
 #aiTipsLockOverlay {
     position: fixed !important;
-
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
+    inset: 0 !important;
 
     width: 100vw !important;
     height: 100vh !important;
@@ -2592,88 +2588,84 @@ transform:translateY(-8px);
     align-items: center !important;
     justify-content: center !important;
 
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 20px !important;
+    margin: 0 !important;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(0, 255, 120, 0.08),
-            transparent 45%
-        ),
-        rgba(0, 0, 0, 0.94);
+    box-sizing: border-box !important;
 
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: rgba(0, 0, 0, 0.94) !important;
+
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
 
     z-index: 2147483647 !important;
 
-    overflow: hidden;
+    overflow: hidden !important;
 
-    text-align: center;
+    text-align: center !important;
 }
 
 
-/* =========================================
-   CENTER BOX
-========================================= */
+/* CENTER BOX */
 
 #aiTipsLockOverlay .ai-lock-box {
+    width: 100% !important;
+    max-width: 500px !important;
 
-    width: 100%;
-    max-width: 520px;
+    padding: 35px 22px !important;
+    margin: auto !important;
 
-    padding: 38px 25px;
+    box-sizing: border-box !important;
 
-    box-sizing: border-box;
+    border-radius: 24px !important;
 
-    border-radius: 24px;
+    background: rgba(20, 20, 20, 0.97) !important;
 
-    background: rgba(18, 18, 18, 0.96);
-
-    border: 1px solid rgba(0, 255, 120, 0.35);
+    border: 1px solid rgba(0, 255, 120, 0.4) !important;
 
     box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.8),
-        0 0 35px rgba(0, 255, 120, 0.10);
+        0 0 40px rgba(0, 255, 120, 0.12),
+        0 20px 80px rgba(0, 0, 0, 0.8) !important;
 
-    color: #fff;
+    color: white !important;
 }
 
 
-/* ICON */
+/* ROBOT */
 
 #aiTipsLockOverlay .ai-lock-icon {
-    font-size: 48px;
-    margin-bottom: 12px;
+    font-size: 50px !important;
+    line-height: 1 !important;
+    margin: 0 0 15px !important;
 }
 
 
 /* TITLE */
 
 #aiTipsLockOverlay h2 {
-    margin: 0 0 14px;
+    display: block !important;
 
-    color: #fff;
+    margin: 0 0 14px !important;
 
-    font-size: 28px;
-    font-weight: 800;
+    color: #ffffff !important;
 
-    line-height: 1.2;
+    font-size: 27px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.2 !important;
 }
 
 
 /* DESCRIPTION */
 
 #aiTipsLockOverlay .ai-lock-box > p {
-    margin: 0 auto 25px;
+    margin: 0 auto 22px !important;
 
-    max-width: 430px;
+    color: #cfcfcf !important;
 
-    color: #cfcfcf;
+    font-size: 15px !important;
 
-    font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.5 !important;
 }
 
 
@@ -2683,61 +2675,68 @@ transform:translateY(-8px);
 
 #aiTipsLockOverlay .ai-countdown {
 
-    display: flex;
+    width: 100% !important;
 
-    justify-content: center;
+    display: flex !important;
 
-    gap: 9px;
+    flex-direction: row !important;
 
-    width: 100%;
+    justify-content: center !important;
+    align-items: stretch !important;
 
-    margin: 25px 0;
+    gap: 8px !important;
+
+    margin: 25px 0 !important;
 }
 
 
 #aiTipsLockOverlay .countdown-unit {
 
-    flex: 1;
+    flex: 1 1 0 !important;
 
-    max-width: 95px;
+    min-width: 0 !important;
 
-    padding: 14px 6px;
+    padding: 14px 5px !important;
 
-    border-radius: 14px;
+    box-sizing: border-box !important;
 
-    background: rgba(0, 0, 0, 0.75);
+    border-radius: 14px !important;
 
-    border: 1px solid rgba(0, 255, 120, 0.25);
+    background: rgba(0, 0, 0, 0.8) !important;
+
+    border: 1px solid rgba(0, 255, 120, 0.3) !important;
 }
 
 
 #aiTipsLockOverlay .countdown-unit strong {
 
-    display: block;
+    display: block !important;
 
-    color: #00ff78;
+    margin: 0 !important;
 
-    font-size: 28px;
+    color: #00ff78 !important;
 
-    font-weight: 900;
+    font-size: 26px !important;
 
-    line-height: 1;
+    font-weight: 900 !important;
+
+    line-height: 1 !important;
 }
 
 
 #aiTipsLockOverlay .countdown-unit span {
 
-    display: block;
+    display: block !important;
 
-    margin-top: 7px;
+    margin-top: 8px !important;
 
-    color: #888;
+    color: #999999 !important;
 
-    font-size: 9px;
+    font-size: 8px !important;
 
-    font-weight: 800;
+    font-weight: 800 !important;
 
-    letter-spacing: .8px;
+    letter-spacing: 0.7px !important;
 }
 
 
@@ -2747,33 +2746,33 @@ transform:translateY(-8px);
 
 #aiTipsLockOverlay .ai-lock-status {
 
-    display: inline-block;
+    display: inline-block !important;
 
-    padding: 10px 18px;
+    padding: 10px 18px !important;
 
-    border-radius: 30px;
+    border-radius: 30px !important;
 
-    background: rgba(0, 255, 120, 0.08);
+    background: rgba(0, 255, 120, 0.08) !important;
 
-    border: 1px solid rgba(0, 255, 120, 0.3);
+    border: 1px solid rgba(0, 255, 120, 0.3) !important;
 
-    color: #00ff78;
+    color: #00ff78 !important;
 
-    font-size: 12px;
+    font-size: 12px !important;
 
-    font-weight: 800;
+    font-weight: 800 !important;
 
-    letter-spacing: 1px;
+    letter-spacing: 0.8px !important;
 }
 
 
 #aiTipsLockOverlay .ai-lock-note {
 
-    margin: 18px 0 0 !important;
+    margin: 16px 0 0 !important;
 
-    color: #888 !important;
+    color: #777777 !important;
 
-    font-size: 13px !important;
+    font-size: 12px !important;
 }
 
 
@@ -2784,33 +2783,30 @@ transform:translateY(-8px);
 @media (max-width: 480px) {
 
     #aiTipsLockOverlay {
-        padding: 15px;
+        padding: 15px !important;
     }
 
     #aiTipsLockOverlay .ai-lock-box {
-        padding: 32px 18px;
-        border-radius: 21px;
+        padding: 30px 16px !important;
+        border-radius: 21px !important;
     }
 
     #aiTipsLockOverlay h2 {
-        font-size: 24px;
+        font-size: 24px !important;
     }
 
     #aiTipsLockOverlay .ai-countdown {
-        gap: 6px;
+        gap: 5px !important;
     }
 
     #aiTipsLockOverlay .countdown-unit {
-        padding: 13px 4px;
+        padding: 13px 3px !important;
     }
 
     #aiTipsLockOverlay .countdown-unit strong {
-        font-size: 23px;
+        font-size: 22px !important;
     }
 
-    #aiTipsLockOverlay .countdown-unit span {
-        font-size: 8px;
-    }
 }
 
 </style>
@@ -4199,12 +4195,13 @@ window.addEventListener("focus", () => {
 </script>
 
 <script>
+
 (function () {
 
-    const unlockTime =
+    const aiUnlockTime =
         new Date("2026-09-05T20:00:00+01:00").getTime();
 
-    function updateAITipsCountdown() {
+    function updateAITipsLock() {
 
         const overlay =
             document.getElementById("aiTipsLockOverlay");
@@ -4225,7 +4222,8 @@ window.addEventListener("focus", () => {
             return;
         }
 
-        const remaining = unlockTime - Date.now();
+        const remaining =
+            aiUnlockTime - Date.now();
 
         if (remaining <= 0) {
 
@@ -4261,12 +4259,63 @@ window.addEventListener("focus", () => {
             ).padStart(2, "0");
     }
 
-    updateAITipsCountdown();
+    updateAITipsLock();
 
-    setInterval(updateAITipsCountdown, 1000);
+    setInterval(updateAITipsLock, 1000);
 
 })();
+
 </script>
+
+<!-- AI TIPS LOCK OVERLAY -->
+<div id="aiTipsLockOverlay">
+
+    <div class="ai-lock-box">
+
+        <div class="ai-lock-icon">🤖</div>
+
+        <h2>AI Predictions Loading...</h2>
+
+        <p>
+            Our AI is analyzing the latest football data,
+            form and statistics.
+        </p>
+
+        <div class="ai-countdown">
+
+            <div class="countdown-unit">
+                <strong id="aiDays">00</strong>
+                <span>DAYS</span>
+            </div>
+
+            <div class="countdown-unit">
+                <strong id="aiHours">00</strong>
+                <span>HOURS</span>
+            </div>
+
+            <div class="countdown-unit">
+                <strong id="aiMinutes">00</strong>
+                <span>MINUTES</span>
+            </div>
+
+            <div class="countdown-unit">
+                <strong id="aiSeconds">00</strong>
+                <span>SECONDS</span>
+            </div>
+
+        </div>
+
+        <div class="ai-lock-status">
+            🔒 PREDICTIONS LOCKED
+        </div>
+
+        <p class="ai-lock-note">
+            Please check back when the countdown ends.
+        </p>
+
+    </div>
+
+</div>
 
 </body>
 </html>
