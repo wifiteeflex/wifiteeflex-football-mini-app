@@ -2572,6 +2572,88 @@ transform:translateY(-8px);
     font-size: 17px;
 }
 
+#aiTipsLock {
+    width: 100%;
+    min-height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
+
+.ai-lock-box {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    padding: 35px 20px;
+    border-radius: 22px;
+
+    background: rgba(20, 20, 20, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(0, 255, 140, 0.35);
+    box-shadow: 0 0 30px rgba(0, 255, 140, 0.12);
+}
+
+.ai-lock-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.ai-lock-box h2 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.ai-lock-text {
+    margin: 0 auto 25px;
+    max-width: 500px;
+    color: #d1d1d1;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.ai-countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    min-width: 75px;
+    padding: 14px 8px;
+    border-radius: 14px;
+
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(0, 255, 140, 0.3);
+}
+
+.countdown-item strong {
+    display: block;
+    color: #00ff8c;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.countdown-item span {
+    display: block;
+    margin-top: 5px;
+    color: #aaaaaa;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.ai-check-text {
+    margin: 25px 0 0;
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
 </style>
 </head>
         
@@ -2781,7 +2863,51 @@ POWERED BY GROK ENGINE
 <div class="total-odds-box">
 
 <div class="total-odds-label">
-TODAY'S GAME ON
+friday, 28 August 2026
+</div>
+
+<div id="aiTipsLock">
+
+    <div class="ai-lock-box">
+
+        <div class="ai-lock-icon">🤖</div>
+
+        <h2>AI Predictions Loading...</h2>
+
+        <p class="ai-lock-text">
+            Our AI is analyzing the latest football data, form and statistics.
+        </p>
+
+        <div class="ai-countdown">
+
+            <div class="countdown-item">
+                <strong id="days">00</strong>
+                <span>DAYS</span>
+            </div>
+
+            <div class="countdown-item">
+                <strong id="hours">00</strong>
+                <span>HOURS</span>
+            </div>
+
+            <div class="countdown-item">
+                <strong id="minutes">00</strong>
+                <span>MINUTES</span>
+            </div>
+
+            <div class="countdown-item">
+                <strong id="seconds">00</strong>
+                <span>SECONDS</span>
+            </div>
+
+        </div>
+
+        <p class="ai-check-text">
+            Please check back when the countdown ends.
+        </p>
+
+    </div>
+
 </div>
 
 <div class="ai-highlights">
@@ -3906,6 +4032,71 @@ document.addEventListener("visibilitychange", () => {
 window.addEventListener("focus", () => {
     registerTelegramUser();
 });
+</script>
+
+<script>
+(function () {
+
+    // AI Predictions unlock date
+    // 5 September 2026 at 20:00
+    const unlockDate = new Date("2026-09-05T20:00:00+01:00").getTime();
+
+    function updateAITipsCountdown() {
+
+        const now = Date.now();
+        const distance = unlockDate - now;
+
+        const daysElement = document.getElementById("days");
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
+        const secondsElement = document.getElementById("seconds");
+
+        // Make sure the elements exist
+        if (!daysElement || !hoursElement || !minutesElement || !secondsElement) {
+            console.error("AI Tips countdown elements not found.");
+            return;
+        }
+
+        if (distance <= 0) {
+
+            daysElement.textContent = "00";
+            hoursElement.textContent = "00";
+            minutesElement.textContent = "00";
+            secondsElement.textContent = "00";
+
+            return;
+        }
+
+        const days = Math.floor(
+            distance / (1000 * 60 * 60 * 24)
+        );
+
+        const hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+        const minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+        const seconds = Math.floor(
+            (distance % (1000 * 60)) /
+            1000
+        );
+
+        daysElement.textContent = String(days).padStart(2, "0");
+        hoursElement.textContent = String(hours).padStart(2, "0");
+        minutesElement.textContent = String(minutes).padStart(2, "0");
+        secondsElement.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateAITipsCountdown();
+
+    setInterval(updateAITipsCountdown, 1000);
+
+})();
 </script>
 
 </body>
