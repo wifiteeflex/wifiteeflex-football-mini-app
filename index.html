@@ -4973,7 +4973,7 @@ Arsenal
 
 <div class="odds-box">
 <span>LIVE</span>
-<strong>1 - 1</strong>
+<strong>2 - 1</strong>
 </div>
 
 </div>
@@ -5032,7 +5032,7 @@ Home or Away (HT)
 
     <span id="liveContent">
       <span class="live-dot">●</span>
-      <span class="viewer-number">165,000</span>
+      <span class="viewer-number">198,000</span>
       <span>watching now</span>
     </span>
 
@@ -6060,7 +6060,7 @@ window.addEventListener("focus", () => {
 
   if (!content) return;
 
-  let viewers = 98000;
+  let viewers = 198000;
   let showingWatch = false;
 
   function updateViewers() {
@@ -6069,8 +6069,8 @@ window.addEventListener("focus", () => {
 
     viewers += movement;
 
-    // Keep the simulated count between 98,000 and 99,999
-    viewers = Math.max(98000, Math.min(99999, viewers));
+    // Keep the simulated count between 198,000 and 299,999
+    viewers = Math.max(198000, Math.min(299999, viewers));
 
     content.innerHTML = `
       <span class="live-dot">●</span>
