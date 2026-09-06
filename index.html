@@ -2386,6 +2386,50 @@ margin-top:4px;
     margin-right: auto !important;
 }
 
+#liveButton {
+  background: #1e3a5f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all .35s ease;
+}
+
+#liveContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #fff;
+}
+
+.live-dot {
+  color: #ff2020;
+  font-size: 13px;
+  animation: livePulse 1s infinite;
+}
+
+.viewer-number {
+  color: #ff2020;
+  font-weight: 800;
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .35;
+  }
+}
+
 </style>
 </head>
         
@@ -4900,7 +4944,7 @@ color:#fff;
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">HT</div>
+<div class="upcoming-badge">LIVE</div>
 </div>
 
 <div class="hot">premier league</div>
@@ -4923,12 +4967,12 @@ Arsenal
 
 <div class="center">
 
-<div class="minute">HT</div>
+<div class="minute">LIVE</div>
 
 <div class="vs">VS</div>
 
 <div class="odds-box">
-<span>HALF TIME</span>
+<span>LIVE</span>
 <strong>1 - 1</strong>
 </div>
 
@@ -4980,26 +5024,20 @@ Home or Away (HT)
 </div>
 
 <div class="buttons">
-  <a class="bet"
-     href="https://omg10.com/4/7461956"
+  <a id="liveButton"
+     class="bet"
+     href="https://omg10.com/4/7533041"
      target="_blank"
-     rel="noopener noreferrer"
-     style="
-       background:#1e3a5f;
-       color:#fff;
-       display:flex;
-       align-items:center;
-       justify-content:center;
-       gap:8px;
-     ">
-    🔴 <span id="liveViewers">98,000</span> watching now
+     rel="noopener noreferrer">
+
+    <span id="liveContent">
+      <span class="live-dot">●</span>
+      <span class="viewer-number">98,000</span>
+      <span>watching now</span>
+    </span>
+
   </a>
 </div>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-SUSPENDED
-</button>
 
 </div>
 
@@ -6018,17 +6056,49 @@ window.addEventListener("focus", () => {
 
 <script>
 (() => {
-  const viewerEl = document.getElementById("liveViewers");
+  const content = document.getElementById("liveContent");
 
-  if (!viewerEl) return;
+  if (!content) return;
 
   let viewers = 98000;
+  let showingWatch = false;
 
-  setInterval(() => {
-    const change = Math.floor(Math.random() * 31) - 10;
-    viewers = Math.max(98000, viewers + change);
-    viewerEl.textContent = viewers.toLocaleString();
-  }, 3000);
+  function updateViewers() {
+    // Viewer count moves naturally up and down
+    const movement = Math.floor(Math.random() * 81) - 35;
+
+    viewers += movement;
+
+    // Keep the simulated count between 98,000 and 99,999
+    viewers = Math.max(98000, Math.min(99999, viewers));
+
+    content.innerHTML = `
+      <span class="live-dot">●</span>
+      <span class="viewer-number">
+        ${viewers.toLocaleString()}
+      </span>
+      <span>watching now</span>
+    `;
+  }
+
+  function switchMessage() {
+    showingWatch = !showingWatch;
+
+    if (showingWatch) {
+      content.innerHTML = `
+        <span>▶</span>
+        <span>WATCH LIVE MATCH NOW</span>
+      `;
+    } else {
+      updateViewers();
+    }
+  }
+
+  // Update viewer number every 3 seconds
+  setInterval(updateViewers, 3000);
+
+  // Switch between messages every 10 seconds
+  setInterval(switchMessage, 10000);
 })();
 </script>
 
