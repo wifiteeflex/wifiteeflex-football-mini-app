@@ -2438,18 +2438,40 @@ margin-top:4px;
     display: block;
 }
 
-/* Background image for Contest page only */
+/* Contest page background */
 #contestPage {
-    min-height: 100vh;
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
-        url("https://i.imgur.com/6oAyG99.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    padding-bottom: 30px;
-    box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #07130d;
+}
+
+/* Background video */
+#contestPage .contest-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Dark overlay */
+#contestPage .contest-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Keep all page content above the video */
+#contestPage .contest-content {
+  position: relative;
+  z-index: 2;
 }
 
 </style>
@@ -3328,25 +3350,38 @@ UPCOMING
 
 <div id="contestPage" class="page">
 
-  <!-- HEADER -->
-  <div class="live-header">
+  <!-- BACKGROUND VIDEO -->
+  <video class="contest-bg-video" autoplay muted loop playsinline>
+    <source src="YOUR_VIDEO_URL.mp4" type="video/mp4">
+  </video>
 
-  <h1>🔥 Live Matches Loading</h1>
+  <!-- DARK OVERLAY -->
+  <div class="contest-bg-overlay"></div>
 
-  <p>Premier League • LaLiga • Serie A</p>
+  <!-- PAGE CONTENT -->
+  <div class="contest-content">
 
-  <div class="live-status-bar">
-    <span class="dot"></span>
-    LIVE LOADING
+    <!-- HEADER -->
+    <div class="live-header">
+
+      <h1>🔥 Live Matches Loading</h1>
+
+      <p>Premier League • LaLiga • Serie A</p>
+
+      <div class="live-status-bar">
+        <span class="dot"></span>
+        LIVE LOADING
+      </div>
+
+      <div class="global-countdown" id="globalCountdown"></div>
+
+      <button class="remind-btn" onclick="remindMe()">
+        🔔 Remind Me
+      </button>
+
+    </div>
+
   </div>
-
-  <div class="global-countdown" id="globalCountdown"></div>
-
-  <button class="remind-btn" onclick="remindMe()">
-    🔔 Remind Me
-  </button>
-
-</div>
 
 </div>
 
