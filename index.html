@@ -2438,90 +2438,53 @@ margin-top:4px;
     display: block;
 }
 
-/* Contest page only */
+/* Contest page */
 #contestPage {
   position: relative;
   isolation: isolate;
+  width: 100%;
   min-height: 100vh;
   overflow: hidden;
   background: #07130d;
 }
 
-/* Keep the video fixed in position within the contest page */
+/* Video container stays in place */
 #contestPage .contest-bg-video {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
-  height: 50%;
-  display: block;
+
+  width: 100%;
+  height: 100%;
 
   object-fit: cover;
-  object-position: 20% 20%;
+  object-position: center;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
 
   transform: none !important;
   animation: none !important;
   transition: none !important;
 
-  z-index: 0;
   pointer-events: none;
+  z-index: 0;
 }
 
-/* Dark overlay */
+/* Overlay */
 #contestPage .contest-bg-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.48);
-  z-index: 1;
   pointer-events: none;
+  z-index: 1;
 }
 
-/* Keep your content above the video */
+/* Content stays above the background */
 #contestPage .contest-content {
   position: relative;
   z-index: 2;
-}
-
-/* Prevent horizontal movement in the contest page */
-#contestPage {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: clip;
-  box-sizing: border-box;
-}
-
-/* Keep the header banner aligned with the screen */
-#contestPage .live-header {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  box-sizing: border-box;
-  overflow-x: clip;
-  transform: none !important;
-}
-
-/* Stop horizontal scrolling in the header */
-#contestPage .live-header,
-#contestPage .live-header * {
-  overscroll-behavior-x: none;
-}
-
-/* Keep the background video aligned */
-#contestPage .contest-bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: none !important;
-  animation: none !important;
-  transition: none !important;
-  pointer-events: none;
 }
 
 </style>
