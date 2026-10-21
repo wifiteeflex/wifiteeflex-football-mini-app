@@ -2438,7 +2438,7 @@ margin-top:4px;
     display: block;
 }
 
-/* Contest page only */
+/* Contest page background */
 #contestPage {
   position: relative;
   isolation: isolate;
@@ -2447,22 +2447,14 @@ margin-top:4px;
   background: #07130d;
 }
 
-/* Keep the video fixed in position within the contest page */
+/* Background video */
 #contestPage .contest-bg-video {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-
+  inset: 0;
+  width: 5%;
+  height: 5%;
   object-fit: cover;
-  object-position: 50% 50%;
-
-  transform: none !important;
-  animation: none !important;
-  transition: none !important;
-
+  object-position: center;
   z-index: 0;
   pointer-events: none;
 }
@@ -2471,12 +2463,12 @@ margin-top:4px;
 #contestPage .contest-bg-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.48);
+  background: rgba(0, 0, 0, 0.58);
   z-index: 1;
   pointer-events: none;
 }
 
-/* Keep your content above the video */
+/* Keep all page content above the video */
 #contestPage .contest-content {
   position: relative;
   z-index: 2;
