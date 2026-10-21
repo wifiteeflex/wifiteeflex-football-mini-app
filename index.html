@@ -2497,6 +2497,62 @@ margin-top:4px;
   min-width: 0;
 }
 
+/* Prevent horizontal scrolling on the contest page only */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#contestPage {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: clip;
+  overflow-y: hidden;
+  isolation: isolate;
+}
+
+/* Keep the background video within the page */
+#contestPage .contest-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Prevent header content from widening the page */
+#contestPage .live-header {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Keep the content above the video */
+#contestPage .contest-content {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
 </style>
 </head>
         
