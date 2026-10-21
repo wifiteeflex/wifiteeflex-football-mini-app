@@ -2438,50 +2438,45 @@ margin-top:4px;
     display: block;
 }
 
-/* Contest page */
+/* Contest page only */
 #contestPage {
   position: relative;
   isolation: isolate;
-  width: 100%;
   min-height: 100vh;
   overflow: hidden;
   background: #07130d;
 }
 
-/* Video container stays in place */
+/* Keep the video fixed in position within the contest page */
 #contestPage .contest-bg-video {
   position: absolute;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
+  display: block;
 
   object-fit: cover;
-  object-position: center;
-
-  margin: 0;
-  padding: 0;
-  border: 0;
+  object-position: 50% 50%;
 
   transform: none !important;
   animation: none !important;
   transition: none !important;
 
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
 }
 
-/* Overlay */
+/* Dark overlay */
 #contestPage .contest-bg-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.48);
-  pointer-events: none;
   z-index: 1;
+  pointer-events: none;
 }
 
-/* Content stays above the background */
+/* Keep your content above the video */
 #contestPage .contest-content {
   position: relative;
   z-index: 2;
