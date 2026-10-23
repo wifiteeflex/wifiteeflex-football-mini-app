@@ -2438,119 +2438,18 @@ margin-top:4px;
     display: block;
 }
 
-/* Contest page */
+/* Background image for Contest page only */
 #contestPage {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  background: #07130d;
-}
-
-/* Video background */
-#contestPage .contest-bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  display: block;
-  pointer-events: none;
-  z-index: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  transform: none !important;
-  animation: none !important;
-  transition: none !important;
-}
-
-/* Keep the video inside the contest page */
-#contestPage {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  isolation: isolate;
-  background: #000;
-  box-sizing: border-box;
-}
-
-/* Dark overlay */
-#contestPage .contest-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.58);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Content above video */
-#contestPage .contest-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  min-width: 0;
-}
-
-/* Prevent horizontal scrolling on the contest page only */
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-#contestPage {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-x: clip;
-  overflow-y: hidden;
-  isolation: isolate;
-}
-
-/* Keep the background video within the page */
-#contestPage .contest-bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  transform: none !important;
-  animation: none !important;
-  transition: none !important;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Prevent header content from widening the page */
-#contestPage .live-header {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-/* Keep the content above the video */
-#contestPage .contest-content {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  z-index: 2;
+    min-height: 100vh;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
+        url("https://i.imgur.com/hzhdaLS.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    padding-bottom: 30px;
+    box-sizing: border-box;
 }
 
 </style>
@@ -2589,7 +2488,7 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 🏆
 </div>
 
-<span>Today</span>
+<span>Ended</span>
 
 </button>
 
@@ -2606,10 +2505,10 @@ $0
 <button onclick="showPage('contestPage', this)" class="nav-item">
 
 <div class="nav-icon">
-🏟️
+▶️
 </div>
 
-<span>Yamal</span>
+<span>Stream</span>
 
 </button>
 
@@ -3756,21 +3655,24 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
-  <!-- BACKGROUND VIDEO -->
-  <video
-  class="contest-bg-video"
-  autoplay
-  muted
-  loop
-  playsinline
-  preload="metadata"
->
-  <source src="https://i.imgur.com/hzhdaLS.jpeg" type="video/mp4" type="video/mp4">
-</video>
+    <div class="live-header">
 
-</div>
+        <h1>🔥 Live Matches Loading</h1>
 
-</div>
+        <p>Premier League • LaLiga • Serie A</p>
+
+        <div class="live-status-bar">
+            <span class="dot"></span>
+            LIVE LOADING
+        </div>
+
+        <div class="global-countdown" id="globalCountdown"></div>
+
+        <button class="remind-btn" onclick="remindMe()">
+            🔔 Remind Me
+        </button>
+
+    </div>
 
 </div>
 
