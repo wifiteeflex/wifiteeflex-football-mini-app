@@ -3893,7 +3893,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
       <p>Barcelona</p>
     </div>
 
-    <div class="vote-vs" style="font-weight: 900;">VS</div>
+    <div class="vote-vs" style="font-weight: 900; font-size: 32px;">VS</div>
 
     <div class="vote-team">
       <img src="https://upload.wikimedia.org/wikipedia/en/f/f8/Deportivo_Alaves_logo_%282020%29.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original">
@@ -5799,9 +5799,9 @@ function castVote(team){
 selectedTeam = team;
 
 let name =
-team === "arsenal" ? "Arsenal Win" :
+team === "Barcelona" ? "Barcelona" :
 team === "draw" ? "Draw" :
-"Coventry Win";
+"Alaves";
 
 let confirmVote = confirm(
 "⚽ Confirm Vote\n\nYou selected: " + name + "\n\nAre you sure?"
