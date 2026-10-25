@@ -2443,8 +2443,11 @@ margin-top:4px;
     position: relative;
     isolation: isolate;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     min-height: 65vh;
     overflow: hidden;
+    box-sizing: border-box;
     background: #000;
     color: #fff;
 }
@@ -2453,12 +2456,15 @@ margin-top:4px;
 #contestPage .live-bg-video {
     position: absolute;
     inset: 0;
+    display: block;
     width: 100%;
     height: 100%;
+    max-width: 100%;
     object-fit: cover;
     object-position: center;
-    z-index: -2;
+    border: 0;
     pointer-events: none;
+    z-index: -2;
 }
 
 /* Dark overlay */
@@ -2479,6 +2485,9 @@ margin-top:4px;
 #contestPage .live-header {
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     min-height: 65vh;
     padding: 35px 16px;
     box-sizing: border-box;
@@ -2493,18 +2502,22 @@ margin-top:4px;
 
 /* Heading */
 #contestPage .live-header h1 {
+    max-width: 100%;
     margin: 0 0 10px;
     font-size: clamp(25px, 6vw, 34px);
     font-weight: 900;
     color: #fff;
+    overflow-wrap: anywhere;
     text-shadow: 0 3px 12px #000;
 }
 
 /* Leagues */
 #contestPage .live-header > p {
+    max-width: 100%;
     margin: 0 0 22px;
     font-size: 16px;
     color: #eee;
+    overflow-wrap: anywhere;
 }
 
 /* Live status */
@@ -2512,8 +2525,9 @@ margin-top:4px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 9px;
-
+    max-width: 100%;
     margin-bottom: 24px;
 
     color: #00ff88;
@@ -2522,6 +2536,7 @@ margin-top:4px;
 }
 
 #contestPage .status-dot {
+    flex: 0 0 10px;
     width: 10px;
     height: 10px;
     background: #ff3030;
@@ -2533,7 +2548,9 @@ margin-top:4px;
 #contestPage .global-countdown {
     width: 100%;
     max-width: 400px;
+    min-width: 0;
     margin: 0 auto 24px;
+    box-sizing: border-box;
 
     font-size: clamp(16px, 4vw, 19px);
     font-weight: 900;
@@ -2549,10 +2566,13 @@ margin-top:4px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
 
+    max-width: 100%;
     min-height: 50px;
     padding: 14px 25px;
+    box-sizing: border-box;
 
     border: none;
     border-radius: 15px;
@@ -2593,6 +2613,7 @@ margin-top:4px;
     }
 }
 
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     #contestPage .status-dot {
         animation: none;
@@ -3486,7 +3507,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
         preload="auto"
         aria-hidden="true"
     >
-        <source src="YOUR_VIDEO_URL.mp4" type="video/mp4">
+        <source src="https://videotourl.com/videos/1792893334025-230d46b1-1658-4c62-8575-8cb06bc916d2.mov" type="video/mp4">
     </video>
 
     <!-- Dark overlay -->
