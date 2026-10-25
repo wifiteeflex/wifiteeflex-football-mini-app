@@ -2438,68 +2438,45 @@ margin-top:4px;
     display: block;
 }
 
-/* Live Matches page */
 #contestPage.live-contest-page {
     position: relative;
     isolation: isolate;
     width: 100%;
-    max-width: 100%;
-    min-width: 0;
     min-height: 65vh;
     overflow: hidden;
-    box-sizing: border-box;
     background: #000;
     color: #fff;
 }
 
-/* Background image */
 #contestPage .live-bg-image {
     position: absolute;
     inset: 0;
-    z-index: -2;
-
+    z-index: -1;
     background-image: url("https://i.imgur.com/afW24J5.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    pointer-events: none;
 }
 
-/* Dark overlay */
 #contestPage .live-bg-overlay {
     position: absolute;
     inset: 0;
-    z-index: -1;
-
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.35),
-        rgba(0, 0, 0, 0.65) 50%,
-        rgba(0, 0, 0, 0.92)
-    );
-
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.45);
     pointer-events: none;
 }
 
-/* Content */
 #contestPage .live-header {
     position: relative;
     z-index: 1;
-
     width: 100%;
-    max-width: 100%;
-    min-width: 0;
     min-height: 65vh;
-
     padding: 35px 16px;
     box-sizing: border-box;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
 }
 
