@@ -3407,6 +3407,8 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 </div>
 
+</div>
+
 <div id="earnPage" class="page">
 
 <div class="vote-balance">
@@ -5670,72 +5672,6 @@ window.addEventListener("focus", () => {
   // Switch between messages every 10 seconds
   setInterval(switchMessage, 10000);
 })();
-</script>
-
-<script>
-
-(function () {
-    const page = document.getElementById("contestPage");
-
-    if (!page) return;
-
-    const video = page.querySelector(".live-bg-video");
-
-    if (!video) return;
-
-    video.muted = true;
-    video.defaultMuted = true;
-    video.loop = true;
-    video.playsInline = true;
-
-    function playBackgroundVideo() {
-        if (!page.isConnected || !video.isConnected) return;
-
-        // If the page is hidden, wait until it becomes visible.
-        if (page.getClientRects().length === 0) return;
-
-        const playPromise = video.play();
-
-        if (playPromise && typeof playPromise.catch === "function") {
-            playPromise.catch(function () {
-                // Some browsers block autoplay.
-                // The page content remains available.
-            });
-        }
-    }
-
-    // Try autoplay when the page loads.
-    playBackgroundVideo();
-
-    // Retry when the app becomes visible.
-    document.addEventListener("visibilitychange", function () {
-        if (!document.hidden) {
-            playBackgroundVideo();
-        }
-    });
-
-    // Retry when the user opens the Live Matches page.
-    // This works with your existing showPage() function.
-    const originalShowPage = window.showPage;
-
-    if (typeof originalShowPage === "function" &&
-        !originalShowPage.__liveVideoPatched) {
-
-        function patchedShowPage() {
-            const result = originalShowPage.apply(this, arguments);
-
-            if (arguments[0] === "contestPage") {
-                requestAnimationFrame(playBackgroundVideo);
-            }
-
-            return result;
-        }
-
-        patchedShowPage.__liveVideoPatched = true;
-        window.showPage = patchedShowPage;
-    }
-})();
-
 </script>
 
 </body>
