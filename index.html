@@ -3326,30 +3326,48 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 </div>
 
-<div id="contestPage" class="page">
-        
+<div id="contestPage" class="page live-contest-page">
+
+    <!-- Background video -->
+    <video
+        class="live-bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        aria-hidden="true"
+    >
+        <source src="https://videotourl.com/videos/1792892733496-510b38da-b119-4738-af0d-4c50aba99151.mov" type="video/mp4">
+    </video>
+
+    <!-- Dark overlay -->
+    <div class="live-bg-overlay"></div>
+
+    <!-- Content -->
     <div class="live-header">
 
-        <h1> Live Matches Loading</h1>
+        <h1>Live Matches Loading</h1>
 
         <p>Premier League • LaLiga</p>
 
         <div class="live-status-bar">
-            <span class="dot"></span>
+            <span class="status-dot"></span>
             LIVE LOADING
         </div>
 
         <div class="global-countdown" id="globalCountdown"></div>
 
-        <button class="remind-btn" onclick="remindMe()">
+        <button
+            type="button"
+            class="remind-btn"
+            onclick="remindMe()"
+        >
             🔔 Remind Me
         </button>
 
     </div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -5616,6 +5634,72 @@ window.addEventListener("focus", () => {
   // Switch between messages every 10 seconds
   setInterval(switchMessage, 10000);
 })();
+</script>
+
+<script>
+
+(function () {
+    const page = document.getElementById("contestPage");
+
+    if (!page) return;
+
+    const video = page.querySelector(".live-bg-video");
+
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    function playBackgroundVideo() {
+        if (!page.isConnected || !video.isConnected) return;
+
+        // If the page is hidden, wait until it becomes visible.
+        if (page.getClientRects().length === 0) return;
+
+        const playPromise = video.play();
+
+        if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(function () {
+                // Some browsers block autoplay.
+                // The page content remains available.
+            });
+        }
+    }
+
+    // Try autoplay when the page loads.
+    playBackgroundVideo();
+
+    // Retry when the app becomes visible.
+    document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) {
+            playBackgroundVideo();
+        }
+    });
+
+    // Retry when the user opens the Live Matches page.
+    // This works with your existing showPage() function.
+    const originalShowPage = window.showPage;
+
+    if (typeof originalShowPage === "function" &&
+        !originalShowPage.__liveVideoPatched) {
+
+        function patchedShowPage() {
+            const result = originalShowPage.apply(this, arguments);
+
+            if (arguments[0] === "contestPage") {
+                requestAnimationFrame(playBackgroundVideo);
+            }
+
+            return result;
+        }
+
+        patchedShowPage.__liveVideoPatched = true;
+        window.showPage = patchedShowPage;
+    }
+})();
+
 </script>
 
 </body>
