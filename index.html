@@ -2438,6 +2438,93 @@ margin-top:4px;
     display: block;
 }
 
+/* Disclaimer popup */
+.disclaimer-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.disclaimer-box {
+    width: 100%;
+    max-width: 400px;
+    max-height: 90%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 25px 20px;
+    border: 1px solid rgba(0, 255, 136, 0.35);
+    border-radius: 22px;
+    background: #101510;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+}
+
+.disclaimer-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.disclaimer-box h2 {
+    margin: 0 0 8px;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.disclaimer-subtitle {
+    margin: 0 0 20px;
+    color: #00ff88;
+    font-weight: 700;
+}
+
+.disclaimer-message {
+    padding: 14px;
+    border-radius: 14px;
+    background: #1b211b;
+    text-align: left;
+}
+
+.disclaimer-message p {
+    margin: 0 0 14px;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.disclaimer-message p:last-child {
+    margin-bottom: 0;
+}
+
+#acceptDisclaimer {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 20px;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00ff88, #00cc66);
+    color: #002411;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.disclaimer-box small {
+    display: block;
+    margin-top: 14px;
+    color: #929b92;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
 </style>
 </head>
         
@@ -2445,6 +2532,35 @@ margin-top:4px;
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
 </body>
+
+<!-- Disclaimer Popup -->
+<div id="disclaimerPopup" class="disclaimer-overlay">
+    <div class="disclaimer-box">
+        <div class="disclaimer-icon">⚽</div>
+
+        <h2>Before You Continue</h2>
+
+        <p class="disclaimer-subtitle">
+            AI Football Predictions 🤖
+        </p>
+
+        <div class="disclaimer-message">
+            <p>⚠️ Our football predictions are for informational and entertainment purposes only.</p>
+
+            <p>🤖 AI-generated predictions may contain errors and are not guaranteed to be correct.</p>
+
+            <p>📊 Always make your own decisions. Never rely solely on predictions.</p>
+
+            <p>💚 If you choose to gamble, please gamble responsibly and only risk what you can afford to lose.</p>
+        </div>
+
+        <button id="acceptDisclaimer" type="button">
+            I Understand & Continue →
+        </button>
+
+        <small>PLEASE READ BEFORE CONTINUING</small>
+    </div>
+</div>
 
 <div class="bottom-nav">
 
@@ -5607,6 +5723,25 @@ window.addEventListener("focus", () => {
   // Switch between messages every 10 seconds
   setInterval(switchMessage, 10000);
 })();
+</script>
+
+<script>
+
+(function () {
+    const popup = document.getElementById("disclaimerPopup");
+    const acceptButton = document.getElementById("acceptDisclaimer");
+
+    if (!popup || !acceptButton) return;
+
+    // Show the disclaimer whenever the app loads.
+    popup.style.display = "flex";
+
+    // Hide it only after the user accepts.
+    acceptButton.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+})();
+
 </script>
 
 </body>
