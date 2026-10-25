@@ -2438,18 +2438,165 @@ margin-top:4px;
     display: block;
 }
 
-/* Background image for Contest page only */
-#contestPage {
-    min-height: 100vh;
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
-        url("https://i.imgur.com/hzhdaLS.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    padding-bottom: 30px;
+/* Live Matches page */
+#contestPage.live-contest-page {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 65vh;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+}
+
+/* Background video */
+#contestPage .live-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Dark overlay */
+#contestPage .live-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.65) 50%,
+        rgba(0, 0, 0, 0.92)
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Content layout */
+#contestPage .live-header {
+    position: relative;
+    z-index: 1;
+    min-height: 65vh;
+    padding: 35px 16px;
     box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+/* Heading */
+#contestPage .live-header h1 {
+    margin: 0 0 10px;
+    font-size: clamp(25px, 6vw, 34px);
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 3px 12px #000;
+}
+
+/* Leagues */
+#contestPage .live-header > p {
+    margin: 0 0 22px;
+    font-size: 16px;
+    color: #eee;
+}
+
+/* Live status */
+#contestPage .live-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin-bottom: 24px;
+
+    color: #00ff88;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+#contestPage .status-dot {
+    width: 10px;
+    height: 10px;
+    background: #ff3030;
+    border-radius: 50%;
+    animation: livePulse 1s infinite;
+}
+
+/* Countdown */
+#contestPage .global-countdown {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 24px;
+
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 900;
+    line-height: 1.6;
+    color: #fff;
+
+    overflow-wrap: anywhere;
+    text-shadow: 0 2px 8px #000;
+}
+
+/* Remind button */
+#contestPage .remind-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    min-height: 50px;
+    padding: 14px 25px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: linear-gradient(135deg, #00ff88, #00cc66);
+    color: #002411;
+
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#contestPage .remind-btn:active {
+    transform: scale(0.97);
+}
+
+/* Animation */
+@keyframes livePulse {
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
+/* Mobile */
+@media (max-width: 380px) {
+    #contestPage .live-header {
+        padding: 30px 12px;
+    }
+
+    #contestPage .live-header h1 {
+        font-size: 25px;
+    }
+
+    #contestPage .live-status-bar {
+        font-size: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #contestPage .status-dot {
+        animation: none;
+    }
 }
 
 </style>
