@@ -2474,7 +2474,7 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 🏆
 </div>
 
-<span>Today</span>
+<span>ENDED</span>
 
 </button>
 
@@ -2747,9 +2747,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+ENDED
 </button>
 
 <button class="watch" disabled
@@ -2856,9 +2856,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+ENDED
 </button>
 
 <button class="watch" disabled
@@ -2965,9 +2965,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+ENDED
 </button>
 
 <button class="watch" disabled
@@ -3074,9 +3074,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+ENDED
 </button>
 
 <button class="watch" disabled
@@ -3183,9 +3183,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+ENDED
 </button>
 
 <button class="watch" disabled
@@ -3292,9 +3292,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+ENDED
 </button>
 
 <button class="watch" disabled
@@ -3312,18 +3312,11 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 </div>
 
-<div id="contestPage" class="page live-contest-page">
-
-    <!-- Background image -->
-    <div class="live-bg-image" aria-hidden="true"></div>
-
-    <!-- Dark overlay -->
-    <div class="live-bg-overlay"></div>
-
-    <!-- Page content -->
+<div id="contestPage" class="page">
+        
     <div class="live-header">
 
-        <h1>Live Matches Loading</h1>
+        <h1> Live Matches Loading</h1>
 
         <p>Premier League • LaLiga</p>
 
@@ -3334,11 +3327,13 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
         <div class="global-countdown" id="globalCountdown"></div>
 
-        <button type="button" class="remind-btn" onclick="remindMe()">
+        <button class="remind-btn" onclick="remindMe()">
             🔔 Remind Me
         </button>
 
     </div>
+
+</div>
 
 </div>
 
@@ -4761,6 +4756,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </div>
 
 <script>
+
 function unlockPrediction(btn){
 
     const card = btn.closest('.card');
@@ -4852,6 +4848,7 @@ requestAnimationFrame(() => {
     });
 
 }
+
 </script>
 
 <!-- 🔥 FOOTER START -->
@@ -4956,6 +4953,7 @@ Official Lead Partner
 <!-- 🔥 FOOTER END -->
 
 <script>
+
 // Match starts: 5 September 2026 20:00
 const matchDate = new Date("2026-11-01T01:39:00").getTime();
 
@@ -5010,9 +5008,11 @@ function showPage(pageId, el){
 window.onload = function(){
   showPage('homePage');
 };
+
 </script>
 
 <script>
+
 function openGrok(){
   document.getElementById("grokChat").style.display = "flex";
 }
@@ -5020,9 +5020,11 @@ function openGrok(){
 function closeGrok(){
   document.getElementById("grokChat").style.display = "none";
 }
+
 </script>
 
 <script>
+
 let currentPage = "";
 
 function showPage(pageId, button){
@@ -5078,6 +5080,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
 });
+
 </script>
 
 <script>
@@ -5187,6 +5190,7 @@ setInterval(rewardTimer,1000);
 </script>
 
 <script>
+
 let balance = Number(localStorage.getItem("usdBalance")) || 0;
 let ads = Number(localStorage.getItem("adsWatched")) || 0;
 
@@ -5225,6 +5229,7 @@ document.getElementById("earnBtn").innerText = "Rewarded ✅";
 }
 
 window.onload = updateBalance;
+
 </script>
 
 <script>
@@ -5253,9 +5258,11 @@ btn.disabled = true;
 },1000);
 
 }
+
 </script>
 
 <script>
+
 let votes = JSON.parse(localStorage.getItem("matchVotes")) || {
   arsenal: 0,
   draw: 0,
@@ -5335,9 +5342,11 @@ updateVotes();
 }
 
 }
+
 </script>
 
 <script>
+
 function animateBalance(newValue){
   const el = document.getElementById("usdBalance");
 
@@ -5375,7 +5384,9 @@ function updateProfit(todayAmount){
 }
 </script>
 
+
 <script>
+
 function updateCountdown(){
   const el = document.getElementById("globalCountdown");
 
@@ -5406,9 +5417,11 @@ updateCountdown();
 function remindMe(){
   alert("✅ Reminder set! We will notify you before matches start.");
 }
+
 </script>
 
 <script>
+
 // Disable double-tap zoom
 let lastTouchEnd = 0;
 
@@ -5437,6 +5450,7 @@ document.addEventListener("gesturechange", function(e){
 document.addEventListener("gestureend", function(e){
     e.preventDefault();
 });
+
 </script>
 
 <script>
@@ -5461,152 +5475,7 @@ requestAnimationFrame(() => {
     });
 
 });
-</script>
 
-<script>
-const tg = window.Telegram.WebApp;
-
-tg.ready();
-tg.expand();
-
-let registering = false;
-
-async function registerTelegramUser() {
-
-    // Prevent duplicate requests at the exact same time
-    if (registering) return;
-
-    if (!tg.initData) {
-        console.log("⚠️ Telegram initData not available");
-        return;
-    }
-
-    registering = true;
-
-    try {
-
-        const response = await fetch(
-            "https://ai-football-backend-ed3m.onrender.com/api/register",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    initData: tg.initData
-                })
-            }
-        );
-
-        const result = await response.json();
-
-        if (result.success) {
-
-            console.log("✅ USER REGISTERED / LAST SEEN UPDATED");
-
-            console.log(
-                "Telegram ID:",
-                result.user.telegram_user_id
-            );
-
-            console.log(
-                "Name:",
-                result.user.first_name
-            );
-
-            console.log(
-                "Notifications:",
-                result.user.allows_write_to_pm
-            );
-
-        } else {
-
-            console.error(
-                "❌ Registration failed:",
-                result.message
-            );
-        }
-
-    } catch (error) {
-
-        console.error(
-            "❌ Registration connection error:",
-            error
-        );
-
-    } finally {
-
-        registering = false;
-    }
-}
-
-
-// Register immediately when Mini App loads
-registerTelegramUser();
-
-
-// Register again whenever the user returns to the Mini App
-document.addEventListener("visibilitychange", () => {
-
-    if (document.visibilityState === "visible") {
-        registerTelegramUser();
-    }
-
-});
-
-
-// Also register when the Mini App receives focus
-window.addEventListener("focus", () => {
-    registerTelegramUser();
-});
-</script>
-
-<script>
-(() => {
-  const content = document.getElementById("liveContent");
-
-  if (!content) return;
-
-  let viewers = 198000;
-  let showingWatch = false;
-
-  function updateViewers() {
-    // Viewer count moves naturally up and down
-    const movement = Math.floor(Math.random() * 81) - 35;
-
-    viewers += movement;
-
-    // Keep the simulated count between 198,000 and 299,999
-    viewers = Math.max(198000, Math.min(299999, viewers));
-
-    content.innerHTML = `
-      <span class="live-dot">●</span>
-      <span class="viewer-number">
-        ${viewers.toLocaleString()}
-      </span>
-      <span>watching now</span>
-    `;
-  }
-
-  function switchMessage() {
-    showingWatch = !showingWatch;
-
-    if (showingWatch) {
-      content.innerHTML = `
-        <span>▶</span>
-        <span>WATCH LIVE MATCH NOW</span>
-      `;
-    } else {
-      updateViewers();
-    }
-  }
-
-  // Update viewer number every 3 seconds
-  setInterval(updateViewers, 3000);
-
-  // Switch between messages every 10 seconds
-  setInterval(switchMessage, 10000);
-})();
 </script>
 
 </body>
