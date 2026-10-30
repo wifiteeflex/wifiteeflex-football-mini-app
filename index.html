@@ -2438,36 +2438,75 @@ margin-top:4px;
     display: block;
 }
 
-.live-video-section {
-    margin-top: 25px;
-    text-align: center;
-}
-
-.live-video-section h2 {
-    color: #42e66b;
-    font-size: 19px;
-    margin-bottom: 12px;
-}
-
 .live-video-container {
+    position: relative;
     width: 100%;
-    aspect-ratio: 1.315 / 1;
+    aspect-ratio: 16 / 9;
     background: #000;
-    border-radius: 20px;
+    border-radius: 12px;
     overflow: hidden;
-    border: 2px solid #294b3a;
 }
 
-.live-video-container iframe {
-    width: 150%;
-    height: 150%;
-    display: block;
+#liveYoutubePlayer,
+#liveYoutubePlayer iframe {
+    width: 100%;
+    height: 100%;
     border: none;
 }
 
-.live-video-section p {
-    color: #ccc;
+.reward-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.94);
+    text-align: center;
+}
+
+.reward-content {
+    max-width: 340px;
+}
+
+.reward-icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.reward-content h3 {
+    color: #42e66b;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.reward-content p {
+    color: #fff;
     font-size: 13px;
+    line-height: 1.5;
+}
+
+#watchRewardAd {
+    background: #42e66b;
+    color: #07150b;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    min-height: 46px;
+}
+
+#watchRewardAd:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#rewardMessage {
+    color: #42e66b;
+    margin-top: 12px;
 }
 
 </style>
@@ -3369,16 +3408,23 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
             <h2>⚽ Watch Live Football</h2>
 
             <div class="live-video-container">
-                <iframe
-                    src="https://www.youtube.com/embed/rSVRl6mixok?playsinline=1&rel=0"
-                    title="Live Football"
-                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                    allowfullscreen>
-                </iframe>
-            </div>
 
-            <p>Watch the match live inside our app!</p>
+    <div id="liveYoutubePlayer"></div>
 
+    <div id="rewardOverlay" class="reward-overlay" style="display:none;">
+
+        <div class="reward-content">
+            <div class="reward-icon">⚽</div>
+
+            <h3>LIVE MATCH PAUSED</h3>
+
+            <p>Watch a short rewarded ad to continue watching the match.</p>
+
+            <button id="watchRewardAd" type="button">
+                ▶ WATCH AD TO CONTINUE
+            </button>
+
+            <p id="rewardMessage" aria-live="polite"></p>
         </div>
 
     </div>
@@ -5522,6 +5568,152 @@ requestAnimationFrame(() => {
 
 });
 
+</script>
+
+<script>
+(function () {
+    const AD_INTERVAL = 120; // 2 minutes
+    const REWARDED_FUNCTION = "show_10317085";
+
+    const overlay = document.getElementById("rewardOverlay");
+    const watchButton = document.getElementById("watchRewardAd");
+    const message = document.getElementById("rewardMessage");
+
+    if (!overlay || !watchButton) return;
+
+    let player;
+    let watchedSeconds = 0;
+    let adRequired = false;
+    let adInProgress = false;
+    let timerStarted = false;
+
+    function loadYouTubeAPI() {
+        if (window.YT && window.YT.Player) {
+            createPlayer();
+            return;
+        }
+
+        window.onYouTubeIframeAPIReady = createPlayer;
+
+        if (!document.querySelector(
+            'script[src="https://www.youtube.com/iframe_api"]'
+        )) {
+            const script = document.createElement("script");
+            script.src = "https://www.youtube.com/iframe_api";
+            document.head.appendChild(script);
+        }
+    }
+
+    function createPlayer() {
+        if (player) return;
+
+        player = new YT.Player("liveYoutubePlayer", {
+            videoId: "rSVRl6mixok",
+            playerVars: {
+                autoplay: 1,
+                playsinline: 1,
+                rel: 0
+            },
+            events: {
+                onReady: function (event) {
+                    event.target.playVideo();
+                },
+                onStateChange: handlePlayerState
+            }
+        });
+    }
+
+    function handlePlayerState(event) {
+        if (event.data === YT.PlayerState.PLAYING) {
+            startTimer();
+        } else {
+            stopTimer();
+        }
+    }
+
+    function startTimer() {
+        if (timerStarted || adRequired || adInProgress) return;
+
+        timerStarted = true;
+
+        window.liveRewardTimer = setInterval(function () {
+            if (!player ||
+                player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                return;
+            }
+
+            watchedSeconds++;
+
+            if (watchedSeconds >= AD_INTERVAL) {
+                pauseForReward();
+            }
+        }, 1000);
+    }
+
+    function stopTimer() {
+        timerStarted = false;
+
+        if (window.liveRewardTimer) {
+            clearInterval(window.liveRewardTimer);
+            window.liveRewardTimer = null;
+        }
+    }
+
+    function pauseForReward() {
+        if (adRequired || adInProgress) return;
+
+        stopTimer();
+
+        adRequired = true;
+
+        player.pauseVideo();
+        overlay.style.display = "flex";
+
+        watchButton.disabled = false;
+        watchButton.textContent = "▶ WATCH AD TO CONTINUE";
+        message.textContent = "";
+    }
+
+    watchButton.addEventListener("click", async function () {
+        if (!adRequired || adInProgress) return;
+
+        const showRewardedAd = window[REWARDED_FUNCTION];
+
+        if (typeof showRewardedAd !== "function") {
+            message.textContent =
+                "Rewarded ad is unavailable. Please try again shortly.";
+            return;
+        }
+
+        adInProgress = true;
+        watchButton.disabled = true;
+        watchButton.textContent = "LOADING AD...";
+        message.textContent = "Please wait for your rewarded ad.";
+
+        try {
+            await showRewardedAd();
+
+            // Resume only when the SDK reports successful completion.
+            watchedSeconds = 0;
+            adRequired = false;
+            adInProgress = false;
+
+            overlay.style.display = "none";
+            player.playVideo();
+
+        } catch (error) {
+            adInProgress = false;
+
+            watchButton.disabled = false;
+            watchButton.textContent = "▶ WATCH AD TO CONTINUE";
+
+            message.textContent =
+                "The ad did not complete. Please try again to continue.";
+        }
+    });
+
+    loadYouTubeAPI();
+})();
 </script>
 
 </body>
