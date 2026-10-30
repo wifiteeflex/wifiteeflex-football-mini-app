@@ -2438,75 +2438,111 @@ margin-top:4px;
     display: block;
 }
 
-.live-video-container {
+.live-video-section {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.live-video-section h2 {
+    color: #42e66b;
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+/* LIVE BANNER */
+.live-banner {
     position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #101a14;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #294b3a;
+}
+
+.live-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.live-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.85)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+.live-badge {
+    color: white;
+    background: #e32636;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.live-banner-overlay h3 {
+    color: white;
+    font-size: 21px;
+    margin: 10px 0 4px;
+}
+
+.live-banner-overlay p {
+    color: white;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+#watchLiveBtn,
+#continueLiveBtn {
+    background: #35df68;
+    color: #07150b;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    min-height: 44px;
+}
+
+#continueLiveBox {
+    margin-top: 15px;
+}
+
+#continueLiveBox p {
+    color: #ccc;
+    font-size: 13px;
+}
+
+.live-video-container {
     width: 100%;
     aspect-ratio: 16 / 9;
     background: #000;
     border-radius: 12px;
     overflow: hidden;
+    margin-top: 15px;
 }
 
-#liveYoutubePlayer,
-#liveYoutubePlayer iframe {
+.live-video-container iframe {
     width: 100%;
     height: 100%;
+    display: block;
     border: none;
 }
 
-.reward-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.94);
-    text-align: center;
-}
-
-.reward-content {
-    max-width: 340px;
-}
-
-.reward-icon {
-    font-size: 38px;
-    margin-bottom: 10px;
-}
-
-.reward-content h3 {
-    color: #42e66b;
-    font-size: 19px;
-    margin-bottom: 10px;
-}
-
-.reward-content p {
-    color: #fff;
+.live-video-section > p {
+    color: #ccc;
     font-size: 13px;
-    line-height: 1.5;
-}
-
-#watchRewardAd {
-    background: #42e66b;
-    color: #07150b;
-    border: none;
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin-top: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    min-height: 46px;
-}
-
-#watchRewardAd:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-#rewardMessage {
-    color: #42e66b;
-    margin-top: 12px;
 }
 
 </style>
@@ -3388,7 +3424,6 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     <div class="live-header">
 
         <h1>Live Matches</h1>
-
         <p>Premier League • LaLiga</p>
 
         <div class="live-status-bar">
@@ -3402,36 +3437,56 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
             🔔 Remind Me
         </button>
 
-        <!-- LIVE YOUTUBE PLAYER -->
+        <!-- LIVE BANNER -->
         <div class="live-video-section">
 
             <h2>⚽ Watch Live Football</h2>
 
-            <div class="live-video-container">
+            <div id="liveBanner" class="live-banner">
 
-    <div id="liveYoutubePlayer"></div>
+                <img
+                    src="https://i.imgur.com/9pNlQFk.jpeg"
+                    alt="Watch Live Football">
 
-    <div id="rewardOverlay" class="reward-overlay" style="display:none;">
+                <div class="live-banner-overlay">
+                    <span class="live-badge">● LIVE NOW</span>
+                    <h3>WATCH LIVE FOOTBALL</h3>
+                    <p>Tap below to start watching</p>
 
-        <div class="reward-content">
-            <div class="reward-icon">⚽</div>
+                    <button id="watchLiveBtn" type="button">
+                        ▶ WATCH LIVE
+                    </button>
+                </div>
 
-            <h3>LIVE MATCH PAUSED</h3>
+            </div>
 
-            <p>Watch a short rewarded ad to continue watching the match.</p>
+            <!-- CONTINUE BUTTON -->
+            <div id="continueLiveBox" style="display:none;">
+                <p>Return here when you're ready to watch.</p>
+                <button id="continueLiveBtn" type="button">
+                    ▶ CONTINUE TO LIVE VIDEO
+                </button>
+            </div>
 
-            <button id="watchRewardAd" type="button">
-                ▶ WATCH AD TO CONTINUE
-            </button>
+            <!-- YOUTUBE PLAYER -->
+            <div id="livePlayerBox"
+                 class="live-video-container"
+                 style="display:none;">
 
-            <p id="rewardMessage" aria-live="polite"></p>
+                <iframe
+                    id="liveYoutubePlayer"
+                    title="Live Football"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <p>Watch the match live inside our app!</p>
+
         </div>
 
     </div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -5575,149 +5630,35 @@ requestAnimationFrame(() => {
 </script>
 
 <script>
-(function () {
-    const AD_INTERVAL = 120; // 2 minutes
-    const REWARDED_FUNCTION = "show_10317085";
+const monetagLink = "https://uplcm.com/4/7461956";
 
-    const overlay = document.getElementById("rewardOverlay");
-    const watchButton = document.getElementById("watchRewardAd");
-    const message = document.getElementById("rewardMessage");
+document.getElementById("watchLiveBtn").addEventListener("click", function () {
 
-    if (!overlay || !watchButton) return;
+    // Open Monetag when the user taps WATCH LIVE
+    const adWindow = window.open(monetagLink, "_blank");
 
-    let player;
-    let watchedSeconds = 0;
-    let adRequired = false;
-    let adInProgress = false;
-    let timerStarted = false;
-
-    function loadYouTubeAPI() {
-        if (window.YT && window.YT.Player) {
-            createPlayer();
-            return;
-        }
-
-        window.onYouTubeIframeAPIReady = createPlayer;
-
-        if (!document.querySelector(
-            'script[src="https://www.youtube.com/iframe_api"]'
-        )) {
-            const script = document.createElement("script");
-            script.src = "https://www.youtube.com/iframe_api";
-            document.head.appendChild(script);
-        }
+    // Keep a fallback if the new tab is blocked
+    if (!adWindow) {
+        alert("Please allow the ad page to open, then return here.");
+        return;
     }
 
-    function createPlayer() {
-        if (player) return;
+    // Hide banner and show continue button
+    document.getElementById("liveBanner").style.display = "none";
+    document.getElementById("continueLiveBox").style.display = "block";
 
-        player = new YT.Player("liveYoutubePlayer", {
-            videoId: "rSVRl6mixok",
-            playerVars: {
-                autoplay: 1,
-                playsinline: 1,
-                rel: 0
-            },
-            events: {
-                onReady: function (event) {
-                    event.target.playVideo();
-                },
-                onStateChange: handlePlayerState
-            }
-        });
-    }
+});
 
-    function handlePlayerState(event) {
-        if (event.data === YT.PlayerState.PLAYING) {
-            startTimer();
-        } else {
-            stopTimer();
-        }
-    }
+document.getElementById("continueLiveBtn").addEventListener("click", function () {
 
-    function startTimer() {
-        if (timerStarted || adRequired || adInProgress) return;
+    // Load the YouTube livestream only after the user continues
+    document.getElementById("liveYoutubePlayer").src =
+        "https://www.youtube.com/embed/rSVRl6mixok?autoplay=1&playsinline=1&rel=0";
 
-        timerStarted = true;
+    document.getElementById("livePlayerBox").style.display = "block";
+    document.getElementById("continueLiveBox").style.display = "none";
 
-        window.liveRewardTimer = setInterval(function () {
-            if (!player ||
-                player.getPlayerState() !== YT.PlayerState.PLAYING) {
-                return;
-            }
-
-            watchedSeconds++;
-
-            if (watchedSeconds >= AD_INTERVAL) {
-                pauseForReward();
-            }
-        }, 1000);
-    }
-
-    function stopTimer() {
-        timerStarted = false;
-
-        if (window.liveRewardTimer) {
-            clearInterval(window.liveRewardTimer);
-            window.liveRewardTimer = null;
-        }
-    }
-
-    function pauseForReward() {
-        if (adRequired || adInProgress) return;
-
-        stopTimer();
-
-        adRequired = true;
-
-        player.pauseVideo();
-        overlay.style.display = "flex";
-
-        watchButton.disabled = false;
-        watchButton.textContent = "▶ WATCH AD TO CONTINUE";
-        message.textContent = "";
-    }
-
-    watchButton.addEventListener("click", async function () {
-        if (!adRequired || adInProgress) return;
-
-        const showRewardedAd = window[REWARDED_FUNCTION];
-
-        if (typeof showRewardedAd !== "function") {
-            message.textContent =
-                "Rewarded ad is unavailable. Please try again shortly.";
-            return;
-        }
-
-        adInProgress = true;
-        watchButton.disabled = true;
-        watchButton.textContent = "LOADING AD...";
-        message.textContent = "Please wait for your rewarded ad.";
-
-        try {
-            await showRewardedAd();
-
-            // Resume only when the SDK reports successful completion.
-            watchedSeconds = 0;
-            adRequired = false;
-            adInProgress = false;
-
-            overlay.style.display = "none";
-            player.playVideo();
-
-        } catch (error) {
-            adInProgress = false;
-
-            watchButton.disabled = false;
-            watchButton.textContent = "▶ WATCH AD TO CONTINUE";
-
-            message.textContent =
-                "The ad did not complete. Please try again to continue.";
-        }
-    });
-
-    loadYouTubeAPI();
-})();
+});
 </script>
 
 </body>
