@@ -2449,98 +2449,21 @@ margin-top:4px;
     margin-bottom: 12px;
 }
 
-/* LIVE BANNER */
-.live-banner {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #101a14;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid #294b3a;
-}
-
-.live-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.live-banner-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(0,0,0,0.2),
-        rgba(0,0,0,0.85)
-    );
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-}
-
-.live-badge {
-    color: white;
-    background: #e32636;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-.live-banner-overlay h3 {
-    color: white;
-    font-size: 21px;
-    margin: 10px 0 4px;
-}
-
-.live-banner-overlay p {
-    color: white;
-    font-size: 12px;
-    margin-bottom: 12px;
-}
-
-#watchLiveBtn,
-#continueLiveBtn {
-    background: #35df68;
-    color: #07150b;
-    border: none;
-    border-radius: 8px;
-    padding: 13px 20px;
-    font-weight: bold;
-    cursor: pointer;
-    min-height: 44px;
-}
-
-#continueLiveBox {
-    margin-top: 15px;
-}
-
-#continueLiveBox p {
-    color: #ccc;
-    font-size: 13px;
-}
-
 .live-video-container {
     width: 100%;
     aspect-ratio: 16 / 9;
     background: #000;
     border-radius: 12px;
     overflow: hidden;
-    margin-top: 15px;
 }
 
 .live-video-container iframe {
     width: 100%;
     height: 100%;
-    display: block;
     border: none;
 }
 
-.live-video-section > p {
+.live-video-section p {
     color: #ccc;
     font-size: 13px;
 }
@@ -3421,68 +3344,21 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
-    <div class="live-header">
-
-        <h1>Live Matches</h1>
-        <p>Premier League • LaLiga</p>
-
-        <div class="live-status-bar">
-            <span class="dot"></span>
-            LIVE NOW
-        </div>
-
-        <div class="global-countdown" id="globalCountdown"></div>
-
-        <button class="remind-btn" onclick="remindMe()">
-            🔔 Remind Me
-        </button>
-
-        <!-- LIVE BANNER -->
+        <!-- LIVE YOUTUBE PLAYER -->
         <div class="live-video-section">
 
-            <h2>⚽ Watch Live Football</h2>
+            <h2>Man City VS PSG</h2>
 
-            <div id="liveBanner" class="live-banner">
-
-                <img
-                    src="https://i.imgur.com/9pNlQFk.jpeg"
-                    alt="Watch Live Football">
-
-                <div class="live-banner-overlay">
-                    <span class="live-badge">● LIVE NOW</span>
-                    <h3>WATCH LIVE FOOTBALL</h3>
-                    <p>Tap below to start watching</p>
-
-                    <button id="watchLiveBtn" type="button">
-                        ▶ WATCH LIVE
-                    </button>
-                </div>
-
-            </div>
-
-            <!-- CONTINUE BUTTON -->
-            <div id="continueLiveBox" style="display:none;">
-                <p>Return here when you're ready to watch.</p>
-                <button id="continueLiveBtn" type="button">
-                    ▶ CONTINUE TO LIVE VIDEO
-                </button>
-            </div>
-
-            <!-- YOUTUBE PLAYER -->
-            <div id="livePlayerBox"
-                 class="live-video-container"
-                 style="display:none;">
-
+            <div class="live-video-container">
                 <iframe
-                    id="liveYoutubePlayer"
+                    src="https://www.youtube.com/embed/rSVRl6mixok?playsinline=1&rel=0"
                     title="Live Football"
                     allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                     allowfullscreen>
                 </iframe>
-
             </div>
 
-            <p>Watch the match live inside our app!</p>
+            <p>Watch full match live 100% free!</p>
 
         </div>
 
@@ -5627,38 +5503,6 @@ requestAnimationFrame(() => {
 
 });
 
-</script>
-
-<script>
-const monetagLink = "https://uplcm.com/4/7461956";
-
-document.getElementById("watchLiveBtn").addEventListener("click", function () {
-
-    // Open Monetag when the user taps WATCH LIVE
-    const adWindow = window.open(monetagLink, "_blank");
-
-    // Keep a fallback if the new tab is blocked
-    if (!adWindow) {
-        alert("Please allow the ad page to open, then return here.");
-        return;
-    }
-
-    // Hide banner and show continue button
-    document.getElementById("liveBanner").style.display = "none";
-    document.getElementById("continueLiveBox").style.display = "block";
-
-});
-
-document.getElementById("continueLiveBtn").addEventListener("click", function () {
-
-    // Load the YouTube livestream only after the user continues
-    document.getElementById("liveYoutubePlayer").src =
-        "https://www.youtube.com/embed/rSVRl6mixok?autoplay=1&playsinline=1&rel=0";
-
-    document.getElementById("livePlayerBox").style.display = "block";
-    document.getElementById("continueLiveBox").style.display = "none";
-
-});
 </script>
 
 </body>
