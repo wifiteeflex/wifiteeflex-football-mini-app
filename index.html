@@ -2438,6 +2438,36 @@ margin-top:4px;
     display: block;
 }
 
+.live-video-section {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.live-video-section h2 {
+    color: #42e66b;
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.live-video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.live-video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.live-video-section p {
+    color: #ccc;
+    font-size: 13px;
+}
+
 </style>
 </head>
         
@@ -3313,16 +3343,16 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </div>
 
 <div id="contestPage" class="page">
-        
+
     <div class="live-header">
 
-        <h1> Live Matches Loading</h1>
+        <h1>Live Matches</h1>
 
         <p>Premier League • LaLiga</p>
 
         <div class="live-status-bar">
             <span class="dot"></span>
-            LIVE LOADING
+            LIVE NOW
         </div>
 
         <div class="global-countdown" id="globalCountdown"></div>
@@ -3331,11 +3361,25 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
             🔔 Remind Me
         </button>
 
+        <!-- LIVE YOUTUBE PLAYER -->
+        <div class="live-video-section">
+
+            <h2>⚽ Watch Live Football</h2>
+
+            <div class="live-video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/rSVRl6mixok?playsinline=1&rel=0"
+                    title="Live Football"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <p>Watch the match live inside our app!</p>
+
+        </div>
+
     </div>
-
-</div>
-
-</div>
 
 </div>
 
