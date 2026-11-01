@@ -3621,17 +3621,13 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
     <div class="channel-buttons">
 
-        <button class="subscribed-btn">
-            🔔 Subscribed <span>⌄</span>
-        </button>
+        <button class="subscribed-btn" id="subscribeBtn" type="button">
+    🔔 Subscribed <span>⌄</span>
+</button>
 
         <button class="active" type="button" onclick="showPage('homePage')">
         Home
     </button>
-
-        <button class="remind-btn" onclick="remindMe()">
-            🔔 Remind Me
-        </button>
         
         <button class="community-btn">
             ♧ Community
@@ -5694,6 +5690,17 @@ requestAnimationFrame(() => {
 
 });
 
+</script>
+
+<script>
+const subscribeBtn = document.getElementById("subscribeBtn");
+
+subscribeBtn.addEventListener("click", function () {
+    window.open(
+        "https://uplcm.com/4/7461956",
+        "_blank"
+    );
+});
 </script>
 
 </body>
