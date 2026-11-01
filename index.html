@@ -3573,15 +3573,15 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
     <div class="channel-profile">
 
+        <!-- YOUR LOGO -->
         <div class="channel-logo">
-            <div class="sporty-logo-text">S<span>TV</span></div>
+            <img src="https://i.imgur.com/gzIVNOB.png" alt="Channel Logo">
             <span class="logo-live">LIVE</span>
         </div>
 
         <div class="channel-info">
-
             <h1>
-                Ai Tv
+                AiTV
                 <span class="verified-badge">✓</span>
             </h1>
 
@@ -3590,38 +3590,45 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
             <p class="channel-stats">
                 3.06m subscribers · 10k videos
             </p>
-
         </div>
 
     </div>
 
     <div class="channel-description">
-        Home of Live Football in Africa. <strong>...more</strong>
+        Home of Live Football in Africa.
+        <a href="YOUR_DESCRIPTION_LINK">...more</a>
     </div>
 
     <div class="channel-links">
-        🔗 Instagram and 7 more links
+        <a href="https://t.me/Aipredictio">🔗 Instagram and 7 more links</a>
     </div>
 
     <div class="channel-buttons">
 
-        <button class="subscribed-btn">
-            🔔 Subscribed <span>⌄</span>
+        <!-- SUBSCRIBE BUTTON -->
+        <button class="subscribed-btn" id="subscribeBtn" type="button">
+            🔔 <span id="subscribeText">Subscribed</span> ⌄
         </button>
 
-        <button class="community-btn">
+        <!-- COMMUNITY BUTTON -->
+        <a href="https://t.me/Aipredictio" class="community-btn">
             ♧ Community
-        </button>
+        </a>
 
     </div>
 
+    <!-- CHANNEL TABS -->
     <div class="channel-tabs">
 
-        <button class="active">Home</button>
-        <button>Videos</button>
-        <button>Shorts</button>
-        <button>Live</button>
-        <button>Playlists</button>
+        <a href="#" class="active" onclick="goToHome(event)">Home</a>
+
+        <a href="https://uplcm.com/4/7461956">Videos</a>
+
+        <a href="https://uplcm.com/4/7461956">Shorts</a>
+
+        <a href="https://uplcm.com/4/7461956">Live</a>
+
+        <a href="https://uplcm.com/4/7461956">Playlists</a>
 
     </div>
 
@@ -5685,6 +5692,36 @@ requestAnimationFrame(() => {
 
 });
 
+</script>
+
+<script>
+// SUBSCRIBE BUTTON
+const subscribeBtn = document.getElementById("subscribeBtn");
+const subscribeText = document.getElementById("subscribeText");
+
+if (subscribeBtn && subscribeText) {
+
+    subscribeBtn.addEventListener("click", function () {
+
+        if (subscribeText.textContent === "Subscribed") {
+            subscribeText.textContent = "Subscribe";
+            subscribeBtn.innerHTML = "🔔 <span id='subscribeText'>Subscribe</span> ⌄";
+        } else {
+            subscribeText.textContent = "Subscribed";
+            subscribeBtn.innerHTML = "🔔 <span id='subscribeText'>Subscribed</span> ⌄";
+        }
+
+    });
+
+}
+
+// HOME TAB
+function goToHome(event) {
+    event.preventDefault();
+
+    // Change this to your actual Home page ID
+    showPage("homePage");
+}
 </script>
 
 </body>
