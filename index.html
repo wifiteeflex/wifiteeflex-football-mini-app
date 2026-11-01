@@ -2710,6 +2710,126 @@ margin-top:4px;
     }
 }
 
+/* FEATURED FOOTBALL VIDEO */
+
+.featured-video-card {
+    width: 100%;
+    margin-top: 0;
+    background: #0f0f0f;
+    color: white;
+}
+
+.featured-video-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: #222;
+}
+
+.featured-video-thumbnail img,
+.featured-video-thumbnail iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    display: block;
+}
+
+.featured-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+.video-duration {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 5px 9px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.featured-video-details {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 18px 15px;
+}
+
+.featured-video-logo {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.featured-video-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.featured-video-text h2 {
+    font-size: 19px;
+    line-height: 1.4;
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+
+.featured-video-text p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.featured-video-text p span {
+    margin-left: 8px;
+}
+
+.video-menu-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .featured-video-details {
+        gap: 12px;
+        padding: 15px 12px;
+    }
+
+    .featured-video-logo {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+    }
+
+    .featured-video-text h2 {
+        font-size: 16px;
+    }
+
+    .featured-video-text p {
+        font-size: 12px;
+    }
+}
+
 </style>
 </head>
         
@@ -3638,39 +3758,45 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </div>
 
 </div>
-        <!-- YOUTUBE VIDEO 1 -->
-        <div class="live-video-section">
+<!-- FEATURED FOOTBALL VIDEO -->
+<div class="featured-video-card">
 
-            <h2>Lazio VS Cagliari</h2>
+    <div class="featured-video-thumbnail" id="featuredThumbnail"
+         onclick="playFeaturedVideo()">
 
-            <div class="live-video-container">
-                <iframe
-                    src="https://www.youtube.com/embed/tGgnvt0JQCo?playsinline=1&rel=0"
-                    title="Lazio VS Cagliari"
-                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                    allowfullscreen>
-                </iframe>
-            </div>
+        <img
+            src="https://img.youtube.com/vi/H3KClYYb2AM/maxresdefault.jpg"
+            alt="Football video thumbnail"
+        >
 
+        <div class="featured-play-button">▶</div>
+
+        <span class="video-duration">51:46</span>
+    </div>
+
+    <div class="featured-video-details">
+
+        <img
+            class="featured-video-logo"
+            src="YOUR_LOGO_IMAGE_URL"
+            alt="Channel logo"
+        >
+
+        <div class="featured-video-text">
+            <h2>Barcelona VS Alaves Highlights | Full Match Highlights</h2>
+
+            <p>
+                AI Football Predictions
+                <span>▶ 100k views</span>
+                <span>5 days ago</span>
+            </p>
         </div>
 
-        <!-- YOUTUBE VIDEO 2 -->
-        <div class="live-video-section">
-
-            <h2>Palermo VS Vicenza</h2>
-
-            <div class="live-video-container">
-                <iframe
-                    src="https://www.youtube.com/embed/dI_GWFSVAfI?playsinline=1&rel=0"
-                    title="Palermo VS Vicenza"
-                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-        </div>
+        <button class="video-menu-btn" type="button">•••</button>
 
     </div>
+
+</div>
 
 <div id="earnPage" class="page">
 
@@ -5690,6 +5816,21 @@ requestAnimationFrame(() => {
 
 });
 
+</script>
+
+<script>
+function playFeaturedVideo() {
+    const thumbnail = document.getElementById("featuredThumbnail");
+
+    thumbnail.innerHTML = `
+        <iframe
+            src="https://www.youtube.com/embed/H3KClYYb2AM?autoplay=1&playsinline=1&rel=0"
+            title="Football Highlights"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowfullscreen>
+        </iframe>
+    `;
+}
 </script>
 
 </body>
