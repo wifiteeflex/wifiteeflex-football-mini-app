@@ -3758,45 +3758,39 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </div>
 
 </div>
-<!-- FEATURED FOOTBALL VIDEO -->
-<div class="featured-video-card">
+        <!-- YOUTUBE VIDEO 1 -->
+        <div class="live-video-section">
 
-    <div class="featured-video-thumbnail" id="featuredThumbnail"
-         onclick="playFeaturedVideo()">
+            <h2>Lazio VS Cagliari</h2>
 
-        <img
-            src="https://img.youtube.com/vi/H3KClYYb2AM/maxresdefault.jpg"
-            alt="Football video thumbnail"
-        >
+            <div class="live-video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/tGgnvt0JQCo?playsinline=1&rel=0"
+                    title="Lazio VS Cagliari"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allowfullscreen>
+                </iframe>
+            </div>
 
-        <div class="featured-play-button">▶</div>
-
-        <span class="video-duration">51:46</span>
-    </div>
-
-    <div class="featured-video-details">
-
-        <img
-            class="featured-video-logo"
-            src="YOUR_LOGO_IMAGE_URL"
-            alt="Channel logo"
-        >
-
-        <div class="featured-video-text">
-            <h2>Barcelona VS Alaves Highlights | Full Match Highlights</h2>
-
-            <p>
-                AI Football Predictions
-                <span>▶ 100k views</span>
-                <span>5 days ago</span>
-            </p>
         </div>
 
-        <button class="video-menu-btn" type="button">•••</button>
+        <!-- YOUTUBE VIDEO 2 -->
+        <div class="live-video-section">
+
+            <h2>Palermo VS Vicenza</h2>
+
+            <div class="live-video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/dI_GWFSVAfI?playsinline=1&rel=0"
+                    title="Palermo VS Vicenza"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+        </div>
 
     </div>
-
-</div>
 
 <div id="earnPage" class="page">
 
@@ -5816,21 +5810,6 @@ requestAnimationFrame(() => {
 
 });
 
-</script>
-
-<script>
-function playFeaturedVideo() {
-    const thumbnail = document.getElementById("featuredThumbnail");
-
-    thumbnail.innerHTML = `
-        <iframe
-            src="https://www.youtube.com/embed/H3KClYYb2AM?autoplay=1&playsinline=1&rel=0"
-            title="Football Highlights"
-            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-            allowfullscreen>
-        </iframe>
-    `;
-}
 </script>
 
 </body>
