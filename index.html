@@ -3740,11 +3740,11 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     <span class="label">Your daily reward</span>
 
     <h2 class="usd">
-      $<span id="usdBalance">0.00</span>
+      $<span id="usdBalance">3.65</span>
     </h2>
 
     <p class="naira">
-      ≈ ₦<span id="nairaBalance">0,000.00</span>
+      ≈ ₦<span id="nairaBalance">5,000.95</span>
     </p>
 
     <!-- PROFIT TODAY -->
@@ -5760,97 +5760,6 @@ subscribeBtn.addEventListener("click", function () {
         "https://uplcm.com/4/7461956",
         "_blank"
     );
-});
-</script>
-
-<script>
-// ===== DAILY REWARD (Monetag) =====
-const DAILY_REWARD = 25;
-const DAILY_KEY = "kickoff_daily_reward_v1";
-
-function getToday() {
-  return new Date().toISOString().split("T")[0];
-}
-
-function canClaimDaily() {
-  const last = localStorage.getItem(DAILY_KEY);
-  return last !== getToday();
-}
-
-function updateDailyButton() {
-  const btn = document.getElementById("dailyClaimBtn");
-  if (!btn) return;
-
-  if (canClaimDaily()) {
-    btn.disabled = false;
-    btn.textContent = `Claim 🪙 ${DAILY_REWARD} Coins`;
-  } else {
-    btn.disabled = true;
-    btn.textContent = "Already Claimed Today ✓";
-  }
-}
-
-function claimDailyReward() {
-  if (!canClaimDaily()) {
-    alert("You already claimed today's reward!");
-    return;
-  }
-
-  const btn = document.getElementById("dailyClaimBtn");
-  btn.disabled = true;
-
-  // Show loading
-  document.getElementById("homeOverlay").classList.remove("hidden");
-
-  // Your Monetag
-  show_10317085()
-    .then(() => {
-      document.getElementById("homeOverlay").classList.add("hidden");
-
-      // Add coins
-      let balance = parseInt(localStorage.getItem("kickoff_coins") || "0");
-      balance += DAILY_REWARD;
-      localStorage.setItem("kickoff_coins", balance);
-      localStorage.setItem(DAILY_KEY, getToday());
-
-      // Update UI
-      document.getElementById("homeCoinBalance").textContent = balance;
-      if (document.getElementById("coinBalance")) {
-        document.getElementById("coinBalance").textContent = balance;
-      }
-
-      updateDailyButton();
-      alert(`🎉 +${DAILY_REWARD} coins added!`);
-    })
-    .catch(() => {
-      document.getElementById("homeOverlay").classList.add("hidden");
-      btn.disabled = false;
-      alert("Please watch the full ad to claim your reward.");
-    });
-}
-
-// ===== AGE GATE =====
-function openAgeGate() {
-  document.getElementById("ageModal").classList.remove("hidden");
-}
-
-function closeAgeGate() {
-  document.getElementById("ageModal").classList.add("hidden");
-}
-
-function confirmAge() {
-  closeAgeGate();
-  // Go to predictions page
-  showPage('matchesPage');
-}
-
-// Initialize
-document.addEventListener("DOMContentLoaded", () => {
-  // Load coin balance
-  const balance = localStorage.getItem("kickoff_coins") || "0";
-  document.getElementById("homeCoinBalance").textContent = balance;
-
-  updateDailyButton();
 });
 </script>
 
