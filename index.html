@@ -2710,6 +2710,251 @@ margin-top:4px;
     }
 }
 
+/* ==================== STREAK PAGE STYLES ==================== */
+#earnPage {
+  background: #0d0f14;
+  min-height: 100vh;
+  padding: 16px 16px 40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+/* Header */
+.streak-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-circle {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #00e5a0, #00b4d8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.predictor-badge {
+  background: #00c853;
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.tagline {
+  font-size: 12px;
+  color: #8a8f9c;
+  margin-top: 1px;
+}
+
+.header-right {
+  display: flex;
+  gap: 8px;
+}
+
+.coin-pill, .streak-pill {
+  background: #1a1d26;
+  border: 1px solid #2a2e3a;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Main Card */
+.streak-card {
+  background: linear-gradient(180deg, #151820 0%, #0f1219 100%);
+  border: 1px solid #252a36;
+  border-radius: 24px;
+  padding: 32px 24px 28px;
+  text-align: center;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.flame-icon {
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle, #ff9a00 0%, #ff6b00 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.35);
+}
+
+.streak-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 10px;
+  letter-spacing: -0.3px;
+}
+
+.streak-desc {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.45;
+  margin: 0 0 24px;
+}
+
+.current-streak-box {
+  background: #1c202b;
+  border-radius: 16px;
+  padding: 14px 20px;
+  display: inline-block;
+  margin-bottom: 26px;
+}
+
+.current-label {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.current-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffb300;
+}
+
+.current-value .fire {
+  font-size: 24px;
+}
+
+.claim-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #ffb300, #ff8c00);
+  border: none;
+  border-radius: 50px;
+  padding: 18px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.35);
+}
+
+.claim-btn:active {
+  transform: scale(0.97);
+}
+
+.claim-btn:disabled {
+  background: #3a3f4b;
+  color: #888;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* 7-Day Rewards */
+.rewards-section {
+  margin-top: 8px;
+}
+
+.rewards-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8a8f9c;
+  letter-spacing: 0.8px;
+  margin-bottom: 14px;
+}
+
+.rewards-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.reward-day {
+  flex: 1;
+  background: #1a1d26;
+  border: 1.5px solid #2a2e3a;
+  border-radius: 14px;
+  padding: 12px 4px 10px;
+  text-align: center;
+  position: relative;
+}
+
+.reward-day.claimed {
+  background: #0d2e1f;
+  border-color: #00c853;
+}
+
+.reward-day.today {
+  background: #2a1f0d;
+  border-color: #ff9a00;
+  box-shadow: 0 0 12px rgba(255, 154, 0, 0.25);
+}
+
+.reward-day .day-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #9ca3af;
+  margin-bottom: 6px;
+}
+
+.reward-day.claimed .day-label {
+  color: #00c853;
+}
+
+.reward-day.today .day-label {
+  color: #ffb300;
+}
+
+.reward-day .coin {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.reward-day .amount {
+  font-size: 12px;
+  font-weight: 600;
+  color: #c0c5d0;
+}
+
+.reward-day.claimed .amount {
+  color: #00c853;
+}
+
+.reward-day.today .amount {
+  color: #ffb300;
+}
+
+.reward-day .check {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 11px;
+  color: #00c853;
+  font-weight: 800;
+}
+
 </style>
 </head>
         
@@ -3732,89 +3977,61 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 </div>
 
+<!-- ==================== DAILY CHECK-IN STREAK ==================== -->
 <div id="earnPage" class="page">
 
-<div class="vote-balance">
-  <div class="balance-info">
+  <!-- Header -->
+  <div class="streak-header">
+    <div class="header-left">
+      <div class="logo-circle">⚽</div>
+      <div>
+        <div class="brand">
+          KICKOFF <span class="predictor-badge">PREDICTOR</span>
+        </div>
+        <div class="tagline">Predict scores, stream & win</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="coin-pill">
+        <span class="coin-icon">🪙</span>
+        <span id="coinBalance">0</span>
+      </div>
+      <div class="streak-pill">
+        <span>🔥</span>
+        <span id="headerStreak">1d</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Card -->
+  <div class="streak-card">
+    <div class="flame-icon">🔥</div>
     
-    <span class="label">Your daily reward</span>
-
-    <h2 class="usd">
-      $<span id="usdBalance">3.65</span>
-    </h2>
-
-    <p class="naira">
-      ≈ ₦<span id="nairaBalance">5,000.95</span>
+    <h2 class="streak-title">Daily Check-In Streak</h2>
+    <p class="streak-desc">
+      Check in every day to claim bonus coins,<br>
+      unlock streams, and climb leaderboard ranks!
     </p>
 
-    <!-- PROFIT TODAY -->
-    <div class="profit">
-      💰 COMING SOON: <span id="Coming soon">+0.00</span>
+    <div class="current-streak-box">
+      <div class="current-label">Current Streak</div>
+      <div class="current-value">
+        <span id="currentStreakDays">1</span> Days <span class="fire">🔥</span>
+      </div>
     </div>
 
+    <button id="claimBtn" class="claim-btn" onclick="claimStreak()">
+      Claim Today's Streak Bonus
+    </button>
   </div>
 
-  <div class="coin-icon">🪙</div>
-</div>
-
-<div class="vote-widget">
-
-  <div class="vote-header">
-    <div>
-      <h3>🔥$150 NEXT HOT VOTE</h3>
-      <p>Get correctly and withdraw rewards</p>
+  <!-- 7-Day Rewards -->
+  <div class="rewards-section">
+    <div class="rewards-title">7-DAY STREAK REWARDS</div>
+    <div class="rewards-row" id="rewardsRow">
+      <!-- Generated by JS -->
     </div>
-
-    <span class="vote-badge">🔥 HOT</span>
   </div>
-
-<div class="vote-info">
-  <span class="vote-date">📅 Today 17:30</span>
-</div>
-
-  <div class="vote-match">
-
-    <div class="vote-team">
-      <img src="https://upload.wikimedia.org/wikipedia/hif/b/bd/Liverpool_FC.png?utm_source=hif.wikipedia.org&utm_campaign=index&utm_content=original">
-      <p>Liverpool</p>
-    </div>
-
-    <div class="vote-vs" style="font-weight: 900; font-size: 32px;">VS</div>
-
-    <div class="vote-team">
-      <img src="https://upload.wikimedia.org/wikipedia/hif/8/82/Arsenal_FC.png?utm_source=hif.wikipedia.org&utm_campaign=index&utm_content=original">
-      <p>Arsenal</p>
-    </div>
-
-  </div>
-
-  <div class="vote-odds">
-    Odds <b>2.89</b>
-  </div>
-
-<div class="vote-question">
-Who will win?
-</div>
-
-<div class="vote-options">
-
-<button onclick="castVote('liverpool')">
-Liverpool
-</button>
-
-
-<button onclick="castVote('Draw')">
-Draw
-</button>
-
-
-<button onclick="castVote('Arsenal')">
-Arsenal
-</button>
-
-</div>
-
-</div>
 
 </div>
 
@@ -5761,6 +5978,141 @@ subscribeBtn.addEventListener("click", function () {
         "_blank"
     );
 });
+</script>
+
+<script>
+// ==================== STREAK + MONETAG ====================
+const REWARDS = [10, 20, 30, 40, 50, 60, 70]; // D1 → D7
+const STORAGE_KEY = "kickoff_streak_data_v1";
+
+function getToday() {
+  return new Date().toISOString().split("T")[0];
+}
+
+function loadStreak() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) {
+    return {
+      streak: 0,
+      lastClaimDate: null,
+      totalCoins: 0
+    };
+  }
+  return JSON.parse(raw);
+}
+
+function saveStreak(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function updateUI() {
+  const data = loadStreak();
+  const today = getToday();
+
+  let displayStreak = data.streak;
+
+  if (data.lastClaimDate && data.lastClaimDate !== today) {
+    const last = new Date(data.lastClaimDate);
+    const now = new Date(today);
+    const diffDays = Math.floor((now - last) / (1000 * 60 * 60 * 24));
+    if (diffDays > 1) displayStreak = 0;
+  }
+
+  document.getElementById("currentStreakDays").textContent = displayStreak || 0;
+  document.getElementById("headerStreak").textContent = (displayStreak || 0) + "d";
+  document.getElementById("coinBalance").textContent = data.totalCoins;
+
+  const btn = document.getElementById("claimBtn");
+  if (data.lastClaimDate === today) {
+    btn.textContent = "Already Claimed Today ✓";
+    btn.disabled = true;
+  } else {
+    btn.textContent = "Claim Today's Streak Bonus";
+    btn.disabled = false;
+  }
+
+  // Render 7-day rewards
+  const row = document.getElementById("rewardsRow");
+  row.innerHTML = "";
+
+  let cycleDay = data.streak % 7;
+  if (data.lastClaimDate === today) {
+    cycleDay = (data.streak - 1) % 7;
+  }
+
+  for (let i = 0; i < 7; i++) {
+    const div = document.createElement("div");
+    div.className = "reward-day";
+
+    if (i < cycleDay || (data.lastClaimDate === today && i <= cycleDay)) {
+      div.classList.add("claimed");
+    } else if (i === cycleDay && data.lastClaimDate !== today) {
+      div.classList.add("today");
+    }
+
+    div.innerHTML = `
+      <div class="day-label">D${i + 1}</div>
+      <div class="coin">🪙</div>
+      <div class="amount">+${REWARDS[i]}</div>
+      ${div.classList.contains("claimed") ? '<div class="check">✓</div>' : ""}
+    `;
+    row.appendChild(div);
+  }
+}
+
+// ========== CLAIM BUTTON (MONETAG) ==========
+function claimStreak() {
+  const data = loadStreak();
+  const today = getToday();
+
+  if (data.lastClaimDate === today) {
+    alert("You already claimed today's bonus!");
+    return;
+  }
+
+  const btn = document.getElementById("claimBtn");
+  btn.disabled = true;
+  btn.textContent = "Loading Ad...";
+
+  // Your Monetag Rewarded Interstitial
+  show_10317085().then(() => {
+    // User watched the ad → give reward
+    giveStreakReward();
+  }).catch(() => {
+    // Ad failed / closed early
+    btn.disabled = false;
+    btn.textContent = "Claim Today's Streak Bonus";
+    alert("Please watch the full ad to claim your reward.");
+  });
+}
+
+function giveStreakReward() {
+  const data = loadStreak();
+  const today = getToday();
+
+  let newStreak = 1;
+  if (data.lastClaimDate) {
+    const last = new Date(data.lastClaimDate);
+    const now = new Date(today);
+    const diff = Math.floor((now - last) / (1000 * 60 * 60 * 24));
+    if (diff === 1) newStreak = data.streak + 1;
+  }
+
+  const rewardIndex = (newStreak - 1) % 7;
+  const coinsEarned = REWARDS[rewardIndex];
+
+  data.streak = newStreak;
+  data.lastClaimDate = today;
+  data.totalCoins += coinsEarned;
+
+  saveStreak(data);
+  updateUI();
+
+  alert(`🔥 +${coinsEarned} coins claimed!\nCurrent streak: ${newStreak} days`);
+}
+
+// Initialize
+document.addEventListener("DOMContentLoaded", updateUI);
 </script>
 
 </body>
