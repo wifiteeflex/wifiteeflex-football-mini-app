@@ -4307,73 +4307,87 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="earnPage" class="page">
 
-  <!-- Header -->
-  <div class="ko-header">
-    <div class="ko-left">
-      <div class="ko-logo">⚽</div>
-      <div>
-        <div class="ko-brand">
-          KICKOFF <span class="ko-badge">PREDICTOR</span>
-        </div>
-        <div class="ko-tagline">Predict scores, stream & win</div>
-      </div>
-    </div>
+<div class="vote-balance">
+  <div class="balance-info">
+    
+    <span class="label">Your daily reward</span>
 
-    <div class="ko-right">
-      <div class="ko-pill">
-        <span>🪙</span>
-        <span id="coinBalance">0</span>
-      </div>
-      <div class="ko-pill fire">
-        <span>🔥</span>
-        <span id="headerStreak">1d</span>
-      </div>
-    </div>
-  </div>
+    <h2 class="usd">
+      $<span id="usdBalance">3.65</span>
+    </h2>
 
-  <!-- Main Card -->
-  <div class="streak-card">
-    <div class="flame-circle">🔥</div>
-
-    <h2 class="streak-title">Daily Check-In Streak</h2>
-    <p class="streak-desc">
-      Check in every day to claim bonus coins,<br>
-      unlock streams, and climb leaderboard ranks!
+    <p class="naira">
+      ≈ ₦<span id="nairaBalance">5,000.95</span>
     </p>
 
-    <div class="current-box">
-      <div class="current-label">Current Streak</div>
-      <div class="current-value">
-        <span id="currentStreakDays">1</span> Days <span>🔥</span>
-      </div>
+    <!-- PROFIT TODAY -->
+    <div class="profit">
+      💰 COMING SOON: <span id="Coming soon">+0.00</span>
     </div>
 
-    <button id="claimBtn" class="claim-btn" onclick="claimStreak()">
-      Claim Today's Streak Bonus
-    </button>
   </div>
 
-  <!-- 7-Day Rewards -->
-  <div class="rewards-title">7-DAY STREAK REWARDS</div>
-  <div class="rewards-row" id="rewardsRow"></div>
+  <div class="coin-icon">🪙</div>
+</div>
 
-  <!-- Loading Overlay -->
-  <div id="streakOverlay" class="streak-overlay hidden">
-    <div class="overlay-box">
-      <div class="spinner"></div>
-      <p>Loading Ad...</p>
+<div class="vote-widget">
+
+  <div class="vote-header">
+    <div>
+      <h3>🔥$150 NEXT HOT VOTE</h3>
+      <p>Get correctly and withdraw rewards</p>
     </div>
+
+    <span class="vote-badge">🔥 HOT</span>
   </div>
 
-  <!-- Success Modal -->
-  <div id="successModal" class="success-modal hidden">
-    <div class="success-box">
-      <div class="success-icon">🔥</div>
-      <h3>Streak Claimed!</h3>
-      <p id="successMessage">+20 coins added</p>
-      <button class="success-btn" onclick="closeSuccessModal()">Awesome!</button>
+<div class="vote-info">
+  <span class="vote-date">📅 Today 17:30</span>
+</div>
+
+  <div class="vote-match">
+
+    <div class="vote-team">
+      <img src="https://upload.wikimedia.org/wikipedia/hif/b/bd/Liverpool_FC.png?utm_source=hif.wikipedia.org&utm_campaign=index&utm_content=original">
+      <p>Liverpool</p>
     </div>
+
+    <div class="vote-vs" style="font-weight: 900; font-size: 32px;">VS</div>
+
+    <div class="vote-team">
+      <img src="https://upload.wikimedia.org/wikipedia/hif/8/82/Arsenal_FC.png?utm_source=hif.wikipedia.org&utm_campaign=index&utm_content=original">
+      <p>Arsenal</p>
+    </div>
+
   </div>
+
+  <div class="vote-odds">
+    Odds <b>2.89</b>
+  </div>
+
+<div class="vote-question">
+Who will win?
+</div>
+
+<div class="vote-options">
+
+<button onclick="castVote('liverpool')">
+Liverpool
+</button>
+
+
+<button onclick="castVote('Draw')">
+Draw
+</button>
+
+
+<button onclick="castVote('Arsenal')">
+Arsenal
+</button>
+
+</div>
+
+</div>
 
 </div>
 
