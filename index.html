@@ -2710,32 +2710,31 @@ margin-top:4px;
     }
 }
 
-/* ==================== STREAK PAGE STYLES ==================== */
 #earnPage {
-  background: #0d0f14;
+  background: #0b0d12;
   min-height: 100vh;
-  padding: 16px 16px 40px;
+  padding: 16px 16px 100px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   color: #fff;
 }
 
-/* Header */
-.streak-header {
+/* ===== Header ===== */
+.ko-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
-.header-left {
+.ko-left {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.logo-circle {
-  width: 42px;
-  height: 42px;
+.ko-logo {
+  width: 44px;
+  height: 44px;
   background: linear-gradient(135deg, #00e5a0, #00b4d8);
   border-radius: 50%;
   display: flex;
@@ -2744,39 +2743,39 @@ margin-top:4px;
   font-size: 22px;
 }
 
-.brand {
-  font-size: 18px;
+.ko-brand {
+  font-size: 17px;
   font-weight: 800;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
-.predictor-badge {
+.ko-badge {
   background: #00c853;
   color: #000;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 6px;
-  margin-left: 4px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  margin-left: 3px;
   vertical-align: middle;
 }
 
-.tagline {
+.ko-tagline {
   font-size: 12px;
-  color: #8a8f9c;
+  color: #8b90a0;
   margin-top: 1px;
 }
 
-.header-right {
+.ko-right {
   display: flex;
   gap: 8px;
 }
 
-.coin-pill, .streak-pill {
+.ko-pill {
   background: #1a1d26;
   border: 1px solid #2a2e3a;
   border-radius: 20px;
-  padding: 6px 12px;
+  padding: 6px 11px;
   font-size: 13px;
   font-weight: 600;
   display: flex;
@@ -2784,67 +2783,65 @@ margin-top:4px;
   gap: 5px;
 }
 
-/* Main Card */
+.ko-pill.fire {
+  background: #2a1f0d;
+  border-color: #ff9a00;
+}
+
+/* ===== Main Card ===== */
 .streak-card {
   background: linear-gradient(180deg, #151820 0%, #0f1219 100%);
   border: 1px solid #252a36;
   border-radius: 24px;
-  padding: 32px 24px 28px;
+  padding: 28px 20px 24px;
   text-align: center;
-  margin-bottom: 28px;
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 26px;
 }
 
-.flame-icon {
-  width: 64px;
-  height: 64px;
-  background: radial-gradient(circle, #ff9a00 0%, #ff6b00 100%);
+.flame-circle {
+  width: 62px;
+  height: 62px;
+  background: radial-gradient(circle, #ff9a00, #ff6b00);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
-  margin: 0 auto 20px;
-  box-shadow: 0 0 30px rgba(255, 140, 0, 0.35);
+  font-size: 30px;
+  margin: 0 auto 18px;
+  box-shadow: 0 0 28px rgba(255, 140, 0, 0.4);
 }
 
 .streak-title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
-  margin: 0 0 10px;
-  letter-spacing: -0.3px;
+  margin: 0 0 8px;
 }
 
 .streak-desc {
-  font-size: 14px;
+  font-size: 13.5px;
   color: #9ca3af;
   line-height: 1.45;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
 }
 
-.current-streak-box {
+.current-box {
   background: #1c202b;
-  border-radius: 16px;
-  padding: 14px 20px;
+  border-radius: 14px;
+  padding: 12px 18px;
   display: inline-block;
-  margin-bottom: 26px;
+  margin-bottom: 22px;
 }
 
 .current-label {
-  font-size: 13px;
+  font-size: 12px;
   color: #9ca3af;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .current-value {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 800;
   color: #ffb300;
-}
-
-.current-value .fire {
-  font-size: 24px;
 }
 
 .claim-btn {
@@ -2852,13 +2849,13 @@ margin-top:4px;
   background: linear-gradient(90deg, #ffb300, #ff8c00);
   border: none;
   border-radius: 50px;
-  padding: 18px;
-  font-size: 17px;
+  padding: 16px;
+  font-size: 16px;
   font-weight: 700;
   color: #111;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.35);
+  box-shadow: 0 6px 18px rgba(255, 140, 0, 0.35);
+  transition: 0.15s;
 }
 
 .claim-btn:active {
@@ -2872,22 +2869,17 @@ margin-top:4px;
   cursor: not-allowed;
 }
 
-/* 7-Day Rewards */
-.rewards-section {
-  margin-top: 8px;
-}
-
+/* ===== 7-Day Rewards ===== */
 .rewards-title {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: #8a8f9c;
-  letter-spacing: 0.8px;
-  margin-bottom: 14px;
+  color: #8b90a0;
+  letter-spacing: 0.6px;
+  margin-bottom: 12px;
 }
 
 .rewards-row {
   display: flex;
-  justify-content: space-between;
   gap: 6px;
 }
 
@@ -2896,7 +2888,7 @@ margin-top:4px;
   background: #1a1d26;
   border: 1.5px solid #2a2e3a;
   border-radius: 14px;
-  padding: 12px 4px 10px;
+  padding: 11px 2px 9px;
   text-align: center;
   position: relative;
 }
@@ -2913,10 +2905,10 @@ margin-top:4px;
 }
 
 .reward-day .day-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: #9ca3af;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .reward-day.claimed .day-label {
@@ -2928,12 +2920,12 @@ margin-top:4px;
 }
 
 .reward-day .coin {
-  font-size: 18px;
-  margin-bottom: 4px;
+  font-size: 16px;
+  margin-bottom: 2px;
 }
 
 .reward-day .amount {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: #c0c5d0;
 }
@@ -2948,11 +2940,80 @@ margin-top:4px;
 
 .reward-day .check {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  font-size: 11px;
+  top: 5px;
+  right: 5px;
+  font-size: 10px;
   color: #00c853;
   font-weight: 800;
+}
+
+/* ===== Overlay & Modal ===== */
+.streak-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+.streak-overlay.hidden { display: none; }
+
+.overlay-box {
+  text-align: center;
+  color: white;
+}
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255,255,255,0.15);
+  border-top: 4px solid #ffb300;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.success-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+}
+.success-modal.hidden { display: none; }
+
+.success-box {
+  background: #1a1d26;
+  border: 1px solid #2a2e3a;
+  border-radius: 22px;
+  padding: 28px 24px;
+  text-align: center;
+  width: 82%;
+  max-width: 300px;
+  animation: popIn 0.28s ease;
+}
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.success-icon { font-size: 46px; margin-bottom: 10px; }
+.success-box h3 { margin: 0 0 6px; font-size: 20px; }
+.success-box p { color: #9ca3af; margin: 0 0 22px; font-size: 14px; }
+.success-btn {
+  background: linear-gradient(90deg, #ffb300, #ff8c00);
+  border: none;
+  border-radius: 50px;
+  padding: 13px 0;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  cursor: pointer;
 }
 
 </style>
@@ -3977,26 +4038,26 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 </div>
 
-<!-- ==================== DAILY CHECK-IN STREAK ==================== -->
 <div id="earnPage" class="page">
 
   <!-- Header -->
-  <div class="streak-header">
-    <div class="header-left">
-      <div class="logo-circle">⚽</div>
+  <div class="ko-header">
+    <div class="ko-left">
+      <div class="ko-logo">⚽</div>
       <div>
-        <div class="brand">
-          KICKOFF <span class="predictor-badge">PREDICTOR</span>
+        <div class="ko-brand">
+          KICKOFF <span class="ko-badge">PREDICTOR</span>
         </div>
-        <div class="tagline">Predict scores, stream & win</div>
+        <div class="ko-tagline">Predict scores, stream & win</div>
       </div>
     </div>
-    <div class="header-right">
-      <div class="coin-pill">
-        <span class="coin-icon">🪙</span>
+
+    <div class="ko-right">
+      <div class="ko-pill">
+        <span>🪙</span>
         <span id="coinBalance">0</span>
       </div>
-      <div class="streak-pill">
+      <div class="ko-pill fire">
         <span>🔥</span>
         <span id="headerStreak">1d</span>
       </div>
@@ -4005,18 +4066,18 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
   <!-- Main Card -->
   <div class="streak-card">
-    <div class="flame-icon">🔥</div>
-    
+    <div class="flame-circle">🔥</div>
+
     <h2 class="streak-title">Daily Check-In Streak</h2>
     <p class="streak-desc">
       Check in every day to claim bonus coins,<br>
       unlock streams, and climb leaderboard ranks!
     </p>
 
-    <div class="current-streak-box">
+    <div class="current-box">
       <div class="current-label">Current Streak</div>
       <div class="current-value">
-        <span id="currentStreakDays">1</span> Days <span class="fire">🔥</span>
+        <span id="currentStreakDays">1</span> Days <span>🔥</span>
       </div>
     </div>
 
@@ -4026,10 +4087,24 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
   </div>
 
   <!-- 7-Day Rewards -->
-  <div class="rewards-section">
-    <div class="rewards-title">7-DAY STREAK REWARDS</div>
-    <div class="rewards-row" id="rewardsRow">
-      <!-- Generated by JS -->
+  <div class="rewards-title">7-DAY STREAK REWARDS</div>
+  <div class="rewards-row" id="rewardsRow"></div>
+
+  <!-- Loading Overlay -->
+  <div id="streakOverlay" class="streak-overlay hidden">
+    <div class="overlay-box">
+      <div class="spinner"></div>
+      <p>Loading Ad...</p>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="success-modal hidden">
+    <div class="success-box">
+      <div class="success-icon">🔥</div>
+      <h3>Streak Claimed!</h3>
+      <p id="successMessage">+20 coins added</p>
+      <button class="success-btn" onclick="closeSuccessModal()">Awesome!</button>
     </div>
   </div>
 
@@ -5981,8 +6056,7 @@ subscribeBtn.addEventListener("click", function () {
 </script>
 
 <script>
-// ==================== STREAK + MONETAG ====================
-const REWARDS = [10, 20, 30, 40, 50, 60, 70]; // D1 → D7
+const REWARDS = [10, 20, 30, 40, 50, 60, 70];
 const STORAGE_KEY = "kickoff_streak_data_v1";
 
 function getToday() {
@@ -5991,13 +6065,7 @@ function getToday() {
 
 function loadStreak() {
   const raw = localStorage.getItem(STORAGE_KEY);
-  if (!raw) {
-    return {
-      streak: 0,
-      lastClaimDate: null,
-      totalCoins: 0
-    };
-  }
+  if (!raw) return { streak: 0, lastClaimDate: null, totalCoins: 0 };
   return JSON.parse(raw);
 }
 
@@ -6005,17 +6073,28 @@ function saveStreak(data) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
+function showOverlay() {
+  document.getElementById("streakOverlay").classList.remove("hidden");
+}
+function hideOverlay() {
+  document.getElementById("streakOverlay").classList.add("hidden");
+}
+function showSuccess(coins, streak) {
+  document.getElementById("successMessage").textContent = `+${coins} coins added • ${streak} day streak`;
+  document.getElementById("successModal").classList.remove("hidden");
+}
+function closeSuccessModal() {
+  document.getElementById("successModal").classList.add("hidden");
+}
+
 function updateUI() {
   const data = loadStreak();
   const today = getToday();
 
   let displayStreak = data.streak;
-
   if (data.lastClaimDate && data.lastClaimDate !== today) {
-    const last = new Date(data.lastClaimDate);
-    const now = new Date(today);
-    const diffDays = Math.floor((now - last) / (1000 * 60 * 60 * 24));
-    if (diffDays > 1) displayStreak = 0;
+    const diff = Math.floor((new Date(today) - new Date(data.lastClaimDate)) / 86400000);
+    if (diff > 1) displayStreak = 0;
   }
 
   document.getElementById("currentStreakDays").textContent = displayStreak || 0;
@@ -6031,14 +6110,12 @@ function updateUI() {
     btn.disabled = false;
   }
 
-  // Render 7-day rewards
+  // Rewards
   const row = document.getElementById("rewardsRow");
   row.innerHTML = "";
 
   let cycleDay = data.streak % 7;
-  if (data.lastClaimDate === today) {
-    cycleDay = (data.streak - 1) % 7;
-  }
+  if (data.lastClaimDate === today) cycleDay = (data.streak - 1) % 7;
 
   for (let i = 0; i < 7; i++) {
     const div = document.createElement("div");
@@ -6051,39 +6128,36 @@ function updateUI() {
     }
 
     div.innerHTML = `
-      <div class="day-label">D${i + 1}</div>
+      <div class="day-label">D${i+1}</div>
       <div class="coin">🪙</div>
       <div class="amount">+${REWARDS[i]}</div>
-      ${div.classList.contains("claimed") ? '<div class="check">✓</div>' : ""}
+      ${div.classList.contains("claimed") ? '<div class="check">✓</div>' : ''}
     `;
     row.appendChild(div);
   }
 }
 
-// ========== CLAIM BUTTON (MONETAG) ==========
 function claimStreak() {
   const data = loadStreak();
-  const today = getToday();
-
-  if (data.lastClaimDate === today) {
+  if (data.lastClaimDate === getToday()) {
     alert("You already claimed today's bonus!");
     return;
   }
 
-  const btn = document.getElementById("claimBtn");
-  btn.disabled = true;
-  btn.textContent = "Loading Ad...";
+  document.getElementById("claimBtn").disabled = true;
+  showOverlay();
 
-  // Your Monetag Rewarded Interstitial
-  show_10317085().then(() => {
-    // User watched the ad → give reward
-    giveStreakReward();
-  }).catch(() => {
-    // Ad failed / closed early
-    btn.disabled = false;
-    btn.textContent = "Claim Today's Streak Bonus";
-    alert("Please watch the full ad to claim your reward.");
-  });
+  show_10317085()
+    .then(() => {
+      hideOverlay();
+      giveStreakReward();
+    })
+    .catch(() => {
+      hideOverlay();
+      document.getElementById("claimBtn").disabled = false;
+      document.getElementById("claimBtn").textContent = "Claim Today's Streak Bonus";
+      alert("Please watch the full ad to claim your reward.");
+    });
 }
 
 function giveStreakReward() {
@@ -6092,26 +6166,20 @@ function giveStreakReward() {
 
   let newStreak = 1;
   if (data.lastClaimDate) {
-    const last = new Date(data.lastClaimDate);
-    const now = new Date(today);
-    const diff = Math.floor((now - last) / (1000 * 60 * 60 * 24));
+    const diff = Math.floor((new Date(today) - new Date(data.lastClaimDate)) / 86400000);
     if (diff === 1) newStreak = data.streak + 1;
   }
 
-  const rewardIndex = (newStreak - 1) % 7;
-  const coinsEarned = REWARDS[rewardIndex];
-
+  const coins = REWARDS[(newStreak - 1) % 7];
   data.streak = newStreak;
   data.lastClaimDate = today;
-  data.totalCoins += coinsEarned;
+  data.totalCoins += coins;
 
   saveStreak(data);
   updateUI();
-
-  alert(`🔥 +${coinsEarned} coins claimed!\nCurrent streak: ${newStreak} days`);
+  showSuccess(coins, newStreak);
 }
 
-// Initialize
 document.addEventListener("DOMContentLoaded", updateUI);
 </script>
 
