@@ -3016,6 +3016,273 @@ margin-top:4px;
   cursor: pointer;
 }
 
+/* ===== HOME PAGE ===== */
+#homePage {
+  background: #0b0d12;
+  min-height: 100vh;
+  padding: 18px 16px 110px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+/* Header */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #151820;
+  border: 1px solid #252a36;
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.profile-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  color: #111;
+}
+
+.welcome {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #8b90a0;
+  margin-top: 1px;
+}
+
+.coin-balance {
+  background: #1a1d26;
+  border: 1px solid #2a2e3a;
+  border-radius: 20px;
+  padding: 7px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* AI Banner */
+.ai-banner {
+  background: linear-gradient(135deg, #064e3b, #065f46);
+  border-radius: 22px;
+  padding: 26px 22px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-banner::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+}
+
+.ai-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.ai-banner h2 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.ai-banner p {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: #a7f3d0;
+}
+
+.ai-btn {
+  background: #22c55e;
+  color: #052e16;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Daily Reward Card */
+.daily-card {
+  background: #151820;
+  border: 1px solid #252a36;
+  border-radius: 20px;
+  padding: 18px;
+  margin-bottom: 24px;
+}
+
+.daily-top {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.gift-icon {
+  font-size: 28px;
+  margin-top: 2px;
+}
+
+.daily-card h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.daily-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.daily-claim-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.daily-claim-btn:disabled {
+  background: #374151;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Countries */
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.country-card {
+  background: #151820;
+  border: 1px solid #252a36;
+  border-radius: 16px;
+  padding: 18px 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.country-card:active {
+  transform: scale(0.96);
+  background: #1c202b;
+}
+
+.flag {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+/* Age Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+.modal-overlay.hidden { display: none; }
+
+.modal-box {
+  background: #1a1d26;
+  border: 1px solid #2a2e3a;
+  border-radius: 22px;
+  padding: 28px 24px;
+  width: 85%;
+  max-width: 320px;
+  text-align: center;
+}
+
+.modal-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.modal-box h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.modal-box p {
+  color: #9ca3af;
+  font-size: 14px;
+  margin: 0 0 24px;
+  line-height: 1.4;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-cancel, .btn-confirm {
+  flex: 1;
+  padding: 13px 0;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #2a2e3a;
+  color: #d1d5db;
+}
+
+.btn-confirm {
+  background: #22c55e;
+  color: #052e16;
+}
+
 </style>
 </head>
         
@@ -4112,89 +4379,83 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="homePage" class="page">
 
-<div class="simple-profile">
+  <!-- Profile Header -->
+  <div class="home-header">
+    <div class="profile-left">
+      <div class="avatar" id="userAvatar">TB</div>
+      <div>
+        <div class="welcome">Welcome <span id="userName">Tee baby</span></div>
+        <div class="subtitle">AI Football Predictions</div>
+      </div>
+    </div>
+    <div class="coin-balance">
+      <span>🪙</span>
+      <span id="homeCoinBalance">0</span>
+    </div>
+  </div>
 
-<img id="userPhoto" src="https://i.imgur.com/f3XrsGW.jpeg">
+  <!-- AI Predictions Banner -->
+  <div class="ai-banner">
+    <div class="ai-icon">🤖</div>
+    <h2>AI Match Predictions</h2>
+    <p>Smart football analysis powered by AI</p>
+    <button class="ai-btn" onclick="openAgeGate()">
+      🔞 View Predictions
+    </button>
+  </div>
 
-<div>
-<h3>
-Welcome <span id="userName">User</span>
-</h3>
+  <!-- Daily Reward Card -->
+  <div class="daily-card" id="dailyRewardCard">
+    <div class="daily-top">
+      <div class="gift-icon">🎁</div>
+      <div>
+        <h3>Daily Reward</h3>
+        <p>Come back daily and collect your coins</p>
+      </div>
+    </div>
 
-<p>
-AI Football Predictions
-</p>
-</div>
+    <button id="dailyClaimBtn" class="daily-claim-btn" onclick="claimDailyReward()">
+      Claim 🪙 25 Coins
+    </button>
+  </div>
 
-<div class="coins">
+  <!-- Popular Countries -->
+  <div class="section-title">Popular Countries 🌍</div>
+  <div class="countries-grid">
+    <div class="country-card" onclick="showPage('matchesPage', this)">
+      <div class="flag">🇬🇧</div>
+      <div>England</div>
+    </div>
+    <div class="country-card" onclick="showPage('matchesPage', this)">
+      <div class="flag">🇳🇬</div>
+      <div>Nigeria</div>
+    </div>
+    <div class="country-card" onclick="showPage('matchesPage', this)">
+      <div class="flag">🇪🇸</div>
+      <div>Spain</div>
+    </div>
+  </div>
 
-🪙 <span id="coinBalance">0</span>
+  <!-- Age Verification Modal -->
+  <div id="ageModal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-icon">🔞</div>
+      <h3>Age Verification</h3>
+      <p>You must be 18 years or older to view predictions.</p>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeAgeGate()">I'm under 18</button>
+        <button class="btn-confirm" onclick="confirmAge()">I'm 18+</button>
+      </div>
+    </div>
+  </div>
 
-</div>
-
-</div>
-
-<div class="simple-banner">
-
-<h1>
-🤖 AI Match Predictions
-</h1>
-
-<p>
-Smart football analysis powered by AI
-</p>
-
-<button onclick="showPage('matchesPage', this)">
-   🔞 View Predictions
-</button>
-
-</div>
-
-<div class="simple-card">
-
-<h2>
-🎁 Daily Reward
-</h2>
-
-<p>
-Come back daily and collect your coins
-</p>
-
-<div class="reward">
-
-🪙 Coming soon
-
-</div>
-
-</div>
-
-<h2 class="title">
-
-Popular Countries🌍
-
-</h2>
-
-<div class="countries">
-
-<div>
-🇬🇧
-<br>
-England
-</div>
-
-<div>
-🇳🇬
-<br>
-Nigeria
-</div>
-
-<div>
-🇪🇸
-<br>
-Spain
-</div>
-
-</div>
+  <!-- Loading Overlay -->
+  <div id="homeOverlay" class="streak-overlay hidden">
+    <div class="overlay-box">
+      <div class="spinner"></div>
+      <p>Loading Ad...</p>
+    </div>
+  </div>
 
 </div>
 
@@ -6056,131 +6317,94 @@ subscribeBtn.addEventListener("click", function () {
 </script>
 
 <script>
-const REWARDS = [10, 20, 30, 40, 50, 60, 70];
-const STORAGE_KEY = "kickoff_streak_data_v1";
+// ===== DAILY REWARD (Monetag) =====
+const DAILY_REWARD = 25;
+const DAILY_KEY = "kickoff_daily_reward_v1";
 
 function getToday() {
   return new Date().toISOString().split("T")[0];
 }
 
-function loadStreak() {
-  const raw = localStorage.getItem(STORAGE_KEY);
-  if (!raw) return { streak: 0, lastClaimDate: null, totalCoins: 0 };
-  return JSON.parse(raw);
+function canClaimDaily() {
+  const last = localStorage.getItem(DAILY_KEY);
+  return last !== getToday();
 }
 
-function saveStreak(data) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
+function updateDailyButton() {
+  const btn = document.getElementById("dailyClaimBtn");
+  if (!btn) return;
 
-function showOverlay() {
-  document.getElementById("streakOverlay").classList.remove("hidden");
-}
-function hideOverlay() {
-  document.getElementById("streakOverlay").classList.add("hidden");
-}
-function showSuccess(coins, streak) {
-  document.getElementById("successMessage").textContent = `+${coins} coins added • ${streak} day streak`;
-  document.getElementById("successModal").classList.remove("hidden");
-}
-function closeSuccessModal() {
-  document.getElementById("successModal").classList.add("hidden");
-}
-
-function updateUI() {
-  const data = loadStreak();
-  const today = getToday();
-
-  let displayStreak = data.streak;
-  if (data.lastClaimDate && data.lastClaimDate !== today) {
-    const diff = Math.floor((new Date(today) - new Date(data.lastClaimDate)) / 86400000);
-    if (diff > 1) displayStreak = 0;
-  }
-
-  document.getElementById("currentStreakDays").textContent = displayStreak || 0;
-  document.getElementById("headerStreak").textContent = (displayStreak || 0) + "d";
-  document.getElementById("coinBalance").textContent = data.totalCoins;
-
-  const btn = document.getElementById("claimBtn");
-  if (data.lastClaimDate === today) {
-    btn.textContent = "Already Claimed Today ✓";
-    btn.disabled = true;
-  } else {
-    btn.textContent = "Claim Today's Streak Bonus";
+  if (canClaimDaily()) {
     btn.disabled = false;
-  }
-
-  // Rewards
-  const row = document.getElementById("rewardsRow");
-  row.innerHTML = "";
-
-  let cycleDay = data.streak % 7;
-  if (data.lastClaimDate === today) cycleDay = (data.streak - 1) % 7;
-
-  for (let i = 0; i < 7; i++) {
-    const div = document.createElement("div");
-    div.className = "reward-day";
-
-    if (i < cycleDay || (data.lastClaimDate === today && i <= cycleDay)) {
-      div.classList.add("claimed");
-    } else if (i === cycleDay && data.lastClaimDate !== today) {
-      div.classList.add("today");
-    }
-
-    div.innerHTML = `
-      <div class="day-label">D${i+1}</div>
-      <div class="coin">🪙</div>
-      <div class="amount">+${REWARDS[i]}</div>
-      ${div.classList.contains("claimed") ? '<div class="check">✓</div>' : ''}
-    `;
-    row.appendChild(div);
+    btn.textContent = `Claim 🪙 ${DAILY_REWARD} Coins`;
+  } else {
+    btn.disabled = true;
+    btn.textContent = "Already Claimed Today ✓";
   }
 }
 
-function claimStreak() {
-  const data = loadStreak();
-  if (data.lastClaimDate === getToday()) {
-    alert("You already claimed today's bonus!");
+function claimDailyReward() {
+  if (!canClaimDaily()) {
+    alert("You already claimed today's reward!");
     return;
   }
 
-  document.getElementById("claimBtn").disabled = true;
-  showOverlay();
+  const btn = document.getElementById("dailyClaimBtn");
+  btn.disabled = true;
 
+  // Show loading
+  document.getElementById("homeOverlay").classList.remove("hidden");
+
+  // Your Monetag
   show_10317085()
     .then(() => {
-      hideOverlay();
-      giveStreakReward();
+      document.getElementById("homeOverlay").classList.add("hidden");
+
+      // Add coins
+      let balance = parseInt(localStorage.getItem("kickoff_coins") || "0");
+      balance += DAILY_REWARD;
+      localStorage.setItem("kickoff_coins", balance);
+      localStorage.setItem(DAILY_KEY, getToday());
+
+      // Update UI
+      document.getElementById("homeCoinBalance").textContent = balance;
+      if (document.getElementById("coinBalance")) {
+        document.getElementById("coinBalance").textContent = balance;
+      }
+
+      updateDailyButton();
+      alert(`🎉 +${DAILY_REWARD} coins added!`);
     })
     .catch(() => {
-      hideOverlay();
-      document.getElementById("claimBtn").disabled = false;
-      document.getElementById("claimBtn").textContent = "Claim Today's Streak Bonus";
+      document.getElementById("homeOverlay").classList.add("hidden");
+      btn.disabled = false;
       alert("Please watch the full ad to claim your reward.");
     });
 }
 
-function giveStreakReward() {
-  const data = loadStreak();
-  const today = getToday();
-
-  let newStreak = 1;
-  if (data.lastClaimDate) {
-    const diff = Math.floor((new Date(today) - new Date(data.lastClaimDate)) / 86400000);
-    if (diff === 1) newStreak = data.streak + 1;
-  }
-
-  const coins = REWARDS[(newStreak - 1) % 7];
-  data.streak = newStreak;
-  data.lastClaimDate = today;
-  data.totalCoins += coins;
-
-  saveStreak(data);
-  updateUI();
-  showSuccess(coins, newStreak);
+// ===== AGE GATE =====
+function openAgeGate() {
+  document.getElementById("ageModal").classList.remove("hidden");
 }
 
-document.addEventListener("DOMContentLoaded", updateUI);
+function closeAgeGate() {
+  document.getElementById("ageModal").classList.add("hidden");
+}
+
+function confirmAge() {
+  closeAgeGate();
+  // Go to predictions page
+  showPage('matchesPage');
+}
+
+// Initialize
+document.addEventListener("DOMContentLoaded", () => {
+  // Load coin balance
+  const balance = localStorage.getItem("kickoff_coins") || "0";
+  document.getElementById("homeCoinBalance").textContent = balance;
+
+  updateDailyButton();
+});
 </script>
 
 </body>
