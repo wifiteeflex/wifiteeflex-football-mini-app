@@ -2455,17 +2455,74 @@ margin-top:4px;
     background: #000;
     border-radius: 12px;
     overflow: hidden;
+    position: relative;
 }
 
 .live-video-container iframe {
     width: 100%;
     height: 100%;
     border: none;
+    display: none;
 }
 
-.live-video-section p {
+#videoPlaceholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: linear-gradient(135deg, #071c10, #000);
+}
+
+#videoPlaceholder h3 {
+    color: #42e66b;
+}
+
+.play-icon {
+    font-size: 45px;
+    color: #42e66b;
+}
+
+#liveMessage {
+    color: #42e66b;
+    font-size: 13px;
+    margin: 15px 0;
+}
+
+.watch-live-btn {
+    background: #42e66b;
+    color: #071c10;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.watch-live-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+#liveTimer {
+    display: none;
+    color: #42e66b;
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.live-description {
     color: #ccc;
     font-size: 13px;
+}
+
+.live-video-section .remind-btn {
+    margin-top: 10px;
 }
 
 </style>
@@ -3238,34 +3295,55 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     <div class="live-header">
 
         <h1>Live Matches</h1>
-
         <p>Premier League • LaLiga</p>
 
         <div class="live-status-bar">
             <span class="dot"></span>
-            LOADING
+            LIVE
         </div>
 
-        <!-- LIVE YOUTUBE PLAYER -->
         <div class="live-video-section">
 
             <h2>Hapoel VS Barcelona</h2>
 
             <div class="live-video-container">
+
+                <div id="videoPlaceholder">
+                    <div class="play-icon">▶</div>
+                    <h3>LIVE MATCH</h3>
+                    <p>Click below to start watching</p>
+                </div>
+
                 <iframe
-                    src="https://www.youtube.com/embed/foeVFx7aL14??playsinline=1&rel=0"
+                    id="livePlayer"
+                    src=""
                     title="Live Football"
                     allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                     allowfullscreen>
                 </iframe>
+
             </div>
 
-            <p>Watch the live for free  No Ads!</p>
+            <div id="liveMessage">
+                🔒 Watch an advert to unlock the livestream.
+            </div>
 
-        <button class="remind-btn" onclick="remindMe()">
-            🔔 Notify Me
-        </button>
-        
+            <button id="watchLiveBtn" class="watch-live-btn">
+                ▶ WATCH LIVE
+            </button>
+
+            <div id="liveTimer">
+                LIVE STREAM ACTIVE
+            </div>
+
+            <p class="live-description">
+                Enjoy the match live!
+            </p>
+
+            <button class="remind-btn" onclick="remindMe()">
+                🔔 Notify Me
+            </button>
+
         </div>
 
     </div>
@@ -5302,6 +5380,145 @@ subscribeBtn.addEventListener("click", function () {
         "_blank"
     );
 });
+</script>
+
+</script>
+(function () {
+
+    const watchBtn = document.getElementById("watchLiveBtn");
+    const player = document.getElementById("livePlayer");
+    const placeholder = document.getElementById("videoPlaceholder");
+    const message = document.getElementById("liveMessage");
+    const timerDisplay = document.getElementById("liveTimer");
+
+    if (!watchBtn || !player) return;
+
+    const MONETAG_ZONE = "10317085";
+
+    const VIDEO_URL =
+        "https://www.youtube.com/embed/foeVFx7aL14?playsinline=1&rel=0&enablejsapi=1";
+
+    let streamStarted = false;
+    let adBusy = false;
+    let timerStarted = false;
+
+    let adTimer = null;
+    let elapsedSeconds = 0;
+
+    // START LIVE STREAM
+
+    function startStream() {
+
+        if (streamStarted) return;
+
+        streamStarted = true;
+
+        player.src = VIDEO_URL + "&autoplay=1";
+
+        player.style.display = "block";
+        placeholder.style.display = "none";
+
+        watchBtn.style.display = "none";
+
+        message.textContent = "🟢 You are watching LIVE!";
+        timerDisplay.style.display = "block";
+
+        startAdvertisingTimer();
+    }
+
+    // FIRST AD BEFORE LIVE STREAM
+
+    watchBtn.addEventListener("click", async function () {
+
+        if (adBusy || streamStarted) return;
+
+        adBusy = true;
+        watchBtn.disabled = true;
+        watchBtn.textContent = "LOADING AD...";
+
+        message.textContent = "Please wait while your advert loads.";
+
+        try {
+
+            if (typeof window.show_10317085 !== "function") {
+                throw new Error("Monetag SDK not loaded");
+            }
+
+            await window.show_10317085({
+                type: "end",
+                requestVar: "live_preroll",
+                timeout: 10
+            });
+
+        } catch (error) {
+
+            console.log("Pre-roll ad unavailable:", error);
+
+        } finally {
+
+            adBusy = false;
+            startStream();
+
+        }
+
+    });
+
+    // AUTOMATIC ADVERTISING TIMER
+
+    function startAdvertisingTimer() {
+
+        if (timerStarted) return;
+
+        timerStarted = true;
+
+        // Start Monetag automatic interstitial system.
+        if (typeof window.show_10317085 === "function") {
+
+            window.show_10317085({
+                type: "inApp",
+
+                inAppSettings: {
+
+                    frequency: 5,
+
+                    capping: 2,
+
+                    interval: 1200,
+
+                    timeout: 1200,
+
+                    everyPage: false
+
+                }
+
+            }).catch(function (error) {
+
+                console.log("Automatic ad error:", error);
+
+            });
+
+        }
+
+        // Display stream viewing time.
+
+        adTimer = setInterval(function () {
+
+            elapsedSeconds++;
+
+            const minutes = Math.floor(elapsedSeconds / 60);
+
+            const seconds = elapsedSeconds % 60;
+
+            timerDisplay.textContent =
+                "🟢 LIVE STREAM • " +
+                minutes + ":" +
+                String(seconds).padStart(2, "0");
+
+        }, 1000);
+
+    }
+
+})();
 </script>
 
 </body>
