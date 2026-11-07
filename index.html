@@ -2439,90 +2439,78 @@ margin-top:4px;
 }
 
 .live-video-section {
-    margin-top: 25px;
-    text-align: center;
+  margin-top: 25px;
+  text-align: center;
 }
 
 .live-video-section h2 {
-    color: #42e66b;
-    font-size: 19px;
-    margin-bottom: 12px;
+  color: #42e66b;
+  font-size: 19px;
+  margin-bottom: 12px;
 }
 
 .live-video-container {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
 }
 
-.live-video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: none;
+#liveYoutubePlayer {
+  width: 100%;
+  height: 100%;
 }
 
-#videoPlaceholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    background: linear-gradient(135deg, #071c10, #000);
+#liveYoutubePlayer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-#videoPlaceholder h3 {
-    color: #42e66b;
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: #080808;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  z-index: 2;
 }
 
-.play-icon {
-    font-size: 45px;
-    color: #42e66b;
-}
-
-#liveMessage {
-    color: #42e66b;
-    font-size: 13px;
-    margin: 15px 0;
+.live-video-section p {
+  color: #ccc;
+  font-size: 13px;
 }
 
 .watch-live-btn {
-    background: #42e66b;
-    color: #071c10;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 15px;
-    width: 100%;
-    cursor: pointer;
+  width: 100%;
+  padding: 14px;
+  background: #19c653;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 9px;
+  margin-top: 12px;
+  cursor: pointer;
 }
 
 .watch-live-btn:disabled {
-    opacity: 0.6;
-    cursor: wait;
+  opacity: 0.6;
 }
 
-#liveTimer {
-    display: none;
-    color: #42e66b;
-    margin-top: 12px;
-    font-size: 12px;
-    font-weight: bold;
+.ad-countdown {
+  color: #42e66b !important;
+  font-size: 12px !important;
+  margin-top: 10px;
 }
 
-.live-description {
-    color: #ccc;
-    font-size: 13px;
-}
-
-.live-video-section .remind-btn {
-    margin-top: 10px;
+.remind-btn {
+  margin-top: 12px;
 }
 
 </style>
@@ -3292,61 +3280,51 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
-    <div class="live-header">
+  <div class="live-header">
+    <h1>Live Matches</h1>
+    <p>Premier League • LaLiga</p>
 
-        <h1>Live Matches</h1>
-        <p>Premier League • LaLiga</p>
+    <div class="live-status-bar">
+      <span class="dot"></span> LIVE FOOTBALL
+    </div>
 
-        <div class="live-status-bar">
-            <span class="dot"></span>
-            LIVE
+    <div class="live-video-section">
+
+      <h2>Hapoel VS Barcelona</h2>
+
+      <div class="live-video-container">
+
+        <!-- YouTube player loads here -->
+        <div id="liveYoutubePlayer"></div>
+
+        <!-- Loading overlay -->
+        <div id="videoLoading" class="video-overlay">
+          <p>⚽ Preparing live stream...</p>
         </div>
 
-        <div class="live-video-section">
+      </div>
 
-            <h2>Hapoel VS Barcelona</h2>
+      <p id="liveVideoMessage">
+        Watch the live match. Enjoy the action!
+      </p>
 
-            <div class="live-video-container">
+      <button
+        id="watchLiveBtn"
+        class="watch-live-btn"
+        onclick="startLiveStream()">
+        ▶ WATCH LIVE
+      </button>
 
-                <div id="videoPlaceholder">
-                    <div class="play-icon">▶</div>
-                    <h3>LIVE MATCH</h3>
-                    <p>Click below to start watching</p>
-                </div>
+      <p id="adCountdown" class="ad-countdown">
+        Ads will appear during the live match.
+      </p>
 
-                <iframe
-                    id="livePlayer"
-                    src=""
-                    title="Live Football"
-                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                    allowfullscreen>
-                </iframe>
-
-            </div>
-
-            <div id="liveMessage">
-                🔒 Watch an advert to unlock the livestream.
-            </div>
-
-            <button id="watchLiveBtn" class="watch-live-btn">
-                ▶ WATCH LIVE
-            </button>
-
-            <div id="liveTimer">
-                LIVE STREAM ACTIVE
-            </div>
-
-            <p class="live-description">
-                Enjoy the match live!
-            </p>
-
-            <button class="remind-btn" onclick="remindMe()">
-                🔔 Notify Me
-            </button>
-
-        </div>
+      <button class="remind-btn" onclick="remindMe()">
+        🔔 Notify Me
+      </button>
 
     </div>
+  </div>
 
 </div>
 
@@ -5385,138 +5363,265 @@ subscribeBtn.addEventListener("click", function () {
 <script>
 (function () {
 
-    const watchBtn = document.getElementById("watchLiveBtn");
-    const player = document.getElementById("livePlayer");
-    const placeholder = document.getElementById("videoPlaceholder");
-    const message = document.getElementById("liveMessage");
-    const timerDisplay = document.getElementById("liveTimer");
+  const VIDEO_ID = "foeVFx7aL14";
+  const AD_INTERVAL = 300; // 5 minutes
+  const MONETAG_ZONE = 10317085;
 
-    if (!watchBtn || !player) return;
+  let player = null;
+  let playerReady = false;
+  let adInProgress = false;
+  let streamStarted = false;
+  let playbackSeconds = 0;
+  let lastTick = Date.now();
+  let watchButton = null;
 
-    const MONETAG_ZONE = "10317085";
+  const loading = document.getElementById("videoLoading");
+  const message = document.getElementById("liveVideoMessage");
+  const countdown = document.getElementById("adCountdown");
 
-    const VIDEO_URL =
-        "https://www.youtube.com/embed/foeVFx7aL14?playsinline=1&rel=0&enablejsapi=1";
+  // Load YouTube IFrame API
+  function loadYouTubeAPI() {
 
-    let streamStarted = false;
-    let adBusy = false;
-    let timerStarted = false;
-
-    let adTimer = null;
-    let elapsedSeconds = 0;
-
-    // START LIVE STREAM
-
-    function startStream() {
-
-        if (streamStarted) return;
-
-        streamStarted = true;
-
-        player.src = VIDEO_URL + "&autoplay=1";
-
-        player.style.display = "block";
-        placeholder.style.display = "none";
-
-        watchBtn.style.display = "none";
-
-        message.textContent = "🟢 You are watching LIVE!";
-        timerDisplay.style.display = "block";
-
-        startAdvertisingTimer();
+    if (window.YT && window.YT.Player) {
+      createPlayer();
+      return;
     }
 
-    // FIRST AD BEFORE LIVE STREAM
+    const existingScript = document.querySelector(
+      'script[src="https://www.youtube.com/iframe_api"]'
+    );
 
-    watchBtn.addEventListener("click", async function () {
+    const previousCallback = window.onYouTubeIframeAPIReady;
 
-        if (adBusy || streamStarted) return;
+    window.onYouTubeIframeAPIReady = function () {
+      if (typeof previousCallback === "function") {
+        previousCallback();
+      }
+      createPlayer();
+    };
 
-        adBusy = true;
-        watchBtn.disabled = true;
-        watchBtn.textContent = "LOADING AD...";
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(script);
+    }
+  }
 
-        message.textContent = "Please wait while your advert loads.";
+  function createPlayer() {
 
-        try {
+    if (player) return;
 
-            if (typeof window.show_10317085 !== "function") {
-                throw new Error("Monetag SDK not loaded");
-            }
+    player = new YT.Player("liveYoutubePlayer", {
+      videoId: VIDEO_ID,
 
-            await window.show_10317085({
-                type: "end",
-                requestVar: "live_preroll",
-                timeout: 10
-            });
+      playerVars: {
+        playsinline: 1,
+        rel: 0,
+        autoplay: 0,
+        controls: 1
+      },
 
-        } catch (error) {
+      events: {
+        onReady: function () {
+          playerReady = true;
+          loading.style.display = "none";
+          message.textContent = "Ready to watch live football!";
+        },
 
-            console.log("Pre-roll ad unavailable:", error);
+        onStateChange: function (event) {
+          if (event.data === YT.PlayerState.PLAYING) {
+            message.textContent = "🔴 Live stream playing";
+          }
 
-        } finally {
+          if (event.data === YT.PlayerState.BUFFERING) {
+            message.textContent = "⏳ Buffering stream...";
+          }
 
-            adBusy = false;
-            startStream();
-
+          if (event.data === YT.PlayerState.PAUSED) {
+            message.textContent = "⏸ Stream paused";
+          }
         }
-
+      }
     });
+  }
 
-    // AUTOMATIC ADVERTISING TIMER
+  // Wait until YouTube player is ready
+  function waitForPlayer() {
+    return new Promise((resolve, reject) => {
+      let attempts = 0;
 
-    function startAdvertisingTimer() {
+      const check = setInterval(() => {
+        attempts++;
 
-        if (timerStarted) return;
-
-        timerStarted = true;
-
-        // Start Monetag automatic interstitial system.
-        if (typeof window.show_10317085 === "function") {
-
-            window.show_10317085({
-                type: "inApp",
-
-                inAppSettings: {
-
-                    frequency: 5,
-
-                    capping: 2,
-
-                    interval: 1200,
-
-                    timeout: 1200,
-
-                    everyPage: false
-
-                }
-
-            }).catch(function (error) {
-
-                console.log("Automatic ad error:", error);
-
-            });
-
+        if (playerReady) {
+          clearInterval(check);
+          resolve();
         }
 
-        // Display stream viewing time.
+        if (attempts > 100) {
+          clearInterval(check);
+          reject(new Error("YouTube player failed to load"));
+        }
+      }, 200);
+    });
+  }
 
-        adTimer = setInterval(function () {
+  // Monetag ad function
+  async function showFootballAd(placement) {
 
-            elapsedSeconds++;
+    if (typeof window["show_" + MONETAG_ZONE] !== "function") {
+      console.warn("Monetag SDK is not ready.");
+      return false;
+    }
 
-            const minutes = Math.floor(elapsedSeconds / 60);
+    try {
+      await window["show_" + MONETAG_ZONE]({
+        type: "end",
+        requestVar: placement
+      });
 
-            const seconds = elapsedSeconds % 60;
+      return true;
 
-            timerDisplay.textContent =
-                "🟢 LIVE STREAM • " +
-                minutes + ":" +
-                String(seconds).padStart(2, "0");
+    } catch (error) {
+      console.warn("Monetag ad unavailable:", error);
+      return false;
+    }
+  }
 
-        }, 1000);
+  // User clicks WATCH LIVE
+  window.startLiveStream = async function () {
+
+    if (streamStarted || adInProgress) return;
+
+    watchButton = document.getElementById("watchLiveBtn");
+
+    watchButton.disabled = true;
+    watchButton.textContent = "PLEASE WAIT...";
+
+    loading.style.display = "flex";
+    loading.innerHTML = "<p>Preparing your live match...</p>";
+
+    try {
+
+      await waitForPlayer();
+
+      message.textContent = "Preparing your stream...";
+
+      // Show pre-roll ad before starting video
+      await showFootballAd("live_preroll");
+
+      // Start YouTube stream after ad closes or fails
+      player.playVideo();
+
+      streamStarted = true;
+      playbackSeconds = 0;
+
+      watchButton.style.display = "none";
+
+      loading.style.display = "none";
+
+      message.textContent = "🔴 Live stream playing";
+
+      countdown.textContent =
+        "Next advert after 5 minutes of playback.";
+
+      lastTick = Date.now();
+
+    } catch (error) {
+
+      console.error(error);
+
+      loading.style.display = "flex";
+      loading.innerHTML =
+        "<p>Unable to load the stream. Please try again.</p>";
+
+      watchButton.disabled = false;
+      watchButton.textContent = "▶ TRY AGAIN";
 
     }
+
+  };
+
+  // Count only actual YouTube playing time
+  setInterval(async function () {
+
+    if (!streamStarted || !playerReady || !player) return;
+
+    const now = Date.now();
+    const elapsed = (now - lastTick) / 1000;
+
+    lastTick = now;
+
+    if (
+      player.getPlayerState() === YT.PlayerState.PLAYING &&
+      !adInProgress
+    ) {
+      playbackSeconds += elapsed;
+    }
+
+    const remaining = Math.max(
+      0,
+      Math.ceil(AD_INTERVAL - playbackSeconds)
+    );
+
+    if (!adInProgress && remaining > 0) {
+      countdown.textContent =
+        "⏱ Next advert in " + remaining + " seconds";
+    }
+
+    // Five minutes of actual playback reached
+    if (
+      playbackSeconds >= AD_INTERVAL &&
+      !adInProgress &&
+      player.getPlayerState() === YT.PlayerState.PLAYING
+    ) {
+
+      adInProgress = true;
+
+      // Reset for the next five-minute cycle
+      playbackSeconds = 0;
+
+      // Pause football video
+      player.pauseVideo();
+
+      countdown.textContent = "Advertisement break...";
+
+      message.textContent =
+        "📢 Advertisement break. Your match will resume shortly.";
+
+      // Show Monetag ad
+      await showFootballAd("live_midroll");
+
+      // Resume football after ad closes or fails
+      player.playVideo();
+
+      message.textContent = "🟢 Resuming live football...";
+
+      adInProgress = false;
+
+      lastTick = Date.now();
+
+      countdown.textContent =
+        "Next advert after 5 minutes of playback.";
+
+    }
+
+  }, 500);
+
+  // Pause stream when viewer leaves the app/tab
+  document.addEventListener("visibilitychange", function () {
+
+    if (!playerReady || !streamStarted || adInProgress) return;
+
+    if (document.hidden) {
+      player.pauseVideo();
+    }
+
+    lastTick = Date.now();
+
+  });
+
+  loadYouTubeAPI();
 
 })();
 </script>
