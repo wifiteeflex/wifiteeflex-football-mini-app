@@ -2451,7 +2451,8 @@ margin-top:4px;
 
 .live-video-container {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
+  max-height: 160px;
   background: #000;
   border-radius: 12px;
   overflow: hidden;
@@ -5491,56 +5492,62 @@ subscribeBtn.addEventListener("click", function () {
   // User clicks WATCH LIVE
   window.startLiveStream = async function () {
 
-    if (streamStarted || adInProgress) return;
+  if (streamStarted || adInProgress) return;
 
-    watchButton = document.getElementById("watchLiveBtn");
+  watchButton = document.getElementById("watchLiveBtn");
 
-    watchButton.disabled = true;
-    watchButton.textContent = "PLEASE WAIT...";
+  watchButton.disabled = true;
+  watchButton.textContent = "PLEASE WAIT...";
 
-    loading.style.display = "flex";
-    loading.innerHTML = "<p>Preparing your live match...</p>";
+  loading.style.display = "flex";
+  loading.innerHTML = "<p>Preparing your live match...</p>";
 
+  try {
+
+    await waitForPlayer();
+
+    // Request landscape orientation
     try {
-
-      await waitForPlayer();
-
-      message.textContent = "Preparing your stream...";
-
-      // Show pre-roll ad before starting video
-      await showFootballAd("live_preroll");
-
-      // Start YouTube stream after ad closes or fails
-      player.playVideo();
-
-      streamStarted = true;
-      playbackSeconds = 0;
-
-      watchButton.style.display = "none";
-
-      loading.style.display = "none";
-
-      message.textContent = "🔴 Live stream playing";
-
-      countdown.textContent =
-        "Next advert after 5 minutes of playback.";
-
-      lastTick = Date.now();
-
-    } catch (error) {
-
-      console.error(error);
-
-      loading.style.display = "flex";
-      loading.innerHTML =
-        "<p>Unable to load the stream. Please try again.</p>";
-
-      watchButton.disabled = false;
-      watchButton.textContent = "▶ TRY AGAIN";
-
+      if (screen.orientation && screen.orientation.lock) {
+        await screen.orientation.lock("landscape");
+      }
+    } catch (e) {
+      console.log("Landscape rotation not supported.");
     }
 
-  };
+    // Show pre-roll ad
+    await showFootballAd("live_preroll");
+
+    // Start video
+    player.playVideo();
+
+    streamStarted = true;
+    playbackSeconds = 0;
+
+    watchButton.style.display = "none";
+    loading.style.display = "none";
+
+    message.textContent = "🔴 Live stream playing";
+
+    countdown.textContent =
+      "Next advert after 5 minutes of playback.";
+
+    lastTick = Date.now();
+
+  } catch (error) {
+
+    console.error(error);
+
+    loading.style.display = "flex";
+    loading.innerHTML =
+      "<p>Unable to load the stream. Please try again.</p>";
+
+    watchButton.disabled = false;
+    watchButton.textContent = "▶ TRY AGAIN";
+
+  }
+
+};
 
   // Count only actual YouTube playing time
   setInterval(async function () {
