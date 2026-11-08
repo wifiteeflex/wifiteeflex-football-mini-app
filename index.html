@@ -2450,25 +2450,26 @@ margin-top:4px;
 }
 
 .live-video-container {
-  width: 300px !important;
-  max-width: calc(100% - 40px) !important;
-  aspect-ratio: 16 / 9;
-  margin: 15px auto !important;
+  width: 300px;
+  height: 169px;
+  margin: 15px auto;
   background: #000;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+
+  /* POSITION ADJUSTMENTS */
+  transform: translate(-20px,20px);
 }
 
 #liveYoutubePlayer {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
 }
 
 #liveYoutubePlayer iframe {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
   border: none;
 }
 
