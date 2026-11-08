@@ -2450,22 +2450,25 @@ margin-top:4px;
 }
 
 .live-video-container {
-  width: 100%;
+  width: 300px !important;
+  max-width: calc(100% - 40px) !important;
   aspect-ratio: 16 / 9;
+  margin: 15px auto !important;
   background: #000;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
+  box-sizing: border-box;
 }
 
 #liveYoutubePlayer {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 #liveYoutubePlayer iframe {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   border: none;
 }
 
