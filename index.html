@@ -257,7 +257,7 @@ background:#ff2f3b;
 
 .upcoming-badge{
 background:#111d25;
-color:#ffd84d;
+color:#fff;
 border:1px solid rgba(255,255,255,.05);
 }
 
@@ -2584,18 +2584,26 @@ margin-top:4px;
   color: #42e66b;
 }
 
-.ai-ended-image {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 15px;
-    overflow: hidden;
+.matches-ended {
+    text-align: center;
+    padding: 45px 15px;
+    color: #fff;
 }
 
-.ai-ended-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+.ended-icon {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.matches-ended h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.matches-ended p {
+    color: #9ca3af;
+    font-size: 14px;
 }
 
 </style>
@@ -2806,11 +2814,10 @@ POWERED BY GROK ENGINE
 
     <div class="ai-highlights">
 
-        <div class="ai-ended-image">
-            <img
-                src="https://i.imgur.com/ERaCk3w.jpeg"
-                alt="Today's matches have ended"
-            >
+        <div class="matches-ended">
+            <div class="ended-icon">⚽</div>
+            <h2>Today's Matches Ended</h2>
+            <p>Check back later for new match predictions.</p>
         </div>
 
     </div>
@@ -2845,6 +2852,8 @@ POWERED BY GROK ENGINE
       ⚽ Preparing live stream...
     </div>
   </div>
+
+  <p id="popupMessage">Preparing your live stream...</p>
 
   <p id="popupCountdown">
     Next advert after 5 minutes of playback.
@@ -2907,27 +2916,27 @@ POWERED BY GROK ENGINE
   </div>
 
 <div class="vote-info">
-  <span class="vote-date">📅 11/07 20:45</span>
+  <span class="vote-date">📅 11/14 20:45</span>
 </div>
 
   <div class="vote-match">
 
     <div class="vote-team">
-      <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original">
-      <p>PSG</p>
+      <img src="https://s.sporty.net/common/main/res/deaea9fad0a16ac1baf37e77dc6219fb.png">
+      <p>Portugal</p>
     </div>
 
     <div class="vote-vs" style="font-weight: 900; font-size: 32px;">VS</div>
 
     <div class="vote-team">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/ESTAC_Troyes_Logo.svg?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=original">
-      <p>ESTAC</p>
+      <img src="https://s.sporty.net/common/main/res/6a724d371c2ab7908033ff779fd25c38.png">
+      <p>Denmark</p>
     </div>
 
   </div>
 
   <div class="vote-odds">
-    Odds <b>20.40</b>
+    Odds <b>2.40</b>
   </div>
 
 <div class="vote-question">
@@ -2936,8 +2945,8 @@ Who will win?
 
 <div class="vote-options">
 
-<button onclick="castVote('PSG')">
-PSG
+<button onclick="castVote('Portugal')">
+Portugal
 </button>
 
 
@@ -2946,8 +2955,8 @@ Draw
 </button>
 
 
-<button onclick="castVote('ESTAC Troyes')">
-Troyes
+<button onclick="castVote('Denmark')">
+Denmark
 </button>
 
 </div>
