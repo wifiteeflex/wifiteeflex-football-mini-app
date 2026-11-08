@@ -2621,6 +2621,54 @@ margin-top:4px;
   cursor: pointer;
 }
 
+.live-player-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+#youtubePreview {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #000;
+}
+
+#youtubePreviewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.youtube-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 25px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#liveYoutubePlayer {
+  width: 100%;
+  height: 100%;
+}
+
+#liveYoutubePlayer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 </style>
 </head>
         
@@ -3958,6 +4006,23 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
   <div class="live-player-box">
 
+    <!-- YOUTUBE THUMBNAIL PREVIEW -->
+    <div id="youtubePreview">
+
+      <img
+        id="youtubePreviewImage"
+        src="https://img.youtube.com/vi/foeVFx7aL14/maxresdefault.jpg"
+        alt="Live Football Thumbnail">
+
+      <button
+        class="youtube-play-btn"
+        onclick="openLiveMatch('foeVFx7aL14', 'Hapoel Tel Aviv vs Barcelona')">
+        ▶
+      </button>
+
+    </div>
+
+    <!-- YOUTUBE PLAYER -->
     <div id="liveYoutubePlayer"></div>
 
     <div id="livePlayerLoading">
@@ -6346,6 +6411,8 @@ subscribeBtn.addEventListener("click", function () {
     }
 
     modal.classList.remove("active");
+
+    document.getElementById("youtubePreview").style.display = "block";
 
     streamStarted = false;
     playbackSeconds = 0;
