@@ -3906,7 +3906,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
     <div class="live-video-section">
 
-      <h2>Stuttgart VS Bremen</h2>
+      <h2>Hapoel VS Barcelona</h2>
 
 <div id="livePopup" class="live-popup">
 
@@ -3919,7 +3919,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     <div id="popupYoutubePlayer"></div>
 
     <div id="popupLoading" class="popup-loading">
-      Preparing live stream...
+      ⚽ Preparing live stream...
     </div>
   </div>
 
@@ -3931,16 +3931,37 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 </div>
 
+<div class="live-video-container">
+
+        <!-- YouTube player loads here -->
+        <div id="liveYoutubePlayer"></div>
+
+        <!-- Loading overlay -->
+        <div id="videoLoading" class="video-overlay">
+          <p>⚽ Preparing live stream...</p>
+        </div>
+
+      </div>
+
+      <p id="liveVideoMessage">
+        Watch the live match. Enjoy the action!
+      </p>
+
+      <button class="watch-live-btn"
+  onclick="openLiveMatch('VWNAIhdteFs', 'Stuttgart vs Werder Bremen')">
+  ▶ Watch Live
+</button>
+
+      <p id="adCountdown" class="ad-countdown">
+        Ads will appear during the live match.
+      </p>
+
       <button class="remind-btn" onclick="remindMe()">
         🔔 Notify Me
       </button>
 
     </div>
   </div>
-
-</div>
-
-</div>
 
 </div>
 
