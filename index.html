@@ -2590,29 +2590,6 @@ margin-top:4px;
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-<div id="livePopup" class="live-popup">
-
-  <div class="live-popup-header">
-    <span id="popupMatchTitle">Live Football</span>
-    <button onclick="closeLiveMatch()">✕ Close</button>
-  </div>
-
-  <div class="popup-video-container">
-    <div id="popupYoutubePlayer"></div>
-
-    <div id="popupLoading" class="popup-loading">
-      ⚽ Preparing live stream...
-    </div>
-  </div>
-
-  <p id="popupMessage">Preparing your live stream...</p>
-
-  <p id="popupCountdown">
-    Next advert after 5 minutes of playback.
-  </p>
-
-</div>
-
 </body>
 
 <div class="bottom-nav">
@@ -3931,7 +3908,30 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
       <h2>Hapoel VS Barcelona</h2>
 
-      <p id="liveVideoMessage">
+      <div id="livePopup" class="live-popup">
+
+  <div class="live-popup-header">
+    <span id="popupMatchTitle">Live Football</span>
+    <button onclick="closeLiveMatch()">✕ Close</button>
+  </div>
+
+  <div class="popup-video-container">
+    <div id="popupYoutubePlayer"></div>
+
+    <div id="popupLoading" class="popup-loading">
+      ⚽ Preparing live stream...
+    </div>
+  </div>
+
+  <p id="popupMessage">Preparing your live stream...</p>
+
+  <p id="popupCountdown">
+    Next advert after 5 minutes of playback.
+  </p>
+
+</div>
+
+<p id="liveVideoMessage">
         Watch the live match. Enjoy the action!
       </p>
 
