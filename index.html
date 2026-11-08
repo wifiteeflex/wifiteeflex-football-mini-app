@@ -2623,6 +2623,38 @@ margin-top:4px;
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
+<!-- LIVE VIDEO POPUP -->
+
+<div id="livePopup" class="live-popup">
+
+  <div class="live-popup-header">
+
+    <button onclick="closeLiveMatch()" class="popup-close">
+      ✕ Close
+    </button>
+
+    <span id="popupMatchTitle">Live Football</span>
+
+  </div>
+
+  <div class="popup-video-container">
+
+    <div id="popupYoutubePlayer"></div>
+
+    <div id="popupLoading">
+      ⚽ Preparing your stream...
+    </div>
+
+  </div>
+
+  <p id="popupMessage">Loading match...</p>
+
+  <p id="popupCountdown">
+    Next advert after 5 minutes of playback.
+  </p>
+
+</div>
+
 </body>
 
 <div class="bottom-nav">
@@ -3940,25 +3972,31 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
   <div class="live-match-feed">
 
-    <!-- MATCH 1 -->
-    <div class="youtube-match-card"
-         onclick="openLiveMatch('foeVFx7aL14', 'Hapoel Tel Aviv vs Barcelona')">
+<!-- MATCH 1 -->
+<div class="youtube-match-card">
 
-      <div class="match-thumbnail">
-        <span class="live-badge">● PLAY NOW</span>
-      </div>
+  <div class="match-thumbnail">
+    <img src="YOUR_THUMBNAIL_URL" alt="Stuttgart vs Werder Bremen">
 
-      <div class="match-details">
-        <div class="match-info">
-          <h3>LIVE | Hapoel Tel Aviv vs Barcelona | EuroLeague</h3>
-          <p>AI Football TV · Live Stream</p>
-        </div>
+    <button type="button"
+      class="live-badge"
+      onclick="openLiveMatch('VWNAIhdteFs', 'Stuttgart vs Werder Bremen')">
+      ▶ PLAY NOW
+    </button>
+  </div>
 
-        <span class="match-menu">•••</span>
-      </div>
+  <div class="match-details">
+    <div class="channel-logo">⚽</div>
 
+    <div class="match-info">
+      <h3>LIVE | Stuttgart vs Werder Bremen | Bundesliga</h3>
+      <p>AI Football TV · Live Stream</p>
     </div>
 
+    <span class="match-menu">•••</span>
+  </div>
+
+</div>
 
 <!-- MATCH 2 -->
 <div class="youtube-match-card">
@@ -6062,14 +6100,12 @@ subscribeBtn.addEventListener("click", function () {
   let streamStarted = false;
   let playbackSeconds = 0;
   let lastTick = Date.now();
-  let currentVideoId = null;
-  let currentTitle = "";
 
-  const modal = document.getElementById("livePlayerModal");
-  const loading = document.getElementById("livePlayerLoading");
-  const message = document.getElementById("liveVideoMessage");
-  const countdown = document.getElementById("adCountdown");
-  const titleElement = document.getElementById("liveModalTitle");
+  const popup = document.getElementById("livePopup");
+  const loading = document.getElementById("popupLoading");
+  const message = document.getElementById("popupMessage");
+  const countdown = document.getElementById("popupCountdown");
+  const title = document.getElementById("popupMatchTitle");
 
   // LOAD YOUTUBE API
 
@@ -6093,26 +6129,29 @@ subscribeBtn.addEventListener("click", function () {
       }
 
       createPlayer();
+
     };
 
     if (!existing) {
+
       const script = document.createElement("script");
 
       script.src = "https://www.youtube.com/iframe_api";
 
       document.head.appendChild(script);
+
     }
 
   }
 
 
-  // CREATE YOUTUBE PLAYER
+  // CREATE PLAYER
 
   function createPlayer() {
 
     if (player) return;
 
-    player = new YT.Player("liveYoutubePlayer", {
+    player = new YT.Player("popupYoutubePlayer", {
 
       width: "100%",
       height: "100%",
@@ -6130,22 +6169,20 @@ subscribeBtn.addEventListener("click", function () {
 
           playerReady = true;
 
-          loading.style.display = "none";
-
         },
 
         onStateChange: function (event) {
 
           if (event.data === YT.PlayerState.PLAYING) {
-            message.textContent = "🔴 Live stream playing";
+            message.textContent = "🔴 Live match playing";
           }
 
           if (event.data === YT.PlayerState.BUFFERING) {
-            message.textContent = "⏳ Buffering stream...";
+            message.textContent = "⏳ Buffering...";
           }
 
           if (event.data === YT.PlayerState.PAUSED) {
-            message.textContent = "⏸ Stream paused";
+            message.textContent = "⏸ Match paused";
           }
 
         }
@@ -6165,22 +6202,20 @@ subscribeBtn.addEventListener("click", function () {
 
       let attempts = 0;
 
-      const check = setInterval(() => {
+      const timer = setInterval(function () {
 
         attempts++;
 
         if (playerReady) {
 
-          clearInterval(check);
-
+          clearInterval(timer);
           resolve();
 
         }
 
         if (attempts > 100) {
 
-          clearInterval(check);
-
+          clearInterval(timer);
           reject(new Error("YouTube player unavailable"));
 
         }
@@ -6214,7 +6249,7 @@ subscribeBtn.addEventListener("click", function () {
 
     } catch (error) {
 
-      console.warn("Advertisement unavailable:", error);
+      console.warn("Ad unavailable:", error);
 
       return false;
 
@@ -6223,56 +6258,37 @@ subscribeBtn.addEventListener("click", function () {
   }
 
 
-  // OPEN SELECTED MATCH
+  // OPEN MATCH POPUP
 
   window.openLiveMatch = async function (videoId, matchTitle) {
 
-    if (!videoId || videoId.startsWith("VIDEO_ID_")) {
-      alert("This match does not have a YouTube video ID yet.");
-      return;
-    }
+    if (adInProgress || streamStarted) return;
 
-    if (adInProgress) return;
+    popup.classList.add("active");
 
-    modal.classList.add("active");
-
-    titleElement.textContent = matchTitle;
+    title.textContent = matchTitle;
 
     loading.style.display = "flex";
     loading.textContent = "⚽ Preparing your match...";
 
     message.textContent = "Preparing live stream...";
 
-    currentVideoId = videoId;
-    currentTitle = matchTitle;
-
-    streamStarted = false;
-    playbackSeconds = 0;
-
     try {
 
       await waitForPlayer();
 
-      // Stop any previously selected match
-      player.stopVideo();
-
-      // Load selected YouTube video
-      player.cueVideoById(videoId);
-
-      // Wait briefly for the selected video to load
-      await new Promise(resolve => setTimeout(resolve, 800));
-
-      // Show pre-roll advert
+      // Show advertisement first
       await showFootballAd("live_preroll");
 
-      // Start selected match
-      loading.style.display = "none";
+      // Load selected YouTube match
+      player.loadVideoById(videoId);
 
-      player.playVideo();
-
+      // Start playing automatically
       streamStarted = true;
 
       playbackSeconds = 0;
+
+      loading.style.display = "none";
 
       lastTick = Date.now();
 
@@ -6283,17 +6299,15 @@ subscribeBtn.addEventListener("click", function () {
 
       console.error(error);
 
-      loading.style.display = "flex";
-
       loading.textContent =
-        "Unable to load this stream. Please try again.";
+        "Unable to load this match. Please try again.";
 
     }
 
   };
 
 
-  // CLOSE PLAYER
+  // CLOSE POPUP
 
   window.closeLiveMatch = function () {
 
@@ -6301,22 +6315,17 @@ subscribeBtn.addEventListener("click", function () {
       player.stopVideo();
     }
 
-    modal.classList.remove("active");
+    popup.classList.remove("active");
 
     streamStarted = false;
     playbackSeconds = 0;
 
-    currentVideoId = null;
-
-    message.textContent = "Your live match will appear here.";
-
-    countdown.textContent =
-      "Advertisements will appear during playback.";
+    message.textContent = "Match closed.";
 
   };
 
 
-  // FIVE-MINUTE PLAYBACK TIMER
+  // FIVE-MINUTE MID-ROLL TIMER
 
   setInterval(async function () {
 
@@ -6359,18 +6368,18 @@ subscribeBtn.addEventListener("click", function () {
 
       playbackSeconds = 0;
 
-      // PAUSE VIDEO
       player.pauseVideo();
 
       message.textContent = "📢 Advertisement break";
 
       countdown.textContent = "Advertisement playing...";
 
-      // SHOW MID-ROLL
       await showFootballAd("live_midroll");
 
-      // RESUME VIDEO
-      if (streamStarted && modal.classList.contains("active")) {
+      if (
+        streamStarted &&
+        popup.classList.contains("active")
+      ) {
 
         player.playVideo();
 
@@ -6386,8 +6395,6 @@ subscribeBtn.addEventListener("click", function () {
 
   }, 500);
 
-
-  // INITIALIZE
 
   loadYouTubeAPI();
 
