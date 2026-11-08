@@ -2610,6 +2610,17 @@ margin-top:4px;
   color: #42e66b;
 }
 
+.youtube-play-btn {
+  background: #ff0000;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 </style>
 </head>
         
@@ -3922,6 +3933,15 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
+<!-- RED YOUTUBE PLAY BUTTON -->
+
+<button
+  class="youtube-play-btn"
+  onclick="openLiveMatch('foeVFx7aL14', 'Hapoel Tel Aviv vs Barcelona')">
+  ▶ WATCH ON YOUTUBE
+</button>
+
+
 <!-- VIDEO PLAYER POPUP -->
 
 <div id="livePlayerModal" class="live-player-modal">
@@ -3953,8 +3973,6 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
   <p id="adCountdown">
     Advertisements will appear during playback.
   </p>
-
-</div>
 
 </div>
 
