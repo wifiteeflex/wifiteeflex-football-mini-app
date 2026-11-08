@@ -2610,6 +2610,13 @@ margin-top:4px;
   color: #42e66b;
 }
 
+.live-badge {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  z-index: 2;
+}
+
 </style>
 </head>
         
@@ -3953,27 +3960,36 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     </div>
 
 
-    <!-- MATCH 2 -->
-    <div class="youtube-match-card"
-         onclick="openLiveMatch('VWNAIhdteFs', 'Stuttgart vs Werder Bremen')">
+<!-- MATCH 2 -->
+<div class="youtube-match-card">
 
-      <div class="match-thumbnail">
-        <img src="t" alt="Stuttgart vs Werder Bremen">
-        <span class="live-badge">● PLAY NOW</span>
-      </div>
+  <div class="match-thumbnail">
 
-      <div class="match-details">
-        <div class="channel-logo">⚽</div>
+    <img src="YOUR_THUMBNAIL_URL" alt="Stuttgart vs Werder Bremen">
 
-        <div class="match-info">
-          <h3>LIVE | Stuttgart vs Werder Bremen | Bundesliga</h3>
-          <p>AI Football TV · Live Stream</p>
-        </div>
+    <button
+      type="button"
+      class="live-badge"
+      onclick="openLiveMatch('VWNAIhdteFs', 'Stuttgart vs Werder Bremen')">
+      ▶ PLAY NOW
+    </button>
 
-        <span class="match-menu">•••</span>
-      </div>
+  </div>
 
+  <div class="match-details">
+
+    <div class="channel-logo">⚽</div>
+
+    <div class="match-info">
+      <h3>LIVE | Stuttgart vs Werder Bremen | Bundesliga</h3>
+      <p>AI Football TV · Live Stream</p>
     </div>
+
+    <span class="match-menu">•••</span>
+
+  </div>
+
+</div>
 
 
     <!-- MATCH 3 -->
