@@ -2513,11 +2513,105 @@ margin-top:4px;
   margin-top: 12px;
 }
 
+.live-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  z-index: 999999;
+  overflow-y: auto;
+}
+
+.live-popup-header {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background: #111;
+  color: white;
+  font-weight: bold;
+}
+
+.live-popup-header button {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 9px 13px;
+  border-radius: 6px;
+}
+
+.popup-video-container {
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 16 / 9;
+  margin: 20px auto;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+#popupYoutubePlayer,
+#popupYoutubePlayer iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+}
+
+.popup-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #080808;
+  color: white;
+  z-index: 2;
+  font-size: 14px;
+}
+
+#popupMessage,
+#popupCountdown {
+  text-align: center;
+  color: white;
+  font-size: 13px;
+  padding: 5px 15px;
+}
+
+#popupCountdown {
+  color: #42e66b;
+}
+
 </style>
 </head>
         
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<div id="livePopup" class="live-popup">
+
+  <div class="live-popup-header">
+    <span id="popupMatchTitle">Live Football</span>
+    <button onclick="closeLiveMatch()">✕ Close</button>
+  </div>
+
+  <div class="popup-video-container">
+    <div id="popupYoutubePlayer"></div>
+
+    <div id="popupLoading" class="popup-loading">
+      ⚽ Preparing live stream...
+    </div>
+  </div>
+
+  <p id="popupMessage">Preparing your live stream...</p>
+
+  <p id="popupCountdown">
+    Next advert after 5 minutes of playback.
+  </p>
+
+</div>
 
 </body>
 
@@ -3841,12 +3935,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
         Watch the live match. Enjoy the action!
       </p>
 
-      <button
-        id="watchLiveBtn"
-        class="watch-live-btn"
-        onclick="startLiveStream()">
-        ▶ WATCH LIVE
-      </button>
+      <button class="watch-live-btn"
+  onclick="openLiveMatch('VWNAIhdteFs', 'Stuttgart vs Werder Bremen')">
+  ▶ Watch Live
+</button>
 
       <p id="adCountdown" class="ad-countdown">
         Ads will appear during the live match.
@@ -6161,6 +6253,271 @@ subscribeBtn.addEventListener("click", function () {
   loadYouTubeAPI();
 
 })();
+</script>
+
+<script>
+let livePlayer = null;
+let currentVideoId = "";
+let currentMatchTitle = "";
+
+let playbackSeconds = 0;
+let playbackTimer = null;
+
+let adInProgress = false;
+let playerReady = false;
+let streamStarted = false;
+let popupSession = 0;
+
+const AD_ZONE = 10317085;
+const AD_INTERVAL = 300; // 5 minutes
+
+// Load YouTube API
+(function loadYouTubeAPI() {
+  if (window.YT && window.YT.Player) return;
+
+  const script = document.createElement("script");
+  script.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(script);
+})();
+
+function openLiveMatch(videoId, title) {
+  currentVideoId = videoId;
+  currentMatchTitle = title;
+
+  popupSession++;
+  const session = popupSession;
+
+  playbackSeconds = 0;
+  streamStarted = false;
+  adInProgress = false;
+
+  stopPlaybackTimer();
+
+  document.getElementById("livePopup").style.display = "block";
+  document.getElementById("popupMatchTitle").textContent = title;
+  document.getElementById("popupMessage").textContent =
+    "Preparing your live stream...";
+  document.getElementById("popupLoading").style.display = "flex";
+
+  if (livePlayer) {
+    livePlayer.destroy();
+    livePlayer = null;
+  }
+
+  playerReady = false;
+
+  waitForYouTubeAPI(session);
+}
+
+function waitForYouTubeAPI(session) {
+  if (session !== popupSession) return;
+
+  if (window.YT && window.YT.Player) {
+    createLivePlayer(session);
+    return;
+  }
+
+  setTimeout(() => waitForYouTubeAPI(session), 300);
+}
+
+function createLivePlayer(session) {
+  if (session !== popupSession) return;
+
+  livePlayer = new YT.Player("popupYoutubePlayer", {
+    width: "100%",
+    height: "100%",
+    videoId: currentVideoId,
+
+    playerVars: {
+      autoplay: 0,
+      playsinline: 1,
+      controls: 1,
+      rel: 0
+    },
+
+    events: {
+      onReady: async function(event) {
+        if (session !== popupSession) return;
+
+        playerReady = true;
+
+        document.getElementById("popupLoading").style.display = "none";
+
+        await showPreRoll(session);
+
+        if (session !== popupSession) return;
+
+        if (!adInProgress) {
+          startLiveStream();
+        }
+      },
+
+      onStateChange: function(event) {
+        if (session !== popupSession) return;
+
+        if (event.data === YT.PlayerState.PLAYING) {
+          streamStarted = true;
+          document.getElementById("popupLoading").style.display = "none";
+          document.getElementById("popupMessage").textContent =
+            "🔴 Live stream playing";
+
+          startPlaybackTimer();
+        }
+
+        else if (
+          event.data === YT.PlayerState.PAUSED ||
+          event.data === YT.PlayerState.BUFFERING ||
+          event.data === YT.PlayerState.ENDED
+        ) {
+          stopPlaybackTimer();
+        }
+      }
+    }
+  });
+}
+
+// Monetag pre-roll
+async function showPreRoll(session) {
+  if (typeof window["show_" + AD_ZONE] !== "function") {
+    document.getElementById("popupMessage").textContent =
+      "Ad unavailable. Preparing live stream...";
+    return;
+  }
+
+  adInProgress = true;
+
+  document.getElementById("popupMessage").textContent =
+    "Advertisement loading...";
+
+  try {
+    await window["show_" + AD_ZONE]({
+      type: "end",
+      requestVar: "football_preroll_" + session
+    });
+  } catch (error) {
+    console.log("Pre-roll unavailable:", error);
+  }
+
+  if (session !== popupSession) return;
+
+  adInProgress = false;
+}
+
+// Start selected YouTube stream
+function startLiveStream() {
+  if (!livePlayer || !playerReady) return;
+
+  livePlayer.loadVideoById(currentVideoId);
+
+  document.getElementById("popupMessage").textContent =
+    "Starting live stream...";
+}
+
+// Count only actual playback time
+function startPlaybackTimer() {
+  if (playbackTimer || adInProgress) return;
+
+  playbackTimer = setInterval(() => {
+    if (
+      !livePlayer ||
+      adInProgress ||
+      !streamStarted ||
+      livePlayer.getPlayerState() !== YT.PlayerState.PLAYING
+    ) {
+      return;
+    }
+
+    playbackSeconds++;
+
+    const remaining = AD_INTERVAL - playbackSeconds;
+
+    if (remaining <= 0) {
+      showMidRoll();
+      return;
+    }
+
+    const minutes = Math.floor(remaining / 60);
+    const seconds = remaining % 60;
+
+    document.getElementById("popupCountdown").textContent =
+      "Next advert in " + minutes + ":" +
+      String(seconds).padStart(2, "0");
+
+  }, 1000);
+}
+
+function stopPlaybackTimer() {
+  if (playbackTimer) {
+    clearInterval(playbackTimer);
+    playbackTimer = null;
+  }
+}
+
+// Monetag mid-roll
+async function showMidRoll() {
+  if (adInProgress || !livePlayer) return;
+
+  if (livePlayer.getPlayerState() !== YT.PlayerState.PLAYING) return;
+
+  adInProgress = true;
+  stopPlaybackTimer();
+
+  livePlayer.pauseVideo();
+
+  document.getElementById("popupMessage").textContent =
+    "Advertisement break...";
+
+  document.getElementById("popupCountdown").textContent =
+    "Your live stream will resume after the advert.";
+
+  try {
+    if (typeof window["show_" + AD_ZONE] === "function") {
+      await window["show_" + AD_ZONE]({
+        type: "end",
+        requestVar: "football_midroll_" + Date.now()
+      });
+    }
+  } catch (error) {
+    console.log("Mid-roll unavailable:", error);
+  }
+
+  if (document.getElementById("livePopup").style.display === "none") {
+    adInProgress = false;
+    return;
+  }
+
+  adInProgress = false;
+  playbackSeconds = 0;
+
+  document.getElementById("popupMessage").textContent =
+    "🔴 Resuming live stream...";
+
+  document.getElementById("popupCountdown").textContent =
+    "Next advert after 5 minutes of playback.";
+
+  livePlayer.playVideo();
+}
+
+// Close popup
+function closeLiveMatch() {
+  popupSession++;
+
+  stopPlaybackTimer();
+
+  adInProgress = false;
+  streamStarted = false;
+  playbackSeconds = 0;
+
+  document.getElementById("livePopup").style.display = "none";
+
+  if (livePlayer) {
+    livePlayer.stopVideo();
+    livePlayer.destroy();
+    livePlayer = null;
+  }
+
+  playerReady = false;
+}
 </script>
 
 </body>
