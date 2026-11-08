@@ -2438,142 +2438,24 @@ margin-top:4px;
     display: block;
 }
 
-/* LIVE MATCH FEED */
-
-.live-match-feed {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  padding: 12px 0 100px;
-  box-sizing: border-box;
+.live-video-section {
+  margin-top: 25px;
+  text-align: center;
 }
 
-.youtube-match-card {
-  width: 100%;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.match-thumbnail {
-  width: 100%;
-  max-width: 300px;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  background: #111;
-  border-radius: 10px;
-}
-
-.match-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.live-badge {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: #e50914;
-  color: white;
-  padding: 5px 9px;
-  font-size: 11px;
-  font-weight: bold;
-  border-radius: 4px;
-}
-
-.match-details {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px;
-  box-sizing: border-box;
-}
-
-.channel-logo {
-  min-width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #19c653;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 22px;
-}
-
-.match-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.match-info h3 {
-  color: white;
-  font-size: 15px;
-  line-height: 1.4;
-  margin: 0 0 7px;
-  font-weight: 600;
-}
-
-.match-info p {
-  color: #999;
-  font-size: 12px;
-  margin: 0;
-}
-
-.match-menu {
-  color: white;
-  font-size: 20px;
-}
-
-/* VIDEO PLAYER POPUP */
-
-.live-player-modal {
-  display: none;
-  position: relative;
-  width: 100%;
-  padding: 12px;
-  box-sizing: border-box;
-  background: #080808;
-  margin-bottom: 25px;
-}
-
-.live-player-modal.active {
-  display: block;
-}
-
-.live-player-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.live-video-section h2 {
+  color: #42e66b;
+  font-size: 19px;
   margin-bottom: 12px;
 }
 
-.close-live-btn {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 25px;
-  font-weight: bold;
-}
-
-.live-modal-title {
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.live-player-box {
+.live-video-container {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: black;
-  position: relative;
-  overflow: hidden;
+  background: #000;
   border-radius: 12px;
+  overflow: hidden;
+  position: relative;
 }
 
 #liveYoutubePlayer {
@@ -2587,34 +2469,48 @@ margin-top:4px;
   border: none;
 }
 
-#livePlayerLoading {
+.video-overlay {
   position: absolute;
   inset: 0;
   background: #080808;
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
   font-size: 14px;
   z-index: 2;
 }
 
-#liveVideoMessage,
-#adCountdown {
+.live-video-section p {
   color: #ccc;
   font-size: 13px;
-  text-align: center;
 }
 
-#adCountdown {
-  color: #42e66b;
-}
-
-.live-badge {
+.watch-live-btn {
+  width: 100%;
+  padding: 14px;
+  background: #19c653;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
   border: none;
+  border-radius: 9px;
+  margin-top: 12px;
   cursor: pointer;
-  font-family: inherit;
-  z-index: 2;
+}
+
+.watch-live-btn:disabled {
+  opacity: 0.6;
+}
+
+.ad-countdown {
+  color: #42e66b !important;
+  font-size: 12px !important;
+  margin-top: 10px;
+}
+
+.remind-btn {
+  margin-top: 12px;
 }
 
 </style>
@@ -2622,38 +2518,6 @@ margin-top:4px;
         
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-
-<!-- LIVE VIDEO POPUP -->
-
-<div id="livePopup" class="live-popup">
-
-  <div class="live-popup-header">
-
-    <button onclick="closeLiveMatch()" class="popup-close">
-      ✕ Close
-    </button>
-
-    <span id="popupMatchTitle">Live Football</span>
-
-  </div>
-
-  <div class="popup-video-container">
-
-    <div id="popupYoutubePlayer"></div>
-
-    <div id="popupLoading">
-      ⚽ Preparing your stream...
-    </div>
-
-  </div>
-
-  <p id="popupMessage">Loading match...</p>
-
-  <p id="popupCountdown">
-    Next advert after 5 minutes of playback.
-  </p>
-
-</div>
 
 </body>
 
@@ -3961,98 +3825,55 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
-<div class="live-header">
+  <div class="live-header">
     <h1>Live Matches</h1>
-    <p>Premier League • LaLiga • Bundesliga</p>
+    <p>Premier League • LaLiga</p>
 
     <div class="live-status-bar">
       <span class="dot"></span> LIVE FOOTBALL
     </div>
-  </div>
 
-  <div class="live-match-feed">
+    <div class="live-video-section">
 
-<!-- MATCH 1 -->
-<div class="youtube-match-card">
+      <h2>Hapoel VS Barcelona</h2>
 
-  <div class="match-thumbnail">
-    <img src="YOUR_THUMBNAIL_URL" alt="Stuttgart vs Werder Bremen">
+      <div class="live-video-container">
 
-    <button type="button"
-      class="live-badge"
-      onclick="openLiveMatch('VWNAIhdteFs', 'Stuttgart vs Werder Bremen')">
-      ▶ PLAY NOW
-    </button>
-  </div>
+        <!-- YouTube player loads here -->
+        <div id="liveYoutubePlayer"></div>
 
-  <div class="match-details">
-    <div class="channel-logo">⚽</div>
-
-    <div class="match-info">
-      <h3>LIVE | Stuttgart vs Werder Bremen | Bundesliga</h3>
-      <p>AI Football TV · Live Stream</p>
-    </div>
-
-    <span class="match-menu">•••</span>
-  </div>
-
-</div>
-
-<!-- MATCH 2 -->
-<div class="youtube-match-card">
-
-  <div class="match-thumbnail">
-
-    <img src="YOUR_THUMBNAIL_URL" alt="Stuttgart vs Werder Bremen">
-
-    <button
-      type="button"
-      class="live-badge"
-      onclick="openLiveMatch('VWNAIhdteFs', 'Stuttgart vs Werder Bremen')">
-      ▶ PLAY NOW
-    </button>
-
-  </div>
-
-  <div class="match-details">
-
-    <div class="channel-logo">⚽</div>
-
-    <div class="match-info">
-      <h3>LIVE | Stuttgart vs Werder Bremen | Bundesliga</h3>
-      <p>AI Football TV · Live Stream</p>
-    </div>
-
-    <span class="match-menu">•••</span>
-
-  </div>
-
-</div>
-
-
-    <!-- MATCH 3 -->
-    <div class="youtube-match-card"
-         onclick="openLiveMatch('foeVFx7aL14', 'Wrexham vs Wolves')">
-
-      <div class="match-thumbnail">
-        <img src="t" alt="Wrexham vs Wolves">
-        <span class="live-badge">● PLAY NOW</span>
-      </div>
-
-      <div class="match-details">
-        <div class="channel-logo">⚽</div>
-
-        <div class="match-info">
-          <h3>LIVE | Wrexham vs Wolves | Championship</h3>
-          <p>AI Football TV · Live Stream</p>
+        <!-- Loading overlay -->
+        <div id="videoLoading" class="video-overlay">
+          <p>⚽ Preparing live stream...</p>
         </div>
 
-        <span class="match-menu">•••</span>
       </div>
 
-    </div>
+      <p id="liveVideoMessage">
+        Watch the live match. Enjoy the action!
+      </p>
 
+      <button
+        id="watchLiveBtn"
+        class="watch-live-btn"
+        onclick="startLiveStream()">
+        ▶ WATCH LIVE
+      </button>
+
+      <p id="adCountdown" class="ad-countdown">
+        Ads will appear during the live match.
+      </p>
+
+      <button class="remind-btn" onclick="remindMe()">
+        🔔 Notify Me
+      </button>
+
+    </div>
   </div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -6091,8 +5912,9 @@ subscribeBtn.addEventListener("click", function () {
 <script>
 (function () {
 
+  const VIDEO_ID = "foeVFx7aL14";
+  const AD_INTERVAL = 300; // 5 minutes
   const MONETAG_ZONE = 10317085;
-  const AD_INTERVAL = 300;
 
   let player = null;
   let playerReady = false;
@@ -6100,15 +5922,13 @@ subscribeBtn.addEventListener("click", function () {
   let streamStarted = false;
   let playbackSeconds = 0;
   let lastTick = Date.now();
+  let watchButton = null;
 
-  const popup = document.getElementById("livePopup");
-  const loading = document.getElementById("popupLoading");
-  const message = document.getElementById("popupMessage");
-  const countdown = document.getElementById("popupCountdown");
-  const title = document.getElementById("popupMatchTitle");
+  const loading = document.getElementById("videoLoading");
+  const message = document.getElementById("liveVideoMessage");
+  const countdown = document.getElementById("adCountdown");
 
-  // LOAD YOUTUBE API
-
+  // Load YouTube IFrame API
   function loadYouTubeAPI() {
 
     if (window.YT && window.YT.Player) {
@@ -6116,45 +5936,32 @@ subscribeBtn.addEventListener("click", function () {
       return;
     }
 
-    const existing = document.querySelector(
+    const existingScript = document.querySelector(
       'script[src="https://www.youtube.com/iframe_api"]'
     );
 
     const previousCallback = window.onYouTubeIframeAPIReady;
 
     window.onYouTubeIframeAPIReady = function () {
-
       if (typeof previousCallback === "function") {
         previousCallback();
       }
-
       createPlayer();
-
     };
 
-    if (!existing) {
-
+    if (!existingScript) {
       const script = document.createElement("script");
-
       script.src = "https://www.youtube.com/iframe_api";
-
       document.head.appendChild(script);
-
     }
-
   }
-
-
-  // CREATE PLAYER
 
   function createPlayer() {
 
     if (player) return;
 
-    player = new YT.Player("popupYoutubePlayer", {
-
-      width: "100%",
-      height: "100%",
+    player = new YT.Player("liveYoutubePlayer", {
+      videoId: VIDEO_ID,
 
       playerVars: {
         playsinline: 1,
@@ -6164,83 +5971,60 @@ subscribeBtn.addEventListener("click", function () {
       },
 
       events: {
-
         onReady: function () {
-
           playerReady = true;
-
+          loading.style.display = "none";
+          message.textContent = "Ready to watch live football!";
         },
 
         onStateChange: function (event) {
-
           if (event.data === YT.PlayerState.PLAYING) {
-            message.textContent = "🔴 Live match playing";
+            message.textContent = "🔴 Live stream playing";
           }
 
           if (event.data === YT.PlayerState.BUFFERING) {
-            message.textContent = "⏳ Buffering...";
+            message.textContent = "⏳ Buffering stream...";
           }
 
           if (event.data === YT.PlayerState.PAUSED) {
-            message.textContent = "⏸ Match paused";
+            message.textContent = "⏸ Stream paused";
           }
-
         }
-
       }
-
     });
-
   }
 
-
-  // WAIT FOR PLAYER
-
+  // Wait until YouTube player is ready
   function waitForPlayer() {
-
     return new Promise((resolve, reject) => {
-
       let attempts = 0;
 
-      const timer = setInterval(function () {
-
+      const check = setInterval(() => {
         attempts++;
 
         if (playerReady) {
-
-          clearInterval(timer);
+          clearInterval(check);
           resolve();
-
         }
 
         if (attempts > 100) {
-
-          clearInterval(timer);
-          reject(new Error("YouTube player unavailable"));
-
+          clearInterval(check);
+          reject(new Error("YouTube player failed to load"));
         }
-
       }, 200);
-
     });
-
   }
 
-
-  // MONETAG AD
-
+  // Monetag ad function
   async function showFootballAd(placement) {
 
-    const adFunction = window["show_" + MONETAG_ZONE];
-
-    if (typeof adFunction !== "function") {
-      console.warn("Monetag SDK unavailable");
+    if (typeof window["show_" + MONETAG_ZONE] !== "function") {
+      console.warn("Monetag SDK is not ready.");
       return false;
     }
 
     try {
-
-      await adFunction({
+      await window["show_" + MONETAG_ZONE]({
         type: "end",
         requestVar: placement
       });
@@ -6248,91 +6032,71 @@ subscribeBtn.addEventListener("click", function () {
       return true;
 
     } catch (error) {
-
-      console.warn("Ad unavailable:", error);
-
+      console.warn("Monetag ad unavailable:", error);
       return false;
-
     }
-
   }
 
+  // User clicks WATCH LIVE
+  window.startLiveStream = async function () {
 
-  // OPEN MATCH POPUP
+    if (streamStarted || adInProgress) return;
 
-  window.openLiveMatch = async function (videoId, matchTitle) {
+    watchButton = document.getElementById("watchLiveBtn");
 
-    if (adInProgress || streamStarted) return;
-
-    popup.classList.add("active");
-
-    title.textContent = matchTitle;
+    watchButton.disabled = true;
+    watchButton.textContent = "PLEASE WAIT...";
 
     loading.style.display = "flex";
-    loading.textContent = "⚽ Preparing your match...";
-
-    message.textContent = "Preparing live stream...";
+    loading.innerHTML = "<p>Preparing your live match...</p>";
 
     try {
 
       await waitForPlayer();
 
-      // Show advertisement first
+      message.textContent = "Preparing your stream...";
+
+      // Show pre-roll ad before starting video
       await showFootballAd("live_preroll");
 
-      // Load selected YouTube match
-      player.loadVideoById(videoId);
+      // Start YouTube stream after ad closes or fails
+      player.playVideo();
 
-      // Start playing automatically
       streamStarted = true;
-
       playbackSeconds = 0;
+
+      watchButton.style.display = "none";
 
       loading.style.display = "none";
 
-      lastTick = Date.now();
+      message.textContent = "🔴 Live stream playing";
 
       countdown.textContent =
         "Next advert after 5 minutes of playback.";
+
+      lastTick = Date.now();
 
     } catch (error) {
 
       console.error(error);
 
-      loading.textContent =
-        "Unable to load this match. Please try again.";
+      loading.style.display = "flex";
+      loading.innerHTML =
+        "<p>Unable to load the stream. Please try again.</p>";
+
+      watchButton.disabled = false;
+      watchButton.textContent = "▶ TRY AGAIN";
 
     }
 
   };
 
-
-  // CLOSE POPUP
-
-  window.closeLiveMatch = function () {
-
-    if (player && playerReady) {
-      player.stopVideo();
-    }
-
-    popup.classList.remove("active");
-
-    streamStarted = false;
-    playbackSeconds = 0;
-
-    message.textContent = "Match closed.";
-
-  };
-
-
-  // FIVE-MINUTE MID-ROLL TIMER
-
+  // Count only actual YouTube playing time
   setInterval(async function () {
 
     if (!streamStarted || !playerReady || !player) return;
 
     const now = Date.now();
-
     const elapsed = (now - lastTick) / 1000;
 
     lastTick = now;
@@ -6341,9 +6105,7 @@ subscribeBtn.addEventListener("click", function () {
       player.getPlayerState() === YT.PlayerState.PLAYING &&
       !adInProgress
     ) {
-
       playbackSeconds += elapsed;
-
     }
 
     const remaining = Math.max(
@@ -6352,12 +6114,11 @@ subscribeBtn.addEventListener("click", function () {
     );
 
     if (!adInProgress && remaining > 0) {
-
       countdown.textContent =
         "⏱ Next advert in " + remaining + " seconds";
-
     }
 
+    // Five minutes of actual playback reached
     if (
       playbackSeconds >= AD_INTERVAL &&
       !adInProgress &&
@@ -6366,35 +6127,48 @@ subscribeBtn.addEventListener("click", function () {
 
       adInProgress = true;
 
+      // Reset for the next five-minute cycle
       playbackSeconds = 0;
 
+      // Pause football video
       player.pauseVideo();
 
-      message.textContent = "📢 Advertisement break";
+      countdown.textContent = "Advertisement break...";
 
-      countdown.textContent = "Advertisement playing...";
+      message.textContent =
+        "📢 Advertisement break. Your match will resume shortly.";
 
+      // Show Monetag ad
       await showFootballAd("live_midroll");
 
-      if (
-        streamStarted &&
-        popup.classList.contains("active")
-      ) {
+      // Resume football after ad closes or fails
+      player.playVideo();
 
-        player.playVideo();
-
-        message.textContent = "🔴 Resuming live match";
-
-      }
+      message.textContent = "🔴 Resuming live football...";
 
       adInProgress = false;
 
       lastTick = Date.now();
 
+      countdown.textContent =
+        "Next advert after 5 minutes of playback.";
+
     }
 
   }, 500);
 
+  // Pause stream when viewer leaves the app/tab
+  document.addEventListener("visibilitychange", function () {
+
+    if (!playerReady || !streamStarted || adInProgress) return;
+
+    if (document.hidden) {
+      player.pauseVideo();
+    }
+
+    lastTick = Date.now();
+
+  });
 
   loadYouTubeAPI();
 
