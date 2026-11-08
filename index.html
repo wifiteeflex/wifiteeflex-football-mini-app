@@ -2584,21 +2584,33 @@ margin-top:4px;
   color: #42e66b;
 }
 
-/* Hide video popup until Watch Live is clicked */
-#livePopup {
-  display: none;
-  position: fixed;
-  inset: 0;
+.live-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
   width: 100%;
-  height: 100%;
-  background: #000;
-  z-index: 999999;
-  overflow-y: auto;
+  margin-top: -15px;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  background: #050505;
+  box-sizing: border-box;
 }
 
-/* Show popup only when activated */
-#livePopup.active {
-  display: block;
+/* Keep the heading compact */
+.live-header h1 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+/* Reduce spacing around league names */
+.live-header > p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Keep live status visible */
+.live-status-bar {
+  margin-top: 5px;
 }
 
 </style>
@@ -4027,7 +4039,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     <p>Premier League • LaLiga • Serie A </p>
 
     <div class="live-status-bar">
-      <span class="dot"></span> AI LIVE
+      <span class="dot"></span> AI FOOTBALL LIVE
     </div>
 
     <div class="live-video-section">
@@ -4072,6 +4084,94 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
     </div>
   </div>
+
+    <div class="live-video-section">
+
+      <h2>Inter VS Como</h2>
+
+<div id="livePopup" class="live-popup">
+
+  <div class="live-popup-header">
+    <span id="popupMatchTitle">Live Football</span>
+    <button onclick="closeLiveMatch()">✕ Close</button>
+  </div>
+
+  <div class="popup-video-container">
+    <div id="popupYoutubePlayer"></div>
+
+    <div id="popupLoading" class="popup-loading">
+      ⚽ Preparing live stream...
+    </div>
+  </div>
+
+  <p id="popupMessage">Preparing your live stream...</p>
+
+  <p id="popupCountdown">
+    Next advert after 5 minutes of playback.
+  </p>
+
+</div>
+
+      <button class="watch-live-btn"
+  onclick="openLiveMatch('f0gxkhMc2dU', 'Stuttgart vs Werder Bremen')">
+  ▶ Watch Live
+</button>
+
+      <p id="adCountdown" class="ad-countdown">
+        Ads will appear during the live match.
+      </p>
+
+      <button class="remind-btn" onclick="remindMe()">
+        🔔 Notify Me
+      </button>
+
+</div>
+
+</div>
+
+    <div class="live-video-section">
+
+      <h2>Inter VS Como</h2>
+
+<div id="livePopup" class="live-popup">
+
+  <div class="live-popup-header">
+    <span id="popupMatchTitle">Live Football</span>
+    <button onclick="closeLiveMatch()">✕ Close</button>
+  </div>
+
+  <div class="popup-video-container">
+    <div id="popupYoutubePlayer"></div>
+
+    <div id="popupLoading" class="popup-loading">
+      ⚽ Preparing live stream...
+    </div>
+  </div>
+
+  <p id="popupMessage">Preparing your live stream...</p>
+
+  <p id="popupCountdown">
+    Next advert after 5 minutes of playback.
+  </p>
+
+</div>
+
+      <button class="watch-live-btn"
+  onclick="openLiveMatch('f0gxkhMc2dU', 'Stuttgart vs Werder Bremen')">
+  ▶ Watch Live
+</button>
+
+      <p id="adCountdown" class="ad-countdown">
+        Ads will appear during the live match.
+      </p>
+
+      <button class="remind-btn" onclick="remindMe()">
+        🔔 Notify Me
+      </button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -6402,14 +6502,6 @@ function openLiveMatch(videoId, title) {
   currentVideoId = videoId;
   currentMatchTitle = title;
 
-  const popup = document.getElementById("livePopup");
-
-  // Show video popup only after clicking Watch Live
-  popup.classList.add("active");
-
-  document.getElementById("popupMatchTitle").textContent = title;
-
-  // Start the existing pre-roll and video player system
   popupSession++;
   const session = popupSession;
 
@@ -6419,9 +6511,11 @@ function openLiveMatch(videoId, title) {
 
   stopPlaybackTimer();
 
-  document.getElementById("popupLoading").style.display = "flex";
+  document.getElementById("livePopup").style.display = "block";
+  document.getElementById("popupMatchTitle").textContent = title;
   document.getElementById("popupMessage").textContent =
     "Preparing your live stream...";
+  document.getElementById("popupLoading").style.display = "flex";
 
   if (livePlayer) {
     livePlayer.destroy();
@@ -6632,7 +6726,7 @@ function closeLiveMatch() {
   streamStarted = false;
   playbackSeconds = 0;
 
-  document.getElementById("livePopup").classList.remove("active");
+  document.getElementById("livePopup").style.display = "none";
 
   if (livePlayer) {
     livePlayer.stopVideo();
