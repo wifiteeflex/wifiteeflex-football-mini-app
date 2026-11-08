@@ -3922,7 +3922,49 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
-  <div class="live-header">
+<!-- VIDEO PLAYER POPUP -->
+
+<div id="livePlayerModal" class="live-player-modal">
+
+  <div class="live-player-header">
+    <button onclick="closeLiveMatch()" class="close-live-btn">
+      ✕ Close
+    </button>
+
+    <span class="live-modal-title" id="liveModalTitle">
+      Live Football
+    </span>
+  </div>
+
+  <div class="live-player-box">
+
+    <div id="liveYoutubePlayer"></div>
+
+    <div id="livePlayerLoading">
+      ⚽ Preparing your stream...
+    </div>
+
+  </div>
+
+  <p id="liveVideoMessage">
+    Your live match will appear here.
+  </p>
+
+  <p id="adCountdown">
+    Advertisements will appear during playback.
+  </p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="live-header">
     <h1>Live Matches</h1>
     <p>Premier League • LaLiga • Bundesliga</p>
 
