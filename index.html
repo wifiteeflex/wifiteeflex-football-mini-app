@@ -2584,6 +2584,23 @@ margin-top:4px;
   color: #42e66b;
 }
 
+/* Hide video popup until Watch Live is clicked */
+#livePopup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 999999;
+  overflow-y: auto;
+}
+
+/* Show popup only when activated */
+#livePopup.active {
+  display: block;
+}
+
 </style>
 </head>
         
@@ -6276,6 +6293,14 @@ function openLiveMatch(videoId, title) {
   currentVideoId = videoId;
   currentMatchTitle = title;
 
+  const popup = document.getElementById("livePopup");
+
+  // Show video popup only after clicking Watch Live
+  popup.classList.add("active");
+
+  document.getElementById("popupMatchTitle").textContent = title;
+
+  // Start the existing pre-roll and video player system
   popupSession++;
   const session = popupSession;
 
@@ -6285,11 +6310,9 @@ function openLiveMatch(videoId, title) {
 
   stopPlaybackTimer();
 
-  document.getElementById("livePopup").style.display = "block";
-  document.getElementById("popupMatchTitle").textContent = title;
+  document.getElementById("popupLoading").style.display = "flex";
   document.getElementById("popupMessage").textContent =
     "Preparing your live stream...";
-  document.getElementById("popupLoading").style.display = "flex";
 
   if (livePlayer) {
     livePlayer.destroy();
@@ -6500,7 +6523,7 @@ function closeLiveMatch() {
   streamStarted = false;
   playbackSeconds = 0;
 
-  document.getElementById("livePopup").style.display = "none";
+  document.getElementById("livePopup").classList.remove("active");
 
   if (livePlayer) {
     livePlayer.stopVideo();
