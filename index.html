@@ -2584,6 +2584,20 @@ margin-top:4px;
   color: #42e66b;
 }
 
+.sportybet-container {
+    width: 100%;
+    height: 85vh;
+    overflow: hidden;
+    background: #fff;
+}
+
+.sportybet-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
 </style>
 </head>
         
@@ -3248,58 +3262,30 @@ style="background:#3b3b3b;color:#9ca3af;cursor:pointer;">
 
 </div>
 
-<div id="contestPage" class="page">
+<div id="sportyBetPage" class="page">
 
-  <div class="live-header">
-    <h1>Live Matches</h1>
-    <p>Premier League • LaLiga</p>
+    <div class="live-header">
+        <h1>SPORTYBET ⚽</h1>
+        <p>Predict • Select • Bet</p>
 
-    <div class="live-status-bar">
-      <span class="dot"></span> LIVE NOW
+        <div class="live-status-bar">
+            <span class="dot"></span> PLACE YOUR BETS
+        </div>
     </div>
 
-    <div class="live-video-section">
+    <div class="sportybet-container">
 
-      <h2>Estrela VS Benfica</h2>
+        <iframe
+            src="https://www.sportybet.com/ng/"
+            class="sportybet-frame"
+            title="SportyBet"
+            allow="clipboard-read; clipboard-write"
+            loading="lazy">
+        </iframe>
 
-<div id="livePopup" class="live-popup">
-
-  <div class="live-popup-header">
-    <span id="popupMatchTitle">Live Football</span>
-    <button onclick="closeLiveMatch()">✕ Close</button>
-  </div>
-
-  <div class="popup-video-container">
-    <div id="popupYoutubePlayer"></div>
-
-    <div id="popupLoading" class="popup-loading">
-      ⚽ Preparing live stream...
     </div>
-  </div>
-
-  <p id="popupMessage">Preparing your live stream...</p>
-
-  <p id="popupCountdown">
-    Next advert after 5 minutes of playback.
-  </p>
 
 </div>
-
-      <button class="watch-live-btn"
-  onclick="openLiveMatch('JntGKsca_9E', 'Stuttgart vs Werder Bremen')">
-  ▶ Watch Live
-</button>
-
-      <p id="adCountdown" class="ad-countdown">
-        Ads will appear during the live match.
-      </p>
-
-      <button class="remind-btn" onclick="remindMe()">
-        🔔 Notify Me
-      </button>
-
-    </div>
-  </div>
 
 </div>
 
