@@ -2584,6 +2584,64 @@ margin-top:4px;
   color: #42e66b;
 }
 
+.score-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 999999;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.score-popup-content {
+    background: #111;
+    width: 100%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    padding: 15px;
+    position: relative;
+}
+
+.score-popup-content h2 {
+    color: #16a34a;
+    text-align: center;
+    font-size: 18px;
+}
+
+.score-popup-content iframe {
+    border: none;
+    width: 100%;
+}
+
+.score-close {
+    float: right;
+    background: #e11d48;
+    color: white;
+    border: none;
+    padding: 8px 13px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.score-popup {
+    display: none !important;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 999999;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.score-popup.active {
+    display: flex !important;
+}
+
 </style>
 </head>
         
@@ -2888,9 +2946,9 @@ HOME WIN (2up)
 
 <div class="buttons">
 
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️LIVE STREAM
+<button class="watch" onclick="openScorePopup()"
+style="background:#16a34a;color:#fff;cursor:pointer;">
+▶️ LIVE SCORE
 </button>
 
 <button class="watch" onclick="unlockPrediction(this)"
@@ -5586,6 +5644,34 @@ function closeLiveMatch() {
   playerReady = false;
 }
 </script>
+
+<script>
+function openScorePopup() {
+    document.getElementById("scorePopup").style.display = "flex";
+}
+
+function closeScorePopup() {
+    document.getElementById("scorePopup").style.display = "none";
+}
+</script>
+
+<div id="scorePopup" class="score-popup">
+    <div class="score-popup-content">
+
+        <button class="score-close" onclick="closeScorePopup()">✕</button>
+
+        <h2>⚽ LIVE MATCH SCORE</h2>
+
+        <iframe
+            src="https://www.scorebat.com/embed/livescore/"
+            width="100%"
+            height="450"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+</div>
 
 </body>
 </html>
