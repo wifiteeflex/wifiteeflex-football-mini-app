@@ -354,50 +354,47 @@ color:#19ff82;
 
 /* CONFIDENCE */
 
-.confidence-wrap {
-    padding: 0 10px 10px;
+.confidence-wrap{
+padding:0 10px 10px;
 }
 
-.confidence-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 500;
-    margin-bottom: 7px;
+.confidence-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:12px;
+font-weight:500;
+margin-bottom:6px;
 }
 
-.percent {
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 700;
+.percent{
+color:#ffffff;
+font-size:12px;
 }
 
-.progress {
-    width: 100%;
-    height: 4px;
-    background: rgba(255,255,255,.08);
-    border-radius: 10px;
-    overflow: hidden;
+.progress{
+    width:100%;
+    height:1.5px;
+    background:rgba(255,255,255,.05);
+    border-radius:10px;
+    overflow:hidden;
 }
 
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    border-radius: 10px;
-    transition: width 2s ease-in-out;
+.progress-bar{
+    height:100%;
+    border-radius:10px;
 }
 
-.progress-bar.low {
-    background: linear-gradient(90deg,#D9534F,#C0392B);
+.progress-bar.low{
+    background:linear-gradient(90deg,#D9534F,#C0392B);
 }
 
-.progress-bar.medium {
-    background: linear-gradient(90deg,#F4C542,#D4A017);
+.progress-bar.medium{
+    background:linear-gradient(90deg,#F4C542,#D4A017);
 }
 
-.progress-bar.high {
-    background: linear-gradient(90deg,#27AE60,#2ECC71);
+.progress-bar.high{
+    background:linear-gradient(90deg,#27AE60,#2ECC71);
 }
 
 /* PREDICTION */
@@ -3928,9 +3925,7 @@ Spain
 <div class="upcoming-badge">UPCOMING</div>
 </div>
 
-<div class="hot">Premier League</div>
-
-</div>
+<div class="hot rotating-hot">Premier League</div>
 
 <div class="match-area">
 
@@ -3974,14 +3969,14 @@ Fulham
 </div>
 
 <div class="confidence-wrap">
-    <div class="confidence-head">
-        <span>🤖 AI Confidence</span>
-        <span class="percent" data-percent="35">0%</span>
-    </div>
 
-    <div class="progress">
-        <div class="progress-bar high"></div>
-    </div>
+<div class="confidence-head">
+<span>🤖AI confidence</span>
+<span class="percent">100</span>
+</div>
+
+<div class="progress">
+    <div class="progress-bar medium" style="width:⚡️100;"></div>
 </div>
 
 <div class="match-tabs">
@@ -4081,14 +4076,14 @@ Celta
 </div>
 
 <div class="confidence-wrap">
-    <div class="confidence-head">
-        <span>🤖 AI Confidence</span>
-        <span class="percent" data-percent="100">0%</span>
-    </div>
 
-    <div class="progress">
-        <div class="progress-bar high"></div>
-    </div>
+<div class="confidence-head">
+<span>🤖AI confidence</span>
+<span class="percent">100</span>
+</div>
+
+<div class="progress">
+    <div class="progress-bar medium" style="width:⚡️100;"></div>
 </div>
 
 <div class="match-tabs">
@@ -4142,7 +4137,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="upcoming-badge">UPCOMING</div>
 </div>
 
-<div class="hot">Premier League</div>
+<div class="hot rotating-hot">Premier League</div>
 
 </div>
 
@@ -6271,31 +6266,23 @@ setInterval(updateAllCountdowns, 1000);
 </script>
 
 <script>
-document.querySelectorAll(".confidence-wrap").forEach(wrap => {
-    const percent = wrap.querySelector(".percent");
-    const bar = wrap.querySelector(".progress-bar");
+const hotTexts = [
+    "Premier League",
+    "See Prediction",
+    "Best Odds",
+    "AI Football"
+];
 
-    const target = Math.max(0, Math.min(
-        100, Number(percent.dataset.percent) || 0
-    ));
+let hotIndex = 0;
 
-    const duration = 2000;
-    const start = performance.now();
+setInterval(() => {
+    hotIndex = (hotIndex + 1) % hotTexts.length;
 
-    function animate(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const value = Math.round(target * progress);
+    document.querySelectorAll(".rotating-hot").forEach(item => {
+        item.textContent = hotTexts[hotIndex];
+    });
 
-        percent.textContent = value + "%";
-        bar.style.width = value + "%";
-
-        if (progress < 1) {
-            requestAnimationFrame(animate);
-        }
-    }
-
-    requestAnimationFrame(animate);
-});
+}, 2500);
 </script>
 
 </body>
