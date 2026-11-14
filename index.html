@@ -4009,13 +4009,13 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </button>
 
 <button class="watch lock-countdown" disabled
-style="background:#1E293B;color:#CBD5E1;cursor:not-allowed;">
-🔒 OPEN IN <span class="countdown">5d 00h 00m 00s</span>
+style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
+🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
 </button>
 
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
+<button class="watch bet-rotate" disabled
+style="background:#3b3b3b;color:#FFFFFF;cursor:not-allowed;">
+🔞 BET ON SPORTY
 </button>
 
 </div>
@@ -4116,13 +4116,13 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </button>
 
 <button class="watch lock-countdown" disabled
-style="background:#1E293B;color:#CBD5E1;cursor:not-allowed;">
-🔒 OPEN IN <span class="countdown">5d 00h 00m 00s</span>
+style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
+🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
 </button>
 
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
+<button class="watch bet-rotate" disabled
+style="background:#3b3b3b;color:#FFFFFF;cursor:not-allowed;">
+🔞 BET ON SPORTY
 </button>
 
 </div>
@@ -4223,8 +4223,8 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </button>
 
 <button class="watch lock-countdown" disabled
-style="background:#1E293B;color:#CBD5E1;cursor:not-allowed;">
-🔒 OPEN IN <span class="countdown">5d 00h 00m 00s</span>
+style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
+🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
 </button>
 
 <button class="watch" disabled
@@ -6265,6 +6265,25 @@ function updateAllCountdowns() {
 
 updateAllCountdowns();
 setInterval(updateAllCountdowns, 1000);
+</script>
+
+<script>
+const betOptions = [
+    "🔞 BET ON SPORTY",
+    "🔞 BET ON BET9JA",
+    "🔞 BET ON 1XBET",
+    "🔞 BET ON MSPORT"
+];
+
+let betIndex = 0;
+
+setInterval(() => {
+    betIndex = (betIndex + 1) % betOptions.length;
+
+    document.querySelectorAll(".bet-rotate").forEach(button => {
+        button.textContent = betOptions[betIndex];
+    });
+}, 2500);
 </script>
 
 </body>
