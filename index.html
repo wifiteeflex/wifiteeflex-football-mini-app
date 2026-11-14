@@ -3922,10 +3922,12 @@ Spain
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
 <div class="hot rotating-hot">Premier League</div>
+
+</div>
 
 <div class="match-area">
 
@@ -4027,10 +4029,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
-<div class="hot">Spain LaLiga</div>
+<div class="hot rotating-laliga">Spain LaLiga</div>
 
 </div>
 
@@ -4134,7 +4136,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
 <div class="hot rotating-hot">Premier League</div>
@@ -4241,10 +4243,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
-<div class="hot">Bundesliga</div>
+<div class="hot rotating-bundesliga">Bundesliga</div>
 
 </div>
 
@@ -4348,10 +4350,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
-<div class="hot">Premier League</div>
+<div class="hot rotating-hot">Premier League</div>
 
 </div>
 
@@ -4455,10 +4457,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
-<div class="hot">Serie A</div>
+<div class="hot rotating-seriea">Serie A</div>
 
 </div>
 
@@ -4562,10 +4564,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
-<div class="hot">Premier league</div>
+<div class="hot rotating-hot">Premier League</div>
 
 </div>
 
@@ -4669,10 +4671,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
-<div class="hot">Ligue 1</div>
+<div class="hot rotating-ligue1">Ligue 1</div>
 
 </div>
 
@@ -4776,10 +4778,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
-<div class="hot">Spain LaLiga</div>
+<div class="hot rotating-laliga">Spain LaLiga</div>
 
 </div>
 
@@ -4883,10 +4885,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+    <div class="upcoming-badge rotating-upcoming">UPCOMING</div>
 </div>
 
-<div class="hot">Premier league</div>
+<div class="hot rotating-hot">Premier League</div>
 
 </div>
 
@@ -6280,6 +6282,104 @@ setInterval(() => {
 
     document.querySelectorAll(".rotating-hot").forEach(item => {
         item.textContent = hotTexts[hotIndex];
+    });
+
+}, 2500);
+</script>
+
+<script>
+const upcomingTexts = [
+    "UPCOMING",
+    "SATURDAY"
+];
+
+let upcomingIndex = 0;
+
+setInterval(() => {
+    upcomingIndex = (upcomingIndex + 1) % upcomingTexts.length;
+
+    document.querySelectorAll(".rotating-upcoming").forEach(item => {
+        item.textContent = upcomingTexts[upcomingIndex];
+    });
+
+}, 2500);
+</script>
+
+<script>
+const laligaTexts = [
+    "Spain LaLiga",
+    "See Prediction",
+    "Best Odds",
+    "AI Football"
+];
+
+let laligaIndex = 0;
+
+setInterval(() => {
+    laligaIndex = (laligaIndex + 1) % laligaTexts.length;
+
+    document.querySelectorAll(".rotating-laliga").forEach(item => {
+        item.textContent = laligaTexts[laligaIndex];
+    });
+
+}, 2500);
+</script>
+
+<script>
+const bundesligaTexts = [
+    "Bundesliga",
+    "See Prediction",
+    "Best Odds",
+    "AI Football"
+];
+
+let bundesligaIndex = 0;
+
+setInterval(() => {
+    bundesligaIndex = (bundesligaIndex + 1) % bundesligaTexts.length;
+
+    document.querySelectorAll(".rotating-bundesliga").forEach(item => {
+        item.textContent = bundesligaTexts[bundesligaIndex];
+    });
+
+}, 2500);
+</script>
+
+<script>
+const serieATexts = [
+    "Serie A",
+    "See Prediction",
+    "Best Odds",
+    "AI Football"
+];
+
+let serieAIndex = 0;
+
+setInterval(() => {
+    serieAIndex = (serieAIndex + 1) % serieATexts.length;
+
+    document.querySelectorAll(".rotating-seriea").forEach(item => {
+        item.textContent = serieATexts[serieAIndex];
+    });
+
+}, 2500);
+</script>
+
+<script>
+const ligue1Texts = [
+    "Ligue 1",
+    "See Prediction",
+    "Best Odds",
+    "AI Football"
+];
+
+let ligue1Index = 0;
+
+setInterval(() => {
+    ligue1Index = (ligue1Index + 1) % ligue1Texts.length;
+
+    document.querySelectorAll(".rotating-ligue1").forEach(item => {
+        item.textContent = ligue1Texts[ligue1Index];
     });
 
 }, 2500);
