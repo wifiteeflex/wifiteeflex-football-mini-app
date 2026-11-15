@@ -2427,74 +2427,79 @@ margin-top:4px;
     display: block;
 }
 
-/* ===== Match Preview Card ===== */
+/* ===== Match Preview Card – Mobile First (YouTube style) ===== */
 .match-preview-card {
   position: relative;
   width: 100%;
+  max-width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 14px;
+  max-height: 220px;          /* ← prevents it from becoming too tall on phone */
+  border-radius: 12px;
   overflow: hidden;
   background: #111;
-  margin: 12px 0 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+  margin: 10px 0 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
 
+/* Image stays sharp and fills the box properly */
 .preview-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
+/* Soft gradient so text stays readable */
 .preview-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.85) 0%,
-    rgba(0,0,0,0.25) 45%,
-    rgba(0,0,0,0.15) 100%
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(0,0,0,0.1) 100%
   );
   pointer-events: none;
 }
 
-/* Top badges */
+/* Top badges – smaller & tighter */
 .preview-top {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
+  top: 10px;
+  left: 10px;
+  right: 10px;
   display: flex;
-  gap: 8px;
+  gap: 6px;
   z-index: 2;
 }
 
 .live-badge {
   background: #e50914;
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 4px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
 }
 
 .competition-badge {
   background: rgba(0,0,0,0.55);
   color: #fff;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 4px;
   backdrop-filter: blur(4px);
 }
 
-/* Bottom info */
+/* Bottom info – compact */
 .preview-bottom {
   position: absolute;
-  bottom: 14px;
-  left: 14px;
-  right: 14px;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
   z-index: 2;
   color: white;
 }
@@ -2502,30 +2507,45 @@ margin-top:4px;
 .preview-time {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 15px;
+  gap: 6px;
+  font-size: 13.5px;
   font-weight: 700;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .live-dot {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   background: #42e66b;
   border-radius: 50%;
-  box-shadow: 0 0 8px #42e66b;
+  box-shadow: 0 0 6px #42e66b;
   animation: pulse 1.4s infinite;
 }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.55; transform: scale(0.85); }
+  50% { opacity: 0.5; transform: scale(0.85); }
 }
 
 .preview-date {
-  font-size: 13px;
+  font-size: 12px;
   color: #ccc;
   font-weight: 500;
+}
+
+/* Extra safety for very small screens */
+@media (max-width: 380px) {
+  .match-preview-card {
+    max-height: 190px;
+  }
+  
+  .preview-time {
+    font-size: 13px;
+  }
+  
+  .preview-date {
+    font-size: 11.5px;
+  }
 }
 
 </style>
