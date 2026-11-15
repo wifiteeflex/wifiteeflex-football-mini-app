@@ -3396,10 +3396,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
   <div class="buttons">
     <!-- ENABLED LIVE STREAM BUTTON -->
-    <button class="watch" onclick="toggleStream('player-today-5', this)"
-      style="background:#dc2626;color:#ffffff;cursor:pointer;">
-      ▶️ LIVE STREAM
-    </button>
+    <button class="watch" onclick="playVideo('player-today-5', 'M7lc1UVf-VE', this)" style="background:#dc2626;color:#ffffff;cursor:pointer;">
+  ▶️ LIVE STREAM
+</button>
 
     <button class="watch" onclick="unlockPrediction(this)"
       style="background:#16a34a;color:#ffffff;cursor:pointer;">
@@ -6108,18 +6107,20 @@ setInterval(() => {
 </script>
 
 <script>
-  function toggleStream(playerId, btn) {
-    const container = document.getElementById(playerId);
-    const iframe = container.querySelector('iframe');
+  function playVideo(playerId, videoId, btn) {
+    const box = document.getElementById(playerId);
+    const iframe = box.querySelector('iframe');
 
-    if (container.style.display === 'none') {
-      container.style.display = 'block';
-      iframe.src = iframe.getAttribute('data-src');
+    if (box.style.display === 'none') {
+      box.style.display = 'block';
+      setTimeout(() => {
+        iframe.src = 'https://youtube-nocookie.com' + videoId + '?playsinline=1&rel=0';
+      }, 50);
       btn.innerHTML = '⏹️ CLOSE STREAM';
       btn.style.background = '#4b5563';
     } else {
-      container.style.display = 'none';
-      iframe.src = ''; // Stops video/audio when closed
+      box.style.display = 'none';
+      iframe.src = '';
       btn.innerHTML = '▶️ LIVE STREAM';
       btn.style.background = '#dc2626';
     }
