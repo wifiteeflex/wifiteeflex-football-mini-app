@@ -2542,6 +2542,45 @@ margin-top:4px;
   }
 }
 
+.live-match-card {
+    width: 100%;
+    background: #101827;
+    border: 1px solid #26364d;
+    border-radius: 16px;
+    padding: 15px;
+    margin: 15px 0;
+    box-sizing: border-box;
+}
+
+.live-match-card .watch {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #16a34a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.yt-player-wrap {
+    display: none;
+    width: 100%;
+    margin-top: 12px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+}
+
+.yt-player-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
 </style>
 </head>
         
@@ -3310,7 +3349,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div id="contestPage" class="page">
 
 <div class="total-date-label" style="color:#16a34a; font-weight:700; text-align:center; width:100%;">
-    LIVE MATCH HIGHLIGHTS
+    LIVE MATCH
 </div>
 
 <!-- ========================= -->
@@ -6186,26 +6225,35 @@ setInterval(() => {
 </script>
 
 <script>
-window.toggleToday5Player = function() {
+function toggleToday5Player() {
 
     const player = document.getElementById("player-today-5");
     const iframe = document.getElementById("iframe-today-5");
+    const button = document.getElementById("today5LiveBtn");
 
-    if (!player || !iframe) return;
+    if (player.style.display === "none" || player.style.display === "") {
 
-    if (player.style.display === "none") {
-
+        // OPEN LIVE MATCH
         player.style.display = "block";
 
         iframe.src = "https://www.youtube-nocookie.com/embed/JntGKsca_9E?autoplay=1";
 
+        button.innerHTML = "✕ CLOSE LIVE";
+        button.style.background = "#dc2626";
+
     } else {
 
+        // CLOSE LIVE MATCH
         player.style.display = "none";
+
+        // Stop video playback
         iframe.src = "";
 
+        button.innerHTML = "▶️ WATCH LIVE";
+        button.style.background = "#16a34a";
+
     }
-};
+}
 </script>
 
 </body>
