@@ -3379,8 +3379,8 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
       <div class="minute">Today 20:45</div>
       <div class="vs">VS</div>
       <div class="odds-box">
-        <span></span>
-        <strong>Love play</strong>
+        <span>Live play </span>
+        <strong>Available</strong>
       </div>
     </div>
 
@@ -3394,31 +3394,31 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     </div>
   </div>
 
-  <!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
+<!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
 
 <div id="player-today-5" class="yt-player-wrap"
 
-     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
+style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
 
-    <iframe
+<iframe
 
-        id="iframe-today-5"
+id="iframe-today-5"
 
-        width="100%"
+width="100%"
 
-        height="210"
+height="210"
 
-        src=""
+src=""
 
-        title="Live Match Stream"
+title="Live Match Stream"
 
-        frameborder="0"
+frameborder="0"
 
-        allow="autoplay; encrypted-media; picture-in-picture"
+allow="autoplay; encrypted-media; picture-in-picture"
 
-        allowfullscreen>
+allowfullscreen>
 
-    </iframe>
+</iframe>
 
 </div>
 
@@ -3431,14 +3431,23 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </button>
 
 <button type="button" class="watch"
-onclick="window.toggleToday5Player()"
+data-video-id="O5D1KRvBd5I"
+onclick="toggleMatchPlayer(this)"
 style="background:#DC2626;color:#fff;cursor:pointer;">
 ▶️ WATCH LIVE
 </button>
 
+<div class="match-player" style="display:none;">
+<iframe
+src=""
+allow="autoplay; encrypted-media; picture-in-picture"
+allowfullscreen>
+</iframe>
+</div>
+
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON SPOTYBET
+🔞BET ON 1XBET
 </button>
 
 </div>
@@ -6232,33 +6241,31 @@ setInterval(() => {
 </script>
 
 <script>
-function toggleToday5Player() {
+function toggleMatchPlayer(button) {
 
-    const player = document.getElementById("player-today-5");
-    const iframe = document.getElementById("iframe-today-5");
-    const button = document.getElementById("today5LiveBtn");
+    const card = button.closest('.live-match-card');
+    const player = card.querySelector('.match-player');
+    const iframe = player.querySelector('iframe');
 
-    if (player.style.display === "none" || player.style.display === "") {
+    if (player.style.display === 'none') {
 
-        // OPEN LIVE MATCH
-        player.style.display = "block";
+        player.style.display = 'block';
 
-        iframe.src = "https://www.youtube-nocookie.com/embed/O5D1KRvBd5I?autoplay=1";
+        const videoID = button.dataset.videoId;
 
-        button.innerHTML = "✕ CLOSE LIVE";
-        button.style.background = "#dc2626";
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoID}?autoplay=1`;
+
+        button.textContent = '✕ CLOSE LIVE';
+        button.style.background = '#374151';
 
     } else {
 
-        // CLOSE LIVE MATCH
-        player.style.display = "none";
+        player.style.display = 'none';
 
-        // Stop video playback
-        iframe.src = "";
+        iframe.src = '';
 
-        button.innerHTML = "▶️ WATCH LIVE";
-        button.style.background = "#16a34a";
-
+        button.textContent = '▶️ WATCH LIVE';
+        button.style.background = '#DC2626';
     }
 }
 </script>
