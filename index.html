@@ -2548,37 +2548,6 @@ margin-top:4px;
   }
 }
 
-.match-image {
-    width: 100%;
-    aspect-ratio: 1170 / 882;
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-}
-
-.match-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.image-prediction-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    padding: 18px 10px;
-    border: none;
-    border-radius: 18px;
-    background: #16a34a;
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 </style>
 </head>
         
@@ -3346,21 +3315,112 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
+<!-- ========================= -->
+<!-- LIVE MATCH TODAY 1 -->
+<!-- ========================= -->
+
 <div class="card ai-tip-card">
 
-    <!-- MATCH IMAGE -->
-    <div class="match-image">
-        <img src="https://i.imgur.com/UHZY3T3.jpeg" alt="Football Match">
-    </div>
+<div class="card-top">
 
-    <!-- SEE PREDICTION BUTTON -->
-    <div class="buttons">
-        <button class="watch"
-        onclick="unlockPrediction(this)"
-        style="background:#16a34a;color:#ffffff;cursor:pointer;width:100%;">
-            🔒 WATCH LIVE
-        </button>
-    </div>
+<div class="left-info">
+<div class="upcoming-badge">UPCOMING</div>
+</div>
+
+<div class="hot">UEFA🏆LEAGUE</div>
+
+</div>
+
+<div class="match-area">
+
+<div class="team">
+
+<div class="team-logo">
+<img loading="lazy" src="https://s.sporty.net/common/main/res/9b2478063f6aec3ddc7fd266523df8f6.png">
+</div>
+
+<div class="team-name">
+Cyprus
+</div>
+
+</div>
+
+<div class="center">
+
+<div class="minute">Today 15:00</div>
+
+<div class="vs">VS</div>
+
+<div class="odds-box">
+<span>Odds</span>
+<strong>1.61</strong>
+</div>
+
+</div>
+
+<div class="team">
+
+<div class="team-logo">
+<img loading="lazy" src="https://s.sporty.net/common/main/res/224c2dd47b70158c25821a0d1b56a979.png">
+</div>
+
+<div class="team-name">
+Montenegro
+</div>
+
+</div>
+
+</div>
+
+<div class="confidence-wrap">
+
+<div class="confidence-head">
+<span>🤖AI confidence</span>
+<span class="percent">89</span>
+</div>
+
+<div class="progress">
+    <div class="progress-bar medium" style="width:⚡️89;"></div>
+</div>
+
+<div class="match-tabs">
+
+<a href="https://omg10.com/4/7461956">Overview</a>
+
+<a href="https://omg10.com/4/7461956">H2H</a>
+
+<a href="https://omg10.com/4/7461956" class="active">Chat</a>
+
+<a href="https://omg10.com/4/7461956">Lineups</a>
+
+<a href="https://omg10.com/4/7461956">Odds</a>
+
+</div>
+
+</div>
+
+<div class="prediction">
+AWAY WIN (1up)
+</div>
+
+<div class="buttons">
+
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+▶️LIVE STREAM
+</button>
+
+<button class="watch" onclick="unlockPrediction(this)"
+style="background:#16a34a;color:#ffffff;cursor:pointer;">
+▶️ WATCH LIVE
+</button>
+
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+🔞BET ON 1XBET
+</button>
+
+</div>
 
 </div>
 
