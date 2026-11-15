@@ -3427,12 +3427,12 @@ allowfullscreen>
 <div class="buttons">
 <!-- ENABLED LIVE STREAM BUTTON -->
 
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔒SEE PREDICTION
+<button class="watch" onclick="unlockPrediction(this)"
+style="background:#16a34a;color:#ffffff;cursor:pointer;">
+🔒 SEE PREDICTION
 </button>
 
-<button type="button" class="watch"
+<button type="button" onclick="unlockPrediction(this)"
 onclick="window.toggleToday5Player()"
 style="background:#DC2626;color:#fff;cursor:pointer;">
 ▶️ WATCH LIVE
