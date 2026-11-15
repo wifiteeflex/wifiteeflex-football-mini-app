@@ -2156,27 +2156,20 @@ transform:rotate(360deg);
     transition:all .5s ease;
 }
 
-.premier-bg1{
+.premier-bg1 {
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.15),
+      rgba(0,0,0,0.30)
+    ),
+    url("https://i.imgur.com/l9fvnau.jpeg");
 
-background:
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-linear-gradient(
-rgba(0,0,0,.45),
-rgba(0,0,0,.80)
-),
-
-url("https://i.imgur.com/l9fvnau.jpeg");
-
-background-size:cover;
-
-background-position:center;
-
-background-repeat:no-repeat;
-
-border-radius:30px;
-
-overflow:hidden;
-
+  border-radius: 30px;
+  overflow: hidden;
 }
 
 .premier-bg2{
@@ -3334,7 +3327,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div class="card ai-tip-card">
 
-  <div class="card-top">
+<div class="card premier-bg1">
+        
+ <div class="card-top">
     <div class="left-info">
       <div class="upcoming-badge">UPCOMING</div>
     </div>
@@ -3433,16 +3428,17 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 </button
 
-    <button class="watch" onclick="unlockPrediction(this)"
-      style="background:#16a34a;color:#ffffff;cursor:pointer;">
-      🔒 SEE PREDICTION
-    </button>
+<button class="watch" onclick="unlockPrediction(this)"
+style="background:#16a34a;color:#ffffff;cursor:pointer;">
+🔒 SEE PREDICTION
+</button>
 
-    <button class="watch" disabled
-      style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-      🔞BET ON 1XBET
-    </button>
-  </div>
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+🔞BET ON 1XBET
+</button>
+  
+</div>
 
 </div>
 
