@@ -2581,6 +2581,21 @@ margin-top:4px;
     display: block;
 }
 
+.match-player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-top: 12px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.match-player iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
 </style>
 </head>
         
@@ -3422,28 +3437,24 @@ allowfullscreen>
 
 </div>
 
-<div class="buttons">
-<!-- ENABLED LIVE STREAM BUTTON -->
+<div class="live-match-card">
 
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔒SEE PREDICTION
-</button>
+    <button type="button"
+        class="watch"
+        data-video-id="YOUR_YOUTUBE_VIDEO_ID"
+        onclick="toggleMatchPlayer(this)"
+        style="background:#DC2626;color:#fff;cursor:pointer;">
+        ▶️ WATCH LIVE
+    </button>
 
-<button type="button" class="watch"
-data-video-id="O5D1KRvBd5I"
-onclick="toggleMatchPlayer(this)"
-style="background:#DC2626;color:#fff;cursor:pointer;">
-▶️ WATCH LIVE
-</button>
-
-<div class="match-player" style="display:none;">
-<iframe
-src=""
-allow="autoplay; encrypted-media; picture-in-picture"
-allowfullscreen>
-</iframe>
-</div>
+    <div class="match-player" style="display:none;">
+        <iframe
+            src=""
+            title="Live Match"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
 
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
@@ -6241,33 +6252,43 @@ setInterval(() => {
 </script>
 
 <script>
-function toggleMatchPlayer(button) {
+window.toggleMatchPlayer = function(button) {
 
     const card = button.closest('.live-match-card');
+
+    if (!card) {
+        console.error("Match card wrapper not found");
+        return;
+    }
+
     const player = card.querySelector('.match-player');
-    const iframe = player.querySelector('iframe');
+    const iframe = player?.querySelector('iframe');
+    const videoID = button.getAttribute('data-video-id');
+
+    if (!player || !iframe || !videoID) {
+        console.error("Player, iframe or video ID missing");
+        return;
+    }
 
     if (player.style.display === 'none') {
 
         player.style.display = 'block';
 
-        const videoID = button.dataset.videoId;
-
-        iframe.src = `https://www.youtube-nocookie.com/embed/${videoID}?autoplay=1`;
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' +
+            videoID + '?autoplay=1';
 
         button.textContent = '✕ CLOSE LIVE';
         button.style.background = '#374151';
 
     } else {
 
-        player.style.display = 'none';
-
         iframe.src = '';
+        player.style.display = 'none';
 
         button.textContent = '▶️ WATCH LIVE';
         button.style.background = '#DC2626';
     }
-}
+};
 </script>
 
 </body>
