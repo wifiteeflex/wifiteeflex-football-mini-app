@@ -3321,26 +3321,96 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div class="card ai-tip-card">
 
-<div class="card-top">
+  <div class="card-top">
+    <div class="left-info">
+      <div class="upcoming-badge">UPCOMING</div>
+    </div>
+    <div class="hot">UEFA🏆LEAGUE</div>
+  </div>
 
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
+  <div class="match-area">
+    <div class="team">
+      <div class="team-logo">
+        <img loading="lazy" src="https://s.sporty.net/common/main/res/7781c74f5d4dcb2ef3fda2bbe4ed67fb.png" alt="Spain">
+      </div>
+      <div class="team-name">
+        Spain
+      </div>
+    </div>
 
-<div class="match-area">
+    <div class="center">
+      <div class="minute">Today 20:45</div>
+      <div class="vs">VS</div>
+      <div class="odds-box">
+        <span>Odds</span>
+        <strong>1.46</strong>
+      </div>
+    </div>
 
-<div class="center">
+    <div class="team">
+      <div class="team-logo">
+        <img loading="lazy" src="https://s.sporty.net/common/main/res/e735ef619538ff8044becf53eb987c9d.png" alt="England">
+      </div>
+      <div class="team-name">
+        England
+      </div>
+    </div>
+  </div>
 
-<div class="minute">Live in 15:00</div>
+  <!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
+  <div id="player-today-5" class="yt-player-wrap" style="display:none; margin: 12px 0; border-radius: 10px; overflow: hidden; background: #000;">
+    <iframe 
+      width="100%" 
+      height="200" 
+      src="" 
+      data-src="https://youtube.com"
+      title="Spain vs England Live Stream"
+      frameborder="0" 
+      allow="autoplay; encrypted-media; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
 
-<div class="buttons">
+  <div class="confidence-wrap">
+    <div class="confidence-head">
+      <span>🤖AI confidence</span>
+      <span class="percent">100</span>
+    </div>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-▶️ WATCH LIVE
-</button>
+    <div class="progress">
+      <div class="progress-bar medium" style="width:100%;"></div>
+    </div>
 
-</div>
+    <div class="match-tabs">
+      <a href="https://omg10.com/4/7461956">Overview</a>
+      <a href="https://omg10.com/4/7461956">H2H</a>
+      <a href="https://omg10.com/4/7461956" class="active">Chat</a>
+      <a href="https://omg10.com/4/7461956">Lineups</a>
+      <a href="https://omg10.com/4/7461956">Odds</a>
+    </div>
+  </div>
+
+  <div class="prediction">
+    DRAW or GG (YES)
+  </div>
+
+  <div class="buttons">
+    <!-- ENABLED LIVE STREAM BUTTON -->
+    <button class="watch" onclick="toggleStream('player-today-5', this)"
+      style="background:#dc2626;color:#ffffff;cursor:pointer;">
+      ▶️ LIVE STREAM
+    </button>
+
+    <button class="watch" onclick="unlockPrediction(this)"
+      style="background:#16a34a;color:#ffffff;cursor:pointer;">
+      🔒 SEE PREDICTION
+    </button>
+
+    <button class="watch" disabled
+      style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+      🔞BET ON 1XBET
+    </button>
+  </div>
 
 </div>
 
@@ -6035,6 +6105,25 @@ setInterval(() => {
     });
 
 }, 2500);
+</script>
+
+<script>
+  function toggleStream(playerId, btn) {
+    const container = document.getElementById(playerId);
+    const iframe = container.querySelector('iframe');
+
+    if (container.style.display === 'none') {
+      container.style.display = 'block';
+      iframe.src = iframe.getAttribute('data-src');
+      btn.innerHTML = '⏹️ CLOSE STREAM';
+      btn.style.background = '#4b5563';
+    } else {
+      container.style.display = 'none';
+      iframe.src = ''; // Stops video/audio when closed
+      btn.innerHTML = '▶️ LIVE STREAM';
+      btn.style.background = '#dc2626';
+    }
+  }
 </script>
 
 </body>
