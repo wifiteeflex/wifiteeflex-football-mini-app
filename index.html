@@ -3361,7 +3361,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="player-today-5" class="yt-player-wrap"
 
-     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;text-align:center;">
+     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
 
     <iframe
 
@@ -3373,20 +3373,17 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
         src=""
 
-        data-src="https://www.youtube-nocookie.com/embed/WW7PkiIU4_g?autoplay=1"
-
         title="Live Match Stream"
 
         frameborder="0"
 
-        referrerpolicy="strict-origin-when-cross-origin"
-
-        allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
+        allow="autoplay; encrypted-media; picture-in-picture"
 
         allowfullscreen>
 
     </iframe>
-  </div>
+
+</div>
 
   <div class="confidence-wrap">
     <div class="confidence-head">
@@ -3413,11 +3410,15 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
   <div class="buttons">
     <!-- ENABLED LIVE STREAM BUTTON -->
-<button class="watch"
-onclick="toggleToday5Player()"
-style="background:#16a34a;color:#fff;cursor:pointer;">
-▶️ WATCH LIVE
-</button>
+<button type="button" class="watch"
+
+    onclick="window.toggleToday5Player()"
+
+    style="background:#16a34a;color:#fff;cursor:pointer;">
+
+    ▶️ WATCH LIVE
+
+</button
 
     <button class="watch" onclick="unlockPrediction(this)"
       style="background:#16a34a;color:#ffffff;cursor:pointer;">
@@ -6126,25 +6127,26 @@ setInterval(() => {
 </script>
 
 <script>
-function toggleToday5Player() {
+window.toggleToday5Player = function() {
+
     const player = document.getElementById("player-today-5");
     const iframe = document.getElementById("iframe-today-5");
 
     if (!player || !iframe) return;
 
     if (player.style.display === "none") {
+
         player.style.display = "block";
 
-        if (!iframe.src || iframe.src === window.location.href) {
-            iframe.src = iframe.dataset.src;
-        }
-    } else {
-        player.style.display = "none";
+        iframe.src = "https://www.youtube-nocookie.com/embed/JntGKsca_9E?autoplay=1";
 
-        // Stop video when player closes
+    } else {
+
+        player.style.display = "none";
         iframe.src = "";
+
     }
-}
+};
 </script>
 
 </body>
