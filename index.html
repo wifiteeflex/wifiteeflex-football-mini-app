@@ -2548,11 +2548,35 @@ margin-top:4px;
   }
 }
 
+.match-image {
+    width: 100%;
+    aspect-ratio: 1170 / 882;
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
 .match-image img {
     width: 100%;
-    display: block;
-    border-radius: 12px;
+    height: 100%;
     object-fit: cover;
+    display: block;
+}
+
+.image-prediction-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 18px 10px;
+    border: none;
+    border-radius: 18px;
+    background: #16a34a;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 </style>
@@ -3334,7 +3358,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
         <button class="watch"
         onclick="unlockPrediction(this)"
         style="background:#16a34a;color:#ffffff;cursor:pointer;width:100%;">
-            ▶️ WATCH LIVE
+            🔒 WATCH LIVE
         </button>
     </div>
 
