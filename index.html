@@ -2581,21 +2581,6 @@ margin-top:4px;
     display: block;
 }
 
-.match-player {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    margin-top: 12px;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.match-player iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-}
-
 </style>
 </head>
         
@@ -3391,11 +3376,11 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     </div>
 
     <div class="center">
-      <div class="minute">Today 20:45</div>
+      <div class="minute">Live Today 20:45</div>
       <div class="vs">VS</div>
       <div class="odds-box">
-        <span>Live play </span>
-        <strong>Available</strong>
+        <span>Stream</span>
+        <strong>.</strong>
       </div>
     </div>
 
@@ -3439,22 +3424,19 @@ allowfullscreen>
 
 <div class="live-match-card">
 
-    <button type="button"
-        class="watch"
-        data-video-id="YOUR_YOUTUBE_VIDEO_ID"
-        onclick="toggleMatchPlayer(this)"
-        style="background:#DC2626;color:#fff;cursor:pointer;">
-        ▶️ WATCH LIVE
-    </button>
+<div class="buttons">
+<!-- ENABLED LIVE STREAM BUTTON -->
 
-    <div class="match-player" style="display:none;">
-        <iframe
-            src=""
-            title="Live Match"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    </div>
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+🔒SEE PREDICTION
+</button>
+
+<button type="button" class="watch"
+onclick="window.toggleToday5Player()"
+style="background:#DC2626;color:#fff;cursor:pointer;">
+▶️ WATCH LIVE
+</button>
 
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
@@ -3475,34 +3457,34 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     <div class="left-info">
       <div class="upcoming-badge">UPCOMING</div>
     </div>
-    <div class="hot">UEFA🏆LEAGUE</div>
+    <div class="hot">UEFA🏆WOMEN</div>
   </div>
 
   <div class="match-area">
     <div class="team">
       <div class="team-logo">
-        <img loading="lazy" src="https://s.sporty.net/common/main/res/7781c74f5d4dcb2ef3fda2bbe4ed67fb.png" alt="Spain">
+        <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/c/cc/Chelsea_FC.svg?utm_source=sco.wikipedia.org&utm_campaign=index&utm_content=original" alt="Spain">
       </div>
       <div class="team-name">
-        Spain
+        Chelsea
       </div>
     </div>
 
     <div class="center">
-      <div class="minute">Today 20:45</div>
+      <div class="minute">Live in 2days</div>
       <div class="vs">VS</div>
       <div class="odds-box">
-        <span>Odds</span>
-        <strong>10.46</strong>
+        <span>Waiting</span>
+        <strong>.</strong>
       </div>
     </div>
 
     <div class="team">
       <div class="team-logo">
-        <img loading="lazy" src="https://s.sporty.net/common/main/res/e735ef619538ff8044becf53eb987c9d.png" alt="England">
+        <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="England">
       </div>
       <div class="team-name">
-        England
+        PSG
       </div>
     </div>
   </div>
@@ -3551,7 +3533,7 @@ style="background:#DC2626;color:#fff;cursor:pointer;">
 
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞ON SPOTYBET
+🔞BET ON 1XBET
 </button>
 
 </div>
@@ -6252,43 +6234,35 @@ setInterval(() => {
 </script>
 
 <script>
-window.toggleMatchPlayer = function(button) {
+function toggleToday5Player() {
 
-    const card = button.closest('.live-match-card');
+    const player = document.getElementById("player-today-5");
+    const iframe = document.getElementById("iframe-today-5");
+    const button = document.getElementById("today5LiveBtn");
 
-    if (!card) {
-        console.error("Match card wrapper not found");
-        return;
-    }
+    if (player.style.display === "none" || player.style.display === "") {
 
-    const player = card.querySelector('.match-player');
-    const iframe = player?.querySelector('iframe');
-    const videoID = button.getAttribute('data-video-id');
+        // OPEN LIVE MATCH
+        player.style.display = "block";
 
-    if (!player || !iframe || !videoID) {
-        console.error("Player, iframe or video ID missing");
-        return;
-    }
+        iframe.src = "https://www.youtube-nocookie.com/embed/O5D1KRvBd5I?autoplay=1";
 
-    if (player.style.display === 'none') {
-
-        player.style.display = 'block';
-
-        iframe.src = 'https://www.youtube-nocookie.com/embed/' +
-            videoID + '?autoplay=1';
-
-        button.textContent = '✕ CLOSE LIVE';
-        button.style.background = '#374151';
+        button.innerHTML = "✕ CLOSE LIVE";
+        button.style.background = "#dc2626";
 
     } else {
 
-        iframe.src = '';
-        player.style.display = 'none';
+        // CLOSE LIVE MATCH
+        player.style.display = "none";
 
-        button.textContent = '▶️ WATCH LIVE';
-        button.style.background = '#DC2626';
+        // Stop video playback
+        iframe.src = "";
+
+        button.innerHTML = "▶️ WATCH LIVE";
+        button.style.background = "#16a34a";
+
     }
-};
+}
 </script>
 
 </body>
