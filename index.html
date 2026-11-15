@@ -3316,7 +3316,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div id="contestPage" class="page">
 
 <!-- ========================= -->
-<!-- TODAY 5 (COMPLETE CARD) -->
+<!-- TODAY 5 -->
 <!-- ========================= -->
 
 <div class="card ai-tip-card">
@@ -3331,9 +3331,11 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
   <div class="match-area">
     <div class="team">
       <div class="team-logo">
-        <img loading="lazy" src="https://sporty.net">
+        <img loading="lazy" src="https://s.sporty.net/common/main/res/7781c74f5d4dcb2ef3fda2bbe4ed67fb.png" alt="Spain">
       </div>
-      <div class="team-name">Spain</div>
+      <div class="team-name">
+        Spain
+      </div>
     </div>
 
     <div class="center">
@@ -3347,14 +3349,44 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
     <div class="team">
       <div class="team-logo">
-        <img loading="lazy" src="https://sporty.net">
+        <img loading="lazy" src="https://s.sporty.net/common/main/res/e735ef619538ff8044becf53eb987c9d.png" alt="England">
       </div>
-      <div class="team-name">England</div>
+      <div class="team-name">
+        England
+      </div>
     </div>
   </div>
 
-  <!-- VIDEO APPEARS HERE WHEN CLICKED -->
-  <div id="video-box-5" style="display:none; margin: 12px 0; border-radius: 10px; overflow: hidden; background: #000;"></div>
+  <!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
+
+<div id="player-today-5" class="yt-player-wrap"
+
+     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;text-align:center;">
+
+    <iframe
+
+        id="iframe-today-5"
+
+        width="100%"
+
+        height="210"
+
+        src=""
+
+        data-src="https://www.youtube-nocookie.com/embed/YOUTUBE_VIDEO_ID?autoplay=1"
+
+        title="Live Match Stream"
+
+        frameborder="0"
+
+        referrerpolicy="strict-origin-when-cross-origin"
+
+        allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
+
+        allowfullscreen>
+
+    </iframe>
+  </div>
 
   <div class="confidence-wrap">
     <div class="confidence-head">
@@ -3367,11 +3399,11 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     </div>
 
     <div class="match-tabs">
-      <a href="https://omg10.com">Overview</a>
-      <a href="https://omg10.com">H2H</a>
-      <a href="https://omg10.com" class="active">Chat</a>
-      <a href="https://omg10.com">Lineups</a>
-      <a href="https://omg10.com">Odds</a>
+      <a href="https://omg10.com/4/7461956">Overview</a>
+      <a href="https://omg10.com/4/7461956">H2H</a>
+      <a href="https://omg10.com/4/7461956" class="active">Chat</a>
+      <a href="https://omg10.com/4/7461956">Lineups</a>
+      <a href="https://omg10.com/4/7461956">Odds</a>
     </div>
   </div>
 
@@ -3380,15 +3412,19 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
   </div>
 
   <div class="buttons">
-    <button class="watch" onclick="openYouTube('video-box-5', 'M7lc1UVf-VE', this)" style="background:#dc2626;color:#ffffff;cursor:pointer;">
+    <!-- ENABLED LIVE STREAM BUTTON -->
+    <button class="watch" onclick="toggleStream('player-today-5', this)"
+      style="background:#dc2626;color:#ffffff;cursor:pointer;">
       ▶️ LIVE STREAM
     </button>
 
-    <button class="watch" onclick="unlockPrediction(this)" style="background:#16a34a;color:#ffffff;cursor:pointer;">
+    <button class="watch" onclick="unlockPrediction(this)"
+      style="background:#16a34a;color:#ffffff;cursor:pointer;">
       🔒 SEE PREDICTION
     </button>
 
-    <button class="watch" disabled style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+    <button class="watch" disabled
+      style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
       🔞BET ON 1XBET
     </button>
   </div>
@@ -6089,20 +6125,25 @@ setInterval(() => {
 </script>
 
 <script>
-  function openYouTube(boxId, ytId, btn) {
-    var box = document.getElementById(boxId);
-    if (box.style.display === 'none') {
-      box.style.display = 'block';
-      box.innerHTML = '<iframe width="100%" height="215" src="https://youtube.com' + ytId + '?autoplay=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-      btn.innerHTML = '⏹️ CLOSE STREAM';
-      btn.style.background = '#4b5563';
+function toggleToday5Player() {
+    const player = document.getElementById("player-today-5");
+    const iframe = document.getElementById("iframe-today-5");
+
+    if (!player || !iframe) return;
+
+    if (player.style.display === "none") {
+        player.style.display = "block";
+
+        if (!iframe.src || iframe.src === window.location.href) {
+            iframe.src = iframe.dataset.src;
+        }
     } else {
-      box.style.display = 'none';
-      box.innerHTML = '';
-      btn.innerHTML = '▶️ LIVE STREAM';
-      btn.style.background = '#dc2626';
+        player.style.display = "none";
+
+        // Stop video when player closes
+        iframe.src = "";
     }
-  }
+}
 </script>
 
 </body>
