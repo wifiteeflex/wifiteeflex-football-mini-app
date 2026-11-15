@@ -2427,150 +2427,105 @@ margin-top:4px;
     display: block;
 }
 
-.live-video-section {
-  margin-top: 25px;
-  text-align: center;
-}
-
-.live-video-section h2 {
-  color: #42e66b;
-  font-size: 19px;
-  margin-bottom: 12px;
-}
-
-.live-video-container {
+/* ===== Match Preview Card ===== */
+.match-preview-card {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #000;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-  position: relative;
+  background: #111;
+  margin: 12px 0 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
 }
 
-#liveYoutubePlayer {
+.preview-img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-#liveYoutubePlayer iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.video-overlay {
+.preview-overlay {
   position: absolute;
   inset: 0;
-  background: #080808;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.25) 45%,
+    rgba(0,0,0,0.15) 100%
+  );
+  pointer-events: none;
+}
+
+/* Top badges */
+.preview-top {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 14px;
+  gap: 8px;
   z-index: 2;
 }
 
-.live-video-section p {
-  color: #ccc;
-  font-size: 13px;
-}
-
-.watch-live-btn {
-  width: 100%;
-  padding: 14px;
-  background: #19c653;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 9px;
-  margin-top: 12px;
-  cursor: pointer;
-}
-
-.watch-live-btn:disabled {
-  opacity: 0.6;
-}
-
-.ad-countdown {
-  color: #42e66b !important;
-  font-size: 12px !important;
-  margin-top: 10px;
-}
-
-.remind-btn {
-  margin-top: 12px;
-}
-
-.live-popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background: #050505;
-  z-index: 999999;
-  overflow-y: auto;
-}
-
-.live-popup-header {
-  height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 15px;
-  background: #111;
-  color: white;
-  font-weight: bold;
-}
-
-.live-popup-header button {
+.live-badge {
   background: #e50914;
   color: white;
-  border: none;
-  padding: 9px 13px;
-  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
 }
 
-.popup-video-container {
-  width: 100%;
-  max-width: 700px;
-  aspect-ratio: 16 / 9;
-  margin: 20px auto;
-  position: relative;
-  background: #000;
-  overflow: hidden;
+.competition-badge {
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
 }
 
-#popupYoutubePlayer,
-#popupYoutubePlayer iframe {
-  width: 100% !important;
-  height: 100% !important;
-  border: none !important;
-}
-
-.popup-loading {
+/* Bottom info */
+.preview-bottom {
   position: absolute;
-  inset: 0;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 2;
+  color: white;
+}
+
+.preview-time {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: #080808;
-  color: white;
-  z-index: 2;
-  font-size: 14px;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 3px;
 }
 
-#popupMessage,
-#popupCountdown {
-  text-align: center;
-  color: white;
+.live-dot {
+  width: 9px;
+  height: 9px;
+  background: #42e66b;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #42e66b;
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+
+.preview-date {
   font-size: 13px;
-  padding: 5px 15px;
-}
-
-#popupCountdown {
-  color: #42e66b;
+  color: #ccc;
+  font-weight: 500;
 }
 
 </style>
@@ -3340,56 +3295,72 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
-  <div class="live-header">
-    <h1>Live Matches</h1>
-    <p>Premier League • LaLiga</p>
+<div class="live-video-section">
 
-    <div class="live-status-bar">
-      <span class="dot"></span> LIVE BY 8:45
+  <h2>Spain VS England</h2>
+
+  <!-- ===== PREVIEW CARD (what users see first) ===== -->
+  <div class="match-preview-card" id="matchPreviewCard">
+    <img 
+      src="https://i.ytimg.com/vi/whbd_2j605Q/maxresdefault.jpg" 
+      alt="Spain vs England"
+      class="preview-img"
+      onerror="this.src='https://i.ytimg.com/vi/whbd_2j605Q/hqdefault.jpg'"
+    >
+
+    <!-- Dark gradient overlay -->
+    <div class="preview-overlay"></div>
+
+    <!-- Top badges -->
+    <div class="preview-top">
+      <span class="live-badge">LIVE</span>
+      <span class="competition-badge">UEFA Nations League</span>
     </div>
 
-    <div class="live-video-section">
-
-      <h2>Spain VS England</h2>
-
-<div id="livePopup" class="live-popup">
-
-  <div class="live-popup-header">
-    <span id="popupMatchTitle">Live Football</span>
-    <button onclick="closeLiveMatch()">✕ Close</button>
-  </div>
-
-  <div class="popup-video-container">
-    <div id="popupYoutubePlayer"></div>
-
-    <div id="popupLoading" class="popup-loading">
-      ⚽ Preparing live stream...
+    <!-- Bottom info -->
+    <div class="preview-bottom">
+      <div class="preview-time">
+        <span class="live-dot"></span>
+        <span id="previewCountdownText">Live in 13 hours</span>
+      </div>
+      <div class="preview-date">15 November at 20:30</div>
     </div>
   </div>
 
-  <p id="popupMessage">Preparing your live stream...</p>
+  <!-- ===== POPUP (same as before) ===== -->
+  <div id="livePopup" class="live-popup">
+    <div class="live-popup-header">
+      <span id="popupMatchTitle">Live Football</span>
+      <button onclick="closeLiveMatch()">✕ Close</button>
+    </div>
 
-  <p id="popupCountdown">
-    Next advert after 5 minutes of playback.
+    <div class="popup-video-container">
+      <div id="popupYoutubePlayer"></div>
+      <div id="popupLoading" class="popup-loading">
+        ⚽ Preparing live stream...
+      </div>
+    </div>
+
+    <p id="popupMessage">Preparing your live stream...</p>
+    <p id="popupCountdown">Next advert after 5 minutes of playback.</p>
+  </div>
+
+  <button class="watch-live-btn"
+    onclick="openLiveMatch('whbd_2j605Q', 'Spain vs England')">
+    ▶ Watch Live
+  </button>
+
+  <p id="adCountdown" class="ad-countdown">
+    Ads will appear during the live match.
   </p>
+
+  <button class="remind-btn" onclick="remindMe()">
+    🔔 Notify Me
+  </button>
 
 </div>
 
-      <button class="watch-live-btn"
-  onclick="openLiveMatch('whbd_2j605Q', 'Spain vs England')">
-  ▶ Watch Live
-</button>
-
-      <p id="adCountdown" class="ad-countdown">
-        Ads will appear during the live match.
-      </p>
-
-      <button class="remind-btn" onclick="remindMe()">
-        🔔 Notify Me
-      </button>
-
-    </div>
-  </div>
+</div>
 
 </div>
 
@@ -5927,6 +5898,36 @@ function updateAllCountdowns() {
 
 updateAllCountdowns();
 setInterval(updateAllCountdowns, 1000);
+</script>
+
+<script>
+function updatePreviewCountdown() {
+  // Set the real kickoff time here (example: 15 Nov 2026 20:30 WAT)
+  const kickoff = new Date("2026-11-15T20:30:00+01:00"); // change to real time
+  const now = new Date();
+  const diffMs = kickoff - now;
+
+  const el = document.getElementById("previewCountdownText");
+  if (!el) return;
+
+  if (diffMs <= 0) {
+    el.textContent = "LIVE NOW";
+    return;
+  }
+
+  const hours = Math.floor(diffMs / (1000 * 60 * 60));
+  const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+
+  if (hours > 0) {
+    el.textContent = `Live in ${hours} hour${hours > 1 ? "s" : ""}`;
+  } else {
+    el.textContent = `Live in ${minutes} min`;
+  }
+}
+
+// Call it
+updatePreviewCountdown();
+setInterval(updatePreviewCountdown, 60000); // update every minute
 </script>
 
 <script>
