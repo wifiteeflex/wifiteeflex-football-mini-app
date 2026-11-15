@@ -3315,72 +3315,21 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
-<div class="live-video-section">
+<div class="card ai-tip-card">
 
-  <h2>Spain VS England</h2>
-
-  <!-- ===== PREVIEW CARD (what users see first) ===== -->
-  <div class="match-preview-card" id="matchPreviewCard">
-    <img 
-      src="https://i.ytimg.com/vi/whbd_2j605Q/maxresdefault.jpg" 
-      alt="Spain vs England"
-      class="preview-img"
-      onerror="this.src='https://i.ytimg.com/vi/whbd_2j605Q/hqdefault.jpg'"
-    >
-
-    <!-- Dark gradient overlay -->
-    <div class="preview-overlay"></div>
-
-    <!-- Top badges -->
-    <div class="preview-top">
-      <span class="live-badge">LIVE</span>
-      <span class="competition-badge">UEFA Nations League</span>
+    <!-- MATCH IMAGE -->
+    <div class="match-image">
+        <img src="https://i.imgur.com/UHZY3T3.jpeg" alt="Football Match">
     </div>
 
-    <!-- Bottom info -->
-    <div class="preview-bottom">
-      <div class="preview-time">
-        <span class="live-dot"></span>
-        <span id="previewCountdownText">Live in 13 hours</span>
-      </div>
-      <div class="preview-date">15 November at 20:30</div>
+    <!-- SEE PREDICTION BUTTON -->
+    <div class="buttons">
+        <button class="watch"
+        onclick="unlockPrediction(this)"
+        style="background:#16a34a;color:#ffffff;cursor:pointer;width:100%;">
+            ▶️ WATCH LIVE
+        </button>
     </div>
-  </div>
-
-  <!-- ===== POPUP (same as before) ===== -->
-  <div id="livePopup" class="live-popup">
-    <div class="live-popup-header">
-      <span id="popupMatchTitle">Live Football</span>
-      <button onclick="closeLiveMatch()">✕ Close</button>
-    </div>
-
-    <div class="popup-video-container">
-      <div id="popupYoutubePlayer"></div>
-      <div id="popupLoading" class="popup-loading">
-        ⚽ Preparing live stream...
-      </div>
-    </div>
-
-    <p id="popupMessage">Preparing your live stream...</p>
-    <p id="popupCountdown">Next advert after 5 minutes of playback.</p>
-  </div>
-
-  <button class="watch-live-btn"
-    onclick="openLiveMatch('whbd_2j605Q', 'Spain vs England')">
-    ▶ Watch Live
-  </button>
-
-  <p id="adCountdown" class="ad-countdown">
-    Ads will appear during the live match.
-  </p>
-
-  <button class="remind-btn" onclick="remindMe()">
-    🔔 Notify Me
-  </button>
-
-</div>
-
-</div>
 
 </div>
 
