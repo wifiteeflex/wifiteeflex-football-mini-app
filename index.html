@@ -3398,136 +3398,116 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 <div id="contestPage" class="page">
 
-    <div class="total-date-label"
-         style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
-        LIVE MATCH
+<div class="total-date-label" style="color:#16a34a; font-weight:700; text-align:center; width:100%;">
+    LIVE MATCH
+</div>
+
+<!-- ========================= -->
+<!-- LIVE MATCH 1 -->
+<!-- ========================= -->
+
+<div class="card ai-tip-card">
+        
+ <div class="card-top">
+    <div class="left-info">
+      <div class="upcoming-badge">ENDED</div>
+    </div>
+    <div class="hot">UEFA🏆LEAGUE</div>
+  </div>
+
+  <div class="match-area">
+    <div class="team">
+      <div class="team-logo">
+        <img loading="lazy" src="https://s.sporty.net/common/main/res/7781c74f5d4dcb2ef3fda2bbe4ed67fb.png" alt="Spain">
+      </div>
+      <div class="team-name">
+        Spain
+      </div>
     </div>
 
-    <!-- LIVE MATCH 1 -->
-
-    <div class="card ai-tip-card">
-
-        <div class="card-top">
-            <div class="left-info">
-                <div class="upcoming-badge">ENDED</div>
-            </div>
-
-            <div class="hot">UEFA🏆LEAGUE</div>
-        </div>
-
-        <div class="match-area">
-
-            <div class="team">
-                <div class="team-logo">
-                    <img loading="lazy"
-                    src="https://s.sporty.net/common/main/res/7781c74f5d4dcb2ef3fda2bbe4ed67fb.png"
-                    alt="Spain">
-                </div>
-
-                <div class="team-name">Spain</div>
-            </div>
-
-            <div class="center">
-
-                <div class="minute" style="
-                    color:#ffffff;
-                    font-size:12px;
-                    font-weight:700;
-                    text-align:center;
-                    line-height:1.2;
-                    letter-spacing:0.5px;
-                ">
-                    FULL TIME<br>
-                    <span style="font-size:17px;">2 - 3</span>
-                </div>
-
-                <div class="vs">VS</div>
-
-                <div class="odds-box">
-                    <span>Ended match</span>
-                    <strong>.</strong>
-                </div>
-
-            </div>
-
-            <div class="team">
-                <div class="team-logo">
-                    <img loading="lazy"
-                    src="https://s.sporty.net/common/main/res/e735ef619538ff8044becf53eb987c9d.png"
-                    alt="England">
-                </div>
-
-                <div class="team-name">England</div>
-            </div>
-
-        </div>
-
-        <!-- YOUTUBE PLAYER -->
-
-        <div class="live-match-card">
-
-            <div id="player-today-5" class="yt-player-wrap">
-
-                <div id="iframe-today-5"></div>
-
-            </div>
-
-            <!-- MONETAG AD BREAK -->
-
-            <div id="today5AdBreak" class="today5-ad-break">
-
-                <div class="today5-ad-title">
-                    ⏸️ AD BREAK
-                </div>
-
-                <div class="today5-ad-description">
-                    Watch a sponsored ad to continue watching the match.
-                </div>
-
-                <button
-                    type="button"
-                    id="today5AdButton"
-                    class="today5-ad-button"
-                    onclick="watchToday5Ad()">
-
-                    🎁 WATCH AD TO CONTINUE
-
-                </button>
-
-                <div id="today5AdStatus" class="today5-ad-status">
-                    Your video is paused.
-                </div>
-
-            </div>
-
-            <div class="buttons">
-
-                <button class="watch" disabled
-                style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-                    ⚡️LIVE BY SPOTY
-                </button>
-
-                <button
-                    type="button"
-                    id="today5LiveBtn"
-                    class="watch"
-                    onclick="window.toggleToday5Player()"
-                    style="background:#DC2626;color:#fff;cursor:pointer;">
-
-                    ▶️ PLAY HIGHLIGHT
-
-                </button>
-
-                <button class="watch" disabled
-                style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-                    🔞BET ON SPOTY
-                </button>
-
-            </div>
-
-        </div>
-
+    <div class="center">
+<div class="minute" style="
+    color:#ffffff;
+    font-size:12px;
+    font-weight:700;
+    text-align:center;
+    line-height:1.2;
+    letter-spacing:0.5px;
+">
+    FULL TIME<br>
+    <span style="font-size:17px;">2 - 3</span>
+</div>
+      <div class="vs">VS</div>
+      <div class="odds-box">
+        <span>Ended match</span>
+        <strong>.</strong>
+      </div>
     </div>
+
+    <div class="team">
+      <div class="team-logo">
+        <img loading="lazy" src="https://s.sporty.net/common/main/res/e735ef619538ff8044becf53eb987c9d.png" alt="England">
+      </div>
+      <div class="team-name">
+        England
+      </div>
+    </div>
+  </div>
+
+<!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
+
+<div id="player-today-5" class="yt-player-wrap"
+
+style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
+
+<iframe
+
+id="iframe-today-5"
+
+width="100%"
+
+height="210"
+
+src=""
+
+title="Live Match Stream"
+
+frameborder="0"
+
+allow="autoplay; encrypted-media; picture-in-picture"
+
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+<div class="live-match-card">
+
+<div class="buttons">
+<!-- ENABLED LIVE STREAM BUTTON -->
+
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+⚡️LIVE BY SPOTY
+</button>
+
+<button type="button" class="watch"
+onclick="window.toggleToday5Player()"
+style="background:#DC2626;color:#fff;cursor:pointer;">
+▶️PLAY HIGHLIGHT
+</button>
+
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+🔞BET ON SPOTY
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 <!-- ========================= -->
 <!-- LIVE MATCH 2 -->
