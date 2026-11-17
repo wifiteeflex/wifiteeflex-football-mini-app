@@ -2581,6 +2581,30 @@ margin-top:4px;
     display: block;
 }
 
+/* Prevent other pages from flashing during startup */
+.page {
+    display: none;
+}
+
+/* Show homepage immediately */
+#homePage {
+    display: block;
+}
+
+/* Prevent layout jumping */
+img {
+    max-width: 100%;
+}
+
+/* Smooth page appearance */
+.page.active {
+    display: block;
+}
+
+img {
+    content-visibility: auto;
+}
+
 </style>
 </head>
         
@@ -7561,6 +7585,27 @@ function toggleToday5Player() {
 
     }
 }
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const pages = document.querySelectorAll(".page");
+
+    // Show homepage first
+    pages.forEach(page => {
+        page.style.display = "none";
+        page.classList.remove("active");
+    });
+
+    const home = document.getElementById("homePage");
+
+    if (home) {
+        home.style.display = "block";
+        home.classList.add("active");
+    }
+
+});
 </script>
 
 </body>
