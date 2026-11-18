@@ -3307,7 +3307,17 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     </div>
 
     <div class="center">
-<div class="minute">Today 14:00</div>
+<div class="minute" style="
+color:#ffffff;
+font-size:12px;
+font-weight:700;
+text-align:center;
+line-height:1.2;
+letter-spacing:0.5px;
+">
+FULL TIME<br>
+<span style="font-size:17px;">0 - 0</span>
+</div>
       <div class="vs">VS</div>
       <div class="odds-box">
         <span>Waiting</span>
@@ -3363,10 +3373,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ⚡️LIVE BY SPOTY
 </button>
 
-<button type="button" class="watch"
-onclick="window.toggleToday5Player()"
-style="background:#DC2626;color:#fff;cursor:pointer;">
-▶️PLAY NOW
+<button class="watch lock-countdown" disabled
+style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
+🔒 HIGHLIGHT IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
 </button>
 
 <button class="watch" disabled
@@ -3399,12 +3408,22 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
         <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/sco/c/cc/Chelsea_FC.svg?utm_source=sco.wikipedia.org&utm_campaign=index&utm_content=original" alt="Spain">
       </div>
       <div class="team-name">
-        Chelsea
+        Chelsea W
       </div>
     </div>
 
     <div class="center">
-      <div class="minute">Live in 2days</div>
+      <div class="minute" style="
+color:#ffffff;
+font-size:12px;
+font-weight:700;
+text-align:center;
+line-height:1.2;
+letter-spacing:0.5px;
+">
+LIVE<br>
+<span style="font-size:17px;">0 - 0</span>
+</div>
       <div class="vs">VS</div>
       <div class="odds-box">
         <span>Waiting</span>
@@ -3417,7 +3436,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
         <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="England">
       </div>
       <div class="team-name">
-        PSG
+        PSG W
       </div>
     </div>
   </div>
@@ -3458,10 +3477,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ⚡️LIVE BY SPOTY
 </button>
 
-<button class="watch lock-countdown" disabled
-style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
-▶️LIVE IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
-</button>
+<button type="button" class="watch"
+onclick="window.toggleToday5Player()"
+style="background:#DC2626;color:#fff;cursor:pointer;">
+▶️STREAM LIVE
 
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
@@ -6211,7 +6230,7 @@ function toggleToday5Player() {
         // OPEN LIVE MATCH
         player.style.display = "block";
 
-        iframe.src = "https://www.youtube-nocookie.com/embed/Fa1qfCJtAYY?autoplay=1";
+        iframe.src = "https://www.youtube-nocookie.com/embed/VK31mCMfc18?autoplay=1";
 
         button.innerHTML = "✕ PLAY LIVE";
         button.style.background = "#dc2626";
