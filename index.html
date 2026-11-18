@@ -2828,7 +2828,7 @@ POWERED BY GROK ENGINE
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+<div class="upcoming-badge">ENDED</div>
 </div>
 
 <div class="hot">UEFA🏆CHAMPIONS</div>
@@ -2851,7 +2851,17 @@ Gothenburg W
 
 <div class="center">
 
-<div class="minute">Today 18:45</div>
+<div class="minute" style="
+color:#ffffff;
+font-size:12px;
+font-weight:700;
+text-align:center;
+line-height:1.2;
+letter-spacing:0.5px;
+">
+FULL TIME<br>
+<span style="font-size:17px;">0 - 2</span>
+</div>
 <div class="vs">VS</div>
 
 <div class="odds-box">
@@ -2913,9 +2923,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+🔒LOCK
 </button>
 
 <button class="watch" disabled
@@ -2936,7 +2946,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
+<div class="upcoming-badge">ENDED</div>
 </div>
 
 <div class="hot">UEFA🏆CHAMPIONS</div>
@@ -2959,7 +2969,17 @@ Real Madrid W
 
 <div class="center">
 
-<div class="minute">Today 18:45</div>
+<div class="minute" style="
+color:#ffffff;
+font-size:12px;
+font-weight:700;
+text-align:center;
+line-height:1.2;
+letter-spacing:0.5px;
+">
+FULL TIME<br>
+<span style="font-size:17px;">2 - 1</span>
+</div>
 <div class="vs">VS</div>
 
 <div class="odds-box">
@@ -3021,9 +3041,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+🔒LOCK
 </button>
 
 <button class="watch" disabled
@@ -5963,7 +5983,7 @@ function closeLiveMatch() {
 </script>
 
 <script>
-const unlockDate = new Date("2026-11-19T06:59:00+01:00").getTime();
+const unlockDate = new Date("2026-11-18T21:17:13+01:00").getTime();
 
 function updateAllCountdowns() {
     const distance = unlockDate - Date.now();
