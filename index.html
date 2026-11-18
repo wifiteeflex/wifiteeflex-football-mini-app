@@ -3860,9 +3860,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch lock-countdown" disabled
-style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
-🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
+<button class="watch" onclick="unlockPrediction(this)"
+style="background:#16a34a;color:#ffffff;cursor:pointer;">
+🔒 SEE PREDICTION
 </button>
 
 <button class="watch" disabled
@@ -4074,9 +4074,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch lock-countdown" disabled
-style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
-🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
+<button class="watch" onclick="unlockPrediction(this)"
+style="background:#16a34a;color:#ffffff;cursor:pointer;">
+🔒 SEE PREDICTION
 </button>
 
 <button class="watch" disabled
@@ -4288,9 +4288,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch lock-countdown" disabled
-style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
-🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
+<button class="watch" onclick="unlockPrediction(this)"
+style="background:#16a34a;color:#ffffff;cursor:pointer;">
+🔒 SEE PREDICTION
 </button>
 
 <button class="watch" disabled
@@ -4609,9 +4609,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 ▶️LIVE STREAM
 </button>
 
-<button class="watch lock-countdown" disabled
-style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
-🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
+<button class="watch" onclick="unlockPrediction(this)"
+style="background:#16a34a;color:#ffffff;cursor:pointer;">
+🔒 SEE PREDICTION
 </button>
 
 <button class="watch" disabled
@@ -5983,7 +5983,41 @@ function closeLiveMatch() {
 </script>
 
 <script>
-const unlockDate = new Date("2026-11-18T21:17:13+01:00").getTime();
+// ✏️ SET YOUR UNLOCK DATE HERE
+// Format: DD Month YYYY at HH:MM
+// Time is always Nigeria time (WAT)
+
+const unlockDateText = "19 November 2026 at 12:00";
+
+function parseUnlockDate(dateText) {
+    const months = {
+        January: 0, February: 1, March: 2,
+        April: 3, May: 4, June: 5,
+        July: 6, August: 7, September: 8,
+        October: 9, November: 10, December: 11
+    };
+
+    const match = dateText.match(
+        /^(\d{1,2}) (\w+) (\d{4}) at (\d{1,2}):(\d{2})$/
+    );
+
+    if (!match || months[match[2]] === undefined) {
+        throw new Error("Invalid countdown date format");
+    }
+
+    const [, day, month, year, hour, minute] = match;
+
+    // Nigeria time is UTC+1
+    return Date.UTC(
+        Number(year),
+        months[month],
+        Number(day),
+        Number(hour) - 1,
+        Number(minute)
+    );
+}
+
+const unlockDate = parseUnlockDate(unlockDateText);
 
 function updateAllCountdowns() {
     const distance = unlockDate - Date.now();
