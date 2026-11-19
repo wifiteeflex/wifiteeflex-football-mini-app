@@ -2635,18 +2635,15 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 
 </button>
 
-<button onclick="showPage('aiTipsPage', this)" class="grok-button">
+<button id="yesterdayButton"
+        onclick="showPage('aiTipsPage', this)"
+        class="grok-button"
+        disabled
+        style="opacity:0.6;cursor:not-allowed;">
 
-    <div class="nav-icon grok-icon">
-        🏆
-    </div>
+    <div class="nav-icon grok-icon">🏆</div>
 
-    <span>Yesterday</span>
-
-    <span id="yesterdayCountdown"
-    style="font-size:11px;font-weight:bold;margin-left:5px;">
-        24:00:00
-    </span>
+    <span id="yesterdayCountdown">86400</span>
 
 </button>
 
@@ -6278,38 +6275,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 (function () {
+    const button = document.getElementById("yesterdayButton");
+    const number = document.getElementById("yesterdayCountdown");
+
     const timerKey = "yesterdayCountdownEnd";
 
     let endTime = localStorage.getItem(timerKey);
 
-    // Start a 24-hour countdown on the user's first visit
     if (!endTime || Number(endTime) <= Date.now()) {
-        endTime = Date.now() + (24 * 60 * 60 * 1000);
+        endTime = Date.now() + 86400000;
         localStorage.setItem(timerKey, endTime);
     }
 
-    function updateYesterdayCountdown() {
-        const display = document.getElementById("yesterdayCountdown");
-        if (!display) return;
+    function updateCountdown() {
+        const remaining = Math.max(
+            0,
+            Math.ceil((Number(endTime) - Date.now()) / 1000)
+        );
 
-        let remaining = Math.max(0, Number(endTime) - Date.now());
-
-        const hours = Math.floor(remaining / 3600000);
-        const minutes = Math.floor((remaining % 3600000) / 60000);
-        const seconds = Math.floor((remaining % 60000) / 1000);
-
-        display.textContent =
-            String(hours).padStart(2, "0") + ":" +
-            String(minutes).padStart(2, "0") + ":" +
-            String(seconds).padStart(2, "0");
+        number.textContent = remaining;
 
         if (remaining <= 0) {
-            display.textContent = "00:00:00";
+            button.disabled = false;
+            button.style.opacity = "1";
+            button.style.cursor = "pointer";
+        } else {
+            button.disabled = true;
         }
     }
 
-    updateYesterdayCountdown();
-    setInterval(updateYesterdayCountdown, 1000);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 })();
 </script>
 
