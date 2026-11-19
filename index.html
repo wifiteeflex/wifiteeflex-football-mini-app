@@ -2637,11 +2637,16 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 
 <button onclick="showPage('aiTipsPage', this)" class="grok-button">
 
-<div class="nav-icon grok-icon">
-🏆
-</div>
+    <div class="nav-icon grok-icon">
+        🏆
+    </div>
 
-<span>Yesterday</span>
+    <span>Yesterday</span>
+
+    <span id="yesterdayCountdown"
+    style="font-size:11px;font-weight:bold;margin-left:5px;">
+        24:00:00
+    </span>
 
 </button>
 
@@ -6269,6 +6274,43 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+</script>
+
+<script>
+(function () {
+    const timerKey = "yesterdayCountdownEnd";
+
+    let endTime = localStorage.getItem(timerKey);
+
+    // Start a 24-hour countdown on the user's first visit
+    if (!endTime || Number(endTime) <= Date.now()) {
+        endTime = Date.now() + (24 * 60 * 60 * 1000);
+        localStorage.setItem(timerKey, endTime);
+    }
+
+    function updateYesterdayCountdown() {
+        const display = document.getElementById("yesterdayCountdown");
+        if (!display) return;
+
+        let remaining = Math.max(0, Number(endTime) - Date.now());
+
+        const hours = Math.floor(remaining / 3600000);
+        const minutes = Math.floor((remaining % 3600000) / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+
+        display.textContent =
+            String(hours).padStart(2, "0") + ":" +
+            String(minutes).padStart(2, "0") + ":" +
+            String(seconds).padStart(2, "0");
+
+        if (remaining <= 0) {
+            display.textContent = "00:00:00";
+        }
+    }
+
+    updateYesterdayCountdown();
+    setInterval(updateYesterdayCountdown, 1000);
+})();
 </script>
 
 </body>
