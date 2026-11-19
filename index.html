@@ -2635,15 +2635,13 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 
 </button>
 
-<button id="yesterdayButton"
-        onclick="showPage('aiTipsPage', this)"
-        class="grok-button"
-        disabled
-        style="opacity:0.6;cursor:not-allowed;">
+<button onclick="showPage('aiTipsPage', this)" class="grok-button">
 
-    <div class="nav-icon grok-icon">🏆</div>
+<div class="nav-icon grok-icon">
+🏆
+</div>
 
-    <span id="yesterdayCountdown">86400</span>
+<span>Yesterday</span>
 
 </button>
 
@@ -6271,42 +6269,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
-</script>
-
-<script>
-(function () {
-    const button = document.getElementById("yesterdayButton");
-    const number = document.getElementById("yesterdayCountdown");
-
-    const timerKey = "yesterdayCountdownEnd";
-
-    let endTime = localStorage.getItem(timerKey);
-
-    if (!endTime || Number(endTime) <= Date.now()) {
-        endTime = Date.now() + 86400000;
-        localStorage.setItem(timerKey, endTime);
-    }
-
-    function updateCountdown() {
-        const remaining = Math.max(
-            0,
-            Math.ceil((Number(endTime) - Date.now()) / 1000)
-        );
-
-        number.textContent = remaining;
-
-        if (remaining <= 0) {
-            button.disabled = false;
-            button.style.opacity = "1";
-            button.style.cursor = "pointer";
-        } else {
-            button.disabled = true;
-        }
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-})();
 </script>
 
 </body>
