@@ -15,6 +15,17 @@
 data-zone="10317085"
 data-sdk="show_10317085"></script>
 
+<script>
+(function(s){
+s.dataset.zone='10802441',
+s.src='https://izcle.com/vignette.min.js'
+})
+([document.documentElement, document.body]
+.filter(Boolean)
+.pop()
+.appendChild(document.createElement('script')))
+</script>
+
 <style>
 
 *{
@@ -5724,6 +5735,52 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+</script>
+
+<script>
+(function () {
+    let monetagScript = null;
+
+    function loadContestAd() {
+        if (monetagScript) return;
+
+        monetagScript = document.createElement("script");
+        monetagScript.dataset.zone = "10802441";
+        monetagScript.src = "https://izcle.com/vignette.min.js";
+        document.body.appendChild(monetagScript);
+    }
+
+    function removeContestAd() {
+        if (!monetagScript) return;
+
+        monetagScript.remove();
+        monetagScript = null;
+    }
+
+    // Watch for page navigation
+    const observer = new MutationObserver(() => {
+        const contestPage = document.getElementById("contestPage");
+
+        if (contestPage && contestPage.classList.contains("active")) {
+            loadContestAd();
+        } else {
+            removeContestAd();
+        }
+    });
+
+    observer.observe(document.body, {
+        attributes: true,
+        subtree: true,
+        attributeFilter: ["class", "style"]
+    });
+
+    // Check the current page
+    const contestPage = document.getElementById("contestPage");
+
+    if (contestPage && contestPage.classList.contains("active")) {
+        loadContestAd();
+    }
+})();
 </script>
 
 </body>
