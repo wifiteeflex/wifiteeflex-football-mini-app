@@ -3620,29 +3620,16 @@ Smart football analysis powered by AI
 
 <div class="simple-card">
 
-    <h2>🎁 Daily Reward</h2>
+    <h2>🎁 Daily 2 odds</h2>
 
-    <p>Come back daily and collect your coins</p>
+    <p>Come back daily and get your 2 odds</p>
 
-    <div class="reward" id="dailyRewardBox"
-         onclick="unlockDailyBookingCode()"
+    <div class="reward"
+         id="dailyRewardBox"
+         onclick="handleDailyBooking()"
          style="cursor:pointer;">
 
         🪙 <span id="dailyRewardText">GET BOOKING CODE</span>
-
-    </div>
-
-    <div id="dailyBookingResult"
-         style="display:none;margin-top:15px;text-align:center;">
-
-        <p style="color:#16a34a;font-weight:bold;">
-            🎉 YOUR BOOKING CODE
-        </p>
-
-        <div id="dailyBookingCode"
-             style="background:#222;padding:15px;border-radius:12px;
-                    font-size:22px;font-weight:bold;color:#22c55e;">
-        </div>
 
     </div>
 
@@ -5785,42 +5772,174 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
-function unlockDailyBookingCode() {
+// ==================================
+// YOUR BOOKING CODE
+// CHANGE THIS CODE WHENEVER YOU WANT
+// ==================================
 
-    const text = document.getElementById("dailyRewardText");
-    const result = document.getElementById("dailyBookingResult");
-    const codeBox = document.getElementById("dailyBookingCode");
-    const rewardBox = document.getElementById("dailyRewardBox");
+const MY_BOOKING_CODE = "L7228S";
 
-    if (result.style.display === "block") return;
+// ==================================
+// DAILY REWARD SETTINGS
+// ==================================
+
+const CLAIM_INTERVAL = 24 * 60 * 60 * 1000;
+const CODE_DURATION = 20 * 60 * 1000;
+
+const STORAGE_KEY = "footballDailyBooking";
+
+let dailyRewardData = JSON.parse(
+    localStorage.getItem(STORAGE_KEY) || "null"
+);
+
+function saveDailyData() {
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(dailyRewardData)
+    );
+}
+
+// ==================================
+// MAIN BUTTON
+// ==================================
+
+function handleDailyBooking() {
+
+    const now = Date.now();
+
+    if (dailyRewardData) {
+
+        // Code is still available
+        if (now < dailyRewardData.codeExpires) {
+            copyBookingCode();
+            return;
+        }
+
+        // 24 hours have not passed
+        if (now < dailyRewardData.nextClaim) {
+            return;
+        }
+    }
 
     if (typeof window.show_10317085 !== "function") {
         alert("Advertisement is loading. Please try again.");
         return;
     }
 
+    const text = document.getElementById("dailyRewardText");
+
     text.textContent = "LOADING AD...";
 
-    window.show_10317085()
+    Promise.resolve(window.show_10317085())
         .then(() => {
 
-            // Display booking code after the ad completes
-            const bookingCode = "AIFB-" +
-                Math.random().toString(36).substring(2, 8).toUpperCase();
+            const claimTime = Date.now();
 
-            codeBox.textContent = bookingCode;
+            dailyRewardData = {
+                code: MY_BOOKING_CODE,
+                codeExpires: claimTime + CODE_DURATION,
+                nextClaim: claimTime + CLAIM_INTERVAL
+            };
 
-            result.style.display = "block";
-            text.textContent = "🔓 CODE UNLOCKED";
-
-            rewardBox.style.cursor = "default";
+            saveDailyData();
+            updateDailyReward();
 
         })
         .catch(() => {
             text.textContent = "GET BOOKING CODE";
-            alert("Ad was not completed. Please try again.");
+            alert("Please complete the advertisement to unlock your code.");
         });
 }
+
+// ==================================
+// COPY BOOKING CODE
+// ==================================
+
+function copyBookingCode() {
+
+    if (!dailyRewardData ||
+        Date.now() >= dailyRewardData.codeExpires) {
+        updateDailyReward();
+        return;
+    }
+
+    const code = dailyRewardData.code;
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(code)
+            .then(() => alert("Booking code copied!"))
+            .catch(() => alert("Your booking code: " + code));
+    } else {
+        alert("Your booking code: " + code);
+    }
+}
+
+// ==================================
+// COUNTDOWN DISPLAY
+// ==================================
+
+function updateDailyReward() {
+
+    const text = document.getElementById("dailyRewardText");
+
+    if (!text) return;
+
+    const now = Date.now();
+
+    if (!dailyRewardData) {
+        text.textContent = "GET BOOKING CODE";
+        return;
+    }
+
+    // Show code for 20 minutes
+    if (now < dailyRewardData.codeExpires) {
+
+        const remaining = Math.ceil(
+            (dailyRewardData.codeExpires - now) / 1000
+        );
+
+        const minutes = Math.floor(remaining / 60);
+        const seconds = remaining % 60;
+
+        text.innerHTML =
+            "🎟️ " + dailyRewardData.code +
+            " &nbsp; 📋 COPY &nbsp; " +
+            String(minutes).padStart(2, "0") + ":" +
+            String(seconds).padStart(2, "0");
+
+        return;
+    }
+
+    // Code has expired: show 24-hour waiting countdown
+    if (now < dailyRewardData.nextClaim) {
+
+        const remaining = Math.ceil(
+            (dailyRewardData.nextClaim - now) / 1000
+        );
+
+        const hours = Math.floor(remaining / 3600);
+        const minutes = Math.floor((remaining % 3600) / 60);
+        const seconds = remaining % 60;
+
+        text.textContent =
+            "NEXT CODE IN " +
+            String(hours).padStart(2, "0") + ":" +
+            String(minutes).padStart(2, "0") + ":" +
+            String(seconds).padStart(2, "0");
+
+        return;
+    }
+
+    // Ready for another claim
+    dailyRewardData = null;
+    localStorage.removeItem(STORAGE_KEY);
+
+    text.textContent = "GET BOOKING CODE";
+}
+
+document.addEventListener("DOMContentLoaded", updateDailyReward);
+
+setInterval(updateDailyReward, 1000);
 </script>
 
 </body>
