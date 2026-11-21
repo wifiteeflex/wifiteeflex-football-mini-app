@@ -6307,12 +6307,12 @@ function toggleMatchPlayer(button) {
         player.style.display = "block";
 
         iframe.src =
-            "https://www.youtube.com/embed/" +
+            "https://www.youtube-nocookie.com/embed/" +
             videoId +
-            "?autoplay=1&mute=1&playsinline=1&rel=0";
+            "?autoplay=1&playsinline=1";
 
         button.innerHTML = "✕ CLOSE LIVE";
-        button.style.background = "#16a34a";
+        button.style.background = "#dc2626";
 
     } else {
 
@@ -6320,7 +6320,7 @@ function toggleMatchPlayer(button) {
         iframe.src = "";
 
         button.innerHTML = "▶️ LIVE STREAM";
-        button.style.background = "#DC2626";
+        button.style.background = "#16a34a";
     }
 }
 </script>
