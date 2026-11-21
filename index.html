@@ -6316,6 +6316,9 @@ function toggleMatchPlayer(button) {
 
     } else {
 
+// Stop video playback
+        iframe.src = "";
+        
         player.style.display = "none";
         iframe.src = "";
 
