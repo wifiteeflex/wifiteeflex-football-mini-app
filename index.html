@@ -2835,9 +2835,8 @@ HOME WIN (2up)
 
 <div class="buttons">
 
-<button type="button"
-        class="watch"
-        onclick="openContestLive('8SWB1kVXyRg')"
+<button type="button" class="watch"
+        onclick="openContestLive('8SWB1kVXyRg', this)"
         style="background:#dc2626;color:#fff;cursor:pointer;">
     ▶️ LIVE STREAM
 </button>
@@ -6337,6 +6336,34 @@ function openContestLive(videoId) {
     player.scrollIntoView({
         behavior: "smooth",
         block: "start"
+    });
+}
+</script>
+
+<script>
+function openContestLive(videoId, button) {
+
+    // Open the Contest page using your existing navigation
+    showPage('contestPage', button);
+
+    // Find the player on the Contest page
+    const player = document.getElementById('player-today-5');
+    const iframe = document.getElementById('iframe-today-5');
+
+    if (!player || !iframe) {
+        console.error('Contest player or iframe not found');
+        return;
+    }
+
+    // Show and play the selected match
+    player.style.display = 'block';
+
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' +
+                 videoId + '?autoplay=1';
+
+    player.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
     });
 }
 </script>
