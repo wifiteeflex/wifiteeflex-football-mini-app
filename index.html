@@ -3986,18 +3986,19 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     </div>
   </div>
 
-<!-- MATCH LIVE PLAYER -->
+<!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
+
 <div class="yt-player-wrap"
      data-video-id="Jx7f8lvKp0g?"
-     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#000;">
+     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
 
     <iframe
         width="100%"
         height="210"
         src=""
-        title="Match Live Stream"
+        title="Live Match Stream"
         frameborder="0"
-        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+        allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen>
     </iframe>
 
@@ -6308,7 +6309,7 @@ function toggleMatchPlayer(button) {
         iframe.src =
             "https://www.youtube.com/embed/" +
             videoId +
-            "?autoplay=1&playsinline=1&rel=0";
+            "?autoplay=1&mute=1&playsinline=1&rel=0";
 
         button.innerHTML = "✕ CLOSE LIVE";
         button.style.background = "#16a34a";
