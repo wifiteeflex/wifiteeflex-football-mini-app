@@ -4418,14 +4418,14 @@ HOME WIN.(HT/FT)
 
 <div class="buttons">
 
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+▶️LIVE STREAM
+</button>
+
 <button class="watch lock-countdown" disabled
 style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
 🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
 </button>
 
 <button class="watch" disabled
@@ -5723,7 +5723,7 @@ function castVote(team){
 selectedTeam = team;
 
 let name =
-team === "Ipswich Town" ? "Ipswich Town" :
+team === "Ipswich Town" ? "Draw" :
 team === "draw" ? "Draw" :
 "Aston Villa";
 
