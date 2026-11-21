@@ -6100,8 +6100,6 @@ async function toggleMatchPlayer(button) {
     const iframe = player.querySelector("iframe");
 
     const videoId = player.dataset.videoId;
-
-    // Unique ad status for each match
     const adKey = "liveAdWatched_" + videoId;
 
     // CLOSE CURRENT MATCH
@@ -6122,7 +6120,7 @@ async function toggleMatchPlayer(button) {
 
     try {
 
-        // CHECK IF THIS MATCH'S AD HAS ALREADY BEEN WATCHED
+        // CHECK WHETHER THIS MATCH HAS ALREADY SHOWN AN AD
         if (!localStorage.getItem(adKey)) {
 
             if (typeof window.show_10317085 !== "function") {
@@ -6133,14 +6131,14 @@ async function toggleMatchPlayer(button) {
             button.innerHTML = "⏳ LOADING AD...";
             button.style.background = "#64748b";
 
-            // SHOW AD BEFORE THIS MATCH PLAYS
-            await window.show_10317085("pop");
+            // SHOW MONETAG REWARDED INTERSTITIAL
+            await window.show_10317085();
 
-            // SAVE THIS MATCH AS WATCHED
+            // SAVE THIS MATCH'S AD STATUS
             localStorage.setItem(adKey, "true");
         }
 
-        // PLAY MATCH
+        // START THIS MATCH'S VIDEO
         player.style.display = "block";
 
         iframe.src =
@@ -6153,7 +6151,7 @@ async function toggleMatchPlayer(button) {
     } catch (e) {
 
         button.innerHTML = "▶️ LIVE STREAM";
-        button.style.background = "#16a34a";
+        button.style.background = "#dc2626";
 
         alert("Advertisement could not be displayed. Please try again.");
 
