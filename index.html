@@ -2833,11 +2833,31 @@ Fulham
 HOME WIN (2up)
 </div>
 
+<!-- MAN CITY VS FULHAM LIVE PLAYER -->
+<div id="player-man-city" class="yt-player-wrap"
+     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
+
+    <iframe
+        id="iframe-man-city"
+        width="100%"
+        height="210"
+        src=""
+        title="Man City vs Fulham Live Stream"
+        frameborder="0"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
 <div class="buttons">
 
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️LIVE STREAM
+<button type="button"
+        id="manCityLiveBtn"
+        class="watch"
+        onclick="toggleManCityPlayer()"
+        style="background:#DC2626;color:#fff;cursor:pointer;">
+    ▶️ LIVE STREAM
 </button>
 
 <button class="watch" onclick="unlockPrediction(this)"
@@ -4311,12 +4331,9 @@ BTTS (Yes)
 
 <div class="buttons">
 
-<button type="button"
-        id="manUtdLiveBtn"
-        class="watch"
-        onclick="toggleManUtdPlayer()"
-        style="background:#DC2626;color:#fff;cursor:pointer;">
-    ▶️ LIVE STREAM
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+▶️NOT AVAILABLE
 </button>
 
 <button class="watch lock-countdown" disabled
@@ -4419,16 +4436,16 @@ Alaves
 HOME WIN.(HT/FT)
 </div>
 
-<!-- THIS MATCH'S OWN LIVE PLAYER -->
-<div id="player-man-utd" class="yt-player-wrap"
+<!-- REAL MADRID VS ALAVES LIVE PLAYER -->
+<div id="player-real-madrid" class="yt-player-wrap"
      style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
 
     <iframe
-        id="iframe-man-utd"
+        id="iframe-real-madrid"
         width="100%"
         height="210"
         src=""
-        title="Man Utd vs Brentford Live Stream"
+        title="Real Madrid vs Alaves Live Stream"
         frameborder="0"
         allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen>
@@ -4438,9 +4455,12 @@ HOME WIN.(HT/FT)
 
 <div class="buttons">
 
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️LIVE STREAM
+<button type="button"
+        id="realMadridLiveBtn"
+        class="watch"
+        onclick="toggleRealMadridPlayer()"
+        style="background:#DC2626;color:#fff;cursor:pointer;">
+    ▶️ LIVE STREAM
 </button>
 
 <button class="watch lock-countdown" disabled
@@ -6322,32 +6342,30 @@ setInterval(updateDailyReward, 1000);
 </script>
 
 <script>
-function toggleManUtdPlayer() {
+function toggleRealMadridPlayer() {
 
-    const player = document.getElementById("player-man-utd");
-    const iframe = document.getElementById("iframe-man-utd");
-    const button = document.getElementById("manUtdLiveBtn");
+    const player = document.getElementById("player-real-madrid");
+    const iframe = document.getElementById("iframe-real-madrid");
+    const button = document.getElementById("realMadridLiveBtn");
 
     if (player.style.display === "none" || player.style.display === "") {
 
-        // OPEN THIS MATCH'S LIVE STREAM
+        // OPEN REAL MADRID LIVE STREAM
         player.style.display = "block";
 
-        iframe.src = "https://www.youtube-nocookie.com/embed/lhBy-J02zU0?autoplay=1";
+        iframe.src = "https://www.youtube-nocookie.com/embed/o59l6dYoRiY?autoplay=1";
 
         button.innerHTML = "✕ CLOSE LIVE";
         button.style.background = "#16a34a";
 
     } else {
 
-        // CLOSE THIS MATCH'S LIVE STREAM
+        // CLOSE REAL MADRID LIVE STREAM
         player.style.display = "none";
-
         iframe.src = "";
 
         button.innerHTML = "▶️ LIVE STREAM";
         button.style.background = "#DC2626";
-
     }
 }
 </script>
