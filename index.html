@@ -6093,16 +6093,54 @@ setInterval(() => {
 </script>
 
 <script>
-function toggleMatchPlayer(button) {
+async function toggleMatchPlayer(button) {
 
     const card = button.closest(".card");
     const player = card.querySelector(".yt-player-wrap");
     const iframe = player.querySelector("iframe");
 
-    if (player.style.display === "none" || player.style.display === "") {
+    const videoId = player.dataset.videoId;
 
-        const videoId = player.dataset.videoId;
+    // Unique ad status for each match
+    const adKey = "liveAdWatched_" + videoId;
 
+    // CLOSE CURRENT MATCH
+    if (player.style.display === "block") {
+
+        player.style.display = "none";
+        iframe.src = "";
+
+        button.innerHTML = "▶️ LIVE STREAM";
+        button.style.background = "#16a34a";
+
+        return;
+    }
+
+    if (button.dataset.loading === "true") return;
+
+    button.dataset.loading = "true";
+
+    try {
+
+        // CHECK IF THIS MATCH'S AD HAS ALREADY BEEN WATCHED
+        if (!localStorage.getItem(adKey)) {
+
+            if (typeof window.show_10317085 !== "function") {
+                alert("Advertisement is loading. Please try again.");
+                return;
+            }
+
+            button.innerHTML = "⏳ LOADING AD...";
+            button.style.background = "#64748b";
+
+            // SHOW AD BEFORE THIS MATCH PLAYS
+            await window.show_10317085("pop");
+
+            // SAVE THIS MATCH AS WATCHED
+            localStorage.setItem(adKey, "true");
+        }
+
+        // PLAY MATCH
         player.style.display = "block";
 
         iframe.src =
@@ -6112,13 +6150,16 @@ function toggleMatchPlayer(button) {
         button.innerHTML = "✕ CLOSE LIVE";
         button.style.background = "#dc2626";
 
-    } else {
-
-        player.style.display = "none";
-        iframe.src = "";
+    } catch (e) {
 
         button.innerHTML = "▶️ LIVE STREAM";
         button.style.background = "#16a34a";
+
+        alert("Advertisement could not be displayed. Please try again.");
+
+    } finally {
+
+        button.dataset.loading = "false";
     }
 }
 </script>
