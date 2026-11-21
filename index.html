@@ -3929,52 +3929,39 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
       </div>
       <div class="team-name">
         Sunderland
-      </div>
-    </div>
-  </div>
 
 <!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
 
-<div id="player-today-5" class="yt-player-wrap"
+<div id="player-today-5"
+     class="yt-player-wrap"
+     data-video-id="lhBy-J02zU0"
+     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
 
-style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
-
-<iframe
-
-id="iframe-today-5"
-
-width="100%"
-
-height="210"
-
-src=""
-
-title="Live Match Stream"
-
-frameborder="0"
-
-allow="autoplay; encrypted-media; picture-in-picture"
-
-allowfullscreen>
-
-</iframe>
+    <iframe
+        id="iframe-today-5"
+        width="100%"
+        height="210"
+        src=""
+        title="Live Match Stream"
+        frameborder="0"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen>
+    </iframe>
 
 </div>
 
-<div class="live-match-card">
-
 <div class="buttons">
-<!-- ENABLED LIVE STREAM BUTTON -->
 
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-⚡️LIVE BY AI
+⚡️LIVE BY STV
 </button>
 
-<button type="button" class="watch"
-onclick="window.toggleToday5Player()"
-style="background:#DC2626;color:#fff;cursor:pointer;">
-▶️LIVE STREAM
+<button type="button"
+        class="watch"
+        onclick="toggleMatchPlayer(this)"
+        style="background:#DC2626;color:#fff;cursor:pointer;">
+    ▶️ LIVE STREAM
 </button>
 
 <button class="watch" disabled
