@@ -6370,5 +6370,34 @@ function toggleRealMadridPlayer() {
 }
 </script>
 
+<script>
+function toggleManCityPlayer() {
+
+    const player = document.getElementById("player-man-city");
+    const iframe = document.getElementById("iframe-man-city");
+    const button = document.getElementById("manCityLiveBtn");
+
+    if (player.style.display === "none" || player.style.display === "") {
+
+        // OPEN MAN CITY LIVE STREAM
+        player.style.display = "block";
+
+        iframe.src = "https://www.youtube-nocookie.com/embed/_OfkfjHhErs?autoplay=1";
+
+        button.innerHTML = "✕ CLOSE LIVE";
+        button.style.background = "#16a34a";
+
+    } else {
+
+        // CLOSE MAN CITY LIVE STREAM
+        player.style.display = "none";
+        iframe.src = "";
+
+        button.innerHTML = "▶️ LIVE STREAM";
+        button.style.background = "#DC2626";
+    }
+}
+</script>
+
 </body>
 </html>
