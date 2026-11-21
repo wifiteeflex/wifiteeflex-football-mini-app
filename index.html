@@ -5254,42 +5254,6 @@ function updateProfit(todayAmount){
 }
 </script>
 
-
-<script>
-
-function updateCountdown(){
-  const el = document.getElementById("globalCountdown");
-
-  const target = new Date("2026-10-31T23:59:00").getTime();
-
-  setInterval(()=>{
-    const now = new Date().getTime();
-    const diff = target - now;
-
-    if(diff <= 0){
-      el.innerHTML = "🔴 LIVE NOW";
-      return;
-    }
-
-    let d = Math.floor(diff / (1000*60*60*24));
-    let h = Math.floor((diff / (1000*60*60)) % 24);
-    let m = Math.floor((diff / (1000*60)) % 60);
-    let s = Math.floor((diff / 1000) % 60);
-
-    el.innerHTML = `All Match Starts In: ${d}d ${h}h ${m}m ${s}s`;
-
-  },1000);
-}
-
-updateCountdown();
-
-/* REMIND BUTTON */
-function remindMe(){
-  alert("✅ Reminder set! We will notify you before matches start.");
-}
-
-</script>
-
 <script>
 
 // Disable double-tap zoom
@@ -5618,52 +5582,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
-(function () {
-    let monetagScript = null;
-
-    function loadContestAd() {
-        if (monetagScript) return;
-
-        monetagScript = document.createElement("script");
-        monetagScript.dataset.zone = "10802441";
-        monetagScript.src = "https://izcle.com/vignette.min.js";
-        document.body.appendChild(monetagScript);
-    }
-
-    function removeContestAd() {
-        if (!monetagScript) return;
-
-        monetagScript.remove();
-        monetagScript = null;
-    }
-
-    // Watch for page navigation
-    const observer = new MutationObserver(() => {
-        const contestPage = document.getElementById("contestPage");
-
-        if (contestPage && contestPage.classList.contains("active")) {
-            loadContestAd();
-        } else {
-            removeContestAd();
-        }
-    });
-
-    observer.observe(document.body, {
-        attributes: true,
-        subtree: true,
-        attributeFilter: ["class", "style"]
-    });
-
-    // Check the current page
-    const contestPage = document.getElementById("contestPage");
-
-    if (contestPage && contestPage.classList.contains("active")) {
-        loadContestAd();
-    }
-})();
-</script>
-
-<script>
 // ==================================
 // YOUR BOOKING CODE
 // CHANGE THIS CODE WHENEVER YOU WANT
@@ -5675,8 +5593,8 @@ const MY_BOOKING_CODE = "L7228S";
 // DAILY REWARD SETTINGS
 // ==================================
 
-const CLAIM_INTERVAL = 24 * 60 * 60 * 1000;
-const CODE_DURATION = 2 * 60 * 1000;
+const CLAIM_INTERVAL = 1 * 60 * 60 * 1000;
+const CODE_DURATION = 5 * 60 * 1000;
 
 const STORAGE_KEY = "footballDailyBooking";
 
