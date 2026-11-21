@@ -2856,10 +2856,9 @@ HOME WIN (2up)
 <div class="buttons">
 
 <button type="button"
-        id="today5LiveBtn"
         class="watch"
         onclick="toggleMatchPlayer(this)"
-        style="background:#16a34a;color:#fff;cursor:pointer;">
+        style="background:#DC2626;color:#fff;cursor:pointer;">
     ▶️ LIVE STREAM
 </button>
 
@@ -6102,15 +6101,13 @@ async function toggleMatchPlayer(button) {
     const videoId = player.dataset.videoId;
     const adKey = "liveAdWatched_" + videoId;
 
-    // CLOSE CURRENT MATCH
+    // CLOSE VIDEO
     if (player.style.display === "block") {
-
         player.style.display = "none";
         iframe.src = "";
 
         button.innerHTML = "▶️ LIVE STREAM";
         button.style.background = "#16a34a";
-
         return;
     }
 
@@ -6120,25 +6117,24 @@ async function toggleMatchPlayer(button) {
 
     try {
 
-        // CHECK WHETHER THIS MATCH HAS ALREADY SHOWN AN AD
+        // SHOW AD ONLY ONCE FOR THIS MATCH
         if (!localStorage.getItem(adKey)) {
 
             if (typeof window.show_10317085 !== "function") {
-                alert("Advertisement is loading. Please try again.");
-                return;
+                throw new Error("Monetag SDK has not loaded.");
             }
 
             button.innerHTML = "⏳ LOADING AD...";
             button.style.background = "#64748b";
 
-            // SHOW MONETAG REWARDED INTERSTITIAL
-            await window.show_10317085();
+            const result = await window.show_10317085();
 
-            // SAVE THIS MATCH'S AD STATUS
+            console.log("Monetag result:", result);
+
             localStorage.setItem(adKey, "true");
         }
 
-        // START THIS MATCH'S VIDEO
+        // START MATCH VIDEO
         player.style.display = "block";
 
         iframe.src =
@@ -6148,15 +6144,16 @@ async function toggleMatchPlayer(button) {
         button.innerHTML = "✕ CLOSE LIVE";
         button.style.background = "#dc2626";
 
-    } catch (e) {
+    } catch (error) {
+
+        console.error("Monetag error:", error);
+
+        alert("Monetag advertisement failed: " + error.message);
 
         button.innerHTML = "▶️ LIVE STREAM";
-        button.style.background = "#dc2626";
-
-        alert("Advertisement could not be displayed. Please try again.");
+        button.style.background = "#16a34a";
 
     } finally {
-
         button.dataset.loading = "false";
     }
 }
