@@ -2532,26 +2532,22 @@ img {
 }
 
 /* White match clock */
-.minute {
+.match-clock-text {
     color: #ffffff !important;
 }
 
-/* Red blinking live indicator */
+/* Red blinking LIVE dot */
 .live-indicator {
-    color: #ef2929;
+    color: #ff2020;
     animation: liveDotBlink 1s infinite;
 }
 
 @keyframes liveDotBlink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.2;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
 }
 
-/* Red blinking live button */
+/* Red blinking LIVE button */
 .live-blink {
     background: #dc2626 !important;
     color: #ffffff !important;
@@ -2559,12 +2555,8 @@ img {
 }
 
 @keyframes liveButtonBlink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.55;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
 </style>
@@ -6390,38 +6382,23 @@ function updateMatchClocks() {
             return;
         }
 
-        // ORIGINAL REAL-TIME ELAPSED CLOCK
         const matchMinutes = Math.floor(elapsed / 60);
-        const matchSeconds = elapsed % 60;
-
-        const clock =
-            String(matchMinutes).padStart(2, '0') + ':' +
-            String(matchSeconds).padStart(2, '0');
-
-        const card = match.closest('.card');
-        const liveButton = card ? card.querySelector('.watch') : null;
 
         // FIRST HALF
         if (matchMinutes < 45) {
 
             match.innerHTML =
                 '<span class="live-indicator">●</span> ' +
-                clock + ' H1';
-
-            if (liveButton) {
-                liveButton.classList.add('live-blink');
-            }
+                '<span class="match-clock-text">LIVE ' +
+                (matchMinutes + 1) + '′</span>';
 
         }
 
         // HALF TIME
         else if (matchMinutes < 60) {
 
-            match.textContent = '45:00 HT';
-
-            if (liveButton) {
-                liveButton.classList.remove('live-blink');
-            }
+            match.innerHTML =
+                '<span class="match-clock-text">HT</span>';
 
         }
 
@@ -6430,28 +6407,41 @@ function updateMatchClocks() {
 
             match.innerHTML =
                 '<span class="live-indicator">●</span> ' +
-                clock + ' H2';
-
-            if (liveButton) {
-                liveButton.classList.add('live-blink');
-            }
+                '<span class="match-clock-text">LIVE ' +
+                (matchMinutes - 15) + '′</span>';
 
         }
 
         // FULL TIME
         else {
 
-            match.textContent = 'FT';
+            match.innerHTML =
+                '<span class="match-clock-text">FT</span>';
 
-            if (liveButton) {
+        }
+
+        // LIVE BUTTON BLINKING
+        const card = match.closest('.card');
+        const liveButton = card ? card.querySelector('.watch') : null;
+
+        if (liveButton) {
+
+            if (matchMinutes < 45 ||
+                (matchMinutes >= 60 && matchMinutes < 105)) {
+
+                liveButton.classList.add('live-blink');
+
+            } else {
+
                 liveButton.classList.remove('live-blink');
-            }
 
+            }
         }
 
     });
 }
 
+// Update every second
 updateMatchClocks();
 setInterval(updateMatchClocks, 1000);
 
