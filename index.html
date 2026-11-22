@@ -6360,7 +6360,7 @@ function updateMatchClocks() {
             return;
         }
 
-        const elapsed = Math.floor((now - kickoff) / 1000);
+        const elapsed = Math.max(0, Math.floor((now - kickoff) / 1000) - 300);
 
         // BEFORE KICKOFF
         if (elapsed < 0) {
