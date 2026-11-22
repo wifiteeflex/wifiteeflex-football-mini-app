@@ -2531,51 +2531,39 @@ img {
     cursor: pointer;
 }
 
+/* White match clock */
 .minute {
-    position: relative;
-    top: -6px;
-}
-
-#contestPage {
-    background-image:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)),
-        url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1200");
-
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-attachment: scroll !important;
-
-    min-height: 100vh;
-    width: 100%;
-    padding: 15px;
-    box-sizing: border-box;
-}
-
-.odds-box strong.fulltime-score {
     color: #ffffff !important;
-    font-size: 27px !important;
-    font-weight: 900 !important;
-    letter-spacing: 2px !important;
-    display: inline-block;
-    width: auto !important;
 }
 
+/* Red blinking live indicator */
+.live-indicator {
+    color: #ef2929;
+    animation: liveDotBlink 1s infinite;
+}
+
+@keyframes liveDotBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* Red blinking live button */
 .live-blink {
     background: #dc2626 !important;
     color: #ffffff !important;
-    animation: liveRedBlink 1s infinite;
+    animation: liveButtonBlink 1s infinite;
 }
 
-@keyframes liveRedBlink {
+@keyframes liveButtonBlink {
     0%, 100% {
-        background: #dc2626;
         opacity: 1;
     }
-
     50% {
-        background: #7f1d1d;
-        opacity: 0.65;
+        opacity: 0.55;
     }
 }
 
@@ -6380,12 +6368,12 @@ function updateMatchClocks() {
             return;
         }
 
+        const elapsed = Math.floor((now - kickoff) / 1000);
+
         // BEFORE KICKOFF
-        const rawElapsed = Math.floor((now - kickoff) / 1000);
+        if (elapsed < 0) {
 
-        if (rawElapsed < 0) {
-
-            const remaining = Math.abs(rawElapsed);
+            const remaining = Math.abs(elapsed);
 
             const hours = Math.floor(remaining / 3600);
             const minutes = Math.floor((remaining % 3600) / 60);
@@ -6402,9 +6390,7 @@ function updateMatchClocks() {
             return;
         }
 
-        // CORRECT THE CLOCK BY 3 MINUTES
-        const elapsed = Math.max(0, rawElapsed - 180);
-
+        // ORIGINAL REAL-TIME ELAPSED CLOCK
         const matchMinutes = Math.floor(elapsed / 60);
         const matchSeconds = elapsed % 60;
 
@@ -6412,14 +6398,15 @@ function updateMatchClocks() {
             String(matchMinutes).padStart(2, '0') + ':' +
             String(matchSeconds).padStart(2, '0');
 
-        // Find the LIVE button belonging to this match card
         const card = match.closest('.card');
         const liveButton = card ? card.querySelector('.watch') : null;
 
         // FIRST HALF
         if (matchMinutes < 45) {
 
-            match.textContent = clock + ' H1';
+            match.innerHTML =
+                '<span class="live-indicator">●</span> ' +
+                clock + ' H1';
 
             if (liveButton) {
                 liveButton.classList.add('live-blink');
@@ -6441,7 +6428,9 @@ function updateMatchClocks() {
         // SECOND HALF
         else if (matchMinutes < 105) {
 
-            match.textContent = clock + ' H2';
+            match.innerHTML =
+                '<span class="live-indicator">●</span> ' +
+                clock + ' H2';
 
             if (liveButton) {
                 liveButton.classList.add('live-blink');
@@ -6463,7 +6452,6 @@ function updateMatchClocks() {
     });
 }
 
-// Update every second
 updateMatchClocks();
 setInterval(updateMatchClocks, 1000);
 
