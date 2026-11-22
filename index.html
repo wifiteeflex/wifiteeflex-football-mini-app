@@ -2531,34 +2531,6 @@ img {
     cursor: pointer;
 }
 
-/* White match clock */
-.match-clock-text {
-    color: #ffffff !important;
-}
-
-/* Red blinking LIVE dot */
-.live-indicator {
-    color: #ff2020;
-    animation: liveDotBlink 1s infinite;
-}
-
-@keyframes liveDotBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
-}
-
-/* Red blinking LIVE button */
-.live-blink {
-    background: #dc2626 !important;
-    color: #ffffff !important;
-    animation: liveButtonBlink 1s infinite;
-}
-
-@keyframes liveButtonBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
 </style>
 </head>
         
@@ -2805,8 +2777,8 @@ Brentford
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T21:00:00+01:00">
-Tomorrow 21:00
+<div class="minute" data-kickoff="2026-11-23T21:00:00+01:00">
+Today 21:00
 </div>
 
 <div class="vs">VS</div>
@@ -2916,8 +2888,8 @@ Levante
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T21:00:00+01:00">
-Tomorrow 21:00
+<div class="minute" data-kickoff="2026-11-23T21:00:00+01:00">
+Today 21:00
 </div>
 
 <div class="vs">VS</div>
@@ -3027,7 +2999,7 @@ Monza
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T20:45:00+01:00">
+<div class="minute" data-kickoff="2026-11-23T20:45:00+01:00">
 Today 20:45
 </div>
 
@@ -5390,26 +5362,51 @@ function updateMatchClocks() {
             return;
         }
 
+        // ORIGINAL REAL-TIME ELAPSED CLOCK
         const matchMinutes = Math.floor(elapsed / 60);
+        const matchSeconds = elapsed % 60;
+
+        const clock =
+            String(matchMinutes).padStart(2, '0') + ':' +
+            String(matchSeconds).padStart(2, '0');
+
+        const card = match.closest('.card');
+        const liveButton = card ? card.querySelector('.watch') : null;
 
         // FIRST HALF
         if (matchMinutes < 45) {
 
-            match.textContent = '🔴 LIVE ' + (matchMinutes + 1) + '′';
+            match.innerHTML =
+                '<span class="live-indicator">●</span> ' +
+                clock + ' H1';
+
+            if (liveButton) {
+                liveButton.classList.add('live-blink');
+            }
 
         }
 
         // HALF TIME
         else if (matchMinutes < 60) {
 
-            match.textContent = 'HT';
+            match.textContent = '45:00 HT';
+
+            if (liveButton) {
+                liveButton.classList.remove('live-blink');
+            }
 
         }
 
         // SECOND HALF
         else if (matchMinutes < 105) {
 
-            match.textContent = '🔴 LIVE ' + (matchMinutes - 15) + '′';
+            match.innerHTML =
+                '<span class="live-indicator">●</span> ' +
+                clock + ' H2';
+
+            if (liveButton) {
+                liveButton.classList.add('live-blink');
+            }
 
         }
 
@@ -5418,12 +5415,15 @@ function updateMatchClocks() {
 
             match.textContent = 'FT';
 
+            if (liveButton) {
+                liveButton.classList.remove('live-blink');
+            }
+
         }
 
     });
 }
 
-// Update every second
 updateMatchClocks();
 setInterval(updateMatchClocks, 1000);
 
