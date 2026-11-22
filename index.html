@@ -2897,7 +2897,7 @@ Barcelona
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
+<div class="minute" data-kickoff="2026-11-22T14:00:00+01:00">
     Today 14:00
 </div>
 
@@ -2935,10 +2935,6 @@ Villarreal
     <div class="progress-bar medium" style="width:⚡️100;"></div>
 </div>
 
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️100;"></div>
-</div>
-
 <div class="match-tabs">
 
 <a href="https://omg10.com/4/7461956">Overview</a>
@@ -2958,8 +2954,6 @@ Villarreal
 <div class="prediction">
 HOME & OVER 2.5 GOALS
 </div>
-
-<div class="buttons">
 
 <div class="buttons">
 
@@ -3022,7 +3016,7 @@ Hull City
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
+<div class="minute" data-kickoff="2026-11-22T15:00:00+01:00">
     Today 15:00
 </div>
 
@@ -3244,7 +3238,7 @@ Burnley
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
+<div class="minute" data-kickoff="2026-11-22T13:00:00+01:00">
     Today 13:00
 </div>
 
@@ -3355,7 +3349,7 @@ AC Milan
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
+<div class="minute" data-kickoff="2026-11-22T18:00:00+01:00">
     Today 18:00
 </div>
 
@@ -3466,7 +3460,7 @@ Getafe
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
+<div class="minute" data-kickoff="2026-11-22T21:00:00+01:00">
     Today 21:00
 </div>
 
@@ -3577,7 +3571,7 @@ Marseille
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
+<div class="minute" data-kickoff="2026-11-22T20:45:00+01:00">
     Today 20:45
 </div>
 
@@ -3688,7 +3682,7 @@ Juventus
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
+<div class="minute" data-kickoff="2026-11-22T12:30:00+01:00">
     Today 12:30
 </div>
 
@@ -3799,7 +3793,7 @@ Paris FC
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
+<div class="minute" data-kickoff="2026-11-22T15:00:00+01:00">
     Today 15:00
 </div>
 
@@ -3910,7 +3904,7 @@ Atalanta
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
+<div class="minute" data-kickoff="2026-11-22T20:45:00+01:00">
     Today 20:45
 </div>
 
@@ -4087,8 +4081,6 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
         allow="autoplay; encrypted-media; picture-in-picture"
         allowfullscreen>
     </iframe>
-
-</div>
 
 </div>
 
@@ -6351,11 +6343,13 @@ function updateMatchClocks() {
             const minutes = Math.floor((remaining % 3600) / 60);
             const seconds = remaining % 60;
 
-            match.textContent =
-                'KICKOFF IN ' +
+            match.innerHTML =
+                '<span style="color:inherit;">KICKOFF IN </span>' +
+                '<span style="color:#ffffff;">' +
                 String(hours).padStart(2, '0') + ':' +
                 String(minutes).padStart(2, '0') + ':' +
-                String(seconds).padStart(2, '0');
+                String(seconds).padStart(2, '0') +
+                '</span>';
 
             return;
         }
