@@ -2531,6 +2531,34 @@ img {
     cursor: pointer;
 }
 
+/* White match clock */
+.match-clock-text {
+    color: #ffffff !important;
+}
+
+/* Red blinking LIVE dot */
+.live-indicator {
+    color: #ff2020;
+    animation: liveDotBlink 1s infinite;
+}
+
+@keyframes liveDotBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+/* Red blinking LIVE button */
+.live-blink {
+    background: #dc2626 !important;
+    color: #ffffff !important;
+    animation: liveButtonBlink 1s infinite;
+}
+
+@keyframes liveButtonBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
 </style>
 </head>
         
@@ -2766,26 +2794,26 @@ POWERED BY GROK ENGINE
 <div class="team">
 
 <div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/ng/main/res/f288e04da9b24baeb8e9952d4245e429.png">
+<img loading="lazy" src="https://s.sporty.net/common/main/res/b5750140d9f323788bd216b904fdcd1e.png">
 </div>
 
 <div class="team-name">
-Liverpool
+Brentford
 </div>
 
 </div>
 
 <div class="center">
 
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
-    Today 17:30
+<div class="minute" data-kickoff="2026-11-22T21:00:00+01:00">
+Tomorrow 21:00
 </div>
 
 <div class="vs">VS</div>
 
 <div class="odds-box">
 <span>Odds</span>
-<strong>2.20</strong>
+<strong>1.31</strong>
 </div>
 
 </div>
@@ -2793,11 +2821,11 @@ Liverpool
 <div class="team">
 
 <div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/fca9b99aab5c3f48f3b2a265a1097472.png">
+<img loading="lazy" src="https://s.sporty.net/common/main/res/6b82f2b1ef59196096a4a42d6a3b5224.png">
 </div>
 
 <div class="team-name">
-Man Utd
+Everton
 </div>
 
 </div>
@@ -2832,28 +2860,19 @@ Man Utd
 </div>
 
 <div class="prediction">
-HOME WIN (HT)
+AWAY TEAM or GG (Yes)
 </div>
 
 <div class="buttons">
 
-<button type="button" class="watch"
-onclick="openContestLive('D1fNQ82rA7o', this)"
-style="
-background:linear-gradient(135deg,#334155,#1e293b);
-color:#ffffff;
-cursor:pointer;
-border:1px solid #475569;
-font-weight:700;
-border-radius:12px;
-">
-▶ LIVE STREAM
+<button class="watch" disabled
+style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
+🔞BET ON SPOTY
 </button>
 
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch lock-countdown" disabled
+style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
+🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
 </button>
 
 <button class="watch" disabled
@@ -2886,34 +2905,26 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="team">
 
 <div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/25e40441d42cce317a28037f85af13c1.png">
+<img loading="lazy" src="https://s.sporty.net/common/main/res/c87b7e223dccc7558b02604cb54322e6.png">
 </div>
 
 <div class="team-name">
-Barcelona
+Levante
 </div>
 
 </div>
 
 <div class="center">
 
-<div class="minute" style="
-color:#ffffff;
-font-size:12px;
-font-weight:700;
-text-align:center;
-line-height:1.2;
-letter-spacing:0.5px;
-">
-CORRECT SCORE<br>
-<span style="font-size:17px;">3 - 2</span>
+<div class="minute" data-kickoff="2026-11-22T21:00:00+01:00">
+Tomorrow 21:00
 </div>
 
 <div class="vs">VS</div>
 
 <div class="odds-box">
-<span>Live Odds</span>
-<strong>10.00</strong>
+<span>Odds</span>
+<strong>1.59</strong>
 </div>
 
 </div>
@@ -2921,11 +2932,11 @@ CORRECT SCORE<br>
 <div class="team">
 
 <div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/faa687123e2cebfc61674a8d48cff0d1.png">
+<img loading="lazy" src="https://s.sporty.net/common/main/res/e01830c15fbf1ac3e6a3035b57118e3b.png">
 </div>
 
 <div class="team-name">
-Villarreal
+Elche CF
 </div>
 
 </div>
@@ -2936,11 +2947,11 @@ Villarreal
 
 <div class="confidence-head">
 <span>🤖AI confidence</span>
-<span class="percent">100</span>
+<span class="percent">78</span>
 </div>
 
 <div class="progress">
-    <div class="progress-bar medium" style="width:⚡️100;"></div>
+    <div class="progress-bar medium" style="width:⚡️78;"></div>
 </div>
 
 <div class="match-tabs">
@@ -2960,7 +2971,7 @@ Villarreal
 </div>
 
 <div class="prediction">
-HOME & OVER 2.5 GOALS
+BTTS (Yes)
 </div>
 
 <div class="buttons">
@@ -2970,9 +2981,9 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 🔞BET ON SPOTY
 </button>
 
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
+<button class="watch lock-countdown" disabled
+style="background:#1E293B;color:#FFFFFF;cursor:not-allowed;">
+🔒 OPEN IN <span class="countdown" style="color:#FFFFFF;">5d 00h 00m 00s</span>
 </button>
 
 <button class="watch" disabled
@@ -2996,339 +3007,6 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="upcoming-badge">UPCOMING</div>
 </div>
 
-<div class="hot rotating-hot">Premier League</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/3259f89ed0ca3a0d277da7471c50b836.png">
-</div>
-
-<div class="team-name">
-Hull City
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute" data-kickoff="2026-11-22T15:00:00+01:00">
-    Today 15:00
-</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.47</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/b23e1f9533506aa3254c05a8820213a5.png">
-</div>
-
-<div class="team-name">
-Brighton
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>🤖AI confidence</span>
-<span class="percent">100</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️100;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-UNDER 3.5 GOALS
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️ UNAVAILABLE
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
-</button>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY 4 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
-
-<div class="hot rotating-bundesliga">Bundesliga</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/4f45e9be202bee700d50e7248b25fb37.png">
-</div>
-
-<div class="team-name">
-Werder Bremen
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute" data-kickoff="2026-11-22T17:30:00+01:00">
-    Today 17:30
-</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.56</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/7cb0837fa80190a899388ee3938df398.png">
-</div>
-
-<div class="team-name">
-Hamburger SV
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>🤖AI confidence</span>
-<span class="percent">89</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️89;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-HOME WIN (2up)
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️ UNAVAILABLE
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
-</button>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY 5 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">CHAMPIONSHIP</div>
-</div>
-
-<div class="hot rotating-hot">Premier League</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/b5f60f02459138f5d729a294e67b2da6.png">
-</div>
-
-<div class="team-name">
-Burnley
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute" data-kickoff="2026-11-22T13:00:00+01:00">
-    Today 13:00
-</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-    <span>FULL TIME</span>
-    <strong class="fulltime-score">2 - 2</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/39020b75da39cfef44ee583821b78c4d.png">
-</div>
-
-<div class="team-name">
-Blackburn Rovers
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>🤖AI confidence</span>
-<span class="percent">48</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️48;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-HOME WIN (1up)
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️LIVE STREAM
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
-</button>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY 6 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
-
 <div class="hot rotating-seriea">Serie A</div>
 
 </div>
@@ -3338,233 +3016,11 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div class="team">
 
 <div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/22b579b33ac6283d18e9c1af1bf2eb36.png">
+<img loading="lazy" src="https://s.sporty.net/common/main/res/9c509dc2930a4fad18b26bb3bde6d376.png">
 </div>
 
 <div class="team-name">
-AC Milan
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute" data-kickoff="2026-11-22T18:00:00+01:00">
-    Today 18:00
-</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.58</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/229d0ba8d7385add06b50d2281c0e23e.png">
-</div>
-
-<div class="team-name">
-Frosinone
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>🤖AI confidence</span>
-<span class="percent">100</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️100;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-HOME WIN (2up)
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️LIVE STREAM
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
-</button>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY 7 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
-
-<div class="hot rotating-laliga">Spain LaLiga</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/412d65d8dd3c432a7039f01fe1d59290.png">
-</div>
-
-<div class="team-name">
-Getafe
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute" data-kickoff="2026-11-22T21:00:00+01:00">
-    Today 21:00
-</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.17</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/45218c3319a02a128c8345160fe82f77.png">
-</div>
-
-<div class="team-name">
-Atletico Madrid
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>🤖AI confidence</span>
-<span class="percent">19</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️19;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-AWAY TEAM or GG (Yes)
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️LIVE STREAM
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
-</button>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY 8 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
-
-<div class="hot rotating-ligue1">Ligue 1</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/ng/main/res/e45632ce7cbac3ffd5b1701b0a0b903a.png">
-</div>
-
-<div class="team-name">
-Marseille
+Monza
 </div>
 
 </div>
@@ -3572,14 +3028,14 @@ Marseille
 <div class="center">
 
 <div class="minute" data-kickoff="2026-11-22T20:45:00+01:00">
-    Today 20:45
+Today 20:45
 </div>
 
 <div class="vs">VS</div>
 
 <div class="odds-box">
 <span>Odds</span>
-<strong>1.50</strong>
+<strong>1.28</strong>
 </div>
 
 </div>
@@ -3587,11 +3043,11 @@ Marseille
 <div class="team">
 
 <div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/ng/main/res/f4784238004d38a244459d5e1398c95e.png">
+<img loading="lazy" src="https://s.sporty.net/common/main/res/a4f01d058d84c09413f9a102bba10777.png">
 </div>
 
 <div class="team-name">
-Le Mans FC
+Fiorentina
 </div>
 
 </div>
@@ -3626,355 +3082,14 @@ Le Mans FC
 </div>
 
 <div class="prediction">
-HOME WIN
+HOME or AWAY (12)
 </div>
 
 <div class="buttons">
 
 <button class="watch" disabled
 style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️LIVE STREAM
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
-</button>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY 9 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
-
-<div class="hot rotating-seriea">Serie A</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Juventus_FC_2017_squared_icon_%28white%29.png?utm_source=it.wikipedia.org&utm_campaign=index&utm_content=original">
-</div>
-
-<div class="team-name">
-Juventus
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute" data-kickoff="2026-11-22T12:30:00+01:00">
-    Today 12:30
-</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-    <span>FULL TIME</span>
-    <strong class="fulltime-score">4 - 0</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/ng/main/res/a344c125f597f6097a789f03a40bda26.png">
-</div>
-
-<div class="team-name">
-Venezia FC
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>🤖AI confidence</span>
-<span class="percent">99</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️99;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-HOME TEAM or OVER 2.5 (YES)
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️LIVE STREAM
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
-</button>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY 10 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
-
-<div class="hot rotating-ligue1">Ligue 1</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/ng/main/res/4bcbf3e5a086a216830fdb5e2bad64b6.png">
-</div>
-
-<div class="team-name">
-Paris FC
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute" data-kickoff="2026-11-22T15:00:00+01:00">
-    Today 15:00
-</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.14</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/27c03674935337850d903b1230d0342d.png">
-</div>
-
-<div class="team-name">
-Angers
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>🤖AI confidence</span>
-<span class="percent">100</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️100;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-OVER 1.5 GOALS (early)
-</div>
-
-<div class="buttons">
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-▶️LIVE STREAM
-</button>
-
-<button class="watch" onclick="unlockPrediction(this)"
-style="background:#16a34a;color:#ffffff;cursor:pointer;">
-🔒 SEE PREDICTION
-</button>
-
-<button class="watch" disabled
-style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
-🔞BET ON 1XBET
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- TODAY 11 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-
-<div class="card-top">
-
-<div class="left-info">
-<div class="upcoming-badge">UPCOMING</div>
-</div>
-
-<div class="hot rotating-seriea">Serie A</div>
-
-</div>
-
-<div class="match-area">
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/e8835d10a12e39f2f7170ffe1be219a0.png">
-</div>
-
-<div class="team-name">
-Atalanta
-</div>
-
-</div>
-
-<div class="center">
-
-<div class="minute" data-kickoff="2026-11-22T20:45:00+01:00">
-    Today 20:45
-</div>
-
-<div class="vs">VS</div>
-
-<div class="odds-box">
-<span>Odds</span>
-<strong>1.25</strong>
-</div>
-
-</div>
-
-<div class="team">
-
-<div class="team-logo">
-<img loading="lazy" src="https://s.sporty.net/common/main/res/dbbb1df2aba5ef051129c58516ecc332.png">
-</div>
-
-<div class="team-name">
-Inter
-</div>
-
-</div>
-
-</div>
-
-<div class="confidence-wrap">
-
-<div class="confidence-head">
-<span>🤖AI confidence</span>
-<span class="percent">100</span>
-</div>
-
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️100;"></div>
-</div>
-
-<div class="match-tabs">
-
-<a href="https://omg10.com/4/7461956">Overview</a>
-
-<a href="https://omg10.com/4/7461956">H2H</a>
-
-<a href="https://omg10.com/4/7461956" class="active">Chat</a>
-
-<a href="https://omg10.com/4/7461956">Lineups</a>
-
-<a href="https://omg10.com/4/7461956">Odds</a>
-
-</div>
-
-</div>
-
-<div class="prediction">
-AWAY WIN (1up)
-</div>
-
-<div class="buttons">
-
-<button type="button" class="watch"
-onclick="openContestLive('Jx7f8lvKp0g', this)"
-style="
-background:linear-gradient(135deg,#334155,#1e293b);
-color:#ffffff;
-cursor:pointer;
-border:1px solid #475569;
-font-weight:700;
-border-radius:12px;
-">
-▶ LIVE STREAM
+🔞 BET ON SPOTY
 </button>
 
 <button class="watch" onclick="unlockPrediction(this)"
@@ -4002,85 +3117,6 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
         LIVE MATCH
     </div>
-<!-- ========================= -->
-<!-- LIVE MATCH 1 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-        
-<!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
-
-<div id="player-today-5"
-     class="yt-player-wrap"
-     data-video-id="D1fNQ82rA7o"
-     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;">
-
-    <iframe
-        id="iframe-today-5"
-        width="100%"
-        height="210"
-        src=""
-        title="Live Match Stream"
-        frameborder="0"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen>
-    </iframe>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- LIVE MATCH 2 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-        
-<!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
-
-<div id="player-today-5"
-     class="yt-player-wrap"
-     data-video-id="X2x6EZsv6Js"
-     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;"
-
-    <iframe
-        id="iframe-today-5"
-        width="100%"
-        height="210"
-        src=""
-        title="Live Match Stream"
-        frameborder="0"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen>
-    </iframe>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- LIVE MATCH 3 -->
-<!-- ========================= -->
-
-<div class="card ai-tip-card">
-        
-<!-- COLLAPSIBLE YOUTUBE LIVE PLAYER -->
-
-<div id="player-today-5"
-     class="yt-player-wrap"
-     data-video-id="Jx7f8lvKp0g"
-     style="display:none;margin:12px 0;border-radius:10px;overflow:hidden;background:#111;"
-
-    <iframe
-        id="iframe-today-5"
-        width="100%"
-        height="210"
-        src=""
-        title="Live Match Stream"
-        frameborder="0"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen>
-    </iframe>
 
 </div>
 
@@ -6359,29 +5395,55 @@ function updateMatchClocks() {
         // FIRST HALF
         if (matchMinutes < 45) {
 
-            match.textContent = '🔴 LIVE ' + (matchMinutes + 1) + '′';
+            match.innerHTML =
+                '<span class="live-indicator">●</span> ' +
+                '<span class="match-clock-text">LIVE ' +
+                (matchMinutes + 1) + '′</span>';
 
         }
 
         // HALF TIME
         else if (matchMinutes < 60) {
 
-            match.textContent = 'HT';
+            match.innerHTML =
+                '<span class="match-clock-text">HT</span>';
 
         }
 
         // SECOND HALF
         else if (matchMinutes < 105) {
 
-            match.textContent = '🔴 LIVE ' + (matchMinutes - 15) + '′';
+            match.innerHTML =
+                '<span class="live-indicator">●</span> ' +
+                '<span class="match-clock-text">LIVE ' +
+                (matchMinutes - 15) + '′</span>';
 
         }
 
         // FULL TIME
         else {
 
-            match.textContent = 'FT';
+            match.innerHTML =
+                '<span class="match-clock-text">FT</span>';
 
+        }
+
+        // LIVE BUTTON BLINKING
+        const card = match.closest('.card');
+        const liveButton = card ? card.querySelector('.watch') : null;
+
+        if (liveButton) {
+
+            if (matchMinutes < 45 ||
+                (matchMinutes >= 60 && matchMinutes < 105)) {
+
+                liveButton.classList.add('live-blink');
+
+            } else {
+
+                liveButton.classList.remove('live-blink');
+
+            }
         }
 
     });
