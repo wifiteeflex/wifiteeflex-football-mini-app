@@ -2561,6 +2561,24 @@ img {
     width: auto !important;
 }
 
+.live-blink {
+    background: #dc2626 !important;
+    color: #ffffff !important;
+    animation: liveRedBlink 1s infinite;
+}
+
+@keyframes liveRedBlink {
+    0%, 100% {
+        background: #dc2626;
+        opacity: 1;
+    }
+
+    50% {
+        background: #7f1d1d;
+        opacity: 0.65;
+    }
+}
+
 </style>
 </head>
         
@@ -6362,12 +6380,12 @@ function updateMatchClocks() {
             return;
         }
 
-        const elapsed = Math.floor((now - kickoff) / 1000);
-
         // BEFORE KICKOFF
-        if (elapsed < 0) {
+        const rawElapsed = Math.floor((now - kickoff) / 1000);
 
-            const remaining = Math.abs(elapsed);
+        if (rawElapsed < 0) {
+
+            const remaining = Math.abs(rawElapsed);
 
             const hours = Math.floor(remaining / 3600);
             const minutes = Math.floor((remaining % 3600) / 60);
@@ -6384,26 +6402,50 @@ function updateMatchClocks() {
             return;
         }
 
+        // CORRECT THE CLOCK BY 3 MINUTES
+        const elapsed = Math.max(0, rawElapsed - 180);
+
         const matchMinutes = Math.floor(elapsed / 60);
+        const matchSeconds = elapsed % 60;
+
+        const clock =
+            String(matchMinutes).padStart(2, '0') + ':' +
+            String(matchSeconds).padStart(2, '0');
+
+        // Find the LIVE button belonging to this match card
+        const card = match.closest('.card');
+        const liveButton = card ? card.querySelector('.watch') : null;
 
         // FIRST HALF
         if (matchMinutes < 45) {
 
-            match.textContent = '🔴 LIVE ' + (matchMinutes + 1) + '′';
+            match.textContent = clock + ' H1';
+
+            if (liveButton) {
+                liveButton.classList.add('live-blink');
+            }
 
         }
 
         // HALF TIME
         else if (matchMinutes < 60) {
 
-            match.textContent = 'HT';
+            match.textContent = '45:00 HT';
+
+            if (liveButton) {
+                liveButton.classList.remove('live-blink');
+            }
 
         }
 
         // SECOND HALF
         else if (matchMinutes < 105) {
 
-            match.textContent = '🔴 LIVE ' + (matchMinutes - 15) + '′';
+            match.textContent = clock + ' H2';
+
+            if (liveButton) {
+                liveButton.classList.add('live-blink');
+            }
 
         }
 
@@ -6411,6 +6453,10 @@ function updateMatchClocks() {
         else {
 
             match.textContent = 'FT';
+
+            if (liveButton) {
+                liveButton.classList.remove('live-blink');
+            }
 
         }
 
