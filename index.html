@@ -6360,7 +6360,7 @@ function updateMatchClocks() {
             return;
         }
 
-        const elapsed = Math.max(0, Math.floor((now - kickoff) / 1000) - 300);
+        const elapsed = Math.floor((now - kickoff) / 1000);
 
         // BEFORE KICKOFF
         if (elapsed < 0) {
@@ -6387,55 +6387,29 @@ function updateMatchClocks() {
         // FIRST HALF
         if (matchMinutes < 45) {
 
-            match.innerHTML =
-                '<span class="live-indicator">●</span> ' +
-                '<span class="match-clock-text">LIVE ' +
-                (matchMinutes + 1) + '′</span>';
+            match.textContent = '🔴 LIVE ' + (matchMinutes + 1) + '′';
 
         }
 
         // HALF TIME
         else if (matchMinutes < 60) {
 
-            match.innerHTML =
-                '<span class="match-clock-text">HT</span>';
+            match.textContent = 'HT';
 
         }
 
         // SECOND HALF
         else if (matchMinutes < 105) {
 
-            match.innerHTML =
-                '<span class="live-indicator">●</span> ' +
-                '<span class="match-clock-text">LIVE ' +
-                (matchMinutes - 15) + '′</span>';
+            match.textContent = '🔴 LIVE ' + (matchMinutes - 15) + '′';
 
         }
 
         // FULL TIME
         else {
 
-            match.innerHTML =
-                '<span class="match-clock-text">FT</span>';
+            match.textContent = 'FT';
 
-        }
-
-        // LIVE BUTTON BLINKING
-        const card = match.closest('.card');
-        const liveButton = card ? card.querySelector('.watch') : null;
-
-        if (liveButton) {
-
-            if (matchMinutes < 45 ||
-                (matchMinutes >= 60 && matchMinutes < 105)) {
-
-                liveButton.classList.add('live-blink');
-
-            } else {
-
-                liveButton.classList.remove('live-blink');
-
-            }
         }
 
     });
