@@ -2323,6 +2323,62 @@ font-weight:600;
     50% { opacity: 0.5; }
 }
 
+.confidence-wrap {
+    background: #111827;
+    border: 1px solid #263445;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin: 10px 0;
+}
+
+.confidence-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.confidence-title {
+    color: #d1d5db;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.percent {
+    color: #22c55e;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.progress {
+    height: 7px;
+    background: #293342;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #15803d, #4ade80);
+    border-radius: 20px;
+    box-shadow: 0 0 8px rgba(34,197,94,.25);
+}
+
+.confidence-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 9px;
+    font-size: 10px;
+    color: #8995a5;
+}
+
+.confidence-level {
+    color: #4ade80;
+    font-weight: 800;
+    letter-spacing: .7px;
+}
+
 </style>
 </head>
         
@@ -2598,13 +2654,20 @@ Everton
 
 <div class="confidence-wrap">
 
-<div class="confidence-head">
-<span>🤖AI confidence</span>
-<span class="percent">100</span>
-</div>
+  <div class="confidence-head">
+    <span class="confidence-title">🤖 AI CONFIDENCE</span>
+    <span class="percent">100%</span>
+  </div>
 
-<div class="progress">
-    <div class="progress-bar medium" style="width:⚡️100;"></div>
+  <div class="progress">
+    <div class="progress-bar" style="width:100%;"></div>
+  </div>
+
+  <div class="confidence-footer">
+    <span>AI Prediction Strength</span>
+    <span class="confidence-level">VERY HIGH</span>
+  </div>
+
 </div>
 
 <div class="match-tabs">
@@ -3048,9 +3111,9 @@ England
 </div>
 
 <div>
-🇳🇬
+🇺🇸
 <br>
-Nigeria
+USA
 </div>
 
 <div>
