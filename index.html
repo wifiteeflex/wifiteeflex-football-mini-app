@@ -2295,242 +2295,6 @@ font-weight:600;
     user-select:none;
 }
 
-/* ===== Match Preview Card – Mobile First (YouTube style) ===== */
-.match-preview-card {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  aspect-ratio: 16 / 9;
-  max-height: 220px;          /* ← prevents it from becoming too tall on phone */
-  border-radius: 12px;
-  overflow: hidden;
-  background: #111;
-  margin: 10px 0 14px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-}
-
-/* Image stays sharp and fills the box properly */
-.preview-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-/* Soft gradient so text stays readable */
-.preview-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.82) 0%,
-    rgba(0,0,0,0.2) 50%,
-    rgba(0,0,0,0.1) 100%
-  );
-  pointer-events: none;
-}
-
-/* Top badges – smaller & tighter */
-.preview-top {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  display: flex;
-  gap: 6px;
-  z-index: 2;
-}
-
-.live-badge {
-  background: #e50914;
-  color: white;
-  font-size: 11px;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.4px;
-}
-
-.competition-badge {
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 4px;
-  backdrop-filter: blur(4px);
-}
-
-/* Bottom info – compact */
-.preview-bottom {
-  position: absolute;
-  bottom: 10px;
-  left: 12px;
-  right: 12px;
-  z-index: 2;
-  color: white;
-}
-
-.preview-time {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13.5px;
-  font-weight: 700;
-  margin-bottom: 2px;
-}
-
-.live-dot {
-  width: 8px;
-  height: 8px;
-  background: #42e66b;
-  border-radius: 50%;
-  box-shadow: 0 0 6px #42e66b;
-  animation: pulse 1.4s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
-}
-
-.preview-date {
-  font-size: 12px;
-  color: #ccc;
-  font-weight: 500;
-}
-
-/* Extra safety for very small screens */
-@media (max-width: 380px) {
-  .match-preview-card {
-    max-height: 190px;
-  }
-  
-  .preview-time {
-    font-size: 13px;
-  }
-  
-  .preview-date {
-    font-size: 11.5px;
-  }
-}
-
-.live-match-card {
-    width: 100%;
-    background: #101827;
-    border: 1px solid #26364d;
-    border-radius: 16px;
-    padding: 15px;
-    margin: 15px 0;
-    box-sizing: border-box;
-}
-
-.live-match-card .watch {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    background: #16a34a;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.yt-player-wrap {
-    display: none;
-    width: 100%;
-    margin-top: 12px;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 10px;
-    background: #000;
-}
-
-.yt-player-wrap iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-}
-
-/* Prevent other pages from flashing during startup */
-.page {
-    display: none;
-}
-
-/* Show homepage immediately */
-#homePage {
-    display: block;
-}
-
-/* Prevent layout jumping */
-img {
-    max-width: 100%;
-}
-
-/* Smooth page appearance */
-.page.active {
-    display: block;
-}
-
-img {
-    content-visibility: auto;
-}
-
-.streak-days {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    margin: 18px 0;
-}
-
-.streak-box {
-    background: #17251f;
-    border: 1px solid #34483d;
-    border-radius: 12px;
-    padding: 12px 4px;
-    text-align: center;
-    font-size: 18px;
-    color: #fff;
-}
-
-.streak-box span {
-    display: block;
-    font-size: 10px;
-    color: #aaa;
-    margin-bottom: 7px;
-}
-
-.streak-box small {
-    display: block;
-    font-size: 10px;
-    margin-top: 6px;
-    color: #b8c9bd;
-}
-
-.streak-box.active {
-    border: 1px solid #22c55e;
-    background: #153b29;
-}
-
-.streak-box.claimed {
-    background: #254c36;
-    border-color: #22c55e;
-}
-
-.daily-claim {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    background: #16a34a;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 /* White match clock */
 .match-clock-text {
     color: #ffffff !important;
@@ -4471,40 +4235,6 @@ Official Lead Partner
 
 <script>
 
-// Match starts: 5 September 2026 20:00
-const matchDate = new Date("2026-11-01T01:39:00").getTime();
-
-function updateCountdown(){
-
-    const now = Date.now();
-    const distance = matchDate - now;
-
-    if(distance <= 0){
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerText = String(days).padStart(2,"0");
-    document.getElementById("hours").innerText = String(hours).padStart(2,"0");
-    document.getElementById("minutes").innerText = String(minutes).padStart(2,"0");
-    document.getElementById("seconds").innerText = String(seconds).padStart(2,"0");
-}
-
-updateCountdown();
-setInterval(updateCountdown,1000);
-
-</script>
-
-<script>
-
 function showPage(pageId, el){
 
   document.querySelectorAll('.page').forEach(p=>{
@@ -4564,27 +4294,6 @@ function showPage(pageId, button){
     window.scrollTo(0,0);
 
 }
-
-</script>
-
-<script>
-
-// Open Home once when the app starts
-document.addEventListener("DOMContentLoaded", function(){
-
-    currentPage = "homePage";
-
-    const home = document.getElementById("homePage");
-
-    if(home){
-        document.querySelectorAll(".page").forEach(page=>{
-            page.style.display = "none";
-        });
-
-        home.style.display = "block";
-    }
-
-});
 
 </script>
 
@@ -4951,7 +4660,7 @@ requestAnimationFrame(() => {
 // Format: DD Month YYYY at HH:MM
 // Time is always Nigeria time (WAT)
 
-const unlockDateText = "23 November 2026 at 2:00";
+const unlockDateText = "26 November 2026 at 12:00";
 
 function parseUnlockDate(dateText) {
     const months = {
@@ -5166,8 +4875,8 @@ const MY_BOOKING_CODE = "Q21P07";
 // DAILY REWARD SETTINGS
 // ==================================
 
-const CLAIM_INTERVAL = 1 * 60 * 60 * 1000;
-const CODE_DURATION = 5 * 60 * 1000;
+const CLAIM_INTERVAL = 24 * 60 * 60 * 1000;
+const CODE_DURATION = 10 * 60 * 1000;
 
 const STORAGE_KEY = "footballDailyBooking";
 
@@ -5323,34 +5032,6 @@ function updateDailyReward() {
 document.addEventListener("DOMContentLoaded", updateDailyReward);
 
 setInterval(updateDailyReward, 1000);
-</script>
-
-<script>
-function openContestLive(videoId, button) {
-
-    // Open the Contest page using your existing navigation
-    showPage('contestPage', button);
-
-    // Find the player on the Contest page
-    const player = document.getElementById('player-today-5');
-    const iframe = document.getElementById('iframe-today-5');
-
-    if (!player || !iframe) {
-        console.error('Contest player or iframe not found');
-        return;
-    }
-
-    // Show and play the selected match
-    player.style.display = 'block';
-
-    iframe.src = 'https://www.youtube-nocookie.com/embed/' +
-                 videoId + '?autoplay=1';
-
-    player.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-}
 </script>
 
 <script>
