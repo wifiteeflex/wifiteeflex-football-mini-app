@@ -2358,7 +2358,7 @@ body {
     }
 }
 
-    #contestPage #tma-chat-box {
+ #contestPage #tma-chat-box {
       display: flex;
       flex-direction: column;
       height: calc(100vh - 215px);
@@ -2418,31 +2418,6 @@ body {
       align-items: center;
       gap: 6px;
       min-width: 0;
-    }
-
-    /* Small round circle avatar (18px) */
-    #contestPage .tma-user-row img.tma-avatar-img,
-    #contestPage .tma-user-row span.tma-avatar-fallback {
-      width: 18px !important;
-      height: 18px !important;
-      min-width: 18px !important;
-      min-height: 18px !important;
-      max-width: 18px !important;
-      max-height: 18px !important;
-      border-radius: 50% !important;
-      object-fit: cover !important;
-      flex: 0 0 18px !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-    }
-
-    #contestPage .tma-avatar-fallback {
-      font-size: 9px !important;
-      font-weight: 800;
-      line-height: 1;
-      color: #0d0f12;
     }
 
     #contestPage .tma-msg-author {
@@ -3754,7 +3729,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div id="contestPage" class="page">
 
 <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
-    CHAT ROOM MATE 3
+    CHAT ROOM MATE 5
   </div>
 
   <div id="tma-chat-box">
@@ -6096,14 +6071,12 @@ setInterval(updateMatchClocks, 1000);
 
   const tgUser = tg?.initDataUnsafe?.user || {
     id: "guest_" + Math.floor(Math.random() * 10000),
-    first_name: "Guest User",
-    photo_url: ""
+    first_name: "Guest User"
   };
 
   const currentUser = {
     id: String(tgUser.id),
     name: tgUser.username ? `@${tgUser.username}` : tgUser.first_name,
-    photoUrl: typeof tgUser.photo_url === "string" ? tgUser.photo_url : "",
     countryCode: sessionStorage.getItem("tma_country_code") || "",
     countryName: sessionStorage.getItem("tma_country_name") || ""
   };
@@ -6148,25 +6121,6 @@ setInterval(updateMatchClocks, 1000);
       hash |= 0;
     }
     return USER_COLORS[Math.abs(hash) % USER_COLORS.length];
-  }
-
-  function renderAvatar(name, photoUrl, color) {
-    const cleanPhoto = typeof photoUrl === "string" && /^https?:\/\//i.test(photoUrl) ? photoUrl : "";
-    const initial = (String(name || "U").replace(/^@/, "").trim()[0] || "U").toUpperCase();
-
-    if (cleanPhoto) {
-      return `
-        <img
-          class="tma-avatar-img"
-          src="${escapeHTML(cleanPhoto)}"
-          alt="${escapeHTML(name)}"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"
-        />
-        <span class="tma-avatar-fallback" style="display:none;background:${color};">${escapeHTML(initial)}</span>
-      `;
-    }
-
-    return `<span class="tma-avatar-fallback" style="background:${color};">${escapeHTML(initial)}</span>`;
   }
 
   let replyingTo = null;
@@ -6218,7 +6172,6 @@ setInterval(updateMatchClocks, 1000);
       bubble.innerHTML = `
         <div class="tma-msg-header">
           <div class="tma-user-row">
-            ${renderAvatar(data.userName || "User", data.userPhoto || "", userColor)}
             <span class="tma-msg-author" style="color:${userColor};">${safeName}</span>
             ${flagHTML}
           </div>
@@ -6241,17 +6194,6 @@ setInterval(updateMatchClocks, 1000);
 
       messagesEl.appendChild(bubble);
     });
-
-bubble.querySelectorAll("img.tma-avatar-img").forEach((img) => {
-  img.style.setProperty("width", "18px", "important");
-  img.style.setProperty("height", "18px", "important");
-  img.style.setProperty("min-width", "18px", "important");
-  img.style.setProperty("min-height", "18px", "important");
-  img.style.setProperty("max-width", "18px", "important");
-  img.style.setProperty("max-height", "18px", "important");
-  img.style.setProperty("border-radius", "50%", "important");
-  img.style.setProperty("object-fit", "cover", "important");
-});
 
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }, (err) => {
@@ -6281,7 +6223,6 @@ bubble.querySelectorAll("img.tma-avatar-img").forEach((img) => {
       await addDoc(messagesRef, {
         userId: currentUser.id,
         userName: currentUser.name,
-        userPhoto: currentUser.photoUrl,
         countryCode: currentUser.countryCode,
         countryName: currentUser.countryName,
         text: text,
