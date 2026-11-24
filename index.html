@@ -2358,6 +2358,128 @@ body {
     }
 }
 
+#tma-chat-box {
+  display: flex;
+  flex-direction: column;
+  height: 72vh;
+  max-height: 620px;
+  margin-top: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--tg-theme-secondary-bg-color, #1e1e1e);
+  color: var(--tg-theme-text-color, #ffffff);
+}
+
+#tma-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--tg-theme-bg-color, #121212);
+}
+
+.tma-msg {
+  max-width: 82%;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: var(--tg-theme-secondary-bg-color, #1e1e1e);
+  align-self: flex-start;
+  word-wrap: break-word;
+}
+
+.tma-msg.mine {
+  background: var(--tg-theme-button-color, #2ea6ff);
+  color: var(--tg-theme-button-text-color, #ffffff);
+  align-self: flex-end;
+}
+
+.tma-msg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.tma-msg-author {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.tma-reply-btn {
+  font-size: 11px;
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+.tma-quoted-reply {
+  font-size: 12px;
+  padding: 4px 8px;
+  margin-bottom: 6px;
+  border-left: 3px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+}
+
+.tma-msg-text {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+#tma-reply-preview {
+  display: none;
+  padding: 8px 12px;
+  background: var(--tg-theme-secondary-bg-color, #252525);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+#tma-cancel-reply {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#tma-chat-form {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: var(--tg-theme-secondary-bg-color, #1e1e1e);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#tma-msg-input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background: var(--tg-theme-bg-color, #121212);
+  color: var(--tg-theme-text-color, #ffffff);
+  font-size: 14px;
+}
+
+#tma-send-btn {
+  padding: 0 16px;
+  border-radius: 20px;
+  border: none;
+  background: var(--tg-theme-button-color, #2ea6ff);
+  color: var(--tg-theme-button-text-color, #ffffff);
+  font-weight: 600;
+  cursor: pointer;
+}
+
 </style>
 </head>
         
@@ -3575,144 +3697,25 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 </div>
 
-<div id="contestPage" class="page">
+<div id="Chatroom" class="page">
 
     <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
-        PREDICTION MATCH LEAGUES
+        CHAT ROOM
     </div>
 
-<div class="worldcup-header">
+    <div id="tma-chat-box">
+        <div id="tma-messages"></div>
 
-<div class="wc-line"></div>
+        <div id="tma-reply-preview">
+            <span id="tma-reply-text"></span>
+            <button type="button" id="tma-cancel-reply" aria-label="Cancel reply">✕</button>
+        </div>
 
-<div class="wc-title">
-
-CHAMPIONS
-
-<img loading="lazy" class="wc-trophy"
-src="https://i.imgur.com/zSUwT3K.jpeg">
-
-LEAGUE UE
-
-</div>
-
-<div class="wc-line"></div>
-
-</div>
-
-<div class="worldcup-header">
-
-<div class="wc-line"></div>
-
-<div class="wc-title">
-
-FRIENDLY
-
-<img loading="lazy" class="wc-trophy"
-src="https://i.imgur.com/LIbmWfq.jpeg">
-
-GAMES INT
-
-</div>
-
-<div class="wc-line"></div>
-
-</div>
-
-
-<div class="worldcup-header">
-
-<div class="wc-line"></div>
-
-<div class="wc-title">
-
-ENGLAND
-
-<img loading="lazy" class="wc-trophy"
-src="https://upload.wikimedia.org/wikipedia/en/c/cb/English_Football_League_Logo.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original">
-
-EFL CUP
-
-</div>
-
-<div class="wc-line"></div>
-
-</div>
-
-
-<div class="worldcup-header">
-
-<div class="wc-line"></div>
-
-<div class="wc-title">
-
-LEAGUE
-
-<img loading="lazy" class="wc-trophy"
-src="https://i.imgur.com/iavw1l8.png">
-
-NETHER
-
-</div>
-
-<div class="wc-line"></div>
-
-</div>
-
-<div class="worldcup-header">
-
-<div class="wc-line"></div>
-
-<div class="wc-title">
-
-PORTUGAL
-
-<img loading="lazy" class="wc-trophy"
-src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Liga_Portugal.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original">
-
-LEAGUE INT
-
-</div>
-
-<div class="wc-line"></div>
-
-</div>
-
-<div class="worldcup-header">
-
-<div class="wc-line"></div>
-
-<div class="wc-title">
-
-ITALIAN
-
-<img loading="lazy" class="wc-trophy"
-src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Serie_A.png">
-
-SERIA A
-
-</div>
-
-<div class="wc-line"></div>
-
-</div>
-
-<div class="worldcup-header">
-
-<div class="wc-line"></div>
-
-<div class="wc-title">
-
-FRANCE
-
-<img loading="lazy" class="wc-trophy"
-src="https://i.imgur.com/Y7aEeq6.png">
-
-LEAGUE 1
-
-</div>
-
-<div class="wc-line"></div>
+        <form id="tma-chat-form">
+            <input type="text" id="tma-msg-input" placeholder="Message community..." autocomplete="off" maxlength="300" />
+            <button type="submit" id="tma-send-btn">Send</button>
+        </form>
+    </div>
 
 </div>
 
@@ -5999,6 +6002,131 @@ setInterval(updateMatchClocks, 1000);
         openHomeFirst();
     }
 })();
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    query,
+    orderBy,
+    limit,
+    onSnapshot,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBUSy3wlY2sY6O6TWlnk5zId_hBDCESJzg",
+    authDomain: "my-tma-chat.firebaseapp.com",
+    projectId: "my-tma-chat",
+    storageBucket: "my-tma-chat.firebasestorage.app",
+    messagingSenderId: "938233912418",
+    appId: "1:938233912418:web:57d84d517d5f96eccc053b"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const messagesRef = collection(db, "tma_chat");
+
+  const tg = window.Telegram?.WebApp;
+  if (tg) {
+    tg.ready();
+    tg.expand();
+  }
+
+  const tgUser = tg?.initDataUnsafe?.user || {
+    id: "guest_" + Math.floor(Math.random() * 10000),
+    first_name: "Guest User"
+  };
+
+  const currentUser = {
+    id: String(tgUser.id),
+    name: tgUser.username ? `@${tgUser.username}` : tgUser.first_name
+  };
+
+  let replyingTo = null;
+  const messagesEl = document.getElementById("tma-messages");
+  const formEl = document.getElementById("tma-chat-form");
+  const inputEl = document.getElementById("tma-msg-input");
+  const replyBarEl = document.getElementById("tma-reply-preview");
+  const replyTextEl = document.getElementById("tma-reply-text");
+  const cancelReplyBtn = document.getElementById("tma-cancel-reply");
+
+  const q = query(messagesRef, orderBy("createdAt", "asc"), limit(50));
+  onSnapshot(q, (snapshot) => {
+    messagesEl.innerHTML = "";
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      const isMine = data.userId === currentUser.id;
+
+      const bubble = document.createElement("div");
+      bubble.className = `tma-msg ${isMine ? "mine" : ""}`;
+
+      const safeText = escapeHTML(data.text || "");
+      const safeName = escapeHTML(data.userName || "User");
+
+      let replyHTML = "";
+      if (data.replyTo) {
+        replyHTML = `<div class="tma-quoted-reply"><strong>${escapeHTML(data.replyTo.name || "")}:</strong> ${escapeHTML(data.replyTo.text || "")}</div>`;
+      }
+
+      bubble.innerHTML = `
+        <div class="tma-msg-header">
+          <span class="tma-msg-author">${safeName}</span>
+          <button type="button" class="tma-reply-btn">Reply</button>
+        </div>
+        ${replyHTML}
+        <div class="tma-msg-text">${safeText}</div>
+      `;
+
+      bubble.querySelector(".tma-reply-btn").addEventListener("click", () => {
+        replyingTo = { name: data.userName || "User", text: String(data.text || "").slice(0, 60) };
+        replyTextEl.textContent = `Replying to ${replyingTo.name}: "${replyingTo.text}"`;
+        replyBarEl.style.display = "flex";
+        inputEl.focus();
+      });
+
+      messagesEl.appendChild(bubble);
+    });
+
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  });
+
+  cancelReplyBtn.addEventListener("click", () => {
+    replyingTo = null;
+    replyBarEl.style.display = "none";
+  });
+
+  formEl.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const text = inputEl.value.trim();
+    if (!text) return;
+
+    inputEl.value = "";
+    const replyPayload = replyingTo;
+    replyingTo = null;
+    replyBarEl.style.display = "none";
+
+    await addDoc(messagesRef, {
+      userId: currentUser.id,
+      userName: currentUser.name,
+      text: text,
+      replyTo: replyPayload,
+      createdAt: serverTimestamp()
+    });
+  });
+
+  function escapeHTML(str) {
+    return String(str).replace(/[&<>"']/g, (m) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[m]));
+  }
 </script>
 
 </body>
