@@ -2359,245 +2359,155 @@ body {
 }
 
 #contestPage #tma-chat-box {
-  display: flex;
-  flex-direction: column;
-  height: calc(100dvh - 155px);
-  min-height: 460px;
-  margin: 6px 8px 0 8px;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #23272f;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #e5e7eb;
-  position: relative;
-}
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 215px);
+      min-height: 300px;
+      margin: 8px 10px 0 10px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #14171c;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
 
-#contestPage #tma-messages {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 12px 10px 16px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: #23272f;
-}
+    #contestPage #tma-messages {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #0d0f12;
+    }
 
-#contestPage .tma-status-note {
-  text-align: center;
-  font-size: 12px;
-  color: #9ca3af;
-  margin: auto 0;
-  padding: 12px;
-}
+    #contestPage .tma-status-note {
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      margin: auto 0;
+      padding: 12px;
+    }
 
-#contestPage .tma-msg-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  max-width: 92%;
-  align-self: flex-start;
-}
+    #contestPage .tma-msg {
+      max-width: 82%;
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: #1f242d;
+      align-self: flex-start;
+      word-wrap: break-word;
+    }
 
-#contestPage .tma-msg-row.mine {
-  align-self: flex-end;
-  flex-direction: row-reverse;
-}
+    #contestPage .tma-msg.mine {
+      background: #153622;
+      border: 1px solid rgba(22, 163, 74, 0.45);
+      align-self: flex-end;
+    }
 
-#contestPage .tma-avatar-wrap {
-  position: relative;
-  width: 30px !important;
-  height: 30px !important;
-  min-width: 30px !important;
-  min-height: 30px !important;
-  max-width: 30px !important;
-  max-height: 30px !important;
-  flex: 0 0 30px !important;
-  margin-top: 2px;
-}
+    #contestPage .tma-msg-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
 
-#contestPage .tma-avatar-img,
-#contestPage .tma-avatar-fallback {
-  width: 30px !important;
-  height: 30px !important;
-  min-width: 30px !important;
-  min-height: 30px !important;
-  max-width: 30px !important;
-  max-height: 30px !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  overflow: hidden !important;
-  font-size: 11px !important;
-  font-weight: 800;
-  color: #111827;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
+    #contestPage .tma-user-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+    }
 
-#contestPage .tma-flag-badge {
-  position: absolute;
-  right: -3px;
-  bottom: -3px;
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 50%;
-  background: #1f242c;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  line-height: 1;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
-}
+    #contestPage .tma-msg-author {
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-#contestPage .tma-bubble-card {
-  background: #343942;
-  border-radius: 8px;
-  padding: 6px 10px;
-  min-width: 110px;
-  word-wrap: break-word;
-}
+    #contestPage .tma-country-flag {
+      font-size: 13px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
 
-#contestPage .tma-msg-row.mine .tma-bubble-card {
-  background: #244738;
-  border: 1px solid rgba(34, 197, 94, 0.35);
-}
+    #contestPage .tma-reply-btn {
+      font-size: 11px;
+      background: none;
+      border: none;
+      color: #cbd5e1;
+      opacity: 0.85;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
 
-#contestPage .tma-msg-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 2px;
-}
+    #contestPage .tma-quoted-reply {
+      font-size: 11px;
+      padding: 4px 8px;
+      margin-bottom: 6px;
+      border-left: 3px solid #38bdf8;
+      background: rgba(0, 0, 0, 0.28);
+      border-radius: 4px;
+    }
 
-#contestPage .tma-msg-author {
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+    #contestPage .tma-msg-text {
+      font-size: 14px;
+      line-height: 1.35;
+      color: #f8fafc;
+    }
 
-#contestPage .tma-reply-btn {
-  font-size: 10px;
-  background: none;
-  border: none;
-  color: #cbd5e1;
-  opacity: 0.75;
-  cursor: pointer;
-  padding: 0;
-  flex-shrink: 0;
-}
+    #contestPage #tma-reply-preview {
+      display: none;
+      padding: 7px 12px;
+      background: #1f242d;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
 
-#contestPage .tma-quoted-reply {
-  font-size: 10px;
-  padding: 3px 6px;
-  margin-bottom: 4px;
-  border-left: 2px solid #38bdf8;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 3px;
-  color: #d1d5db;
-}
+    #contestPage #tma-cancel-reply {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 15px;
+      cursor: pointer;
+    }
 
-#contestPage .tma-msg-text {
-  font-size: 13px;
-  line-height: 1.32;
-  color: #f3f4f6;
-}
+    #contestPage #tma-chat-form {
+      display: flex;
+      gap: 8px;
+      padding: 8px 10px;
+      background: #14171c;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-#contestPage #tma-reply-preview {
-  display: none;
-  padding: 6px 10px;
-  background: #2c313a;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 11px;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
+    #contestPage #tma-msg-input {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      outline: none;
+      background: #0d0f12;
+      color: #ffffff;
+      font-size: 14px;
+    }
 
-#contestPage #tma-cancel-reply {
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-#contestPage #tma-chat-form {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  background: #2b3038;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-#contestPage .tma-room-badge-btn {
-  width: 34px;
-  height: 34px;
-  border: none;
-  background: transparent;
-  color: #34d399;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  padding: 0;
-  cursor: default;
-}
-
-#contestPage .tma-input-pill {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #383e48;
-  border-radius: 8px;
-  padding: 0 12px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-#contestPage .tma-pencil-icon {
-  color: #9ca3af;
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-}
-
-#contestPage #tma-msg-input {
-  flex: 1;
-  min-width: 0;
-  height: 38px;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #ffffff;
-  font-size: 13px;
-}
-
-#contestPage #tma-msg-input::placeholder {
-  color: #9ca3af;
-}
-
-#contestPage #tma-send-btn {
-  padding: 0 14px;
-  height: 34px;
-  border-radius: 8px;
-  border: none;
-  background: #16a34a;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 12px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
+    #contestPage #tma-send-btn {
+      padding: 0 18px;
+      border-radius: 20px;
+      border: none;
+      background: #16a34a;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+    }
 
 </style>
 </head>
@@ -3595,7 +3505,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </div>
 
 <div id="contestPage" class="page">
-  <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
+    <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
     CHAT ROOM MATE 2
   </div>
 
@@ -3610,28 +3520,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
     </div>
 
     <form id="tma-chat-form">
-      <button type="button" class="tma-room-badge-btn" aria-label="Chat room">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
-          <path d="M4 6h12a2 2 0 0 1 2 2v1.5a1.5 1.5 0 0 0 0 3V14a2 2 0 0 1-2 2H4v-2.5a1.5 1.5 0 0 0 0-3V8.5A1.5 1.5 0 0 0 4 6z"></path>
-          <path d="M18 11h3"></path>
-          <path d="M19 9l2 2-2 2"></path>
-        </svg>
-      </button>
-
-      <div class="tma-input-pill">
-        <span class="tma-pencil-icon">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 20h9"></path>
-            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-          </svg>
-        </span>
-        <input type="text" id="tma-msg-input" placeholder="Start chatting..." autocomplete="off" maxlength="300" />
-      </div>
-
+      <input type="text" id="tma-msg-input" placeholder="Message community..." autocomplete="off" maxlength="300" />
       <button type="submit" id="tma-send-btn">Send</button>
     </form>
   </div>
-</div>
 
 </div>
 
@@ -5920,247 +5812,212 @@ setInterval(updateMatchClocks, 1000);
 })();
 </script>
 
-<script>
-import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  query,
-  orderBy,
-  limit,
-  onSnapshot,
-  serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+<script type="module">
+  import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    query,
+    orderBy,
+    limit,
+    onSnapshot,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBUSy3wlY2sY6O6TWlnk5zId_hBDCESJzg",
-  authDomain: "my-tma-chat.firebaseapp.com",
-  projectId: "my-tma-chat",
-  storageBucket: "my-tma-chat.firebasestorage.app",
-  messagingSenderId: "938233912418",
-  appId: "1:938233912418:web:57d84d517d5f96eccc053b"
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyBUSy3wlY2sY6O6TWlnk5zId_hBDCESJzg",
+    authDomain: "my-tma-chat.firebaseapp.com",
+    projectId: "my-tma-chat",
+    storageBucket: "my-tma-chat.firebasestorage.app",
+    messagingSenderId: "938233912418",
+    appId: "1:938233912418:web:57d84d517d5f96eccc053b"
+  };
 
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const messagesRef = collection(db, "tma_chat");
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const messagesRef = collection(db, "tma_chat");
 
-const tg = window.Telegram?.WebApp;
-if (tg) {
-  tg.ready();
-  tg.expand();
-}
+  const tg = window.Telegram?.WebApp;
+  if (tg) {
+    tg.ready();
+    tg.expand();
+  }
 
-const tgUser = tg?.initDataUnsafe?.user || {
-  id: "guest_" + Math.floor(Math.random() * 10000),
-  first_name: "Guest User",
-  photo_url: ""
-};
+  const tgUser = tg?.initDataUnsafe?.user || {
+    id: "guest_" + Math.floor(Math.random() * 10000),
+    first_name: "Guest User"
+  };
 
-const currentUser = {
-  id: String(tgUser.id),
-  name: tgUser.username ? `@${tgUser.username}` : tgUser.first_name,
-  photoUrl: typeof tgUser.photo_url === "string" ? tgUser.photo_url : "",
-  countryCode: sessionStorage.getItem("tma_country_code") || "",
-  countryName: sessionStorage.getItem("tma_country_name") || ""
-};
+  const currentUser = {
+    id: String(tgUser.id),
+    name: tgUser.username ? `@${tgUser.username}` : tgUser.first_name,
+    countryCode: sessionStorage.getItem("tma_country_code") || "",
+    countryName: sessionStorage.getItem("tma_country_name") || ""
+  };
 
-function countryCodeToFlag(code) {
-  const clean = String(code || "").trim().toUpperCase();
-  if (!/^[A-Z]{2}$/.test(clean)) return "";
-  return String.fromCodePoint(
-    ...[...clean].map((c) => 0x1F1E6 + c.charCodeAt(0) - 65)
-  );
-}
+  function countryCodeToFlag(code) {
+    const clean = String(code || "").trim().toUpperCase();
+    if (!/^[A-Z]{2}$/.test(clean)) return "";
+    return String.fromCodePoint(
+      ...[...clean].map((c) => 0x1F1E6 + c.charCodeAt(0) - 65)
+    );
+  }
 
-async function detectUserCountry() {
-  if (currentUser.countryCode) return;
-  try {
-    const res = await fetch("https://ipwho.is/");
-    const data = await res.json();
-    if (data && data.success && typeof data.country_code === "string") {
-      currentUser.countryCode = data.country_code.toUpperCase();
-      currentUser.countryName = String(data.country || "");
-      sessionStorage.setItem("tma_country_code", currentUser.countryCode);
-      sessionStorage.setItem("tma_country_name", currentUser.countryName);
+  async function detectUserCountry() {
+    if (currentUser.countryCode) return;
+    try {
+      const res = await fetch("https://ipwho.is/");
+      const data = await res.json();
+      if (data && data.success && typeof data.country_code === "string") {
+        currentUser.countryCode = data.country_code.toUpperCase();
+        currentUser.countryName = String(data.country || "");
+        sessionStorage.setItem("tma_country_code", currentUser.countryCode);
+        sessionStorage.setItem("tma_country_name", currentUser.countryName);
+      }
+    } catch (_) {
+      // Ignore if blocked by privacy settings or network
     }
-  } catch (_) {}
-}
-
-detectUserCountry();
-
-const USER_COLORS = [
-  "#9ca3af", "#f87171", "#fb923c", "#facc15",
-  "#4ade80", "#2dd4bf", "#38bdf8", "#818cf8",
-  "#c084fc", "#f472b6", "#22d3ee", "#a3e635"
-];
-
-function getColorForUser(userId) {
-  const str = String(userId || "user");
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(i);
-    hash |= 0;
-  }
-  return USER_COLORS[Math.abs(hash) % USER_COLORS.length];
-}
-
-function formatDisplayName(rawName) {
-  const clean = String(rawName || "User").replace(/^@/, "").trim();
-  if (clean.length <= 5) return clean;
-  const head = clean.slice(0, 3);
-  const tail = clean.slice(-3);
-  return `${head}****${tail}`;
-}
-
-function renderAvatar(name, photoUrl, color, flagEmoji, flagTitle) {
-  const cleanPhoto = typeof photoUrl === "string" && /^https?:\/\//i.test(photoUrl) ? photoUrl : "";
-  const initial = (String(name || "U").replace(/^@/, "").trim()[0] || "U").toUpperCase();
-  const flagHTML = flagEmoji
-    ? `<span class="tma-flag-badge" title="${flagTitle}">${flagEmoji}</span>`
-    : "";
-
-  if (cleanPhoto) {
-    return `
-      <div class="tma-avatar-wrap">
-        <img
-          class="tma-avatar-img"
-          src="${escapeHTML(cleanPhoto)}"
-          alt="${escapeHTML(name)}"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <span class="tma-avatar-fallback" style="display:none;background:${color};">${escapeHTML(initial)}</span>
-        ${flagHTML}
-      </div>
-    `;
   }
 
-  return `
-    <div class="tma-avatar-wrap">
-      <span class="tma-avatar-fallback" style="background:${color};">${escapeHTML(initial)}</span>
-      ${flagHTML}
-    </div>
-  `;
-}
+  detectUserCountry();
 
-let replyingTo = null;
-const messagesEl = document.getElementById("tma-messages");
-const formEl = document.getElementById("tma-chat-form");
-const inputEl = document.getElementById("tma-msg-input");
-const replyBarEl = document.getElementById("tma-reply-preview");
-const replyTextEl = document.getElementById("tma-reply-text");
-const cancelReplyBtn = document.getElementById("tma-cancel-reply");
+  const USER_COLORS = [
+    "#f87171", "#fb923c", "#facc15", "#4ade80",
+    "#2dd4bf", "#38bdf8", "#818cf8", "#c084fc",
+    "#f472b6", "#a3e635", "#22d3ee", "#e879f9"
+  ];
 
-const q = query(messagesRef, orderBy("createdAt", "asc"), limit(50));
-onSnapshot(q, (snapshot) => {
-  messagesEl.innerHTML = "";
-
-  if (snapshot.empty) {
-    messagesEl.innerHTML = `<div class="tma-status-note">No messages yet. Say hello!</div>`;
-    return;
+  function getColorForUser(userId) {
+    const str = String(userId || "user");
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) - hash) + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return USER_COLORS[Math.abs(hash) % USER_COLORS.length];
   }
 
-  snapshot.forEach((doc) => {
-    const data = doc.data();
-    const senderId = String(data.userId || "");
-    const isMine = senderId === currentUser.id;
-    const userColor = getColorForUser(senderId || data.userName);
-    const flagEmoji = countryCodeToFlag(data.countryCode);
-    const flagTitle = escapeHTML(data.countryName || data.countryCode || "");
+  let replyingTo = null;
+  const messagesEl = document.getElementById("tma-messages");
+  const formEl = document.getElementById("tma-chat-form");
+  const inputEl = document.getElementById("tma-msg-input");
+  const replyBarEl = document.getElementById("tma-reply-preview");
+  const replyTextEl = document.getElementById("tma-reply-text");
+  const cancelReplyBtn = document.getElementById("tma-cancel-reply");
 
-    const row = document.createElement("div");
-    row.className = `tma-msg-row ${isMine ? "mine" : ""}`;
+  const q = query(messagesRef, orderBy("createdAt", "asc"), limit(50));
+  onSnapshot(q, (snapshot) => {
+    messagesEl.innerHTML = "";
 
-    const safeText = escapeHTML(data.text || "");
-    const displayLabel = escapeHTML(formatDisplayName(data.userName || "User"));
-
-    let replyHTML = "";
-    if (data.replyTo) {
-      const quotedColor = getColorForUser(data.replyTo.userId || data.replyTo.name);
-      replyHTML = `
-        <div class="tma-quoted-reply" style="border-left-color:${quotedColor};">
-          <strong style="color:${quotedColor};">${escapeHTML(formatDisplayName(data.replyTo.name || ""))}:</strong>
-          <span>${escapeHTML(data.replyTo.text || "")}</span>
-        </div>
-      `;
+    if (snapshot.empty) {
+      messagesEl.innerHTML = `<div class="tma-status-note">No messages yet. Say hello!</div>`;
+      return;
     }
 
-    row.innerHTML = `
-      ${renderAvatar(data.userName || "User", data.userPhoto || "", userColor, flagEmoji, flagTitle)}
-      <div class="tma-bubble-card">
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      const senderId = String(data.userId || "");
+      const isMine = senderId === currentUser.id;
+      const userColor = getColorForUser(senderId || data.userName);
+      const flagEmoji = countryCodeToFlag(data.countryCode);
+      const flagTitle = escapeHTML(data.countryName || data.countryCode || "");
+
+      const bubble = document.createElement("div");
+      bubble.className = `tma-msg ${isMine ? "mine" : ""}`;
+
+      const safeText = escapeHTML(data.text || "");
+      const safeName = escapeHTML(data.userName || "User");
+
+      const flagHTML = flagEmoji
+        ? `<span class="tma-country-flag" title="${flagTitle}">${flagEmoji}</span>`
+        : "";
+
+      let replyHTML = "";
+      if (data.replyTo) {
+        const quotedColor = getColorForUser(data.replyTo.userId || data.replyTo.name);
+        replyHTML = `
+          <div class="tma-quoted-reply" style="border-left-color:${quotedColor};">
+            <strong style="color:${quotedColor};">${escapeHTML(data.replyTo.name || "")}:</strong>
+            <span>${escapeHTML(data.replyTo.text || "")}</span>
+          </div>
+        `;
+      }
+
+      bubble.innerHTML = `
         <div class="tma-msg-header">
-          <span class="tma-msg-author" style="color:${userColor};">${displayLabel}</span>
+          <div class="tma-user-row">
+            <span class="tma-msg-author" style="color:${userColor};">${safeName}</span>
+            ${flagHTML}
+          </div>
           <button type="button" class="tma-reply-btn">Reply</button>
         </div>
         ${replyHTML}
         <div class="tma-msg-text">${safeText}</div>
-      </div>
-    `;
+      `;
 
-    row.querySelector(".tma-reply-btn").addEventListener("click", () => {
-      replyingTo = {
-        userId: senderId,
-        name: data.userName || "User",
-        text: String(data.text || "").slice(0, 60)
-      };
-      replyTextEl.textContent = `Replying to ${formatDisplayName(replyingTo.name)}: "${replyingTo.text}"`;
-      replyBarEl.style.display = "flex";
-      inputEl.focus();
+      bubble.querySelector(".tma-reply-btn").addEventListener("click", () => {
+        replyingTo = {
+          userId: senderId,
+          name: data.userName || "User",
+          text: String(data.text || "").slice(0, 60)
+        };
+        replyTextEl.textContent = `Replying to ${replyingTo.name}: "${replyingTo.text}"`;
+        replyBarEl.style.display = "flex";
+        inputEl.focus();
+      });
+
+      messagesEl.appendChild(bubble);
     });
 
-    messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }, (err) => {
+    messagesEl.innerHTML = `<div class="tma-status-note" style="color:#f87171;">Error loading chat: ${escapeHTML(err.message)}</div>`;
   });
 
-  messagesEl.scrollTop = messagesEl.scrollHeight;
-}, (err) => {
-  messagesEl.innerHTML = `<div class="tma-status-note" style="color:#f87171;">Error loading chat: ${escapeHTML(err.message)}</div>`;
-});
+  cancelReplyBtn.addEventListener("click", () => {
+    replyingTo = null;
+    replyBarEl.style.display = "none";
+  });
 
-cancelReplyBtn.addEventListener("click", () => {
-  replyingTo = null;
-  replyBarEl.style.display = "none";
-});
+  formEl.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const text = inputEl.value.trim();
+    if (!text) return;
 
-formEl.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const text = inputEl.value.trim();
-  if (!text) return;
+    if (!currentUser.countryCode) {
+      await detectUserCountry();
+    }
 
-  if (!currentUser.countryCode) {
-    await detectUserCountry();
+    inputEl.value = "";
+    const replyPayload = replyingTo;
+    replyingTo = null;
+    replyBarEl.style.display = "none";
+
+    try {
+      await addDoc(messagesRef, {
+        userId: currentUser.id,
+        userName: currentUser.name,
+        countryCode: currentUser.countryCode,
+        countryName: currentUser.countryName,
+        text: text,
+        replyTo: replyPayload,
+        createdAt: serverTimestamp()
+      });
+    } catch (err) {
+      alert("Message failed to send: " + err.message);
+    }
+  });
+
+  function escapeHTML(str) {
+    return String(str).replace(/[&<>"']/g, (m) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[m]));
   }
-
-  inputEl.value = "";
-  const replyPayload = replyingTo;
-  replyingTo = null;
-  replyBarEl.style.display = "none";
-
-  try {
-    await addDoc(messagesRef, {
-      userId: currentUser.id,
-      userName: currentUser.name,
-      userPhoto: currentUser.photoUrl,
-      countryCode: currentUser.countryCode,
-      countryName: currentUser.countryName,
-      text: text,
-      replyTo: replyPayload,
-      createdAt: serverTimestamp()
-    });
-  } catch (err) {
-    alert("Message failed to send: " + err.message);
-  }
-});
-
-function escapeHTML(str) {
-  return String(str).replace(/[&<>"']/g, (m) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  }[m]));
-}
 </script>
 
 </body>
