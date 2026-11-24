@@ -2323,6 +2323,41 @@ font-weight:600;
     50% { opacity: 0.5; }
 }
 
+/* Hide all pages by default */
+.page {
+    display: none !important;
+}
+
+/* Show only the active page */
+.page.active {
+    display: block !important;
+}
+
+/* Prevent unwanted page flashing */
+html {
+    background: #000;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    overflow-x: hidden;
+}
+
+/* Smooth page appearance */
+.page.active {
+    animation: pageAppear 0.18s ease-out;
+}
+
+@keyframes pageAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 </style>
 </head>
         
@@ -2544,7 +2579,7 @@ POWERED BY GROK ENGINE
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">TODAY G</div>
+<div class="upcoming-badge">TODAY</div>
 </div>
 
 <div class="hot">Champion league</div>
@@ -2632,8 +2667,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 🔞BET ON SPOTY
 </button>
 
-<button class="watch"
-onclick="showPrediction(this)"
+<button class="watch" onclick="unlockPrediction(this)"
 style="background:#16a34a;color:#ffffff;cursor:pointer;">
 🔒 SEE PREDICTION
 </button>
@@ -3774,7 +3808,7 @@ Aston Villa
 
 </div>
 
-<div id="homePage" class="page">
+<div id="homePage" class="page active">
 
 <div class="simple-profile">
 
@@ -5936,15 +5970,35 @@ setInterval(updateMatchClocks, 1000);
 </script>
 
 <script>
-function showPrediction(button) {
-    const card = button.closest('.card');
-    if (!card) return;
+(function () {
+    function openHomeFirst() {
+        const pages = document.querySelectorAll('.page');
+        const home = document.getElementById('homePage');
 
-    const prediction = card.querySelector('.prediction-content');
-    if (prediction) {
-        prediction.style.display = 'block';
+        if (!home) {
+            console.error('Homepage #homePage was not found.');
+            return;
+        }
+
+        // Hide every page
+        pages.forEach(page => {
+            page.classList.remove('active');
+            page.style.display = 'none';
+        });
+
+        // Display homepage first
+        home.classList.add('active');
+        home.style.display = 'block';
     }
-}
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', openHomeFirst, {
+            once: true
+        });
+    } else {
+        openHomeFirst();
+    }
+})();
 </script>
 
 </body>
