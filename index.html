@@ -3697,25 +3697,162 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 
 </div>
 
-<div id="contestPage" class="page">
+<div id="Chatroom" class="page">
 
-    <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
-        CHAT ROOM
+  <style>
+    #tma-chat-box {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 215px);
+      min-height: 300px;
+      margin: 8px 10px 0 10px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #14171c;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    #tma-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #0d0f12;
+    }
+
+    .tma-status-note {
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      margin: auto 0;
+      padding: 12px;
+    }
+
+    .tma-msg {
+      max-width: 82%;
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: #1f242d;
+      align-self: flex-start;
+      word-wrap: break-word;
+    }
+
+    .tma-msg.mine {
+      background: #16a34a;
+      color: #ffffff;
+      align-self: flex-end;
+    }
+
+    .tma-msg-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 3px;
+    }
+
+    .tma-msg-author {
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0.85;
+    }
+
+    .tma-reply-btn {
+      font-size: 11px;
+      background: none;
+      border: none;
+      color: inherit;
+      opacity: 0.8;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .tma-quoted-reply {
+      font-size: 11px;
+      padding: 4px 8px;
+      margin-bottom: 5px;
+      border-left: 3px solid rgba(255, 255, 255, 0.55);
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: 4px;
+    }
+
+    .tma-msg-text {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    #tma-reply-preview {
+      display: none;
+      padding: 7px 12px;
+      background: #1f242d;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #tma-cancel-reply {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    #tma-chat-form {
+      display: flex;
+      gap: 8px;
+      padding: 8px 10px;
+      background: #14171c;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    #tma-msg-input {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      outline: none;
+      background: #0d0f12;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    #tma-send-btn {
+      padding: 0 18px;
+      border-radius: 20px;
+      border: none;
+      background: #16a34a;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+
+  <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
+    CHAT ROOM
+  </div>
+
+  <div id="tma-chat-box">
+    <div id="tma-messages">
+      <div class="tma-status-note">Connecting to live chat...</div>
     </div>
 
-    <div id="tma-chat-box">
-        <div id="tma-messages"></div>
-
-        <div id="tma-reply-preview">
-            <span id="tma-reply-text"></span>
-            <button type="button" id="tma-cancel-reply" aria-label="Cancel reply">✕</button>
-        </div>
-
-        <form id="tma-chat-form">
-            <input type="text" id="tma-msg-input" placeholder="Message community..." autocomplete="off" maxlength="300" />
-            <button type="submit" id="tma-send-btn">Send</button>
-        </form>
+    <div id="tma-reply-preview">
+      <span id="tma-reply-text"></span>
+      <button type="button" id="tma-cancel-reply" aria-label="Cancel reply">✕</button>
     </div>
+
+    <form id="tma-chat-form">
+      <input type="text" id="tma-msg-input" placeholder="Message community..." autocomplete="off" maxlength="300" />
+      <button type="submit" id="tma-send-btn">Send</button>
+    </form>
+  </div>
 
 </div>
 
@@ -6005,7 +6142,7 @@ setInterval(updateMatchClocks, 1000);
 </script>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import {
     getFirestore,
     collection,
@@ -6026,7 +6163,7 @@ setInterval(updateMatchClocks, 1000);
     appId: "1:938233912418:web:57d84d517d5f96eccc053b"
   };
 
-  const app = initializeApp(firebaseConfig);
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
   const db = getFirestore(app);
   const messagesRef = collection(db, "tma_chat");
 
@@ -6057,6 +6194,12 @@ setInterval(updateMatchClocks, 1000);
   const q = query(messagesRef, orderBy("createdAt", "asc"), limit(50));
   onSnapshot(q, (snapshot) => {
     messagesEl.innerHTML = "";
+
+    if (snapshot.empty) {
+      messagesEl.innerHTML = `<div class="tma-status-note">No messages yet. Say hello!</div>`;
+      return;
+    }
+
     snapshot.forEach((doc) => {
       const data = doc.data();
       const isMine = data.userId === currentUser.id;
@@ -6092,6 +6235,8 @@ setInterval(updateMatchClocks, 1000);
     });
 
     messagesEl.scrollTop = messagesEl.scrollHeight;
+  }, (err) => {
+    messagesEl.innerHTML = `<div class="tma-status-note" style="color:#f87171;">Error loading chat: ${escapeHTML(err.message)}</div>`;
   });
 
   cancelReplyBtn.addEventListener("click", () => {
@@ -6109,13 +6254,17 @@ setInterval(updateMatchClocks, 1000);
     replyingTo = null;
     replyBarEl.style.display = "none";
 
-    await addDoc(messagesRef, {
-      userId: currentUser.id,
-      userName: currentUser.name,
-      text: text,
-      replyTo: replyPayload,
-      createdAt: serverTimestamp()
-    });
+    try {
+      await addDoc(messagesRef, {
+        userId: currentUser.id,
+        userName: currentUser.name,
+        text: text,
+        replyTo: replyPayload,
+        createdAt: serverTimestamp()
+      });
+    } catch (err) {
+      alert("Message failed to send: " + err.message);
+    }
   });
 
   function escapeHTML(str) {
