@@ -2540,22 +2540,6 @@ body {
       cursor: pointer;
     }
 
-#Chatroom #tma-chat-box .tma-user-row img.tma-avatar-img,
-#Chatroom #tma-chat-box .tma-user-row span.tma-avatar-fallback {
-  width: 18px !important;
-  height: 18px !important;
-  min-width: 18px !important;
-  min-height: 18px !important;
-  max-width: 18px !important;
-  max-height: 18px !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
-  flex: 0 0 18px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
 #Chatroom #tma-chat-box {
   height: 68vh !important;
   max-height: 560px !important;
@@ -2570,6 +2554,20 @@ body {
 
 #Chatroom #tma-chat-box .tma-msg {
   max-width: 82% !important;
+}
+
+#Chatroom #tma-chat-box .tma-user-row img,
+#Chatroom #tma-chat-box .tma-user-row .tma-avatar-img,
+#Chatroom #tma-chat-box .tma-user-row .tma-avatar-fallback {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  flex: 0 0 18px !important;
 }
 
 </style>
@@ -3792,7 +3790,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div id="contestPage" class="page">
 
 <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
-    CHAT ROOM MATE
+    CHAT ROOM MATE 1
   </div>
 
   <div id="tma-chat-box">
@@ -6279,6 +6277,17 @@ setInterval(updateMatchClocks, 1000);
 
       messagesEl.appendChild(bubble);
     });
+
+bubble.querySelectorAll("img.tma-avatar-img").forEach((img) => {
+  img.style.setProperty("width", "18px", "important");
+  img.style.setProperty("height", "18px", "important");
+  img.style.setProperty("min-width", "18px", "important");
+  img.style.setProperty("min-height", "18px", "important");
+  img.style.setProperty("max-width", "18px", "important");
+  img.style.setProperty("max-height", "18px", "important");
+  img.style.setProperty("border-radius", "50%", "important");
+  img.style.setProperty("object-fit", "cover", "important");
+});
 
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }, (err) => {
