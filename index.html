@@ -2544,7 +2544,7 @@ POWERED BY GROK ENGINE
 <div class="card-top">
 
 <div class="left-info">
-<div class="upcoming-badge">TODAY GA</div>
+<div class="upcoming-badge">TODAY G</div>
 </div>
 
 <div class="hot">Champion league</div>
@@ -5933,7 +5933,18 @@ function updateMatchClocks() {
 
 updateMatchClocks();
 setInterval(updateMatchClocks, 1000);
+</script>
 
+<script>
+function showPrediction(button) {
+    const card = button.closest('.card');
+    if (!card) return;
+
+    const prediction = card.querySelector('.prediction-content');
+    if (prediction) {
+        prediction.style.display = 'block';
+    }
+}
 </script>
 
 </body>
