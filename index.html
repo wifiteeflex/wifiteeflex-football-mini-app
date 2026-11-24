@@ -2515,7 +2515,20 @@ body {
       cursor: pointer;
     }
 
-
+.chat-room-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 10px;
+    background: #111827;
+    color: #16a34a;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+    border-bottom: 1px solid #263445;
+}
 
 </style>
 </head>
@@ -3513,9 +3526,10 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 </div>
 
 <div id="contestPage" class="page">
-    <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
-    CHAT ROOM MATE 21
-  </div>
+
+    <div class="total-date-label chat-room-sticky">
+        CHAT ROOM
+    </div>
 
   <div id="tma-chat-box">
     <div id="tma-messages">
