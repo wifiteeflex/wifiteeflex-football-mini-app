@@ -2486,34 +2486,43 @@ body {
     }
 
     #contestPage #tma-chat-form {
-      display: flex;
-      gap: 8px;
-      padding: 8px 10px;
-      background: #14171c;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 12px;
+  min-height: 64px;
+  background: #14171c;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
 
-    #contestPage #tma-msg-input {
-      flex: 1;
-      padding: 10px 14px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      outline: none;
-      background: #0d0f12;
-      color: #ffffff;
-      font-size: 14px;
-    }
+#contestPage #tma-msg-input {
+  flex: 1;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  outline: none;
+  background: #0d0f12;
+  color: #ffffff;
+  font-size: 15px;
+}
 
-    #contestPage #tma-send-btn {
-      padding: 0 18px;
-      border-radius: 20px;
-      border: none;
-      background: #16a34a;
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-    }
+#contestPage #tma-send-btn {
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 24px;
+  border: none;
+  background: #16a34a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
 
 </style>
 </head>
@@ -3735,7 +3744,7 @@ style="background:#3b3b3b;color:#9ca3af;cursor:not-allowed;">
 <div id="contestPage" class="page">
 
   <div class="total-date-label" style="color:#16a34a;font-weight:700;text-align:center;width:100%;">
-    CHAT ROOM MATE 21
+    CHAT ROOM MATE
   </div>
 
   <div id="tma-chat-box">
