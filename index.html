@@ -2362,6 +2362,32 @@ body {
     flex-shrink: 0;
 }
 
+#contestPage #tma-chat-box {
+    display: flex;
+    flex-direction: column;
+    height: calc(100dvh - 150px);
+    min-height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+#contestPage #tma-messages {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#contestPage #tma-chat-form {
+    display: flex;
+    flex: 0 0 auto;
+    position: relative;
+    width: 100%;
+    bottom: auto;
+    z-index: 10;
+}
+
 </style>
 </head>
         
@@ -2412,14 +2438,9 @@ $
 
 </button>
 
-<button onclick="showPage('contestPage', this)" class="nav-item">
-
-<div class="nav-icon">
-🪐
-</div>
-
-<span>League</span>
-
+<button type="button" onclick="openChatRoom(this)" class="nav-item">
+    <div class="nav-icon">💬</div>
+    <span>Chat room</span>
 </button>
 
 </div>
@@ -6092,6 +6113,27 @@ setInterval(updateMatchClocks, 1000);
       "'": "&#39;"
     }[m]));
   }
+</script>
+
+<script>
+function openChatRoom(button) {
+    // Open the existing chat page
+    showPage('contestPage', button);
+
+    // Scroll the chat messages to the bottom
+    setTimeout(() => {
+        const messages = document.getElementById('tma-messages');
+        if (messages) {
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // Focus the message input
+        const input = document.getElementById('tma-msg-input');
+        if (input) {
+            input.focus();
+        }
+    }, 200);
+}
 </script>
 
 </body>
