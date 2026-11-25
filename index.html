@@ -1441,112 +1441,6 @@ color:#00c853;
 
 }
 
-/* ===== PAGE ===== */
-#contestPage{
-  color:#fff;
-  font-family:Arial, sans-serif;
-}
-
-/* ===== HEADER ===== */
-.live-header{
-  text-align:center;
-  margin:20px 0;
-}
-
-.live-header h1{
-  font-size:22px;
-  font-weight:900;
-}
-
-.live-header p{
-  font-size:13px;
-  opacity:0.7;
-}
-
-/* ===== HOT MATCH ===== */
-.hot-match{
-  width:92%;
-  margin:10px auto 20px;
-}
-
-.hot-badge{
-  background:#ff2d2d;
-  color:#fff;
-  padding:5px 10px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:800;
-}
-
-/* ===== MATCH CARD ===== */
-.match-card{
-  background:rgba(0,0,0,0.65);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:14px;
-  padding:14px;
-  margin-top:10px;
-  text-align:center;
-}
-
-/* ===== TEAMS ===== */
-.teams{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 60px;   /* BIG SPACING LIKE BET365 */
-  font-weight:700;
-}
-
-.teams b{
-  font-size:34px;
-  font-weight:900;
-  color:#fff;
-}
-
-/* ===== LIVE DOT ===== */
-.live-dot{
-  width:8px;
-  height:8px;
-  background:red;
-  border-radius:50%;
-  display:inline-block;
-  animation:blink 1s infinite;
-  margin-right:5px;
-}
-
-@keyframes blink{
-  0%{opacity:1;}
-  50%{opacity:0.2;}
-  100%{opacity:1;}
-}
-
-/* ===== LIVE TEXT ===== */
-.live-info{
-  margin:8px 0;
-  font-size:12px;
-  color:#00ff88;
-  font-weight:700;
-}
-
-/* ===== COUNTDOWN ===== */
-.countdown{
-  font-size:12px;
-  color:#aaa;
-  margin-bottom:10px;
-}
-
-/* ===== BUTTON (MONETAG READY) ===== */
-.match-card button{
-  width:100%;
-  padding:10px;
-  border:none;
-  border-radius:10px;
-  background:#00ff88;
-  color:#000;
-  font-weight:800;
-  cursor:pointer;
-}
-
 /* ===== SLIDER ===== */
 .match-slider{
   width:92%;
@@ -2522,6 +2416,75 @@ body {
   font-size: 15px;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+/* CHAT CONTAINER */
+#contestPage #tma-chat-box {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* CHAT MESSAGES */
+#contestPage #tma-messages {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* CHAT INPUT - STICKY AT BOTTOM */
+#contestPage #tma-chat-form {
+    position: sticky !important;
+    bottom: 0 !important;
+    z-index: 9999 !important;
+
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto !important;
+    padding: 14px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 82px;
+    box-sizing: border-box;
+    background: #14171c;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+/* MESSAGE INPUT */
+#contestPage #tma-msg-input {
+    flex: 1;
+    min-width: 0;
+    height: 54px;
+    padding: 0 18px;
+
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,.16);
+    background: #0d0f12;
+    color: #ffffff;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* SEND BUTTON */
+#contestPage #tma-send-btn {
+    height: 54px;
+    min-width: 100px;
+    padding: 0 24px;
+
+    border-radius: 28px;
+    border: none;
+    background: #15803d;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 </style>
