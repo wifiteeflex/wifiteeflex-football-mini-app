@@ -2217,41 +2217,6 @@ font-weight:600;
     50% { opacity: 0.5; }
 }
 
-/* Hide all pages by default */
-.page {
-    display: none !important;
-}
-
-/* Show only the active page */
-.page.active {
-    display: block !important;
-}
-
-/* Prevent unwanted page flashing */
-html {
-    background: #000;
-}
-
-body {
-    margin: 0;
-    background: #000;
-    overflow-x: hidden;
-}
-
-/* Smooth page appearance */
-.page.active {
-    animation: pageAppear 0.18s ease-out;
-}
-
-@keyframes pageAppear {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 /* CHAT BOX */
 #contestPage #tma-chat-box {
     display: flex;
@@ -2386,6 +2351,24 @@ body {
     width: 100%;
     bottom: auto;
     z-index: 10;
+}
+
+/* PREVENT OTHER PAGES FROM FLASHING ON STARTUP */
+.page {
+    display: none !important;
+}
+
+.page.active {
+    display: block !important;
+}
+
+/* Keep the app hidden until the homepage is selected */
+html.app-starting body {
+    visibility: hidden;
+}
+
+html.app-ready body {
+    visibility: visible;
 }
 
 </style>
@@ -6352,6 +6335,42 @@ function openChatRoom(button) {
         }
     }, 200);
 }
+</script>
+
+<script>
+(function () {
+    document.documentElement.classList.add('app-starting');
+
+    function openHomepage() {
+        const pages = document.querySelectorAll('.page');
+        const home = document.getElementById('homePage');
+
+        if (!home) {
+            requestAnimationFrame(openHomepage);
+            return;
+        }
+
+        // Hide every page first
+        pages.forEach(page => {
+            page.classList.remove('active');
+            page.style.display = 'none';
+        });
+
+        // Show homepage only
+        home.classList.add('active');
+        home.style.display = 'block';
+
+        // Reveal the app after homepage is selected
+        document.documentElement.classList.remove('app-starting');
+        document.documentElement.classList.add('app-ready');
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', openHomepage, { once: true });
+    } else {
+        openHomepage();
+    }
+})();
 </script>
 
 </body>
